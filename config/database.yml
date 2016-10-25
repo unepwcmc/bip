@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  host:     <%= ENV["PG_HOST"] %>
+  username: <%= ENV["PG_USERNAME"] %>
+  password: <%= ENV["PG_PASSWORD"] %>
+  database: bip_<%= Rails.env %>
+  timeout: 5000
+  pool: 5
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+staging:
+  <<: *default
+  pool: 10
+
+production:
+  <<: *default
+  pool: 10
