@@ -3,6 +3,7 @@ source "https://rubygems.org"
 # Basic
 gem "rails", "4.2.6"
 gem "pg", "~> 0.19.0"
+gem "comfortable_mexican_sofa", "~> 1.12.9"
 
 # Configuration
 gem "dotenv-rails", "~> 2.1.1"
