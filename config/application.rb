@@ -26,5 +26,7 @@ module Bip
     # Browserify stuff
     config.browserify_rails.commandline_options = "-t [ babelify --presets [ es2015 ] --extensions .es6 ]"
     config.browserify_rails.source_map_environments << "development"
+
+    config.assets.paths << Rails.root.join("node_modules")
   end
 end

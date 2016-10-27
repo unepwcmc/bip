@@ -1,0 +1,53 @@
+@include b(footer) {
+  border-top: solid vr(1) $scooter;
+  background-color: $tangaroa;
+  color: $white;
+
+  @include e(content) {
+    @include outer-container;
+    overflow: hidden;
+
+    width: $main__width;
+    margin: auto;
+    padding-top: vr(2)
+  }
+
+  @include e(navigation) {
+    line-height: vr(2);
+    margin-bottom: vr(1);
+  }
+
+  @include e(navigation-link) {
+    margin-right: vr(3);
+    text-decoration: underline;
+  }
+
+  @include e(columns) {
+    padding: vr(2) 0;
+    border-bottom: solid 2px $border--footer;
+  }
+
+  @include e(column) {
+    @include m(large) { @include span-columns(4); }
+    @include m(small) { @include span-columns(2); }
+    margin-right: vr(4.25);
+  }
+
+  @include e(column-title) {
+    @include text(normal);
+    margin-bottom: 0;
+  }
+
+  @include e(column-body) {
+    margin-top: vr(.75);
+
+    @include text(small, thin);
+    @include m(no-margin) {
+      margin-top: 0;
+    }
+  }
+
+  @include e(copyright) {
+    @include text(small, thin);
+  }
+}

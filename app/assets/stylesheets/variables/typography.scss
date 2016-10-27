@@ -1,0 +1,67 @@
+$form-factors: (
+  xxlarge: (
+    font-size: 1.75rem, line-height: vr(3)
+  ),
+  xlarge: (
+    font-size: 1.5rem, line-height: vr(2.83333333)
+  ),
+  large: (
+    font-size: 1.25rem, line-height: vr(2.5)
+  ),
+  normal: (
+    font-size: 1rem, line-height: vr(2)
+  ),
+  small: (
+    font-size: .875rem, line-height: vr(2)
+  )
+);
+
+@function form-factor($name, $property: null) {
+  $form-factor: map-get($form-factors, $name);
+
+  @if($property) {
+    @return map-get($form-factor, $property);
+  } @else {
+    @return $form-factor;
+  }
+}
+
+@mixin form-factor($name) {
+  @each $property, $value in form-factor($name) {
+    #{$property}: #{$value};
+  }
+}
+
+$weights: (
+  x-thin: 100,
+  thin:   300,
+  normal: 500,
+  bold:   700,
+  x-bold: 900
+);
+
+@function weight($name) {
+  @return map-get($weights, $name);
+}
+
+@mixin font-weight($weight) {
+  font-weight: weight($weight);
+}
+
+@mixin text($form-factor, $weight: normal) {
+  font-family: 'Helvetica';
+  @if($weight != null) {
+    @include font-weight($weight);
+  }
+
+  @include form-factor($form-factor);
+}
+
+@mixin text--alt($form-factor, $weight: normal) {
+  font-family: 'Georgia';
+  @if($weight != null) {
+    @include font-weight($weight);
+  }
+
+  @include form-factor($form-factor);
+}

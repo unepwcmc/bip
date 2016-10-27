@@ -1,0 +1,17 @@
+<header class="header">
+  <div class="header__content">
+    <div class="header__top clearfix">
+      <div class="header__navigation">
+        <h3 class="header__element u-pull-left">BIP Website</h3>
+        <div class="u-pull-right">
+          <%= link_to "Home", "#", class: "header__element" %>
+          <%= link_to "About", "#", class: "header__element" %>
+          <%= link_to "National indicators", "#", class: "header__element" %>
+          <%= link_to "Partners", "#", class: "header__element" %>
+          <%= link_to "Resources", "#", class: "header__element" %>
+        </div>
+      </div>
+    </div>
+    <%= content_for :header_bottom %>
+  </div>
+</header>

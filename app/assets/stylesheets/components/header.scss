@@ -1,0 +1,22 @@
+@include b(header) {
+  background-color: $solitude;
+
+  @include e(content) {
+    width: $main__width;
+    margin: auto;
+  }
+
+  @include e(top) {
+    border-bottom: solid 2px $white;
+  }
+
+  @include e(element) {
+    margin: vr(1.5) 0;
+    line-height: vr(2);
+    float: left;
+
+    &:not(:first-child) {
+      margin-left: vr(3);
+    }
+  }
+}

@@ -1,0 +1,4 @@
+@include b(icon) {
+  @include m(left) { margin-right: vr(.75); }
+  @include m(right) { margin-left: vr(.75); }
+}

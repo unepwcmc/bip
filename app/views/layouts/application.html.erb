@@ -18,9 +18,9 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-
+    <%= render "layouts/application/header" %>
     <%= yield %>
-
+    <%= render "layouts/application/footer" %>
 
     <%= javascript_include_tag 'application' %>
     <% if Rails.env.staging? || Rails.env.production? %>
