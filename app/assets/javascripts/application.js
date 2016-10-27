@@ -10,4 +10,12 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require main
+//= require_self
+
+window.$ = window.jQuery = global.$ = require("jquery");
+import "babel-polyfill";
+import toggle from "modules/toggle";
+
+$(document).ready(() => {
+  $("[data-toggle-trigger]").each((_i, el) => toggle.initialize(el));
+});

@@ -1,6 +1,6 @@
 <header class="header">
   <div class="header__content">
-    <div class="header__top clearfix">
+    <div class="header__top u-clearfix">
       <div class="header__navigation">
         <h3 class="header__element u-pull-left">BIP Website</h3>
         <div class="u-pull-right">
@@ -12,6 +12,13 @@
         </div>
       </div>
     </div>
-    <%= content_for :header_bottom %>
+    <div class="breadcrumbs">
+      <% if @cms_page %>
+        <%= breadcrumb "Home", "/", true %>
+        <%= breadcrumb(@cms_page.label) %>
+      <% else %>
+        <%= breadcrumb "Home", "/", true %>
+      <% end %>
+    </div>
   </div>
 </header>

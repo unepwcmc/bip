@@ -19,7 +19,11 @@
   </head>
   <body>
     <%= render "layouts/application/header" %>
-    <%= yield %>
+
+    <main class="main">
+      <%= yield %>
+    </main>
+
     <%= render "layouts/application/footer" %>
 
     <%= javascript_include_tag 'application' %>

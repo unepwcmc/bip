@@ -1,0 +1,18 @@
+@include b(breadcrumbs) {
+  padding: vr(1.5) 0;
+
+  @include e(divider) {
+    text-align: center;
+    width: vr(3);
+    line-height: vr(2);
+    color: $text--link;
+  }
+
+  @include e(element) {
+    color: $text--link;
+
+    @include m(link) {
+      text-decoration: underline;
+    }
+  }
+}

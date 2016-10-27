@@ -1,0 +1,36 @@
+@include b(page) {
+  @include outer-container;
+  margin-bottom: vr(10);
+
+  @include e(title) {
+    margin-top: vr(2);
+    border-bottom: solid 4px $border--title;
+    padding: vr(1) 0;
+  }
+
+  @include e(body) {
+    padding-left: 1px;
+    @include span-columns(8);
+  }
+
+  @include e(aside) {
+    @include span-columns(4);
+  }
+
+  @include e(section-title) {
+    margin-top: vr(2);
+    border-bottom: solid 2px $border--title;
+    padding: vr(1) 0;
+
+    @include m(subtle-border) {
+      border-bottom: solid 1px $border--title;
+    }
+  }
+
+  @include e(section-toggle) {
+    color: $text--link;
+    cursor: pointer;
+    float: right;
+    @include text(normal);
+  }
+}
