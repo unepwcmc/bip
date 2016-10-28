@@ -4,6 +4,7 @@ source "https://rubygems.org"
 gem "rails", "4.2.6"
 gem "pg", "~> 0.19.0"
 gem "comfortable_mexican_sofa", "~> 1.12.9"
+gem "paperclip", "~> 5.1.0"
 
 # Configuration
 gem "dotenv-rails", "~> 2.1.1"

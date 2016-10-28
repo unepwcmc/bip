@@ -21,3 +21,6 @@
 
 # Ignore node_modules
 /node_modules
+
+# files from CMS
+/public/system

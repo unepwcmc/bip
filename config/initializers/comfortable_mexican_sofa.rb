@@ -131,3 +131,6 @@ ComfortableMexicanSofa::AccessControl::AdminAuthentication.password = ENV["COMFY
 #     return true
 #   end
 # end
+
+require Rails.root.join("app/models/concerns/cms_links").to_s
+require Rails.root.join("app/controllers/concerns/cms_links").to_s
