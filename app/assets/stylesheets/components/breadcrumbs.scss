@@ -10,6 +10,7 @@
 
   @include e(element) {
     color: $text--link;
+    font-weight: 500;
 
     @include m(link) {
       text-decoration: underline;

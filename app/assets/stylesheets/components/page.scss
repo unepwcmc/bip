@@ -27,6 +27,7 @@
   }
 
   @include e(aside-link) {
+    font-weight: 500;
     text-decoration: underline;
   }
 
@@ -44,6 +45,6 @@
     color: $text--link;
     cursor: pointer;
     float: right;
-    @include text(normal);
+    @include text(normal, bold);
   }
 }

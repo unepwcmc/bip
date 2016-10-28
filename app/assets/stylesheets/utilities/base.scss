@@ -1,15 +1,15 @@
 html { @include typi-base(); }
 
-h1 { @include text(xxlarge); }
-h2 { @include text(xlarge); }
-h3, h4, h5, h6 { @include text(large); }
+h1 { @include text(xxlarge, bold); }
+h2 { @include text(xlarge, bold); }
+h3, h4, h5, h6 { @include text(large, bold); }
 
 h1,h2,h3,h4,h5,h6 {
   margin: 0;
 }
 
 a {
-  @include text(normal);
+  @include text(normal, bold);
   color: $text--link;
   text-decoration: none;
 }
