@@ -11,6 +11,17 @@ module CmsAdminExtension
         @page.resources.create!(label: resource[:label], file: resource[:file])
       end
     end
+
+    before_action :create_disaggregations, :only => [:create, :update]
+
+    def create_disaggregations
+      return unless params[:disaggregations]
+
+      params[:disaggregations].each do |disaggregation|
+        @page.disaggregations.create!(label: disaggregation[:label], url: disaggregation[:url])
+      end
+    end
+
   end
 end
 

@@ -9,13 +9,15 @@ $(document).ready( ->
       """)
     )
 
-  if ($addrelatedLinksEl = $(".js-add-related-links")).length > 0
-    $addrelatedLinksEl.find(".js-trigger").click( (ev) ->
+  if ($addDisaggregationsEl = $(".js-add-disaggregation")).length > 0
+    $addDisaggregationsEl.find(".js-trigger").click( (ev) ->
       ev.preventDefault()
 
-      $addrelatedLinksEl.find(".js-target").append("""
-        <input type="text" name="related_links[][label]" placeholder="Label" class="form-control">
-        <input type="url" name="related_links[][url]" placeholder="URL" class="form-control">
+      $addDisaggregationsEl.find(".js-target").append("""
+        <div style="margin-bottom: 1rem;">
+          <input type="text" name="disaggregations[][label]" placeholder="Label" class="form-control">
+          <input type="url" name="disaggregations[][url]" placeholder="URL" class="form-control">
+        </div>
       """)
     )
 )

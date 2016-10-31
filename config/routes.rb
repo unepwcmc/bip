@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :resources, only: [:destroy]
+    resources :disaggregations, only: [:destroy]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

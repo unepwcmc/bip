@@ -1,0 +1,14 @@
+<% if @cms_page.disaggregations.any? %>
+  <div class="page__aside-section">
+    <h2 class="page__aside-section-title">Indicator disaggregations</h2>
+    <% @cms_page.disaggregations.each_with_index do |disaggregation, i| %>
+      <p class="<%= i.zero? ? "u-fix-h2-margin" : "" %>">
+        <%= link_to disaggregation.url do %>
+          <span class="page__aside-link"><%= disaggregation.label %></span>
+        <% end %>
+      </p>
+      </a>
+    <% end %>
+  </div>
+<% end %>
+
