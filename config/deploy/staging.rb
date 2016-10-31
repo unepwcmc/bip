@@ -8,7 +8,7 @@ set :server_name, "bip.web-staging.linode.unep-wcmc.org"
 set :sudo_user, "wcmc"
 set :app_port, "80"
 
-set :npm_flags, '--staging --silent --no-progress' 
+set :npm_flags, "--silent --no-progress"
 
 
 # server-based syntax
