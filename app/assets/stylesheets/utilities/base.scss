@@ -12,6 +12,8 @@ a {
   @include text(normal, bold);
   color: $text--link;
   text-decoration: none;
+
+  &:hover { color: $text--link; }
 }
 
 p {

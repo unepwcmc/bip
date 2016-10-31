@@ -22,4 +22,17 @@ $(document).ready( ->
     )
 
   $(".js-select2").select2()
+
+  if ($extraFieldsEl = $("[data-extra-fields]")).length > 0
+    $pageLayoutSelectEl = $("#page_layout_id")
+
+    $pageLayoutSelectEl.change( (ev) ->
+      selected = $pageLayoutSelectEl.find("option:selected").text()
+
+      if selected == $extraFieldsEl.data("extra-fields")
+        $extraFieldsEl.show()
+      else
+        $extraFieldsEl.hide()
+    )
+
 )

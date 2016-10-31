@@ -42,6 +42,7 @@
     margin-top: vr(.75);
 
     @include text(small, thin);
+    color: $white;
     @include m(no-margin) {
       margin-top: 0;
     }
