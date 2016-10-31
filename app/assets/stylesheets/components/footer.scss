@@ -34,7 +34,7 @@
   }
 
   @include e(column-title) {
-    @include text(normal);
+    @include text(normal, bold);
     margin-bottom: 0;
   }
 

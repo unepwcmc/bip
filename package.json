@@ -8,7 +8,6 @@
     "bourbon-neat": "^1.8.0",
     "browserify": "^13.1.1",
     "browserify-incremental": "^3.1.1",
-    "font-awesome": "^4.7.0",
     "jquery": "^3.1.1",
     "typi": "^2.3.0"
   },
