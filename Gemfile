@@ -16,6 +16,7 @@ gem "appsignal", "~> 1.3.6"
 gem "sass-rails", "~> 5.0", ">= 5.0.6"
 gem "uglifier", ">= 1.3.0"
 gem "font-awesome-sass", "~> 4.7.0"
+gem "select2-rails", "~> 4.0.3"
 gem "browserify-rails", "~> 3.2.0"
 gem "coffee-rails", "~> 4.1.0"
 

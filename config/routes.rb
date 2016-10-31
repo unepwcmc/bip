@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
+
+  namespace :admin do
+    resources :partners, except: [:show]
+    resources :resources, only: [:destroy]
+    resources :disaggregations, only: [:destroy]
+  end
+
   comfy_route :cms_admin, :path => '/admin'
 
   # Make sure this routeset is defined last
   comfy_route :cms, :path => '/', :sitemap => false
-
-  namespace :admin do
-    resources :resources, only: [:destroy]
-    resources :disaggregations, only: [:destroy]
-  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

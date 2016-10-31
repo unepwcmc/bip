@@ -1,0 +1,16 @@
+<%= comfy_form_for @partner, url: {action: action} do |f| %>
+  <%= f.text_field :name %>
+  <%= f.url_field :url %>
+  <%= f.file_field :logo %>
+  <%= f.form_group do %>
+    <% if @partner.logo.present? %>
+      <%= image_tag @partner.logo.url(:thumb) %>
+    <% end %>
+  <% end %>
+
+  <%= f.form_group :class => 'form-actions' do %>
+    <%= f.submit "#{action.titleize}", :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel'), admin_partners_path, :class => 'btn btn-link' %>
+  <% end %>
+<% end %>
+

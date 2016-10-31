@@ -1,0 +1,33 @@
+@include b(partners) {
+  @include e(partner) {
+    margin-top: vr(3);
+
+    h2 + & {
+      margin-top: vr(2);
+    }
+
+    &:last-child {
+      margin-bottom: vr(2);
+    }
+  }
+
+  @include e(image) {
+    height: vr(5);
+    width: vr(5);
+    margin-right: vr(2.33333333);
+  }
+
+  @include e(name) {
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: vr(1);
+  }
+
+  @include e(link) {
+    margin-top: vr(1);
+    margin-bottom: 0;
+    color: $text--base;
+
+    &:hover { color: $text--link; }
+  }
+}

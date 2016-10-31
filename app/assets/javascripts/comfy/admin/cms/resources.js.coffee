@@ -20,4 +20,6 @@ $(document).ready( ->
         </div>
       """)
     )
+
+  $(".js-select2").select2()
 )

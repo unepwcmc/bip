@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161031130954) do
+ActiveRecord::Schema.define(version: 20161031145553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -138,6 +138,24 @@ ActiveRecord::Schema.define(version: 20161031130954) do
   create_table "disaggregations", force: :cascade do |t|
     t.integer  "comfy_cms_page_id"
     t.text     "label"
+    t.text     "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "page_partner_rels", force: :cascade do |t|
+    t.integer  "page_id"
+    t.integer  "partner_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "partners", force: :cascade do |t|
+    t.text     "name"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
     t.text     "url"
     t.datetime "created_at"
     t.datetime "updated_at"
