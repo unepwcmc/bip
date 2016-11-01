@@ -57,7 +57,7 @@
     <div class="col-sm-10">
       <select style="width: 100%" class="js-select2" name="page[primary_aichi_target_id]">
         <% Aichi::Target.pluck(:id, :name).each do |(id, name)| %>
-          <option <%= @page.primary_aichi_target.id == id ? "selected" : "" %> value="<%= id %>"><%= name %></option>
+          <option <%= @page.primary_aichi_target&.id == id ? "selected" : "" %> value="<%= id %>"><%= name %></option>
         <% end %>
       </select>
     </div>
