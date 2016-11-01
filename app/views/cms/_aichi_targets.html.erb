@@ -1,0 +1,35 @@
+<% if @cms_page.primary_aichi_target || @cms_page.secondary_aichi_targets.any? %>
+  <h2 class="page__section-title">
+    Related Aichi Targets
+    <span data-toggle-trigger="aichi-targets" class="page__section-toggle u-noselect">
+      Collapse<i data-toggle-switch="aichi-targets" class="icon--right fa fa-chevron-up"></i>
+      </span>
+  </h2>
+
+  <div data-toggle-target="aichi-targets">
+    <% if @cms_page.primary_aichi_target %>
+      <h3 class="page__subsection-title">Primary target</h3>
+
+      <div class="target target--primary target--flex">
+        <div class="target__image">
+          <%= image_tag @cms_page.primary_aichi_target.logo.try(:url, :thumb) %>
+        </div>
+        <div>
+          <h4 class="target__title">Target <%= @cms_page.primary_aichi_target.target_number %>:</h4>
+          <p class="target__body"><%= @cms_page.primary_aichi_target.description %></p>
+        </div>
+      </div>
+    <% end %>
+
+    <% if @cms_page.secondary_aichi_targets.any? %>
+      <h3 class="page__subsection-title">Secondary targets</h3>
+
+      <% @cms_page.secondary_aichi_targets.order(:target_number).each do |target| %>
+        <div class="target target--secondary">
+          <h4 class="target__title">Target <%= target.target_number %>:</h4>
+          <p class="target__body"><%= target.description %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

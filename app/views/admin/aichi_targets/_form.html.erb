@@ -1,0 +1,18 @@
+<%= comfy_form_for @aichi_target, url: {action: action} do |f| %>
+  <%= f.text_field :target_number %>
+  <%= f.text_field :name %>
+  <%= f.text_area :description %>
+  <%= f.select :aichi_goal_id, Aichi::Goal.order(:name).pluck(:name, :id) %>
+  <%= f.file_field :logo %>
+  <%= f.form_group do %>
+    <% if @aichi_target.logo.present? %>
+      <%= image_tag @aichi_target.logo.url(:thumb) %>
+    <% end %>
+  <% end %>
+
+  <%= f.form_group :class => 'form-actions' do %>
+    <%= f.submit "#{action.titleize}", :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel'), admin_aichi_targets_path, :class => 'btn btn-link' %>
+  <% end %>
+<% end %>
+

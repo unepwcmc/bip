@@ -1,0 +1,20 @@
+@include b(target) {
+  @include m(primary) { margin-top: vr(3); }
+  @include m(secondary) { margin-top: vr(1); }
+  @include m(flex) {
+    @include flexbox;
+    @include justify-content(stretch);
+  }
+
+  @include e(image) {
+    margin-right: vr(2.5);
+  }
+
+  @include e(title) {
+    @include text(normal, bold);
+  }
+
+  @include e(body) {
+    margin: 0;
+  }
+}

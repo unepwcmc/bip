@@ -2,6 +2,7 @@
 .u-pull-right { float: right; }
 
 .u-no-margin-bottom { margin-bottom: 0; }
+.u-no-margin-top    { margin-top: 0; }
 
 .u-clearfix { overflow: hidden; }
 .u-fix-h2-margin { margin-top: 1.375rem; }
@@ -14,4 +15,9 @@
   -ms-user-select: none;       /* Internet Explorer/Edge */
   user-select: none;           /* Non-prefixed version, currently
                                   not supported by any browser */
+}
+
+.u-stretch-flex {
+  @include flexbox;
+  @include justify-content(stretch);
 }

@@ -11,10 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161031145553) do
+ActiveRecord::Schema.define(version: 20161101001614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "aichi_goals", force: :cascade do |t|
+    t.text     "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "aichi_targets", force: :cascade do |t|
+    t.text     "name"
+    t.text     "description"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.integer  "aichi_goal_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "target_number"
+  end
 
   create_table "comfy_cms_blocks", force: :cascade do |t|
     t.string   "identifier",     null: false
@@ -141,6 +161,14 @@ ActiveRecord::Schema.define(version: 20161031145553) do
     t.text     "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "page_aichi_target_rels", force: :cascade do |t|
+    t.integer  "page_id"
+    t.integer  "aichi_target_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "primary"
   end
 
   create_table "page_partner_rels", force: :cascade do |t|

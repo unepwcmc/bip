@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :partners, except: [:show]
+    resources :aichi_targets, except: [:show]
+    resources :aichi_goals, except: [:show]
     resources :resources, only: [:destroy]
     resources :disaggregations, only: [:destroy]
   end

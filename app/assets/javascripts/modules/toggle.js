@@ -16,6 +16,13 @@ export default module.exports = {
 
       if($switchEl.length > 0) {
         $switchEl.toggleClass("fa-chevron-down fa-chevron-up");
+        if($el.html().indexOf("Expand") > -1) {
+          $el.html($el.html().replace("Expand", "Collapse"));
+          $switchEl = $(`[data-toggle-switch='${toggleId}']`);
+        } else {
+          $el.html($el.html().replace("Collapse", "Expand"));
+          $switchEl = $(`[data-toggle-switch='${toggleId}']`);
+        }
       }
     });
   }
