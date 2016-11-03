@@ -1,6 +1,6 @@
 class Aichi::Goal < ActiveRecord::Base
   self.table_name = "aichi_goals"
 
-  belongs_to :aichi_target, class_name: "Aichi::Target"
+  has_many :aichi_targets, class_name: "Aichi::Target"
 end
 
