@@ -1,6 +1,7 @@
 @include b(theme) {
   margin: vr(2) 0;
-  @include span-columns(6);
+  width: 50%;
+  float: left;
   @include omega(2n);
   @include flexbox;
   @include align-items(stretch);
@@ -8,6 +9,10 @@
   @include e(container) {
     padding-bottom: vr(1);
     @include outer-container;
+  }
+
+  @include e(title) {
+    @include text(normal, bold);
   }
 
   @include e(image) {
