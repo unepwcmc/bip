@@ -35,4 +35,40 @@ $(document).ready( ->
         $extraFieldsEl.hide()
     )
 
+  if ($addTargetEl = $(".js-add-target")).length > 0
+    $addTargetEl.find(".js-trigger").click( (ev) ->
+      ev.preventDefault()
+
+      timestamp = Date.now()
+      $addTargetEl.find(".js-target").append("""
+        <div style="margin-bottom: 1rem;">
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="">Target number</label>
+            <div class="col-sm-10">
+              <input type="text" name="mea[mea_targets_attributes][#{timestamp}][target_number]" placeholder="Target Number" class="form-control">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="">Name</label>
+            <div class="col-sm-10">
+              <input type="text" name="mea[mea_targets_attributes][#{timestamp}][name]" placeholder="Name" class="form-control">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="">Description</label>
+            <div class="col-sm-10">
+              <textarea name="mea[mea_targets_attributes][#{timestamp}][description]" placeholder="Description" class="form-control"></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="">Logo</label>
+            <div class="col-sm-10">
+              <input type="file" name="mea[mea_targets_attributes][#{timestamp}][logo]" class="form-control">
+            </div>
+          </div>
+        </div>
+        <hr>
+      """)
+    )
+
 )

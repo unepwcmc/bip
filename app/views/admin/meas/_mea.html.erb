@@ -1,0 +1,21 @@
+<li id="<%= dom_id(mea) %>">
+  <div class="item">
+    <div class="btn-group btn-group-sm">
+      <%= link_to t('.edit'), edit_admin_mea_path(mea), :class => 'btn btn-default' %>
+      <%= link_to t('.delete'), admin_mea_path(mea), method: :delete, :class => 'btn btn-default', data: {confirm: "Are you sure?"} %>
+    </div>
+    <% if mea.logo.present? %>
+      <%= image_tag mea.logo.url(:thumb), style: "float: left; width: 50px" %>
+    <% end %>
+    <div class="item-content">
+      <div class="item-title">
+        <%= link_to mea.name, edit_admin_mea_path(mea) %>
+      </div>
+      <div class="item-meta">
+        <strong>Name:</strong> <%= mea.name %><br>
+        <strong>Description:</strong> <p><%= mea.description %></p>
+      </div>
+    </div>
+  </div>
+</li>
+

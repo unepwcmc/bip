@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161101001614) do
+ActiveRecord::Schema.define(version: 20161102234142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -163,12 +163,44 @@ ActiveRecord::Schema.define(version: 20161101001614) do
     t.datetime "updated_at"
   end
 
+  create_table "mea_targets", force: :cascade do |t|
+    t.text     "target_number"
+    t.text     "name"
+    t.text     "description"
+    t.integer  "mea_id"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "meas", force: :cascade do |t|
+    t.text     "name"
+    t.text     "description"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "page_aichi_target_rels", force: :cascade do |t|
     t.integer  "page_id"
     t.integer  "aichi_target_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "primary"
+  end
+
+  create_table "page_mea_target_rels", force: :cascade do |t|
+    t.integer  "page_id"
+    t.integer  "mea_target_id"
+    t.boolean  "official"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "page_partner_rels", force: :cascade do |t|

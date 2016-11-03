@@ -2,6 +2,11 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :partners, except: [:show]
+    resources :meas, except: [:show] do
+      member do
+        delete "delete_target"
+      end
+    end
     resources :aichi_targets, except: [:show]
     resources :aichi_goals, except: [:show]
     resources :resources, only: [:destroy]

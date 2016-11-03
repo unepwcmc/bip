@@ -73,4 +73,34 @@
       </select>
     </div>
   </div>
+
+  <div class="form-group">
+    <%= form.label :official_mea_target_id, :class => 'control-label col-sm-2' %>
+    <div class="col-sm-10">
+      <select style="width: 100%" class="js-select2" name="page[official_mea_target_id]">
+        <% Mea.order(:name).all.each do |mea| %>
+          <optgroup label="<%= mea.name %>">
+            <% mea.mea_targets.each do |mea_target| %>
+              <option <%= @page.official_mea_target&.id == mea_target.id ? "selected" : "" %> value="<%= mea_target.id %>">Target <%= mea_target.target_number %> - <%= mea_target.description %></option>
+            <% end %>
+          </optgroup>
+        <% end %>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :relevant_mea_target_ids, :class => 'control-label col-sm-2' %>
+    <div class="col-sm-10">
+      <select style="width: 100%" class="js-select2" multiple="multiple" name="page[relevant_mea_target_ids][]">
+        <% Mea.order(:name).all.each do |mea| %>
+          <optgroup label="<%= mea.name %>">
+            <% mea.mea_targets.each do |mea_target| %>
+              <option <%= @page.relevant_mea_target_ids.include?(mea_target.id) ? "selected" : "" %> value="<%= mea_target.id %>">Target <%= mea_target.target_number %> - <%= mea_target.description %></option>
+            <% end %>
+          </optgroup>
+        <% end %>
+      </select>
+    </div>
+  </div>
 </div>

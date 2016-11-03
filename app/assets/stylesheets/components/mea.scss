@@ -1,0 +1,20 @@
+@include b(mea) {
+  @include flexbox;
+  @include justify-content(stretch);
+
+  margin: vr(2.5) 0;
+
+  @include e(container) {
+    padding: vr(.5) 0;
+  }
+
+  @include e(image) {
+    margin-right: vr(2.5);
+    min-width: vr(5);
+    img { width: 100%; }
+  }
+
+  @include e(title) {
+    @include text(xlarge, thin);
+  }
+}

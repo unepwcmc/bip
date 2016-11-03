@@ -1,0 +1,30 @@
+<% if @cms_page.official_mea_target || @cms_page.relevant_mea_targets.any? %>
+  <h2 class="page__section-title">
+    Other related MEAs and processes
+    <span data-toggle-trigger="mea-targets" class="page__section-toggle u-noselect">
+      Collapse<i data-toggle-switch="mea-targets" class="icon--right fa fa-chevron-up"></i>
+      </span>
+  </h2>
+
+  <div class="mea__container" data-toggle-target="mea-targets">
+    <% sorted_mea_target_rels  = @cms_page.page_mea_target_rels.sort_by { |rel| rel.mea_target.mea.name } %>
+    <% grouped_mea_target_rels = sorted_mea_target_rels.group_by { |rel| rel.mea_target.mea } %>
+
+    <% grouped_mea_target_rels.each do |(mea, mea_target_rels)| %>
+      <div class="mea">
+        <div class="mea__image"><%= image_tag mea.logo.url(:thumb) %></div>
+        <div>
+          <h4 class="mea__title"><%= mea.name %></h4>
+
+          <% mea_target_rels.sort_by { |rel| rel.mea_target.target_number }.each do |target_rel| %>
+            <div class="target target--secondary">
+              <h5 class="target__title"><%= target_title target_rel %></h5>
+              <p class="target__body"><%= target_rel.mea_target.description %></p>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

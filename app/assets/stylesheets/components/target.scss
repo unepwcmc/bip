@@ -8,10 +8,18 @@
 
   @include e(image) {
     margin-right: vr(2.5);
+    min-width: vr(5);
+    img { width: 100%; }
   }
 
   @include e(title) {
     @include text(normal, bold);
+  }
+
+  @include e(subtitle) {
+    margin-left: vr(0.66666);
+    font-weight: 300;
+    @include m(bold) { font-weight: 700; }
   }
 
   @include e(body) {

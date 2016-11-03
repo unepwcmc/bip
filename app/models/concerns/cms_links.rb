@@ -17,8 +17,21 @@ module CmsLinks
     has_many :secondary_page_aichi_target_rels, -> { where(primary: false) }, class_name: "PageAichiTargetRel"
     has_many :secondary_aichi_targets, through: :secondary_page_aichi_target_rels, class_name: "Aichi::Target", source: :aichi_target
 
+    has_many :page_mea_target_rels
+    has_many :mea_targets, through: :page_mea_target_rels
+
+    has_one :official_page_mea_target_rel, -> { where(official: true) }, class_name: "PageMeaTargetRel"
+    has_one :official_mea_target, through: :official_page_mea_target_rel, class_name: "MeaTarget", source: :mea_target
+
+    has_many :relevant_page_mea_target_rels, -> { where(official: false) }, class_name: "PageMeaTargetRel"
+    has_many :relevant_mea_targets, through: :relevant_page_mea_target_rels, class_name: "MeaTarget", source: :mea_target
+
     def primary_aichi_target_id= id
       self.primary_aichi_target = Aichi::Target.find(id)
+    end
+
+    def official_mea_target_id= id
+      self.official_mea_target = MeaTarget.find(id)
     end
   end
 end

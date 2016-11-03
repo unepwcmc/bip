@@ -1,0 +1,40 @@
+<%= comfy_form_for @mea, url: {action: action} do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_area :description %>
+  <%= f.file_field :logo %>
+  <%= f.form_group do %>
+    <% if @mea.logo.present? %>
+      <%= image_tag @mea.logo.url(:thumb) %>
+    <% end %>
+  <% end %>
+
+
+  <h3>
+    Targets
+  </h3>
+
+  <%= f.fields_for :mea_targets do |target| %>
+    <%= target.text_field :target_number %>
+    <%= target.text_field :name %>
+    <%= target.text_area :description %>
+    <%= target.file_field :logo %>
+    <% if target.object&.logo&.url(:thumb) %>
+      <%= image_tag target.object.logo.url(:thumb), class: "col-sm-offset-2" %>
+    <% end %>
+    <% if target.object&.id %>
+      <%= link_to("Delete target", delete_target_admin_mea_path(@mea, target_id: target.object.id), method: :delete, class: "btn btn-danger") %>
+    <% end %>
+  <% end %>
+  <hr>
+
+  <div style="margin-bottom: 2rem;" class="js-add-target">
+    <div class="js-target"></div>
+    <button class="js-trigger btn btn-primary">Add new target</button>
+  </div>
+
+  <%= f.form_group :class => 'form-actions' do %>
+    <%= f.submit "#{action.titleize}", :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel'), admin_meas_path, :class => 'btn btn-link' %>
+  <% end %>
+<% end %>
+
