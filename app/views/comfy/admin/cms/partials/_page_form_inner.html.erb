@@ -52,6 +52,8 @@
     </div>
   </div>
 
+  <hr>
+
   <div class="form-group">
     <%= form.label :primary_aichi_target, :class => 'control-label col-sm-2' %>
     <div class="col-sm-10">
@@ -74,12 +76,14 @@
     </div>
   </div>
 
+  <hr>
+
   <div class="form-group">
-    <%= form.label :official_sdg_target, :class => 'control-label col-sm-2' %>
+    <%= form.label :official_sdg_targets, :class => 'control-label col-sm-2' %>
     <div class="col-sm-10">
-      <select style="width: 100%" class="js-select2" name="page[official_sdg_target_id]">
+      <select style="width: 100%" class="js-select2" multiple="multiple" name="page[official_sdg_target_ids][]">
         <% Sdg::Target.order(:target_number).all.each do |target| %>
-          <option <%= @page.official_sdg_target&.id == target.id ? "selected" : "" %> value="<%= target.id %>">Target <%= target.target_number %> - <%= target.description %></option>
+          <option <%= @page.official_sdg_target_ids.include?(target.id) ? "selected" : "" %> value="<%= target.id %>">Target <%= target.target_number %> - <%= target.description %></option>
         <% end %>
       </select>
     </div>
@@ -96,14 +100,16 @@
     </div>
   </div>
 
+  <hr>
+
   <div class="form-group">
-    <%= form.label :official_mea_target_id, :class => 'control-label col-sm-2' %>
+    <%= form.label :official_mea_targets, :class => 'control-label col-sm-2' %>
     <div class="col-sm-10">
-      <select style="width: 100%" class="js-select2" name="page[official_mea_target_id]">
+      <select style="width: 100%" class="js-select2" multiple="multiple" name="page[official_mea_target_ids][]">
         <% Mea.order(:name).all.each do |mea| %>
           <optgroup label="<%= mea.name %>">
             <% mea.mea_targets.each do |mea_target| %>
-              <option <%= @page.official_mea_target&.id == mea_target.id ? "selected" : "" %> value="<%= mea_target.id %>">Target <%= mea_target.target_number %> - <%= mea_target.description %></option>
+              <option <%= @page.official_mea_target_ids.include?(mea_target.id) ? "selected" : "" %> value="<%= mea_target.id %>">Target <%= mea_target.target_number %> - <%= mea_target.description %></option>
             <% end %>
           </optgroup>
         <% end %>
@@ -112,7 +118,7 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :relevant_mea_target_ids, :class => 'control-label col-sm-2' %>
+    <%= form.label :relevant_mea_targets, :class => 'control-label col-sm-2' %>
     <div class="col-sm-10">
       <select style="width: 100%" class="js-select2" multiple="multiple" name="page[relevant_mea_target_ids][]">
         <% Mea.order(:name).all.each do |mea| %>
@@ -125,4 +131,6 @@
       </select>
     </div>
   </div>
+
+  <hr>
 </div>
