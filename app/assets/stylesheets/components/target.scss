@@ -1,6 +1,7 @@
 @include b(target) {
   @include m(primary) { margin-top: vr(3); }
   @include m(secondary) { margin-top: vr(1); }
+  @include m(secondary-first) { margin-top: vr(1.5); }
   @include m(flex) {
     @include flexbox;
     @include justify-content(stretch);

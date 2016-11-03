@@ -75,6 +75,28 @@
   </div>
 
   <div class="form-group">
+    <%= form.label :official_sdg_target, :class => 'control-label col-sm-2' %>
+    <div class="col-sm-10">
+      <select style="width: 100%" class="js-select2" name="page[official_sdg_target_id]">
+        <% Sdg::Target.order(:target_number).all.each do |target| %>
+          <option <%= @page.official_sdg_target&.id == target.id ? "selected" : "" %> value="<%= target.id %>">Target <%= target.target_number %> - <%= target.description %></option>
+        <% end %>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :relevant_sdg_targets, :class => 'control-label col-sm-2' %>
+    <div class="col-sm-10">
+      <select style="width: 100%" class="js-select2" multiple="multiple" name="page[relevant_sdg_target_ids][]">
+        <% Sdg::Target.order(:target_number).all.each do |target| %>
+          <option <%= @page.relevant_sdg_target_ids.include?(target.id) ? "selected" : "" %> value="<%= target.id %>">Target <%= target.target_number %> - <%= target.description %></option>
+        <% end %>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
     <%= form.label :official_mea_target_id, :class => 'control-label col-sm-2' %>
     <div class="col-sm-10">
       <select style="width: 100%" class="js-select2" name="page[official_mea_target_id]">

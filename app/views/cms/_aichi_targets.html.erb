@@ -24,8 +24,8 @@
     <% if @cms_page.secondary_aichi_targets.any? %>
       <h3 class="page__subsection-title">Secondary targets</h3>
 
-      <% @cms_page.secondary_aichi_targets.order(:target_number).each do |target| %>
-        <div class="target target--secondary">
+      <% @cms_page.secondary_aichi_targets.order(:target_number).each_with_index do |target, i| %>
+        <div class="target target--secondary <%= "target--secondary-first" if i == 0 %>">
           <h4 class="target__title">Target <%= target.target_number %>:</h4>
           <p class="target__body"><%= target.description %></p>
         </div>

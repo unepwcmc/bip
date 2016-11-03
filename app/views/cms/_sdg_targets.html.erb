@@ -1,0 +1,31 @@
+<% if @cms_page.official_sdg_target || @cms_page.relevant_sdg_targets.any? %>
+  <h2 class="page__section-title">
+    Related SDGs
+    <span data-toggle-trigger="sdg-targets" class="page__section-toggle u-noselect">
+      Collapse<i data-toggle-switch="sdg-targets" class="icon--right fa fa-chevron-up"></i>
+    </span>
+  </h2>
+
+  <div class="mea__container" data-toggle-target="sdg-targets">
+    <% sorted_sdg_target_rels  = @cms_page.page_sdg_target_rels.sort_by { |rel| rel.sdg_target.sdg_goal.name } %>
+    <% grouped_sdg_target_rels = sorted_sdg_target_rels.group_by { |rel| rel.sdg_target.sdg_goal } %>
+
+    <% grouped_sdg_target_rels.each do |(sdg_goal, sdg_target_rels)| %>
+      <div class="mea">
+        <div class="mea__image"><%= image_tag sdg_goal.logo.url(:thumb) %></div>
+        <div>
+          <h4 class="mea__title"><%= sdg_goal.name %></h4>
+          <p class="mea__description"><%= sdg_goal.description %></p>
+
+          <% sdg_target_rels.sort_by { |rel| rel.sdg_target.target_number }.each do |target_rel| %>
+            <div class="target target--secondary">
+              <h5 class="target__title"><%= target_title target_rel, :sdg %></h5>
+              <p class="target__body"><%= target_rel.sdg_target.description %></p>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

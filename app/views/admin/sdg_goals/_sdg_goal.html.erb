@@ -1,0 +1,18 @@
+<li id="<%= dom_id(sdg_goal) %>">
+  <div class="item">
+    <div class="btn-group btn-group-sm">
+      <%= link_to t('.edit'), edit_admin_sdg_goal_path(sdg_goal), :class => 'btn btn-default' %>
+      <%= link_to t('.delete'), admin_sdg_goal_path(sdg_goal), method: :delete, :class => 'btn btn-default' %>
+    </div>
+    <div class="item-content">
+      <div class="item-title">
+        <%= link_to sdg_goal.name, edit_admin_sdg_goal_path(sdg_goal) %>
+      </div>
+      <div class="item-meta">
+        <strong>Name:</strong> <%= sdg_goal.name %><br>
+        <strong>Description:</strong> <p><%= sdg_goal.description %></p>
+      </div>
+    </div>
+  </div>
+</li>
+

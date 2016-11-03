@@ -1,0 +1,18 @@
+<%= comfy_form_for @sdg_target, url: {action: action} do |f| %>
+  <%= f.text_field :target_number %>
+  <%= f.text_field :name %>
+  <%= f.text_area :description %>
+  <%= f.select :sdg_goal_id, Sdg::Goal.order(:name).pluck(:name, :id) %>
+  <%= f.file_field :logo %>
+  <%= f.form_group do %>
+    <% if @sdg_target.logo.present? %>
+      <%= image_tag @sdg_target.logo.url(:thumb) %>
+    <% end %>
+  <% end %>
+
+  <%= f.form_group :class => 'form-actions' do %>
+    <%= f.submit "#{action.titleize}", :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel'), admin_sdg_targets_path, :class => 'btn btn-link' %>
+  <% end %>
+<% end %>
+

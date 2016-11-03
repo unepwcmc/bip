@@ -7,6 +7,7 @@ module CmsAdminExtension
     before_action :connect_partners, :only => [:create, :update]
     before_action :connect_aichi_targets, :only => [:create, :update]
     before_action :connect_mea_targets, :only => [:create, :update]
+    before_action :connect_sdg_targets, :only => [:create, :update]
 
     def create_resources
       Array.wrap(params[:resources]).each do |resource|
@@ -40,6 +41,16 @@ module CmsAdminExtension
 
       if params[:page][:relevant_mea_target_ids]
         @page.relevant_mea_targets = MeaTarget.where(id: params[:page][:relevant_mea_target_ids])
+      end
+    end
+
+    def connect_sdg_targets
+      if params[:page][:official_sdg_target_id]
+        @page.official_sdg_target = Sdg::Target.find(params[:page][:official_sdg_target_id])
+      end
+
+      if params[:page][:relevant_sdg_target_ids]
+        @page.relevant_sdg_targets = Sdg::Target.where(id: params[:page][:relevant_sdg_target_ids])
       end
     end
   end

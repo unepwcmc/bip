@@ -17,4 +17,9 @@
   @include e(title) {
     @include text(xlarge, thin);
   }
+
+  @include e(description) {
+    margin-top: vr(.5);
+    margin-bottom: vr(1);
+  }
 }

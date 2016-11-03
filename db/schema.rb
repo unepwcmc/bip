@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161102234142) do
+ActiveRecord::Schema.define(version: 20161103015118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -210,6 +210,14 @@ ActiveRecord::Schema.define(version: 20161102234142) do
     t.datetime "updated_at"
   end
 
+  create_table "page_sdg_target_rels", force: :cascade do |t|
+    t.integer  "page_id"
+    t.integer  "sdg_target_id"
+    t.boolean  "official"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "partners", force: :cascade do |t|
     t.text     "name"
     t.string   "logo_file_name"
@@ -228,6 +236,30 @@ ActiveRecord::Schema.define(version: 20161102234142) do
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
     t.text     "label"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sdg_goals", force: :cascade do |t|
+    t.text     "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+  end
+
+  create_table "sdg_targets", force: :cascade do |t|
+    t.text     "target_number"
+    t.text     "name"
+    t.text     "description"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.integer  "sdg_goal_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

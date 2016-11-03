@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     end
     resources :aichi_targets, except: [:show]
     resources :aichi_goals, except: [:show]
+    resources :sdg_targets, except: [:show]
+    resources :sdg_goals, except: [:show]
     resources :resources, only: [:destroy]
     resources :disaggregations, only: [:destroy]
   end

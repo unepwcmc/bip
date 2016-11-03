@@ -1,0 +1,15 @@
+<% content_for :right_column do %>
+  <%= render 'comfy/admin/cms/sites/mirrors' %>
+<% end %>
+<div id="cms-uploader">
+  <div id="cms-uploader-drag-drop-target"></div>
+  <div class="page-header">
+    <a class="btn btn-default pull-right" href="<%= new_admin_sdg_target_path %>">Create new Sdg target</a>
+    <h2>SDG targets</h2>
+  </div>
+  <%= comfy_paginate @sdg_targets %>
+  <ul class="list sortable">
+    <%= render :partial => 'sdg_target', :collection => @sdg_targets %>
+  </ul>
+  <%= comfy_paginate @sdg_targets %>
+</div>

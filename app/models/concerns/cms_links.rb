@@ -26,12 +26,25 @@ module CmsLinks
     has_many :relevant_page_mea_target_rels, -> { where(official: false) }, class_name: "PageMeaTargetRel"
     has_many :relevant_mea_targets, through: :relevant_page_mea_target_rels, class_name: "MeaTarget", source: :mea_target
 
+    has_many :page_sdg_target_rels
+    has_many :sdg_targets, through: :page_sdg_target_rels
+
+    has_one :official_page_sdg_target_rel, -> { where(official: true) }, class_name: "PageSdgTargetRel"
+    has_one :official_sdg_target, through: :official_page_sdg_target_rel, class_name: "Sdg::Target", source: :sdg_target
+
+    has_many :relevant_page_sdg_target_rels, -> { where(official: false) }, class_name: "PageSdgTargetRel"
+    has_many :relevant_sdg_targets, through: :relevant_page_sdg_target_rels, class_name: "Sdg::Target", source: :sdg_target
+
     def primary_aichi_target_id= id
       self.primary_aichi_target = Aichi::Target.find(id)
     end
 
     def official_mea_target_id= id
       self.official_mea_target = MeaTarget.find(id)
+    end
+
+    def official_sdg_target_id= id
+      self.official_sdg_target = Sdg::Target.find(id)
     end
   end
 end
