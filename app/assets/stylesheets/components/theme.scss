@@ -1,0 +1,26 @@
+@include b(theme) {
+  margin: vr(2) 0;
+  @include span-columns(6);
+  @include omega(2n);
+  @include flexbox;
+  @include align-items(stretch);
+
+  @include e(container) {
+    padding-bottom: vr(1);
+    @include outer-container;
+  }
+
+  @include e(image) {
+    margin-right: vr(2.5);
+    width: vr(5);
+    img { width: 100%; }
+  }
+
+  @include e(link) {
+    display: block;
+    @include text(normal, normal);
+    color: $text--base;
+    text-decoration: underline;
+    margin: vr(.75) 0;
+  }
+}

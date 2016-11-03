@@ -133,4 +133,17 @@
   </div>
 
   <hr>
+
+  <div class="form-group">
+    <%= form.label :themes, :class => 'control-label col-sm-2' %>
+    <div class="col-sm-10">
+      <select style="width: 100%" class="js-select2" multiple="multiple" name="page[theme_ids][]">
+        <% Theme.pluck(:id, :name).each do |(id, name)| %>
+          <option <%= @page.theme_ids.include?(id) ? "selected" : "" %> value="<%= id %>"><%= name %></option>
+        <% end %>
+      </select>
+    </div>
+  </div>
+
+  <hr>
 </div>

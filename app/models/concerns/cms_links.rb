@@ -35,6 +35,9 @@ module CmsLinks
     has_many :relevant_page_sdg_target_rels, -> { where(official: false) }, class_name: "PageSdgTargetRel"
     has_many :relevant_sdg_targets, through: :relevant_page_sdg_target_rels, class_name: "Sdg::Target", source: :sdg_target
 
+    has_many :page_theme_rels
+    has_many :themes, through: :page_theme_rels
+
     def primary_aichi_target_id= id
       self.primary_aichi_target = Aichi::Target.find(id)
     end

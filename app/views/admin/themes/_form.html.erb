@@ -1,0 +1,16 @@
+<%= comfy_form_for @theme, url: {action: action} do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_area :description %>
+  <%= f.file_field :logo %>
+  <%= f.form_group do %>
+    <% if @theme.logo.present? %>
+      <%= image_tag @theme.logo.url(:thumb) %>
+    <% end %>
+  <% end %>
+
+  <%= f.form_group :class => 'form-actions' do %>
+    <%= f.submit "#{action.titleize}", :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel'), admin_themes_path, :class => 'btn btn-link' %>
+  <% end %>
+<% end %>
+
