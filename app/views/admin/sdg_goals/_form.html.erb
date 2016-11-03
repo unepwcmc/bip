@@ -2,6 +2,11 @@
   <%= f.text_field :name %>
   <%= f.text_area :description %>
   <%= f.file_field :logo %>
+  <%= f.form_group do %>
+    <% if @sdg_goal.logo.present? %>
+      <%= image_tag @sdg_goal.logo.url(:thumb) %>
+    <% end %>
+  <% end %>
 
   <%= f.form_group :class => 'form-actions' do %>
     <%= f.submit "#{action.titleize}", :class => 'btn btn-primary' %>
