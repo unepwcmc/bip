@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161103120956) do
+ActiveRecord::Schema.define(version: 20161103175048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,20 +101,27 @@ ActiveRecord::Schema.define(version: 20161103120956) do
   add_index "comfy_cms_layouts", ["site_id", "identifier"], name: "index_comfy_cms_layouts_on_site_id_and_identifier", unique: true, using: :btree
 
   create_table "comfy_cms_pages", force: :cascade do |t|
-    t.integer  "site_id",                        null: false
+    t.integer  "site_id",                                     null: false
     t.integer  "layout_id"
     t.integer  "parent_id"
     t.integer  "target_page_id"
-    t.string   "label",                          null: false
+    t.string   "label",                                       null: false
     t.string   "slug"
-    t.string   "full_path",                      null: false
+    t.string   "full_path",                                   null: false
     t.text     "content_cache"
-    t.integer  "position",       default: 0,     null: false
-    t.integer  "children_count", default: 0,     null: false
-    t.boolean  "is_published",   default: true,  null: false
-    t.boolean  "is_shared",      default: false, null: false
+    t.integer  "position",                    default: 0,     null: false
+    t.integer  "children_count",              default: 0,     null: false
+    t.boolean  "is_published",                default: true,  null: false
+    t.boolean  "is_shared",                   default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "indicator_type_id"
+    t.boolean  "applicable_for_national_use"
+    t.integer  "indicator_classification_id"
+    t.datetime "last_update"
+    t.integer  "coverage_id"
+    t.boolean  "freely_available"
+    t.text     "available_link"
   end
 
   add_index "comfy_cms_pages", ["parent_id", "position"], name: "index_comfy_cms_pages_on_parent_id_and_position", using: :btree
@@ -155,12 +162,24 @@ ActiveRecord::Schema.define(version: 20161103120956) do
   add_index "comfy_cms_snippets", ["site_id", "identifier"], name: "index_comfy_cms_snippets_on_site_id_and_identifier", unique: true, using: :btree
   add_index "comfy_cms_snippets", ["site_id", "position"], name: "index_comfy_cms_snippets_on_site_id_and_position", using: :btree
 
+  create_table "coverages", force: :cascade do |t|
+    t.text "name"
+  end
+
   create_table "disaggregations", force: :cascade do |t|
     t.integer  "comfy_cms_page_id"
     t.text     "label"
     t.text     "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "indicator_classifications", force: :cascade do |t|
+    t.text "name"
+  end
+
+  create_table "indicator_types", force: :cascade do |t|
+    t.text "name"
   end
 
   create_table "mea_targets", force: :cascade do |t|

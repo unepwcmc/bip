@@ -1,4 +1,73 @@
 <div data-extra-fields="Indicator page">
+  <hr>
+
+  <div class="form-group">
+    <%= form.label :indicator_type, :class => 'control-label col-sm-2' %>
+    <div class="col-sm-10">
+      <select style="width: 100%" class="js-select2" name="page[indicator_type_id]">
+        <% IndicatorType.pluck(:id, :name).each do |(id, name)| %>
+          <option <%= @page.indicator_type&.id == id ? "selected" : "" %> value="<%= id %>"><%= name %></option>
+        <% end %>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :applicable_for_national_use, :class => 'control-label col-sm-2' %>
+    <div class="col-sm-10">
+      <%= check_box_tag "page[applicable_for_national_use]", "", @page.applicable_for_national_use %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :indicator_classification, :class => 'control-label col-sm-2' %>
+    <div class="col-sm-10">
+      <select style="width: 100%" class="js-select2" name="page[indicator_classification_id]">
+        <% IndicatorClassification.pluck(:id, :name).each do |(id, name)| %>
+          <option <%= @page.indicator_classification&.id == id ? "selected" : "" %> value="<%= id %>"><%= name %></option>
+        <% end %>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :last_update, :class => 'control-label col-sm-2' %>
+    <div class="col-sm-10">
+      <select style="width: 100%" class="js-select2" name="page[last_update]">
+        <% (2008..Date.today.year).each do |year| %>
+          <option <%= @page.last_update&.year == year ? "selected" : "" %> value="<%= year %>"><%= year %></option>
+        <% end %>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :coverage, :class => 'control-label col-sm-2' %>
+    <div class="col-sm-10">
+      <select style="width: 100%" class="js-select2" name="page[coverage_id]">
+        <% Coverage.pluck(:id, :name).each do |(id, name)| %>
+          <option <%= @page.coverage&.id == id ? "selected" : "" %> value="<%= id %>"><%= name %></option>
+        <% end %>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :freely_available, :class => 'control-label col-sm-2' %>
+    <div class="col-sm-10">
+      <%= check_box_tag "page[freely_available]", "", @page.freely_available, data: {check_show_trigger: "available-link"} %>
+    </div>
+  </div>
+
+  <div class="form-group" data-check-show-target="available-link">
+    <%= form.label :available_link, :class => 'control-label col-sm-2' %>
+    <div class="col-sm-10">
+      <%= url_field_tag "page[available_link]", @page.available_link, style: "width:100%;", placeholder: "e.g. http://example.com" %>
+    </div>
+  </div>
+
+  <hr>
+
   <div class="form-group">
     <%= form.label :resources, :class => 'control-label col-sm-2' %>
     <div class="col-sm-10">

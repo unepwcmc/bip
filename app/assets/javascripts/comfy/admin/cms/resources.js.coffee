@@ -71,4 +71,15 @@ $(document).ready( ->
       """)
     )
 
+  if ($checkShowTrigger = $("[data-check-show-trigger]")).length > 0
+    id = $checkShowTrigger.data("check-show-trigger")
+    $checkShowTarget = $("[data-check-show-target='#{id}']")
+    $checkShowTrigger.change( (ev) ->
+      if $checkShowTrigger.is(":checked")
+        $checkShowTarget.show()
+      else
+        $checkShowTarget.hide()
+    )
+
+    $checkShowTrigger.change()
 )

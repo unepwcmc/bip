@@ -38,6 +38,10 @@ module CmsLinks
     has_many :page_theme_rels
     has_many :themes, through: :page_theme_rels
 
+    belongs_to :indicator_type
+    belongs_to :indicator_classification
+    belongs_to :coverage
+
     def primary_aichi_target_id= id
       self.primary_aichi_target = Aichi::Target.find(id)
     end
