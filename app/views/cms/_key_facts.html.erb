@@ -1,0 +1,26 @@
+<div class="page__aside-section">
+  <h2 class="page__aside-section-title">Key indicator facts</h2>
+
+  <h3 class="fact__subtitle">Indicator type</h3>
+  <p class="fact__value"><%= @cms_page.indicator_type&.name || "N/A" %></p>
+
+  <h3 class="fact__subtitle">Applicable for national use</h3>
+  <p class="fact__value"><%= @cms_page.applicable_for_national_use ? "Yes" : "No" %></p>
+
+  <h3 class="fact__subtitle">Indicator classification</h3>
+  <p class="fact__value"><%= @cms_page.indicator_classification&.name || "N/A" %></p>
+
+  <h3 class="fact__subtitle">Last update</h3>
+  <p class="fact__value"><%= @cms_page.last_update&.year || "N/A" %></p>
+
+  <h3 class="fact__subtitle">Coverage</h3>
+  <p class="fact__value"><%= @cms_page.coverage&.name || "N/A" %></p>
+
+  <h3 class="fact__subtitle">Availability</h3>
+  <p class="fact__value">
+    <%= @cms_page.freely_available ? "Freely available" : "Not freely available" %>
+    <% if @cms_page.freely_available %>
+      <br> <%= link_to @cms_page.available_link, @cms_page.available_link %>
+    <% end %>
+  </p>
+</div>
