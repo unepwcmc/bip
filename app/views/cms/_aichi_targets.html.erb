@@ -1,12 +1,12 @@
-<% if @cms_page.primary_aichi_target || @cms_page.secondary_aichi_targets.any? %>
-  <h2 class="page__section-title">
+<% if @cms_page.aichi_targets.any? %>
+  <h2 class="page__section-title page__section-title--no-margin-top-mobile">
     Related Aichi Targets
-    <span data-toggle-trigger="aichi-targets" class="page__section-toggle u-noselect">
+    <span data-toggle-trigger="aichi-targets" class="u-only-desktop page__section-toggle u-noselect">
       Collapse<i data-toggle-switch="aichi-targets" class="icon--right fa fa-chevron-up"></i>
-      </span>
+    </span>
   </h2>
 
-  <div data-toggle-target="aichi-targets">
+  <div class="u-only-desktop" data-toggle-target="aichi-targets">
     <% if @cms_page.primary_aichi_target %>
       <h3 class="page__subsection-title">Primary target</h3>
 
@@ -30,6 +30,14 @@
           <p class="target__body"><%= target.description %></p>
         </div>
       <% end %>
+    <% end %>
+  </div>
+
+  <div class="u-clearfix u-only-mobile">
+    <% @cms_page.aichi_targets.each do |target| %>
+      <div class="target__image">
+        <%= image_tag target.logo.try(:url, :thumb) %>
+      </div>
     <% end %>
   </div>
 <% end %>

@@ -1,0 +1,15 @@
+<% if @cms_page.partners.any? %>
+  <h2 class="page__section-title page__section-title--smaller-mobile">
+    Partners
+  </h2>
+
+  <div class="u-clearfix u-only-mobile">
+    <% @cms_page.partners.each do |partners| %>
+      <div class="target__image">
+        <%= image_tag partners.logo.try(:url, :thumb) %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+

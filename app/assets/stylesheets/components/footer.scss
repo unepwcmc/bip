@@ -9,7 +9,9 @@
 
     width: $main__width;
     margin: auto;
-    padding-top: vr(2)
+    padding-top: vr(2);
+
+    @include mobile-container;
   }
 
   @include e(navigation) {
@@ -20,17 +22,31 @@
   @include e(navigation-link) {
     margin-right: vr(3);
     text-decoration: underline;
+    color: $white;
+
+    @include only-mobile {
+      display: block;
+    }
   }
 
   @include e(columns) {
     padding: vr(2) 0;
     border-bottom: solid 2px $border--footer;
+
+    @include only-mobile {
+      padding: 0;
+    }
   }
 
   @include e(column) {
-    @include m(large) { @include span-columns(4); }
-    @include m(small) { @include span-columns(2); }
-    margin-right: vr(4.25);
+    @include only-mobile {
+      margin: vr(2) 0;
+    }
+    @include only-desktop {
+      @include m(large) { @include span-columns(4); }
+      @include m(small) { @include span-columns(2); }
+      margin-right: vr(4.25);
+    }
   }
 
   @include e(column-title) {

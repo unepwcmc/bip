@@ -1,3 +1,5 @@
+$break__phone: 768px;
+
 @mixin only-mobile {
   @media only screen and (max-width: $break__phone) {
     @content;
@@ -7,5 +9,15 @@
 @mixin only-desktop {
   @media only screen and (min-width: $break__phone) {
     @content;
+  }
+}
+
+@mixin mobile-container {
+  @include only-mobile {
+    width: 100%;
+    padding: {
+      left: vr(1.75);
+      right: vr(1.75)
+    }
   }
 }

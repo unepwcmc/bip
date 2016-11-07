@@ -2,17 +2,21 @@
   <div class="header__content">
     <div class="header__top u-clearfix">
       <div class="header__navigation">
-        <h3 class="header__element u-pull-left">Biodiversity Indicators Partnership</h3>
-        <div class="u-pull-right">
+        <h3 class="header__element header__element--title u-pull-left u-only-desktop">Biodiversity Indicators Partnership</h3>
+        <h3 class="header__element header__element--title u-pull-left u-only-mobile">BIP Website</h3>
+        <div class="header__element u-pull-right u-only-desktop">
           <%= link_to "Home", "#", class: "header__element" %>
           <%= link_to "About", "#", class: "header__element" %>
           <%= link_to "National indicators", "#", class: "header__element" %>
           <%= link_to "Partners", "#", class: "header__element" %>
           <%= link_to "Resources", "#", class: "header__element" %>
         </div>
+        <div class="header__element header__element--menu u-pull-right u-only-mobile">
+          <button data-toggle-trigger="mobile-menu" class="header__menu">Menu</button>
+        </div>
       </div>
     </div>
-    <div class="breadcrumbs">
+    <div class="breadcrumbs u-only-desktop">
       <% if @cms_page %>
         <%= breadcrumb "Home", "/", true %>
         <%= breadcrumb(@cms_page.label) %>
@@ -22,3 +26,12 @@
     </div>
   </div>
 </header>
+
+<div class="breadcrumbs mobile-container u-only-mobile">
+  <% if @cms_page %>
+    <%= breadcrumb "Home", "/", true %>
+    <%= breadcrumb(@cms_page.label) %>
+  <% else %>
+    <%= breadcrumb "Home", "/", true %>
+  <% end %>
+</div>

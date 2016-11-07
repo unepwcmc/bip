@@ -17,6 +17,9 @@
                                   not supported by any browser */
 }
 
+.u-only-desktop { @include only-mobile  { display: none } }
+.u-only-mobile  { @include only-desktop { display: none } }
+
 .u-stretch-flex {
   @include flexbox;
   @include justify-content(stretch);

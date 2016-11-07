@@ -7,6 +7,10 @@
     border-bottom: solid 4px $border--title;
     padding: vr(1) 0;
     margin-bottom: vr(1.5);
+    @include only-mobile {
+      margin-top: 0;
+      padding: 4px 0;
+    }
   }
 
   @include e(body) {
@@ -15,6 +19,13 @@
     border-right: solid 1px $border--title;
     margin-right: vr(2.75);
     padding-right: vr(2.25);
+
+    @include only-mobile {
+      margin-right: 0;
+      padding-right: 0;
+      width: 100%;
+      border-right: none;
+    }
   }
 
   @include e(aside) {
@@ -25,6 +36,16 @@
   @include e(aside-section) {
     padding: vr(2) vr(.25);
     &:not(:last-child) { border-bottom: solid 2px $border--title; }
+
+    @include only-mobile {
+      padding: vr(.75) 0;
+      border-bottom: solid 1px $border--title;
+    }
+
+    @include m(last-mobile) {
+      margin-top: vr(1.5);
+      border-bottom: none;
+    }
   }
 
   @include e(aside-link) {
@@ -34,11 +55,44 @@
 
   @include e(section-title) {
     margin-top: vr(2);
-    border-bottom: solid 2px $border--title;
     padding: vr(1) 0;
+
+    @include only-mobile {
+      padding: 0;
+      margin: vr(1) 0;
+    }
+
+    @include only-desktop {
+      border-bottom: solid 2px $border--title;
+      margin-top: vr(2);
+      padding: vr(1) 0;
+    }
 
     @include m(subtle-border) {
       border-bottom: solid 1px $border--title;
+    }
+
+    @include m(no-margin-top-mobile) {
+      margin-top: 0;
+      padding: 0;
+    }
+
+    @include m(smaller-mobile) {
+      @include only-mobile {
+        @include text(normal, bold);
+        line-height: vr(2.5);
+        margin-top: 5px;
+        margin-bottom: 0;
+        padding: 0;
+      }
+    }
+
+    @include m(with-padding-mobile) {
+      @include only-mobile {
+        padding: vr(1) 0;
+        margin: 0;
+        margin-top: vr(.25);
+      }
     }
   }
 

@@ -1,5 +1,5 @@
 <% if @cms_page.resources.any? %>
-  <div class="page__aside-section">
+  <div class="page__aside-section page__aside-section--last-mobile">
     <h2 class="page__aside-section-title">Further resources</h2>
     <% @cms_page.resources.each_with_index do |resource, i| %>
       <p class="<%= i.zero? ? "u-fix-h2-margin" : "" %>">

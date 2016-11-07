@@ -1,12 +1,12 @@
 <% if @cms_page.mea_targets.any? %>
-  <h2 class="page__section-title">
+  <h2 class="page__section-title page__section-title--smaller-mobile">
     Other related MEAs and processes
-    <span data-toggle-trigger="mea-targets" class="page__section-toggle u-noselect">
+    <span data-toggle-trigger="mea-targets" class="u-only-desktop page__section-toggle u-noselect">
       Collapse<i data-toggle-switch="mea-targets" class="icon--right fa fa-chevron-up"></i>
       </span>
   </h2>
 
-  <div class="mea__container" data-toggle-target="mea-targets">
+  <div class="u-only-desktop mea__container" data-toggle-target="mea-targets">
     <% sorted_mea_target_rels  = @cms_page.page_mea_target_rels.sort_by { |rel| rel.mea_target.mea.name } %>
     <% grouped_mea_target_rels = sorted_mea_target_rels.group_by { |rel| rel.mea_target.mea } %>
 
@@ -24,6 +24,14 @@
           <% end %>
 
         </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="u-clearfix u-only-mobile">
+    <% @cms_page.mea_targets.each do |target| %>
+      <div class="target__image">
+        <%= image_tag target.logo.try(:url, :thumb) %>
       </div>
     <% end %>
   </div>

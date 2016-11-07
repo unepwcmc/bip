@@ -7,10 +7,30 @@
     @include justify-content(stretch);
   }
 
+  @include e(container) {
+    @include only-mobile {
+      padding-bottom: vr(2.5);
+      border-bottom: solid 1px $border--title;
+    }
+  }
+
   @include e(image) {
-    margin-right: vr(2.5);
-    min-width: vr(5);
     img { width: 100%; }
+
+    @include only-desktop {
+      margin-right: vr(2.5);
+      min-width: vr(5);
+    }
+
+    @include only-mobile {
+      float: left;
+      width: vr(3);
+      height: vr(3);
+
+      overflow: hidden;
+      border-radius: vr(.5);
+      margin-right: vr(1);
+    }
   }
 
   @include e(title) {

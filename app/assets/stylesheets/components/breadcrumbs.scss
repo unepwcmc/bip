@@ -1,5 +1,6 @@
 @include b(breadcrumbs) {
   padding: vr(1.5) 0;
+  @include mobile-container;
 
   @include e(divider) {
     text-align: center;

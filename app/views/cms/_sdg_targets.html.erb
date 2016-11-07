@@ -1,12 +1,12 @@
 <% if @cms_page.sdg_targets.any? %>
-  <h2 class="page__section-title">
+  <h2 class="page__section-title page__section-title--smaller-mobile">
     Related SDGs
-    <span data-toggle-trigger="sdg-targets" class="page__section-toggle u-noselect">
+    <span data-toggle-trigger="sdg-targets" class="u-only-desktop page__section-toggle u-noselect">
       Collapse<i data-toggle-switch="sdg-targets" class="icon--right fa fa-chevron-up"></i>
     </span>
   </h2>
 
-  <div class="mea__container" data-toggle-target="sdg-targets">
+  <div class="u-only-desktop mea__container" data-toggle-target="sdg-targets">
     <% sorted_sdg_target_rels  = @cms_page.page_sdg_target_rels.sort_by { |rel| rel.sdg_target.sdg_goal.name } %>
     <% grouped_sdg_target_rels = sorted_sdg_target_rels.group_by { |rel| rel.sdg_target.sdg_goal } %>
 
@@ -25,6 +25,14 @@
           <% end %>
 
         </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="u-clearfix u-only-mobile">
+    <% @cms_page.sdg_targets.each do |target| %>
+      <div class="target__image">
+        <%= image_tag target.logo.try(:url, :thumb) %>
       </div>
     <% end %>
   </div>

@@ -1,12 +1,12 @@
 <% if @cms_page.themes.any? %>
-  <h2 class="page__section-title">
+  <h2 class="page__section-title page__section-title--smaller-mobile">
     Themes
-    <span data-toggle-trigger="themes" class="page__section-toggle u-noselect">
+    <span data-toggle-trigger="themes" class="u-only-desktop page__section-toggle u-noselect">
       Collapse<i data-toggle-switch="themes" class="icon--right fa fa-chevron-up"></i>
     </span>
   </h2>
 
-  <div class="theme__container" data-toggle-target="themes">
+  <div class="u-only-desktop theme__container" data-toggle-target="themes">
     <% sorted_themes = @cms_page.themes.sort_by(&:name) %>
 
     <% sorted_themes.each do |theme| %>
@@ -16,6 +16,14 @@
           <h4 class="theme__title"><%= theme.name %></h4>
           <a class="theme__link" href="#">View related indicators ></a>
         </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="u-clearfix u-only-mobile">
+    <% @cms_page.themes.each do |theme| %>
+      <div class="target__image">
+        <%= image_tag theme.logo.try(:url, :thumb) %>
       </div>
     <% end %>
   </div>

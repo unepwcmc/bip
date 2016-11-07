@@ -4,19 +4,45 @@
   @include e(content) {
     width: $main__width;
     margin: auto;
+
+    @include only-mobile {
+      width: 100%;
+      padding: 0 vr(1.75);
+    }
   }
 
   @include e(top) {
     border-bottom: solid 2px $white;
+
+    @include only-mobile {
+      border-bottom: none;
+    }
   }
 
   @include e(element) {
     margin: vr(1.5) 0;
     line-height: vr(2);
-    float: left;
+    margin-left: vr(3);
 
-    &:not(:first-child) {
-      margin-left: vr(3);
+    @include m(title) {
+      font-size: 1rem;
+      margin: vr(1.25) 0;
     }
+
+    @include m(menu) {
+      margin: vr(1.25) 0;
+    }
+  }
+
+  @include e(menu) {
+    @include text(xsmall, bold);
+    color: $text--menu;
+    text-align: center;
+
+    padding: vr(.25) vr(.75);
+    border: solid 2px $text--menu;
+    margin: 0;
+
+    background-color: $white;
   }
 }
