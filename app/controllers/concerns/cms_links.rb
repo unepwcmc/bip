@@ -17,9 +17,7 @@ module CmsAdminExtension
     end
 
     def create_disaggregations
-      Array.wrap(params[:disaggregations]).each do |disaggregation|
-        @page.disaggregations.create!(label: disaggregation[:label], url: disaggregation[:url])
-      end
+      @page.disaggregation_targets = Comfy::Cms::Page.where(id: params[:page][:disaggregation_target_ids])
     end
 
     def connect_partners

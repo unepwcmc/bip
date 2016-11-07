@@ -3,7 +3,9 @@ module CmsLinks
 
   included do
     has_many :resources, foreign_key: "comfy_cms_page_id"
-    has_many :disaggregations, foreign_key: "comfy_cms_page_id"
+    has_many :disaggregations, foreign_key: "parent_id"
+
+    has_many :disaggregation_targets, through: :disaggregations, source: :target
 
     has_many :page_partner_rels
     has_many :partners, through: :page_partner_rels

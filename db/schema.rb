@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161103175048) do
+ActiveRecord::Schema.define(version: 20161107171954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -167,12 +167,13 @@ ActiveRecord::Schema.define(version: 20161103175048) do
   end
 
   create_table "disaggregations", force: :cascade do |t|
-    t.integer  "comfy_cms_page_id"
-    t.text     "label"
-    t.text     "url"
+    t.integer  "parent_id"
+    t.integer  "target_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "disaggregations", ["parent_id"], name: "index_disaggregations_on_parent_id", using: :btree
 
   create_table "indicator_classifications", force: :cascade do |t|
     t.text "name"
