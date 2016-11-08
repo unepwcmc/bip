@@ -1,0 +1,19 @@
+@include b(homepage) {
+  @include e(hero-text) {
+    overflow: hidden;
+    p {
+      margin: vr(1.3333333) 0;
+    }
+  }
+
+  @include e(search-container) {
+    background-color: $solitude;
+    width: 100%;
+  }
+
+  @include e(browse-container) {
+    border-bottom: solid 1px $border--search-bar;
+    background-color: $solitude;
+    width: 100%;
+  }
+}

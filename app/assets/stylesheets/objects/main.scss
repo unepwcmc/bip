@@ -2,4 +2,8 @@
   @include mobile-container;
   width: $main__width;
   margin: auto;
+
+  @include m(full-width) {
+    width: 100%;
+  }
 }

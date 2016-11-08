@@ -5,7 +5,7 @@
         <h3 class="header__element header__element--title u-pull-left u-only-desktop">Biodiversity Indicators Partnership</h3>
         <h3 class="header__element header__element--title u-pull-left u-only-mobile">BIP Website</h3>
         <div class="header__element u-pull-right u-only-desktop">
-          <%= link_to "Home", "#", class: "header__element" %>
+          <%= link_to "Home", "/", class: "header__element" %>
           <%= link_to "About", "#", class: "header__element" %>
           <%= link_to "National indicators", "#", class: "header__element" %>
           <%= link_to "Partners", "#", class: "header__element" %>
@@ -16,12 +16,21 @@
         </div>
       </div>
     </div>
-    <div class="breadcrumbs u-only-desktop">
       <% if @cms_page %>
-        <%= breadcrumb "Home", "/", true %>
-        <%= breadcrumb(@cms_page.label) %>
+        <% if @cms_page.full_path == "/" %>
+          <div class="homepage__hero-text">
+            <%= cms_block_content(:hero_text).html_safe %>
+          </div>
+        <% else %>
+          <div class="breadcrumbs u-only-desktop">
+            <%= breadcrumb "Home", "/", true %>
+            <%= breadcrumb(@cms_page.label) %>
+          </div>
+        <% end %>
       <% else %>
-        <%= breadcrumb "Home", "/", true %>
+        <div class="breadcrumbs u-only-desktop">
+          <%= breadcrumb "Home", "/", true %>
+        </div>
       <% end %>
     </div>
   </div>

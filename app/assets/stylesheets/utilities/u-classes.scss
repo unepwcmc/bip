@@ -1,3 +1,4 @@
+.u-relative { position: relative; }
 .u-pull-left { float: left; }
 .u-pull-right { float: right; }
 
@@ -19,6 +20,8 @@
 
 .u-only-desktop { @include only-mobile  { display: none } }
 .u-only-mobile  { @include only-desktop { display: none } }
+
+.u-hide { display: none; }
 
 .u-stretch-flex {
   @include flexbox;

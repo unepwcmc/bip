@@ -1,0 +1,31 @@
+@include b(search) {
+  @include outer-container;
+  padding: vr(2) 0;
+  border-bottom: solid 2px $white;
+  width: $main__width;
+
+  @include e(title) {
+    margin: 0 0 vr(1) 0;
+  }
+
+  @include e(bar) {
+    @include span-columns(5);
+    font-size: vr(1.1666666);
+    padding: vr(.75) vr(1);
+    color: $text--link;
+    font-weight: 700;
+    border: solid 1px $border--search-bar;
+
+    &::-webkit-input-placeholder { color: $text--link; }
+    &::-moz-placeholder          { color: $text--link; }
+    &:-ms-input-placeholder      { color: $text--link; }
+    &:-moz-placeholder           { color: $text--link; }
+  }
+
+  @include e(bar-icon) {
+    color: $text--link;
+    position: absolute;
+    top: 9px;
+    left: 37.5%;
+  }
+}

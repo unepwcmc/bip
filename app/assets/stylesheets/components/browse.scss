@@ -1,0 +1,28 @@
+@include b(browse) {
+  @include outer-container;
+  padding-top: vr(.75);
+  width: $main__width;
+
+  @include e(title) {
+    margin: vr(1.1666666) 0;
+  }
+
+  @include e(category) {
+    float:left;
+    padding: vr(.75) vr(2.5);
+    margin: 0;
+    font-size: vr(1.1666666);
+    font-weight: 500;
+    line-height: vr(1.5);
+    background-color: initial;
+    border: none;
+    cursor: pointer;
+
+    &.is-selected {
+      font-weight: 700;
+      background-color: $white;
+      border: solid 1px $border--search-bar;
+      border-bottom: none;
+    }
+  }
+}
