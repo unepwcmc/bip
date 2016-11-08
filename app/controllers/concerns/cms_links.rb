@@ -2,13 +2,13 @@ module CmsAdminExtension
   extend ActiveSupport::Concern
 
   included do
-    before_action :create_resources, :only => [:create, :update]
-    before_action :create_disaggregations, :only => [:create, :update]
-    before_action :connect_partners, :only => [:create, :update]
-    before_action :connect_aichi_targets, :only => [:create, :update]
-    before_action :connect_mea_targets, :only => [:create, :update]
-    before_action :connect_sdg_targets, :only => [:create, :update]
-    before_action :connect_key_facts, :only => [:create, :update]
+    after_action :create_resources, :only => [:create, :update]
+    after_action :create_disaggregations, :only => [:create, :update]
+    after_action :connect_partners, :only => [:create, :update]
+    after_action :connect_aichi_targets, :only => [:create, :update]
+    after_action :connect_mea_targets, :only => [:create, :update]
+    after_action :connect_sdg_targets, :only => [:create, :update]
+    after_action :connect_key_facts, :only => [:create, :update]
 
     def create_resources
       Array.wrap(params[:resources]).each do |resource|
