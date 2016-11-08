@@ -1,0 +1,50 @@
+@include b(aichi-targets) {
+  @include outer-container;
+  width: $main__width;
+
+  @include e(goal) {
+    margin-bottom: vr(2.5);
+  }
+
+  @include e(goal-title) {
+    @include text(xlarge, bold);
+  }
+
+  @include e(goal-description) {
+    @include text(normal-2, normal);
+    margin: vr(.75) 0;
+  }
+
+  @include e(targets) {
+    @include outer-container;
+  }
+
+  @include e(target) {
+    @include span-columns(4);
+    @include omega(3n);
+  }
+
+  @include e(target-header) {
+    @include flexbox;
+    @include align-items(stretch);
+    margin-bottom: vr(1.5);
+  }
+
+  @include e(target-icon) {
+    margin-right: vr(1);
+    img {
+      height: vr(5);
+      width: vr(5);
+    }
+  }
+
+  @include e(target-title) {
+    @include text(normal-2, bold);
+  }
+
+  @include e(target-name) {
+    @include text(normal-2, normal);
+    color: $text--menu;
+    margin: 0;
+  }
+}

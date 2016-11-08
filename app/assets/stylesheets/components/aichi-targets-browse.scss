@@ -1,0 +1,47 @@
+@include b(aichi-targets-browse) {
+  @include outer-container;
+  width: $main__width;
+
+  @include e(goals-container) {
+    border-bottom: solid 1px $border--title;
+    margin-bottom: vr(3);
+  }
+
+  @include e(goals) {
+    overflow: hidden;
+    padding: vr(1.875) 0;
+    margin-left: vr(-.75);
+  }
+
+  @include e(goal) {
+    float: left;
+    padding-right: vr(1.875);
+    margin-right: vr(1);
+    &:not(:last-child) {
+      border-right: solid 1px $border--aichi-targets;
+    }
+  }
+
+  @include e(goal-title) {
+    float: left;
+    cursor: pointer;
+    @include text(normal, bold);
+    padding: vr(.75) vr(1);
+    margin-right: vr(1);
+    height: vr(3);
+
+    &.is-selected {
+      background-color: $border--title;
+    }
+  }
+
+  @include e(target-icon) {
+    width: vr(3);
+    height: vr(3);
+    border-radius: vr(.5);
+    overflow: hidden;
+    margin-left: vr(1);
+
+    img { width: 100%; }
+  }
+}

@@ -250,6 +250,19 @@ textarea {
   margin: 0; /* 2 */
 }
 
+button
+{
+  margin:0;
+  border:0;
+  padding:0;
+  display:inline-block;
+  vertical-align:middle;
+  white-space:normal;
+  background:none;
+  line-height:1;
+}
+
+
 /**
  * Show the overflow in IE.
  * 1. Show the overflow in Edge.

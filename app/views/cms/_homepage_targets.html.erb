@@ -1,0 +1,48 @@
+<div class="aichi-targets-browse">
+  <div class="aichi-targets-browse__goals-container">
+    <div class="aichi-targets-browse__goals">
+      <% Aichi::Goal.order(:name).all.each do |goal| %>
+        <div class="aichi-targets-browse__goal">
+          <h3
+            data-select-group="aichi-targets"
+            data-select-trigger="<% goal.id %>"
+            class="aichi-targets-browse__goal-title"
+          ><%= goal.name %></h3>
+          <% goal.aichi_targets.each do |target|  %>
+            <button class="aichi-targets-browse__target-icon">
+              <%= image_tag target.logo.url(:thumb) %>
+            </button>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<% Aichi::Goal.order(:name).all.each do |goal| %>
+  <div
+    data-select-group="aichi-targets"
+    data-select-target="<% goal.id %>"
+    class="aichi-targets"
+  >
+    <div class="aichi-targets__goal">
+      <h4 class="aichi-targets__goal-title"><%= goal.name %>:</h4>
+      <p class="aichi-targets__goal-description"><%= goal.description %></p>
+    </div>
+
+    <div class="aichi-targets__targets">
+      <% goal.aichi_targets.order(:target_number).each do |target| %>
+        <div class="aichi-targets__target">
+          <div class="aichi-targets__target-header">
+            <div class="aichi-targets__target-icon"><%= image_tag target.logo.url(:thumb) %></div>
+            <div>
+              <h5 class="aichi-targets__target-title">Aichi Target <%= target.target_number %>:</h5>
+              <p class="aichi-targets__target-name"><%= target.name %></p>
+            </div>
+          </div>
+          <p><%= target.description %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
