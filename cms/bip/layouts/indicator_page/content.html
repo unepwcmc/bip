@@ -5,7 +5,7 @@
     <div class="page__body">
       <div class="u-only-desktop">
         <h2 class="page__section-title">Indicator description</h2>
-        <p>{{ cms:page:description:rich_text }}</p>
+        <div class="s-free-text">{{ cms:page:description:rich_text }}</div>
       </div>
 
       <div class="target__container">
@@ -22,11 +22,11 @@
         {{ cms:partial:cms/key_facts }}
 
         <h2 class="page__section-title">Indicator description</h2>
-        <p>{{ cms:page:description:rich_text }}</p>
+        <div class="s-free-text">{{ cms:page:description:rich_text }}</div>
 
         <div class="page__aside-section">
           <h2 class="page__aside-section-title">Contact point</h2>
-          <div class="s-contact-point u-fix-h2-margin">{{ cms:page:contact_point:rich_text }}</div>
+          <div class="s-free-text s-contact-point u-fix-h2-margin">{{ cms:page:contact_point:rich_text }}</div>
         </div>
       </div>
 
@@ -36,7 +36,7 @@
           <span class="u-only-desktop">Expand</span><i data-toggle-switch="graphs-and-diagrams" class="icon--right fa fa-chevron-down"></i>
         </span>
       </h2>
-      <div data-toggle-hide data-toggle-target="graphs-and-diagrams">{{ cms:page:graphs_and_diagrams:rich_text }}</div>
+      <div class="s-free-text" data-toggle-hide data-toggle-target="graphs-and-diagrams">{{ cms:page:graphs_and_diagrams:rich_text }}</div>
 
       <h2 class="page__section-title page__section-title--subtle-border page__section-title--with-padding-mobile">
         Current storyline
@@ -44,7 +44,7 @@
           <span class="u-only-desktop">Expand</span><i data-toggle-switch="current-storyline" class="icon--right fa fa-chevron-down"></i>
         </span>
       </h2>
-      <div data-toggle-hide data-toggle-target="current-storyline">{{ cms:page:current_storyline:rich_text }}</div>
+      <div class="s-free-text" data-toggle-hide data-toggle-target="current-storyline">{{ cms:page:current_storyline:rich_text }}</div>
 
       <h2 class="page__section-title page__section-title--subtle-border page__section-title--with-padding-mobile">
         Data and methodology
@@ -52,7 +52,7 @@
           <span class="u-only-desktop">Expand</span><i data-toggle-switch="data-and-methodology" class="icon--right fa fa-chevron-down"></i>
         </span>
       </h2>
-      <p data-toggle-hide data-toggle-target="data-and-methodology">{{ cms:page:data_and_methodology:rich_text }}</p>
+      <div class="s-free-text" data-toggle-hide data-toggle-target="data-and-methodology">{{ cms:page:data_and_methodology:rich_text }}</div>
 
       <h2 class="page__section-title page__section-title--subtle-border page__section-title--with-padding-mobile">
         National use of indicator
@@ -60,7 +60,7 @@
           <span class="u-only-desktop">Expand</span><i data-toggle-switch="national-use" class="icon--right fa fa-chevron-down"></i>
         </span>
       </h2>
-      <p data-toggle-hide data-toggle-target="national-use">{{ cms:page:national_use_of_indicator:rich_text }}</p>
+      <div class="s-free-text" data-toggle-hide data-toggle-target="national-use">{{ cms:page:national_use_of_indicator:rich_text }}</div>
 
       <div class="u-only-mobile">
         {{ cms:partial:cms/resources }}
@@ -73,7 +73,7 @@
 
       <div class="page__aside-section">
         <h2 class="page__aside-section-title">Contact point</h2>
-        <div class="s-contact-point u-fix-h2-margin">{{ cms:page:contact_point:rich_text }}</div>
+        <div class="s-contact-point s-free-text u-fix-h2-margin">{{ cms:page:contact_point:rich_text }}</div>
       </div>
 
       {{ cms:partial:cms/disaggregations }}
