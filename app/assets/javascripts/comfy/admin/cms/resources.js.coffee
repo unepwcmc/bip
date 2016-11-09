@@ -43,9 +43,9 @@ $(document).ready( ->
       $addTargetEl.find(".js-target").append("""
         <div style="margin-bottom: 1rem;">
           <div class="form-group">
-            <label class="control-label col-sm-2" for="">Target number</label>
+            <label class="control-label col-sm-2" for="">Target title</label>
             <div class="col-sm-10">
-              <input type="text" name="mea[mea_targets_attributes][#{timestamp}][target_number]" placeholder="Target Number" class="form-control">
+              <input type="text" name="mea[mea_targets_attributes][#{timestamp}][target_title]" placeholder="Target Title" class="form-control">
             </div>
           </div>
           <div class="form-group">

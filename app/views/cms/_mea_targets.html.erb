@@ -16,7 +16,7 @@
         <div>
           <h4 class="mea__title"><%= mea.name %></h4>
 
-          <% mea_target_rels.sort_by { |rel| rel.mea_target.target_number }.each do |target_rel| %>
+          <% mea_target_rels.sort_by { |rel| rel.mea_target.target_title }.each do |target_rel| %>
             <div class="target target--secondary">
               <h5 class="target__title"><%= target_title target_rel, :mea %></h5>
               <p class="target__body"><%= target_rel.mea_target.description %></p>

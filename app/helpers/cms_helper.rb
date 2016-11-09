@@ -15,7 +15,12 @@ module CmsHelper
 
   def target_title target_rel, type
     content_tag(:h5, class: "target__title") do
-      concat "Target #{target_rel.send("#{type}_target").target_number}"
+      if type == :mea
+        concat target_rel.send("#{type}_target").target_title
+      else
+        concat "#{target_rel.send("#{type}_target").target_number}"
+      end
+
       if target_rel.official
         concat content_tag(:span, "| Official indicator", class: "target__subtitle target__subtitle--bold")
       else

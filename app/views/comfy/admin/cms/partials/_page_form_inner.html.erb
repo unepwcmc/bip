@@ -171,7 +171,7 @@
         <% Mea.order(:name).all.each do |mea| %>
           <optgroup label="<%= mea.name %>">
             <% mea.mea_targets.each do |mea_target| %>
-              <option <%= @page.official_mea_target_ids.include?(mea_target.id) ? "selected" : "" %> value="<%= mea_target.id %>">Target <%= mea_target.target_number %> - <%= mea_target.description %></option>
+              <option <%= @page.official_mea_target_ids.include?(mea_target.id) ? "selected" : "" %> value="<%= mea_target.id %>">Target <%= mea_target.target_title %> - <%= mea_target.description %></option>
             <% end %>
           </optgroup>
         <% end %>
@@ -186,7 +186,7 @@
         <% Mea.order(:name).all.each do |mea| %>
           <optgroup label="<%= mea.name %>">
             <% mea.mea_targets.each do |mea_target| %>
-              <option <%= @page.relevant_mea_target_ids.include?(mea_target.id) ? "selected" : "" %> value="<%= mea_target.id %>">Target <%= mea_target.target_number %> - <%= mea_target.description %></option>
+              <option <%= @page.relevant_mea_target_ids.include?(mea_target.id) ? "selected" : "" %> value="<%= mea_target.id %>">Target <%= mea_target.target_title %> - <%= mea_target.description %></option>
             <% end %>
           </optgroup>
         <% end %>
