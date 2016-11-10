@@ -42,8 +42,12 @@
               </div>
             </div>
             <p class="aichi-targets__target-description"><%= target.description %></p>
-            <% target.pages.each do |page| %>
-              <a href="<%= page.full_path %>" class="aichi-targets__target-indicator"><%= page.label %></a>
+            <% if target.pages.any? %>
+              <% target.pages.each do |page| %>
+                <a href="<%= page.full_path %>" class="aichi-targets__target-indicator"><%= page.label %></a>
+              <% end %>
+            <% else %>
+              <p class="aichi-targets__target-indicator aichi-targets__target-indicator--bold">No Global Indicators available yet</p>
             <% end %>
           </div>
         <% end %>

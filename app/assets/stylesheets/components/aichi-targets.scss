@@ -57,5 +57,9 @@
   @include e(target-indicator) {
     display: block;
     margin: vr(1) 0;
+
+    @include m(bold) {
+      @include text(normal, bold);
+    }
   }
 }
