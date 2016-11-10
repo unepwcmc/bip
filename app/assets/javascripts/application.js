@@ -14,8 +14,15 @@
 
 window.$ = window.jQuery = global.$ = require("jquery");
 import "babel-polyfill";
+import _ from "underscore";
 import toggle from "modules/toggle";
+import selectGroup from "modules/select_group";
 
 $(document).ready(() => {
   $("[data-toggle-trigger]").each((_i, el) => toggle.initialize(el));
+  _.chain($("[data-select-group]"))
+    .map(el => $(el).data("select-group"))
+    .uniq()
+    .map(group => new selectGroup(group))
+    .each(group => group.openFirst());
 });

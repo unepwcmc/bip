@@ -1,4 +1,4 @@
-export default module.exports = {
+export default {
   initialize: (el) => {
     let $el = $(el);
 

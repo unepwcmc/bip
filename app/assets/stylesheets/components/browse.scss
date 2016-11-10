@@ -17,13 +17,15 @@
     background-color: initial;
     border: none;
     cursor: pointer;
+    margin-bottom: -1px;
 
     &.is-selected {
       font-weight: 700;
       background-color: $white;
       border: solid 1px $border--search-bar;
       border-bottom: solid 1px $white;
-      margin-bottom: -1px;
     }
+
+    &:active, &:focus, &:hover { outline:none; }
   }
 }

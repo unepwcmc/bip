@@ -1,6 +1,7 @@
 @include b(aichi-targets) {
   @include outer-container;
   width: $main__width;
+  margin-bottom: vr(20);
 
   @include e(goal) {
     margin-bottom: vr(2.5);
@@ -46,5 +47,15 @@
     @include text(normal-2, normal);
     color: $text--menu;
     margin: 0;
+  }
+
+  @include e(target-description) {
+    margin: vr(1.5) 0;
+    margin-bottom: 2px;
+  }
+
+  @include e(target-indicator) {
+    display: block;
+    margin: vr(1) 0;
   }
 }
