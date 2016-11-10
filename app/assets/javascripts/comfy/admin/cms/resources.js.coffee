@@ -35,6 +35,8 @@ $(document).ready( ->
         $extraFieldsEl.hide()
     )
 
+    $pageLayoutSelectEl.change()
+
   if ($addTargetEl = $(".js-add-target")).length > 0
     $addTargetEl.find(".js-trigger").click( (ev) ->
       ev.preventDefault()
