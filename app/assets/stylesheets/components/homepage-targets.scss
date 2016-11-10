@@ -62,6 +62,7 @@
 
     @include m(bold) {
       @include text(normal, bold);
+      text-decoration: none;
     }
   }
 }
