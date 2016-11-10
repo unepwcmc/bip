@@ -1,4 +1,4 @@
-@include b(aichi-targets) {
+@include b(homepage-targets) {
   @include outer-container;
   width: $main__width;
   margin-bottom: vr(20);
@@ -12,7 +12,7 @@
   }
 
   @include e(goal-description) {
-    @include text(normal-2, normal);
+    @include text(normal-2);
     margin: vr(.75) 0;
   }
 
@@ -23,6 +23,7 @@
   @include e(target) {
     @include span-columns(4);
     @include omega(3n);
+    margin-bottom: vr(2);
   }
 
   @include e(target-header) {
@@ -44,7 +45,7 @@
   }
 
   @include e(target-name) {
-    @include text(normal-2, normal);
+    @include text(normal-2);
     color: $text--menu;
     margin: 0;
   }
@@ -57,6 +58,7 @@
   @include e(target-indicator) {
     display: block;
     margin: vr(1) 0;
+    text-decoration: underline;
 
     @include m(bold) {
       @include text(normal, bold);

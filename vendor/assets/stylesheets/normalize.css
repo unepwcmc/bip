@@ -250,8 +250,7 @@ textarea {
   margin: 0; /* 2 */
 }
 
-button
-{
+button {
   margin:0;
   border:0;
   padding:0;
@@ -260,6 +259,9 @@ button
   white-space:normal;
   background:none;
   line-height:1;
+}
+button:hover, button:focus, button:active {
+  outline: none;
 }
 
 

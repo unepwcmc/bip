@@ -1,0 +1,36 @@
+<div data-select-group="browse" data-select-target="meas">
+  <div class="themes-browse">
+    <div class="themes-browse__themes">
+      <% Mea.all.each do |mea| %>
+        <div data-select-group="meas" data-select-trigger="<%= mea.id %>" class="themes-browse__theme">
+          <div>
+            <%= image_tag mea.logo.url(:thumb), class: "themes-browse__theme-icon themes-browse__theme-icon--no-radius" %>
+          </div>
+          <h3 class="themes-browse__theme-name"><%= mea.name %></h3>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="homepage-themes">
+    <% Mea.all.each do |mea| %>
+      <div
+        data-select-group="meas"
+        data-select-target="<%= mea.id %>"
+        class="homepage-themes__theme"
+      >
+        <div class="homepage-themes__theme-name"><%= mea.name %></div>
+        <div class="homepage-themes__theme-description"><%= mea.description %></div>
+        <% if mea.mea_targets.flat_map(&:pages).any? %>
+          <% mea.mea_targets.flat_map(&:pages).uniq.each do |page| %>
+            <a href="<%= page.full_path %>"class="homepage-themes__theme-indicator">
+              <%= page.label %> <i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i>
+            </a>
+          <% end %>
+        <% else %>
+          <p class="homepage-themes__theme-indicator homepage-themes__theme-indicator--bold">No Global Indicators available yet</p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

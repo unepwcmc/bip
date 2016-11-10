@@ -1,0 +1,36 @@
+<div data-select-group="browse" data-select-target="themes">
+  <div class="themes-browse">
+    <div class="themes-browse__themes">
+      <% Theme.all.each do |theme| %>
+        <div data-select-group="themes" data-select-trigger="<%= theme.id %>" class="themes-browse__theme">
+          <div>
+            <%= image_tag theme.logo.url(:thumb), class: "themes-browse__theme-icon" %>
+          </div>
+          <h3 class="themes-browse__theme-name"><%= theme.name %></h3>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="homepage-themes">
+    <% Theme.all.each do |theme| %>
+      <div
+        data-select-group="themes"
+        data-select-target="<%= theme.id %>"
+        class="homepage-themes__theme"
+      >
+        <div class="homepage-themes__theme-name"><%= theme.name %></div>
+        <div class="homepage-themes__theme-description"><%= theme.description %></div>
+        <% if theme.pages.any? %>
+          <% theme.pages.each do |page| %>
+            <a href="<%= page.full_path %>"class="homepage-themes__theme-indicator">
+              <%= page.label %> <i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i>
+            </a>
+          <% end %>
+        <% else %>
+          <p class="homepage-themes__theme-indicator homepage-themes__theme-indicator--bold">No Global Indicators available yet</p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

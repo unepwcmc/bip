@@ -3,6 +3,7 @@ import _ from "underscore";
 
 export default class SelectGroup {
   constructor (group) {
+    this.name = group;
     this.selects = _.chain($(`[data-select-group='${group}'][data-select-trigger]`))
       .map(el => $(el).data("select-trigger"))
       .uniq()

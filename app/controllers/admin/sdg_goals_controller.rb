@@ -1,6 +1,6 @@
 class Admin::SdgGoalsController < Comfy::Admin::Cms::BaseController
   def index
-    @sdg_goals = Sdg::Goal.order(:name).all
+    @sdg_goals = Sdg::Goal.order(:position).all
   end
 
   def new
@@ -33,7 +33,7 @@ class Admin::SdgGoalsController < Comfy::Admin::Cms::BaseController
   private
 
   def sdg_goal_params
-    params.require(:sdg_goal).permit(:name, :description, :logo)
+    params.require(:sdg_goal).permit(:name, :description, :position, :logo)
   end
 end
 

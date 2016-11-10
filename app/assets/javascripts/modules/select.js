@@ -2,8 +2,14 @@ export default class Select {
   constructor (group, selectName) {
     this.group = group;
     this.name  = selectName;
-    this.$trigger = $(`[data-select-trigger='${selectName}']`);
-    this.$target = $(`[data-select-target='${selectName}']`);
+    this.$trigger = $(`[data-select-group='${group.name}'][data-select-trigger='${selectName}']`);
+    this.$target = $(`[data-select-group='${group.name}'][data-select-target='${selectName}']`);
+
+    let parentName = this.$trigger.data("select-parent");
+
+    if(parentName) {
+      this.$parent = $(`[data-select-group='${group.name}'][data-select-trigger='${parentName}']`);
+    }
 
     this.$trigger.click(_ev => {
       this.open();
@@ -12,9 +18,11 @@ export default class Select {
 
   open () {
     this.opened = true;
-    console.log(`opening ${this.name}`);
     this.group.closeAll(this.name);
     this.$trigger.addClass("is-selected");
+    if(this.$parent) {
+      this.$parent.addClass("is-selected");
+    }
     this.$target.show();
   }
 

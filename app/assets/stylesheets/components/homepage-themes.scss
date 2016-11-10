@@ -1,0 +1,32 @@
+@include b(homepage-themes) {
+  @include outer-container;
+  width: $main__width;
+  margin-bottom: vr(20);
+
+  @include e(theme-name) {
+    @include text(xlarge, bold);
+    margin-bottom: vr(.75);
+  }
+
+  @include e(theme-description) {
+    @include text(normal-2, normal);
+    margin-bottom: vr(2);
+  }
+
+  @include e(theme-indicator) {
+    display: block;
+    @include text(normal);
+    margin: vr(1) 0;
+    text-decoration: underline;
+
+    @include m(bold) {
+      @include text(normal, bold);
+      text-decoration: none;
+    }
+  }
+
+  @include e(theme-indicator-icon) {
+    margin-left: vr(.25);
+    font-size: vr(.75);
+  }
+}

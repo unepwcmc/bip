@@ -1,4 +1,4 @@
-@include b(aichi-targets-browse) {
+@include b(targets-browse) {
   @include outer-container;
   width: $main__width;
 
@@ -15,10 +15,12 @@
 
   @include e(goal) {
     float: left;
+    height: vr(3);
     padding-right: vr(1.875);
     margin-right: vr(1);
+    margin-bottom: vr(2);
     &:not(:last-child) {
-      border-right: solid 1px $border--aichi-targets;
+      border-right: solid 1px $border--targets;
     }
   }
 
@@ -38,10 +40,20 @@
   @include e(target-icon) {
     width: vr(3);
     height: vr(3);
+    box-sizing: content-box;
     border-radius: vr(.5);
     overflow: hidden;
     margin-left: vr(1);
+    cursor: pointer;
 
     img { width: 100%; }
+
+    &.is-selected {
+      border: solid 5px $border--title;
+      margin-top: -5px;
+    }
+    &.is-selected ~ & {
+      margin-top: -5px;
+    }
   }
 }

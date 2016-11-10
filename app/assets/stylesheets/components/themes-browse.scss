@@ -1,0 +1,40 @@
+@include b(themes-browse) {
+  width: $main__width;
+  border-bottom: solid 1px $border--title;
+  margin-bottom: vr(3);
+  padding: vr(1) 0;
+  @include outer-container;
+
+  @include e(themes) {
+    overflow: hidden;
+    margin: 0 vr(-.75);
+  }
+
+  @include e(theme) {
+    cursor: pointer;
+    @include span-columns(4);
+    @include omega(3n);
+    margin-right: 0;
+    @include flexbox;
+    @include align-items(stretch);
+    padding: vr(1) vr(1.6666666);
+
+    &.is-selected { background-color: $solitude; }
+  }
+
+  @include e(theme-icon) {
+    border-radius: 33px;
+    height: vr(3);
+    margin-right: vr(.75);
+
+    @include m(no-radius) {
+      border-radius: 0;
+    }
+  }
+
+  @include e(theme-name) {
+    @include text(normal);
+    line-height: vr(1.6666666);
+    margin: vr(.75) 0;
+  }
+}

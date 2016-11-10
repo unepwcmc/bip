@@ -1,6 +1,7 @@
 <%= comfy_form_for @sdg_goal, url: {action: action} do |f| %>
   <%= f.text_field :name %>
   <%= f.text_area :description %>
+  <%= f.number_field :position %>
   <%= f.file_field :logo %>
   <%= f.form_group do %>
     <% if @sdg_goal.logo.present? %>
