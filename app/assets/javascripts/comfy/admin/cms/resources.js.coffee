@@ -10,26 +10,14 @@ $(document).ready( ->
         <label style="margin-top: 1rem;" for="resources[][kind]">Type of resource</label>
         <select name="resources[][kind]" class="form-control">
           <option value="file">File</option>
-          <option value="url">URL</option>
+          <option value="link">Link</option>
         </select>
 
         <label style="margin-top: 1rem;" for="resources[][file]">File</label>
         <input type="file" name="resources[][file]" placeholder="File" class="form-control">
 
-        <label style="margin-top: 1rem;" for="resources[][url]">URL</label>
+        <label style="margin-top: 1rem;" for="resources[][url]">Link</label>
         <input style="margin-bottom: 1rem;" type="url" name="resources[][url]" placeholder="Leave blank if resource is a file" class="form-control">
-      """)
-    )
-
-  if ($addDisaggregationsEl = $(".js-add-disaggregation")).length > 0
-    $addDisaggregationsEl.find(".js-trigger").click( (ev) ->
-      ev.preventDefault()
-
-      $addDisaggregationsEl.find(".js-target").append("""
-        <div style="margin-bottom: 1rem;">
-          <input type="text" name="disaggregations[][label]" placeholder="Label" class="form-control">
-          <input type="url" name="disaggregations[][url]" placeholder="URL" class="form-control">
-        </div>
       """)
     )
 

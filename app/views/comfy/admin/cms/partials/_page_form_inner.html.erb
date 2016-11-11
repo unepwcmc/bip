@@ -86,7 +86,7 @@
             <% if resource.kind == "file" %>
               <strong>File:</strong><%= link_to "Download", resource.file.url %><br>
             <% else %>
-              <strong>URL:</strong><%= link_to resource.url, resource.url %><br>
+              <strong>Link:</strong><%= link_to resource.url, resource.url %><br>
             <% end %>
             <%= link_to("Delete resource", admin_resource_path(resource), method: :delete, class: "btn btn-danger") %>
           </div>
