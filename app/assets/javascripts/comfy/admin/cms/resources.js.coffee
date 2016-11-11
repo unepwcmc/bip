@@ -4,8 +4,20 @@ $(document).ready( ->
       ev.preventDefault()
 
       $addResourcesEl.find(".js-target").append("""
+        <label for="resources[][label]">Label</label>
         <input type="text" name="resources[][label]" placeholder="Label" class="form-control">
+
+        <label style="margin-top: 1rem;" for="resources[][kind]">Type of resource</label>
+        <select name="resources[][kind]" class="form-control">
+          <option value="file">File</option>
+          <option value="url">URL</option>
+        </select>
+
+        <label style="margin-top: 1rem;" for="resources[][file]">File</label>
         <input type="file" name="resources[][file]" placeholder="File" class="form-control">
+
+        <label style="margin-top: 1rem;" for="resources[][url]">URL</label>
+        <input style="margin-bottom: 1rem;" type="url" name="resources[][url]" placeholder="Leave blank if resource is a file" class="form-control">
       """)
     )
 

@@ -12,7 +12,10 @@ module CmsAdminExtension
 
     def create_resources
       Array.wrap(params[:resources]).each do |resource|
-        @page.resources.create!(label: resource[:label], file: resource[:file])
+        @page.resources.create!(
+          kind: resource[:kind], url: resource[:url],
+          label: resource[:label], file: resource[:file]
+        )
       end
     end
 
