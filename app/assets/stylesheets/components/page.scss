@@ -17,7 +17,6 @@
     padding-left: 1px;
     @include span-columns(8);
     border-right: solid 1px $border--title;
-    margin-right: vr(2.75);
     padding-right: vr(2.25);
 
     @include only-mobile {
