@@ -1,0 +1,59 @@
+<main class="main">
+  <h1 class="page__title">
+    <span class="page__title--thin">Search results for:</span>
+    <strong><%= params[:q] %></strong>
+  </h1>
+
+  <div class="page">
+    <div class="page__body">
+      <p class="search-page__summary">
+        Showing 1-10 of <%= @results.length %> results found.
+      </p>
+
+      <% @results.map(&:searchable).each do |result| %>
+        <div class="search-page__result">
+          <h2 class="search-page__result-title">
+            <% if result.is_a?(Comfy::Cms::Block) %>
+              <a class="search-page__result-link" href="<%= result.blockable.full_path %>">
+                <%= result.blockable.label %>
+              </a>
+            <% else %>
+              <a class="search-page__result-link" href="<%= result.full_path %>">
+                <%= result.label %>
+              </a>
+            <% end %>
+          </h2>
+
+          <div class="search-page__result-body">
+            <% if result.is_a?(Comfy::Cms::Block) %>
+              <%= search_result(result, params[:q]) %>
+            <% end %>
+          </div>
+
+          <% if result.is_a?(Comfy::Cms::Block) %>
+            <% result.blockable.themes.each do |theme| %>
+              <div class="search-page__result-tag">
+                <em><%= theme.name %></em>
+              </div>
+            <% end %>
+          <% else %>
+            <% result.themes.each do |theme| %>
+              <div class="search-page__result-tag">
+                <em><%= theme.name %></em>
+              </div>
+            <% end %>
+          <% end %>
+
+        </div>
+      <% end %>
+    </div>
+    <div class="page__aside">
+      <h2 class="page__aside-section-title">
+        Filters
+      </h2>
+
+      <p><em>Coming soon...</em></p>
+    </div>
+
+  </div>
+</main>

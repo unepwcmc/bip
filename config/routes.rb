@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     resources :disaggregations, only: [:destroy]
   end
 
+  get "/search" => "search#search"
+
   comfy_route :cms_admin, :path => '/admin'
 
   # Make sure this routeset is defined last

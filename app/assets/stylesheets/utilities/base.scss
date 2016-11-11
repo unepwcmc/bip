@@ -20,3 +20,7 @@ p {
   margin: vr(2) 0;
   @include text(normal, thin);
 }
+
+strong {
+  font-weight: 700;
+}

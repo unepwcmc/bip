@@ -1,0 +1,42 @@
+@include b(search-page) {
+  @include e(summary) {
+    padding-top: vr(1);
+    padding-bottom: vr(2.5);
+    margin: 0;
+    margin-bottom: vr(1.666666);
+    border-bottom: solid 2px $border--title;
+    @include text(normal-2);
+    line-height: 1.125rem;
+  }
+
+  @include e(result) {
+    padding-bottom: vr(2);
+    margin: vr(1.5) 0;
+    overflow: hidden;
+
+  }
+
+  @include e(result-title) {
+    @include text(normal, bold);
+    margin: 0;
+  }
+
+  @include e(result-link) {
+    color: $text--base;
+  }
+
+  @include e(result-body) {
+    margin: 0;
+    margin-bottom: vr(1.5);
+    p { margin: 0; }
+  }
+
+  @include e(result-tag) {
+    float: left;
+    background-color: $solitude;
+    text-align: center;
+    padding: vr(.75) vr(1);
+    margin-right: vr(1);
+    font-weight: 300;
+  }
+}
