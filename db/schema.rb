@@ -122,6 +122,7 @@ ActiveRecord::Schema.define(version: 20161111125356) do
     t.integer  "coverage_id"
     t.boolean  "freely_available"
     t.text     "available_link"
+    t.boolean  "peer_reviewed"
   end
 
   add_index "comfy_cms_pages", ["parent_id", "position"], name: "index_comfy_cms_pages_on_parent_id_and_position", using: :btree
