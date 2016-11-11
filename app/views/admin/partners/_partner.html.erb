@@ -12,7 +12,9 @@
         <%= link_to partner.name, edit_admin_partner_path(partner) %>
       </div>
       <div class="item-meta">
-        <strong>Name:</strong> <%= partner.name %> | <strong>URL:</strong> <a href="<%= partner.url %>"><%= partner.url %></a>
+        <strong>Name:</strong> <%= partner.name %><br>
+        <strong>URL:</strong> <a href="<%= partner.url %>"><%= partner.url %></a><br>
+        <strong>Partner Type:</strong> <%= partner.partner_type&.name %>
       </div>
     </div>
   </div>
