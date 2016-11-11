@@ -18,7 +18,7 @@ module CmsHelper
       if type == :mea
         concat target_rel.send("#{type}_target").target_title
       else
-        concat "#{target_rel.send("#{type}_target").target_number}"
+        concat "Target #{target_rel.send("#{type}_target").target_number}"
       end
 
       if target_rel.official
