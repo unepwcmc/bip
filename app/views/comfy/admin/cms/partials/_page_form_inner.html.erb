@@ -82,7 +82,7 @@
         <% @page.resources.each do |resource| %>
           <div style="margin-bottom: 2rem;">
             <strong>Label:</strong> <%= resource.label %><br>
-            <strong>Type:</strong> <%= resource.kind.titleize %><br>
+            <strong>Type:</strong> <%= resource.kind&.titleize %><br>
             <% if resource.kind == "file" %>
               <strong>File:</strong><%= link_to "Download", resource.file.url %><br>
             <% else %>
