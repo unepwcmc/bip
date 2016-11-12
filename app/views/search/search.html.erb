@@ -25,9 +25,7 @@
           </h2>
 
           <div class="search-page__result-body">
-            <% if result.is_a?(Comfy::Cms::Block) %>
-              <%= search_result(result, params[:q]) %>
-            <% end %>
+            <%= search_result(result, params[:q]) %>
           </div>
 
           <% if result.is_a?(Comfy::Cms::Block) %>
