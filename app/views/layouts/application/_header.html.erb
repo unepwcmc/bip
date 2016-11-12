@@ -30,6 +30,7 @@
       <% else %>
         <div class="breadcrumbs u-only-desktop">
           <%= breadcrumb "Home", "/", true %>
+          <%= yield :breadcrumbs %>
         </div>
       <% end %>
     </div>
