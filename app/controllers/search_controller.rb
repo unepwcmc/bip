@@ -5,6 +5,12 @@ class SearchController < ApplicationController
       return
     end
 
-    @results = PgSearch.multisearch(params[:q]).limit(10)
+    @results = PgSearch.multisearch(params[:q]).map(&:searchable).uniq do |r|
+      if r.is_a?(Comfy::Cms::Block)
+        r.blockable.label
+      else
+        r.label
+      end
+    end
   end
 end

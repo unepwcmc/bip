@@ -7,10 +7,10 @@
   <div class="page">
     <div class="page__body">
       <p class="search-page__summary">
-        Showing 1-10 of <%= @results.length %> results found.
+        Showing 1-10 of <%= @results.size %> results found.
       </p>
 
-      <% @results.map(&:searchable).each do |result| %>
+      <% @results.each do |result| %>
         <div class="search-page__result">
           <h2 class="search-page__result-title">
             <% if result.is_a?(Comfy::Cms::Block) %>
