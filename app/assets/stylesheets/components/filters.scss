@@ -1,0 +1,61 @@
+@include b(filters) {
+  @include e(title) {
+    padding: vr(1) 0;
+    border-bottom: solid 2px $border--title;
+  }
+
+  @include e(body) {
+    padding: vr(1.25) 2px;
+  }
+
+  @include e(subtitle) {
+    @include text(normal-2, bold);
+    margin: 0;
+    line-height: vr(2.8333333);
+  }
+
+  @include e(bucket-name) {
+    @include text(normal-2);
+    margin: 2px 0;
+    cursor: pointer;
+  }
+
+  @include e(bucket-toggle) {
+    float: right;
+  }
+
+  @include e(bucket-item) {
+    @include flexbox;
+    @include align-items(stretch);
+    margin: vr(1) 0;
+    cursor: pointer;
+  }
+
+  @include e(bucket-item-title) {
+    margin: 0;
+    color: $text--base;
+    @include text(normal);
+    text-align: left;
+  }
+
+  @include e(bucket-item-left) {
+    @include flexbox;
+    @include align-items(center);
+  }
+
+  @include e(bucket-item-toggle) {
+    width: vr(1.5);
+    height: vr(1.5);
+
+    border: solid 1px $border--title;
+    margin-right: vr(1);
+
+    &.is-selected {
+      &:before {
+        content: '\f00c';
+        @include fa-icon;
+        vertical-align: super;
+      }
+    }
+  }
+}

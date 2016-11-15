@@ -6,9 +6,6 @@ export default {
     let $targetEl = $(`[data-toggle-target='${toggleId}']`);
     let $switchEl = $(`[data-toggle-switch='${toggleId}']`);
 
-    if($targetEl.is("[data-toggle-hide]")) {
-      $targetEl.hide();
-    }
 
     $el.click((ev) => {
       ev.preventDefault();
@@ -25,5 +22,9 @@ export default {
         }
       }
     });
+
+    if($targetEl.is("[data-toggle-hide]")) {
+      $el.click();
+    }
   }
 };

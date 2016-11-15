@@ -1,0 +1,81 @@
+<div class="page__aside">
+  <h2 class="filters__title">
+    Filters
+  </h2>
+
+  <div class="filters__body">
+    <p class="filters__subtitle">Filter by:</p>
+
+    <p data-toggle-trigger="aichi-targets" class="filters__bucket-name">
+      Aichi targets
+      <i data-toggle-switch="aichi-targets" class="fa fa-chevron-up filters__bucket-toggle"></i>
+    </p>
+    <div <%= "data-toggle-hide" unless params[:filters]&.has_key?(:aichi_targets) %> data-toggle-target="aichi-targets" class="filters__bucket">
+      <% @all_filters[:aichi_targets].each do |target| %>
+        <a href="<%= filter_link(:aichi_targets, target.id)  %>" class="filters__bucket-item">
+          <div class="filters__bucket-item-left">
+            <div class="<%= bucket_item_toggle_class(:aichi_targets, target.id) %>"></div>
+          </div>
+          <span class="filters__bucket-item-title">
+            Target <%= target.target_number %> - <%= target.name %>
+          </span>
+        </a>
+      <% end %>
+    </div>
+
+
+    <p data-toggle-trigger="sdgs" class="filters__bucket-name">
+      SDGs
+      <i data-toggle-switch="sdgs" class="fa fa-chevron-up filters__bucket-toggle"></i>
+    </p>
+    <div <%= "data-toggle-hide" unless params[:filters]&.has_key?(:sdgs) %> data-toggle-target="sdgs" class="filters__bucket">
+      <% @all_filters[:sdgs].each do |goal| %>
+        <a href="<%= filter_link(:sdgs, goal.id)  %>" class="filters__bucket-item">
+          <div class="filters__bucket-item-left">
+            <div class="<%= bucket_item_toggle_class(:sdgs, goal.id) %>"></div>
+          </div>
+          <span class="filters__bucket-item-title">
+            <%= goal.name %>
+          </span>
+        </a>
+      <% end %>
+    </div>
+
+
+    <p data-toggle-trigger="meas" class="filters__bucket-name">
+      MEAs
+      <i data-toggle-switch="meas" class="fa fa-chevron-up filters__bucket-toggle"></i>
+    </p>
+    <div <%= "data-toggle-hide" unless params[:filters]&.has_key?(:meas) %> data-toggle-target="meas" class="filters__bucket">
+      <% @all_filters[:meas].each do |mea| %>
+        <a href="<%= filter_link(:meas, mea.id)  %>" class="filters__bucket-item">
+          <div class="filters__bucket-item-left">
+            <div class="<%= bucket_item_toggle_class(:meas, mea.id) %>"></div>
+          </div>
+          <span class="filters__bucket-item-title">
+            <%= mea.name %>
+          </span>
+        </a>
+      <% end %>
+    </div>
+
+
+    <p data-toggle-trigger="themes" class="filters__bucket-name">
+      Themes
+      <i data-toggle-switch="themes" class="fa fa-chevron-up filters__bucket-toggle"></i>
+    </p>
+    <div <%= "data-toggle-hide" unless params[:filters]&.has_key?(:themes) %> data-toggle-target="themes" class="filters__bucket">
+      <% @all_filters[:themes].each do |theme| %>
+        <a href="<%= filter_link(:themes, theme.id)  %>" class="filters__bucket-item">
+          <div class="filters__bucket-item-left">
+            <div class="<%= bucket_item_toggle_class(:themes, theme.id) %>"></div>
+          </div>
+          <span class="filters__bucket-item-title">
+            <%= theme.name %>
+          </span>
+        </a>
+      <% end %>
+    </div>
+
+  </div>
+</div>
