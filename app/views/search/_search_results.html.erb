@@ -1,0 +1,34 @@
+<% (@results || []).each do |result| %>
+  <div class="search-page__result">
+    <h2 class="search-page__result-title">
+      <% if result.is_a?(Comfy::Cms::Block) %>
+        <a class="search-page__result-link" href="<%= result.blockable.full_path %>">
+          <%= result.blockable.label %>
+        </a>
+      <% else %>
+        <a class="search-page__result-link" href="<%= result.full_path %>">
+          <%= result.label %>
+        </a>
+      <% end %>
+    </h2>
+
+    <div class="search-page__result-body">
+      <%= search_result(result, params[:q]) %>
+    </div>
+
+    <% if result.is_a?(Comfy::Cms::Block) %>
+      <% result.blockable.themes.each do |theme| %>
+        <div class="search-page__result-tag">
+          <em><%= theme.name %></em>
+        </div>
+      <% end %>
+    <% else %>
+      <% result.themes.each do |theme| %>
+        <div class="search-page__result-tag">
+          <em><%= theme.name %></em>
+        </div>
+      <% end %>
+    <% end %>
+
+  </div>
+<% end %>

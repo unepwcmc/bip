@@ -23,6 +23,7 @@ class SearchController < ApplicationController
     }
 
     @results = filter_results(@results, params[:filters]) if params[:filters]
+    @results = paginate_results(@results, params[:page], params[:per_page])
   end
 
   private
@@ -57,5 +58,15 @@ class SearchController < ApplicationController
     results.map { |result|
       result.is_a?(Comfy::Cms::Block) ? result.blockable : result
     }
+  end
+
+  def paginate_results results, page, per_page
+    @per_page = (per_page || 10).to_i
+    @page = page.to_i
+
+    @from = @page * @per_page
+    @to = @from + (@per_page - 1)
+
+    results[@from..@to]
   end
 end

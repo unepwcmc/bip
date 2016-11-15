@@ -16,6 +16,7 @@ window.$ = window.jQuery = global.$ = require("jquery");
 import "babel-polyfill";
 import _ from "underscore";
 import toggle from "modules/toggle";
+import pagination from "modules/pagination";
 import selectGroup from "modules/select_group";
 
 $(document).ready(() => {
@@ -25,4 +26,6 @@ $(document).ready(() => {
     .uniq()
     .map(group => new selectGroup(group))
     .each(group => group.openFirst());
+
+  pagination.perPageSelector($("[data-per-page-selector]"));
 });
