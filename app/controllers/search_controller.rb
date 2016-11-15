@@ -13,7 +13,6 @@ class SearchController < ApplicationController
       end
     end
 
-    @results = filter_results(@results, params[:filters]) if params[:filters]
     pages = extract_pages(@results)
 
     @all_filters = {
@@ -22,6 +21,8 @@ class SearchController < ApplicationController
       meas: pages.flat_map(&:mea_targets).map(&:mea).uniq.sort_by(&:name),
       themes: pages.flat_map(&:themes).uniq.sort_by(&:name)
     }
+
+    @results = filter_results(@results, params[:filters]) if params[:filters]
   end
 
   private
