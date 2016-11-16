@@ -4,7 +4,7 @@ module SearchHelper
       doc = Nokogiri::HTML(result.content)
 
       translation = "translate(., '#{query.upcase}', '#{query.downcase}')"
-      text = doc.xpath("//p[contains(#{translation}, #{query})]").first.to_s
+      text = doc.xpath("//p[contains(#{translation}, '#{query}')]").first.to_s
 
       regex = Regexp.new("(#{params[:q]})", true)
       raw(text.gsub(regex, '<strong>\1</strong>'))
