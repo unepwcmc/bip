@@ -10,7 +10,7 @@
 
   @include e(image) {
     margin-right: vr(2.5);
-    min-width: vr(5);
+    width: vr(5);
     img { width: 100%; }
   }
 

@@ -6,7 +6,7 @@
     </span>
   </h2>
 
-  <div class="u-only-desktop mea__container" data-toggle-target="sdg-targets">
+  <div class="u-only-desktop mea__container" data-toggle-hide data-toggle-target="sdg-targets">
     <% sorted_sdg_target_rels  = @cms_page.page_sdg_target_rels.sort_by { |rel| rel.sdg_target.sdg_goal.name } %>
     <% grouped_sdg_target_rels = sorted_sdg_target_rels.group_by { |rel| rel.sdg_target.sdg_goal } %>
 
@@ -24,6 +24,21 @@
             </div>
           <% end %>
 
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="u-only-desktop mea__container" data-toggle-target-alt="sdg-targets">
+    <% sorted_sdg_target_rels  = @cms_page.page_sdg_target_rels.sort_by { |rel| rel.sdg_target.sdg_goal.name } %>
+    <% grouped_sdg_target_rels = sorted_sdg_target_rels.group_by { |rel| rel.sdg_target.sdg_goal } %>
+
+    <% grouped_sdg_target_rels.each do |(sdg_goal, sdg_target_rels)| %>
+      <div class="mea">
+        <div class="mea__image"><%= image_tag sdg_goal.logo.url(:thumb) %></div>
+        <div>
+          <h4 class="mea__title"><%= sdg_goal.name %></h4>
+          <p class="mea__description"><%= sdg_goal.description %></p>
         </div>
       </div>
     <% end %>

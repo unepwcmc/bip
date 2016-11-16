@@ -6,7 +6,7 @@
       </span>
   </h2>
 
-  <div class="u-only-desktop mea__container" data-toggle-target="mea-targets">
+  <div class="u-only-desktop mea__container" data-toggle-hide data-toggle-target="mea-targets">
     <% sorted_mea_target_rels  = @cms_page.page_mea_target_rels.sort_by { |rel| rel.mea_target.mea.name } %>
     <% grouped_mea_target_rels = sorted_mea_target_rels.group_by { |rel| rel.mea_target.mea } %>
 
@@ -23,6 +23,20 @@
             </div>
           <% end %>
 
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="u-only-desktop mea__container" data-toggle-target-alt="mea-targets">
+    <% sorted_mea_target_rels  = @cms_page.page_mea_target_rels.sort_by { |rel| rel.mea_target.mea.name } %>
+    <% grouped_mea_target_rels = sorted_mea_target_rels.group_by { |rel| rel.mea_target.mea } %>
+
+    <% grouped_mea_target_rels.each do |(mea, mea_target_rels)| %>
+      <div class="mea">
+        <div class="mea__image"><%= image_tag mea.logo.url(:thumb) %></div>
+        <div>
+          <h4 class="mea__title"><%= mea.name %></h4>
         </div>
       </div>
     <% end %>

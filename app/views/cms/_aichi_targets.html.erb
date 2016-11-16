@@ -6,7 +6,7 @@
     </span>
   </h2>
 
-  <div class="u-only-desktop" data-toggle-target="aichi-targets">
+  <div class="u-only-desktop" data-toggle-hide data-toggle-target="aichi-targets">
     <% if @cms_page.primary_aichi_target %>
       <h3 class="page__subsection-title">Primary target</h3>
 
@@ -30,6 +30,23 @@
           <p class="target__body"><%= target.description %></p>
         </div>
       <% end %>
+    <% end %>
+  </div>
+
+
+  <div class="u-only-desktop" data-toggle-target-alt="aichi-targets">
+    <% if @cms_page.primary_aichi_target %>
+      <h3 class="page__subsection-title">Primary target</h3>
+
+      <div class="target target--primary target--flex">
+        <div class="target__image">
+          <%= image_tag @cms_page.primary_aichi_target.logo.try(:url, :thumb) %>
+        </div>
+        <div>
+          <h4 class="target__title">Target <%= @cms_page.primary_aichi_target.target_number %>:</h4>
+          <p class="target__body"><%= @cms_page.primary_aichi_target.description %></p>
+        </div>
+      </div>
     <% end %>
   </div>
 
