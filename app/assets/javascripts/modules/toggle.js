@@ -7,16 +7,14 @@ export default {
     let $targetAltEl = $(`[data-toggle-target-alt='${toggleId}']`);
     let $switchEl = $(`[data-toggle-switch='${toggleId}']`);
 
-    $targetEl.show();
-    $targetAltEl.hide();
+    $targetEl.removeClass("u-hide");
+    $targetAltEl.addClass("u-hide");
 
     $el.click((ev) => {
       ev.preventDefault();
-      $targetEl.toggle();
 
-      if($targetAltEl.length > 0) {
-        $targetAltEl.toggle();
-      }
+      $targetEl.toggleClass("u-hide");
+      $targetAltEl.toggleClass("u-hide");
 
       if($switchEl.length > 0) {
         $switchEl.toggleClass("fa-chevron-down fa-chevron-up");

@@ -11,21 +11,22 @@
     <% grouped_sdg_target_rels = sorted_sdg_target_rels.group_by { |rel| rel.sdg_target.sdg_goal } %>
 
     <% grouped_sdg_target_rels.each do |(sdg_goal, sdg_target_rels)| %>
-      <div class="mea">
-        <div class="mea__image"><%= image_tag sdg_goal.logo.url(:thumb) %></div>
-        <div>
-          <h4 class="mea__title"><%= sdg_goal.name %></h4>
-          <p class="mea__description"><%= sdg_goal.description %></p>
+      <table class="mea">
+        <tr>
+          <td class="mea__image"><%= image_tag sdg_goal.logo.url(:thumb) %></td>
+          <td class="mea__body">
+            <h4 class="mea__title"><%= sdg_goal.name %></h4>
+            <p class="mea__description"><%= sdg_goal.description %></p>
 
-          <% sdg_target_rels.sort_by { |rel| rel.sdg_target.target_number }.each do |target_rel| %>
-            <div class="target target--secondary">
-              <h5 class="target__title"><%= target_title target_rel, :sdg %></h5>
-              <p class="target__body"><%= target_rel.sdg_target.description %></p>
-            </div>
-          <% end %>
-
-        </div>
-      </div>
+            <% sdg_target_rels.sort_by { |rel| rel.sdg_target.target_number }.each do |target_rel| %>
+              <div class="target target--secondary">
+                <h5 class="target__title"><%= target_title target_rel, :sdg %></h5>
+                <p class="target__body"><%= target_rel.sdg_target.description %></p>
+              </div>
+            <% end %>
+          </td>
+        </tr>
+      </table>
     <% end %>
   </div>
 
@@ -34,20 +35,22 @@
     <% grouped_sdg_target_rels = sorted_sdg_target_rels.group_by { |rel| rel.sdg_target.sdg_goal } %>
 
     <% grouped_sdg_target_rels.each do |(sdg_goal, sdg_target_rels)| %>
-      <div class="mea">
-        <div class="mea__image"><%= image_tag sdg_goal.logo.url(:thumb) %></div>
-        <div>
-          <h4 class="mea__title"><%= sdg_goal.name %></h4>
-          <p class="mea__description"><%= sdg_goal.description %></p>
-        </div>
-      </div>
+      <table class="mea">
+        <tr>
+          <td class="mea__image"><%= image_tag sdg_goal.logo.url(:thumb) %></td>
+          <td class="mea__body">
+            <h4 class="mea__title"><%= sdg_goal.name %></h4>
+            <p class="mea__description"><%= sdg_goal.description %></p>
+          </td>
+        </tr>
+      </table>
     <% end %>
   </div>
 
   <div class="u-clearfix u-only-mobile">
-    <% @cms_page.sdg_targets.each do |target| %>
+    <% @cms_page.sdg_targets.map(&:sdg_goal).uniq.each do |goal| %>
       <div class="target__image">
-        <%= image_tag target.logo.try(:url, :thumb) %>
+        <%= image_tag goal.logo.try(:url, :thumb) %>
       </div>
     <% end %>
   </div>

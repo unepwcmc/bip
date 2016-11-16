@@ -11,20 +11,22 @@
     <% grouped_mea_target_rels = sorted_mea_target_rels.group_by { |rel| rel.mea_target.mea } %>
 
     <% grouped_mea_target_rels.each do |(mea, mea_target_rels)| %>
-      <div class="mea">
-        <div class="mea__image"><%= image_tag mea.logo.url(:thumb) %></div>
-        <div>
-          <h4 class="mea__title"><%= mea.name %></h4>
+      <table class="mea">
+        <tr>
+          <td class="mea__image"><%= image_tag mea.logo.url(:thumb) %></td>
+          <td class="mea__body">
+            <h4 class="mea__title"><%= mea.name %></h4>
 
-          <% mea_target_rels.sort_by { |rel| rel.mea_target.target_title }.each do |target_rel| %>
-            <div class="target target--secondary">
-              <h5 class="target__title"><%= target_title target_rel, :mea %></h5>
-              <p class="target__body"><%= target_rel.mea_target.description %></p>
-            </div>
-          <% end %>
+            <% mea_target_rels.sort_by { |rel| rel.mea_target.target_title }.each do |target_rel| %>
+              <div class="target target--secondary">
+                <h5 class="target__title"><%= target_title target_rel, :mea %></h5>
+                <p class="target__body"><%= target_rel.mea_target.description %></p>
+              </div>
+            <% end %>
 
-        </div>
-      </div>
+          </td>
+        </tr>
+      </table>
     <% end %>
   </div>
 
@@ -33,17 +35,19 @@
     <% grouped_mea_target_rels = sorted_mea_target_rels.group_by { |rel| rel.mea_target.mea } %>
 
     <% grouped_mea_target_rels.each do |(mea, mea_target_rels)| %>
-      <div class="mea">
-        <div class="mea__image"><%= image_tag mea.logo.url(:thumb) %></div>
-        <div>
-          <h4 class="mea__title"><%= mea.name %></h4>
-        </div>
-      </div>
+      <table class="mea">
+        <tr>
+          <td class="mea__image"><%= image_tag mea.logo.url(:thumb) %></td>
+          <td class="mea__body">
+            <h4 class="mea__title"><%= mea.name %></h4>
+          </td>
+        </tr>
+      </table>
     <% end %>
   </div>
 
   <div class="u-clearfix u-only-mobile">
-    <% @cms_page.mea_targets.each do |target| %>
+    <% @cms_page.mea_targets.map(&:mea).uniq.each do |target| %>
       <div class="target__image">
         <%= image_tag target.logo.try(:url, :thumb) %>
       </div>

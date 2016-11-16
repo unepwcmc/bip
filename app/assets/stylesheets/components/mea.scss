@@ -1,6 +1,8 @@
 @include b(mea) {
-  @include flexbox;
-  @include justify-content(stretch);
+  display: table;
+  vertical-align: top;
+  table-layout: fixed;
+  border-collapse: collapsed;
 
   margin: vr(2.5) 0;
 
@@ -9,9 +11,13 @@
   }
 
   @include e(image) {
-    margin-right: vr(2.5);
+    vertical-align: top;
     width: vr(5);
     img { width: 100%; }
+  }
+
+  @include e(body) {
+    padding-left: vr(2.5);
   }
 
   @include e(title) {
