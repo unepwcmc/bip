@@ -9,7 +9,7 @@
               data-select-trigger="goal_<%= goal.id %>"
               class="targets-browse__goal-title"
             ><%= goal.name %></h3>
-            <% goal.aichi_targets.each do |target|  %>
+            <% goal.aichi_targets.order(:position).each do |target|  %>
               <button
                 data-select-group="aichi-targets"
                 data-select-trigger="target_<%= target.id %>"
@@ -36,7 +36,7 @@
       </div>
 
       <div class="homepage-targets__targets">
-        <% goal.aichi_targets.order(:target_number).each do |target| %>
+        <% goal.aichi_targets.order(:position).each do |target| %>
           <div
             class="homepage-targets__target"
           >
