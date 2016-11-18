@@ -5,8 +5,8 @@
     <% @cms_page.partners.each_with_index do |partner, i| %>
       <table class="<%= i.zero? ? "u-fix-h2-margin" : "" %> partners__partner">
         <tr>
-          <td>
-            <%= image_tag partner.logo.url(:thumb), class: "partners__image" %>
+          <td class="partners__image">
+            <%= image_tag partner.logo.url(:thumb) %>
           </td>
           <td>
             <p class="partners__name"><%= partner.name %></p>

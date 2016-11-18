@@ -9,7 +9,7 @@
   }
 
   @include e(theme-description) {
-    @include text(normal-2, normal);
+    @include font(body);
     margin-bottom: vr(2);
   }
 

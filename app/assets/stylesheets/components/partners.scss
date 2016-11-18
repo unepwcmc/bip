@@ -18,9 +18,16 @@
   }
 
   @include e(image) {
-    height: vr(5);
-    width: vr(5);
+    width: vr(5.75);
     margin-right: vr(2.33333333);
+
+    @include flexbox;
+    @include justify-content(center);
+    @include align-items(center);
+    background-color: $white;
+    padding: vr(.75);
+
+    img { width: 100%; }
   }
 
   @include e(name) {
