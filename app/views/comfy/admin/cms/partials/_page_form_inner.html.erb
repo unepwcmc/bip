@@ -105,7 +105,7 @@
     <div class="col-sm-10">
       <select style="width: 100%" class="js-select2" multiple="multiple" name="page[disaggregation_target_ids][]">
         <% selected_disaggregations = @page.disaggregations.map(&:target).map(&:id)  %>
-        <% Comfy::Cms::Page.find_by_label("Indicators").children.reject { |p| p.id == @page.id }.each do |page| %>
+        <% Comfy::Cms::Page.find_by_label("Indicators").descendants.reject { |p| p.id == @page.id }.each do |page| %>
           <option <%= selected_disaggregations.include?(page.id) ? "selected" : "" %> value="<%= page.id %>"><%= page.label %></option>
         <% end %>
       </select>
