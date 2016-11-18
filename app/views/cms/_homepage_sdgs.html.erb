@@ -2,17 +2,15 @@
   <div class="targets-browse">
     <div class="targets-browse__goals-container">
       <div class="targets-browse__goals">
-        <div class="targets-browse__goal">
-          <% Sdg::Goal.order(:position).all.each do |goal| %>
-            <button
-              class="targets-browse__target-icon"
-              data-select-group="sdgs"
-              data-select-trigger="<%= goal.id %>"
-            >
-              <%= image_tag goal.logo.url(:thumb) %>
-            </button>
-          <% end %>
-        </div>
+        <% Sdg::Goal.order(:position).all.each do |goal| %>
+          <button
+            class="targets-browse__target-icon targets-browse__target-icon--sdg"
+            data-select-group="sdgs"
+            data-select-trigger="<%= goal.id %>"
+          >
+            <%= image_tag goal.logo.url(:medium) %>
+          </button>
+        <% end %>
       </div>
     </div>
   </div>

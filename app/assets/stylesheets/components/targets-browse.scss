@@ -60,24 +60,34 @@
     width: vr(3);
     height: vr(3);
     box-sizing: content-box;
-    border-radius: vr(.5);
-    overflow: hidden;
     margin-left: vr(1);
     cursor: pointer;
+    position: relative;
 
     @include only-mobile {
       width: vr(2);
       height: vr(2);
     }
 
+    @include m(sdg) {
+      width: vr(8);
+      height: vr(8);
+      margin-bottom: vr(2);
+    }
+
     img { width: 100%; }
 
     &.is-selected {
-      border: solid 5px $border--title;
-      margin-top: -5px;
-    }
-    &.is-selected ~ & {
-      margin-top: -5px;
+      &:after {
+        content: "";
+        position: absolute;
+        border: solid 5px $border--title;
+        border-radius: vr(.5);
+        top: -5px;
+        left: -5px;
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 }
