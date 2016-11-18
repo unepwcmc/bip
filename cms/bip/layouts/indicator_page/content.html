@@ -3,16 +3,24 @@
 
   <div class="page">
     <div class="page__body">
-      <div class="u-only-desktop">
+      <div class="page__section u-only-desktop">
         <h2 class="page__section-title">Indicator description</h2>
         <div class="s-free-text">{{ cms:page:description:rich_text }}</div>
       </div>
 
       <div class="target__container">
-        {{ cms:partial:cms/aichi_targets }}
-        {{ cms:partial:cms/sdg_targets }}
-        {{ cms:partial:cms/mea_targets }}
-        {{ cms:partial:cms/themes }}
+        <div class="page__section">
+          {{ cms:partial:cms/aichi_targets }}
+        </div>
+        <div class="page__section">
+          {{ cms:partial:cms/sdg_targets }}
+        </div>
+        <div class="page__section">
+          {{ cms:partial:cms/mea_targets }}
+        </div>
+        <div class="page__section">
+          {{ cms:partial:cms/themes }}
+        </div>
         <div class="u-only-mobile">
           {{ cms:partial:cms/mobile_partners }}
         </div>
@@ -32,32 +40,32 @@
 
       <h2 class="page__section-title page__section-title--subtle-border page__section-title--with-padding-mobile">
         Graphs / Diagrams
-        <span data-toggle-trigger="graphs-and-diagrams" class="page__section-toggle u-noselect">
-          <span class="u-only-desktop">Collapse</span><i data-toggle-switch="graphs-and-diagrams" class="icon--right fa fa-chevron-up"></i>
+        <span data-toggle-trigger="graphs-and-diagrams" data-toggle-text-closed="Expand" class="page__section-toggle u-noselect">
+          <span class="u-only-desktop"></span><i data-toggle-switch="graphs-and-diagrams" class="icon--right fa fa-chevron-up"></i>
         </span>
       </h2>
       <div class="s-free-text" data-toggle-hide data-toggle-target="graphs-and-diagrams">{{ cms:page:graphs_and_diagrams:rich_text }}</div>
 
       <h2 class="page__section-title page__section-title--subtle-border page__section-title--with-padding-mobile">
         Current storyline
-        <span data-toggle-trigger="current-storyline" class="page__section-toggle u-noselect">
-          <span class="u-only-desktop">Collapse</span><i data-toggle-switch="current-storyline" class="icon--right fa fa-chevron-up"></i>
+        <span data-toggle-trigger="current-storyline" data-toggle-text-closed="Expand" class="page__section-toggle u-noselect">
+          <span class="u-only-desktop"></span><i data-toggle-switch="current-storyline"  class="icon--right fa fa-chevron-up"></i>
         </span>
       </h2>
       <div class="s-free-text" data-toggle-hide data-toggle-target="current-storyline">{{ cms:page:current_storyline:rich_text }}</div>
 
       <h2 class="page__section-title page__section-title--subtle-border page__section-title--with-padding-mobile">
         Data and methodology
-        <span data-toggle-trigger="data-and-methodology" class="page__section-toggle u-noselect">
-          <span class="u-only-desktop">Collapse</span><i data-toggle-switch="data-and-methodology" class="icon--right fa fa-chevron-up"></i>
+        <span data-toggle-trigger="data-and-methodology" data-toggle-text-closed="Expand" class="page__section-toggle u-noselect">
+          <span class="u-only-desktop"></span><i data-toggle-switch="data-and-methodology"  class="icon--right fa fa-chevron-up"></i>
         </span>
       </h2>
       <div class="s-free-text" data-toggle-hide data-toggle-target="data-and-methodology">{{ cms:page:data_and_methodology:rich_text }}</div>
 
       <h2 class="page__section-title page__section-title--subtle-border page__section-title--with-padding-mobile">
         National use of indicator
-        <span data-toggle-trigger="national-use" class="page__section-toggle u-noselect">
-          <span class="u-only-desktop">Collapse</span><i data-toggle-switch="national-use" class="icon--right fa fa-chevron-up"></i>
+        <span data-toggle-trigger="national-use" data-toggle-text-closed="Expand" class="page__section-toggle u-noselect">
+          <span class="u-only-desktop"></span><i data-toggle-switch="national-use" class="icon--right fa fa-chevron-up"></i>
         </span>
       </h2>
       <div class="s-free-text" data-toggle-hide data-toggle-target="national-use">{{ cms:page:national_use_of_indicator:rich_text }}</div>

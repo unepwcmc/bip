@@ -1,5 +1,4 @@
 @include b(main) {
-  @include mobile-container;
   width: $main__width;
   margin: auto;
 

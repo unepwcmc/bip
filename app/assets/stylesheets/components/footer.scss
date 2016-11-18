@@ -1,6 +1,5 @@
 @include b(footer) {
-  border-top: solid vr(1) $scooter;
-  background-color: $tangaroa;
+  background-color: $navy-blue;
   color: $white;
 
   @include e(content) {
@@ -15,14 +14,24 @@
   }
 
   @include e(navigation) {
+    background-color: $prussian-blue;
     line-height: vr(2);
     margin-bottom: vr(1);
   }
 
+  @include e(navigation-inner) {
+    width: $main__width;
+    padding: vr(1.333333) 0;
+    margin: auto;
+
+    @include only-mobile {
+      width: 87%;
+    }
+  }
+
   @include e(navigation-link) {
+    @include font(footer-top);
     margin-right: vr(3);
-    text-decoration: underline;
-    color: $white;
 
     @include only-mobile {
       display: block;
@@ -50,21 +59,24 @@
   }
 
   @include e(column-title) {
-    @include text(normal, bold);
+    @include font(footer-title);
     margin-bottom: 0;
+
+    @include m(big) {
+      @include font(footer-title-big);
+    }
   }
 
   @include e(column-body) {
+    @include font(footer-body);
     margin-top: vr(.75);
 
-    @include text(small, thin);
-    color: $white;
     @include m(no-margin) {
       margin-top: 0;
     }
   }
 
   @include e(copyright) {
-    @include text(small, thin);
+    @include font(copyright);
   }
 }

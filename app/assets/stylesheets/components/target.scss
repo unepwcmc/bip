@@ -34,7 +34,7 @@
   }
 
   @include e(title) {
-    @include text(normal, bold);
+    @include font(partner-name);
   }
 
   @include e(subtitle) {

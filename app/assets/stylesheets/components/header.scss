@@ -1,9 +1,14 @@
 @include b(header) {
-  background-color: $solitude;
+  @include only-desktop {
+    margin-bottom: vr(1.75);
+  }
 
   @include e(content) {
+    p { color: $white; }
+
     width: $main__width;
     margin: auto;
+    overflow: hidden;
 
     @include only-mobile {
       width: 100%;
@@ -12,11 +17,11 @@
   }
 
   @include e(top) {
-    border-bottom: solid 2px $white;
+    background-color: $white;
+  }
 
-    @include only-mobile {
-      border-bottom: none;
-    }
+  @include e(bottom) {
+    background-color: $prussian-blue;
   }
 
   @include e(element) {
@@ -35,8 +40,6 @@
   }
 
   @include e(menu) {
-    @include text(xsmall, bold);
-    color: $text--menu;
     text-align: center;
 
     padding: vr(.25) vr(.75);
@@ -44,5 +47,21 @@
     margin: 0;
 
     background-color: $white;
+  }
+
+  @include e(logo) {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: image-url("b-i-p-logo@2x.png");
+    background-image: -webkit-image-set(
+      image-url("b-i-p-logo.png") 1x,
+      image-url("b-i-p-logo@2x.png") 2x
+    );
+
+    display: block;
+    float: left;
+    height: 50px;
+    width: 120px;
+    margin: vr(.75) 0;
   }
 }

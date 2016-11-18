@@ -3,15 +3,19 @@
     <h2 class="page__aside-section-title">Partners</h2>
 
     <% @cms_page.partners.each_with_index do |partner, i| %>
-      <div class="<%= i.zero? ? "u-fix-h2-margin" : "" %> partners__partner">
-        <div class="u-pull-left">
-          <%= image_tag partner.logo.url(:thumb), class: "partners__image" %>
-        </div>
-        <p class="partners__name"><%= partner.name %></p>
-        <%= link_to partner.url, target: "_blank" do %>
-          <p class="partners__link page__aside-link">View their website ></p>
-        <% end %>
-      </div>
+      <table class="<%= i.zero? ? "u-fix-h2-margin" : "" %> partners__partner">
+        <tr>
+          <td>
+            <%= image_tag partner.logo.url(:thumb), class: "partners__image" %>
+          </td>
+          <td>
+            <p class="partners__name"><%= partner.name %></p>
+            <%= link_to partner.url, target: "_blank" do %>
+              <p class="partners__link page__aside-link">View their website ></p>
+            <% end %>
+          </td>
+        </tr>
+      </table>
     <% end %>
 
   </div>

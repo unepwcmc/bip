@@ -1,4 +1,4 @@
 @include b(s-free-text) {
-  @include text(normal, thin);
+  @include font(body);
   img { max-width: 100%; }
 }

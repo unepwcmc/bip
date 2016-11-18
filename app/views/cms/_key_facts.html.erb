@@ -18,9 +18,10 @@
 
   <h3 class="fact__subtitle">Availability</h3>
   <p class="fact__value">
-    <%= @cms_page.freely_available ? "Freely available" : "Not freely available" %>
     <% if @cms_page.freely_available %>
-      <br> <%= link_to @cms_page.available_link, @cms_page.available_link %>
+      <%= link_to "Freely available", @cms_page.available_link %>
+    <% else %>
+      Not freely available
     <% end %>
   </p>
 </div>

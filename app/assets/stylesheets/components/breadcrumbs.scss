@@ -1,20 +1,20 @@
 @include b(breadcrumbs) {
-  padding: vr(1.5) 0;
+  padding-top: vr(1.5);
   @include mobile-container;
 
   @include e(divider) {
     text-align: center;
     width: vr(3);
     line-height: vr(2);
-    color: $text--link;
+    color: $white;
   }
 
   @include e(element) {
-    color: $text--link;
-    font-weight: 500;
+    color: $white;
+    @include font(breadcrumb);
 
     @include m(link) {
-      text-decoration: underline;
+      @include font(breadcrumb--link);
     }
   }
 }

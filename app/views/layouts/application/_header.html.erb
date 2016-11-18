@@ -1,9 +1,8 @@
 <header class="header">
-  <div class="header__content">
-    <div class="header__top u-clearfix">
+  <div class="header__top u-clearfix">
+    <div class="header__content">
       <div class="header__navigation">
-        <h3 class="header__element header__element--title u-pull-left u-only-desktop">Biodiversity Indicators Partnership</h3>
-        <h3 class="header__element header__element--title u-pull-left u-only-mobile">BIP Website</h3>
+        <a class="header__logo" href="/"></a>
         <div class="header__element u-pull-right u-only-desktop">
           <%= link_to "Home", "/", class: "header__element" %>
           <%= link_to "About", "#", class: "header__element" %>
@@ -16,11 +15,13 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="header__bottom">
+    <div class="header__content">
       <% if @cms_page %>
         <% if @cms_page.full_path == "/" %>
-          <div class="homepage__hero-text">
-            <%= cms_block_content(:hero_text).html_safe %>
-          </div>
+          <%= cms_block_content(:hero_text).html_safe %>
         <% else %>
           <div class="breadcrumbs u-only-desktop">
             <%= breadcrumb "Home", "/", true %>
@@ -33,15 +34,8 @@
           <%= yield :breadcrumbs %>
         </div>
       <% end %>
+
+      <%= yield :page_title %>
     </div>
   </div>
 </header>
-
-<div class="breadcrumbs mobile-container u-only-mobile">
-  <% if @cms_page %>
-    <%= breadcrumb "Home", "/", true %>
-    <%= breadcrumb(@cms_page.label) %>
-  <% else %>
-    <%= breadcrumb "Home", "/", true %>
-  <% end %>
-</div>

@@ -3,10 +3,10 @@
   margin-bottom: vr(10);
 
   @include e(title) {
+    @include font(page-title);
     margin-top: vr(2);
-    border-bottom: solid 4px $border--title;
-    padding: vr(1) 0;
-    margin-bottom: vr(1.5);
+    margin-bottom: vr(2.5);
+
     @include only-mobile {
       margin-top: 0;
       padding: 4px 0;
@@ -20,18 +20,18 @@
   @include e(body) {
     padding-left: 1px;
     @include span-columns(8);
-    border-right: solid 1px $border--title;
     padding-right: vr(2.25);
 
     @include only-mobile {
       margin-right: 0;
       padding-right: 0;
       width: 100%;
-      border-right: none;
     }
   }
 
   @include e(aside) {
+    background-color: $white-two;
+    padding: 0 vr(2);
     width: 30.96%;
     float: left;
   }
@@ -45,20 +45,28 @@
       border-bottom: solid 1px $border--title;
     }
 
-    @include m(last-mobile) {
-      margin-top: vr(1.5);
-      border-bottom: none;
+    @include only-mobile {
+      @include m(last-mobile) {
+        margin-top: vr(1.5);
+        border-bottom: none;
+      }
     }
   }
 
-  @include e(aside-link) {
-    font-weight: 500;
-    text-decoration: underline;
+  @include e(aside-section-title) {
+    @include font(aside-section-title);
+    margin-bottom: vr(1.5);
+  }
+
+  @include e(section) {
+    margin-bottom: vr(3.5);
   }
 
   @include e(section-title) {
     margin-top: vr(2);
-    padding: vr(1) 0;
+    padding-bottom: vr(.75);
+
+    @include font(section-title);
 
     @include only-mobile {
       padding: 0;
@@ -66,18 +74,18 @@
     }
 
     @include only-desktop {
-      border-bottom: solid 2px $border--title;
-      margin-top: vr(2);
-      padding: vr(1) 0;
+      border-bottom: solid 2px $pinkish-grey;
     }
 
     @include m(subtle-border) {
-      border-bottom: solid 1px $border--title;
+      border-bottom-width: 1px;
     }
 
-    @include m(no-margin-top-mobile) {
-      margin-top: 0;
-      padding: 0;
+    @include only-mobile {
+      @include m(no-margin-top-mobile) {
+        margin-top: 0;
+        padding: 0;
+      }
     }
 
     @include m(smaller-mobile) {
@@ -100,16 +108,15 @@
   }
 
   @include e(section-toggle) {
-    color: $text--link;
     cursor: pointer;
     float: right;
-    @include text(normal, bold);
-    line-height: vr(2.8333333);
+    @include font(italic-link);
   }
 
   @include e(subsection-title) {
-    @include text(xlarge, thin);
+    @include font(subsection-title);
     margin-top: vr(2);
+    padding-bottom: vr(.333333);
     border-bottom: solid 1px $border--title;
   }
 }

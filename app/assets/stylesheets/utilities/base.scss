@@ -9,16 +9,18 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 a {
-  @include text(normal, bold);
-  color: $text--link;
+  @include font(link);
   text-decoration: none;
 
-  &:hover { color: $text--link; }
+  &:hover {
+    color: $text--link;
+    text-decoration: underline;
+  }
 }
 
 p {
   margin: vr(2) 0;
-  @include text(normal, thin);
+  @include font(body);
 }
 
 strong {

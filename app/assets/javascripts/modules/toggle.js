@@ -1,6 +1,7 @@
 export default {
   initialize: (el) => {
     let $el = $(el);
+    let elClosedText = $el.data("toggle-text-closed");
 
     let toggleId  = $el.data("toggle-trigger");
     let $targetEl = $(`[data-toggle-target='${toggleId}']`);
@@ -18,12 +19,13 @@ export default {
 
       if($switchEl.length > 0) {
         $switchEl.toggleClass("fa-chevron-down fa-chevron-up");
-        if($el.html().indexOf("Expand") > -1) {
-          $el.html($el.html().replace("Expand", "Collapse"));
-          $switchEl = $(`[data-toggle-switch='${toggleId}']`);
+      }
+
+      if(elClosedText) {
+        if($switchEl.hasClass("fa-chevron-down")) {
+          $el.find("span").html(elClosedText);
         } else {
-          $el.html($el.html().replace("Collapse", "Expand"));
-          $switchEl = $(`[data-toggle-switch='${toggleId}']`);
+          $el.find("span").html("");
         }
       }
     });

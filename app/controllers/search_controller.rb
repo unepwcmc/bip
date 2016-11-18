@@ -1,16 +1,20 @@
 class SearchController < ApplicationController
   def search
-    if not params.has_key?(:q)
+    if !params.has_key?(:q) && !params.has_key?(:filters)
       redirect_to "/"
       return
     end
 
-    @results = PgSearch.multisearch(params[:q]).map(&:searchable).uniq do |r|
-      if r.is_a?(Comfy::Cms::Block)
-        r.blockable.label
-      else
-        r.label
+    if params.has_key?(:q)
+      @results = PgSearch.multisearch(params[:q]).map(&:searchable).uniq do |r|
+        if r.is_a?(Comfy::Cms::Block)
+          r.blockable.label
+        else
+          r.label
+        end
       end
+    else
+      @results = Comfy::Cms::Page.all
     end
 
     pages = extract_pages(@results)

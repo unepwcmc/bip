@@ -3,12 +3,17 @@
   padding-top: vr(.75);
   width: $main__width;
 
+  @include only-mobile {
+    width: 87%;
+    border-bottom: none;
+  }
+
   @include e(title) {
     margin: vr(1.1666666) 0;
   }
 
   @include e(category) {
-    float:left;
+    float: left;
     padding: vr(.75) vr(2.5);
     margin: 0;
     font-size: vr(1.1666666);
@@ -18,6 +23,11 @@
     border: none;
     cursor: pointer;
     margin-bottom: -1px;
+
+    @include only-mobile {
+      padding: vr(.75) vr(1);
+      font-size: vr(1);
+    }
 
     &.is-selected {
       font-weight: 700;

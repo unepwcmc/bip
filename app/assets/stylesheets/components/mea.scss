@@ -6,10 +6,6 @@
 
   margin: vr(2.5) 0;
 
-  @include e(container) {
-    padding: vr(.5) 0;
-  }
-
   @include e(image) {
     vertical-align: top;
     width: vr(5);
@@ -21,7 +17,7 @@
   }
 
   @include e(title) {
-    @include text(xlarge, thin);
+    @include font(subsection-title);
   }
 
   @include e(description) {

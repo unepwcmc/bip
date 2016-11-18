@@ -2,6 +2,10 @@
   @include outer-container;
   width: $main__width;
 
+  @include only-mobile {
+    width: 87%;
+  }
+
   @include e(goals-container) {
     border-bottom: solid 1px $border--title;
     margin-bottom: vr(3);
@@ -15,12 +19,20 @@
 
   @include e(goal) {
     float: left;
-    height: vr(3);
-    padding-right: vr(1.875);
-    margin-right: vr(1);
     margin-bottom: vr(2);
-    &:not(:last-child) {
-      border-right: solid 1px $border--targets;
+
+    @include only-desktop {
+      height: vr(3);
+      padding-right: vr(1.875);
+      margin-right: vr(1);
+      &:not(:last-child) {
+        border-right: solid 1px $border--targets;
+      }
+    }
+
+    @include only-mobile {
+      float: none;
+      height: vr(2);
     }
   }
 
@@ -31,6 +43,13 @@
     padding: vr(.75) vr(1);
     margin-right: vr(1);
     height: vr(3);
+
+    @include only-mobile {
+      font-size: 12px;
+      padding: 5px;
+      line-height: 1;
+      height: vr(2);
+    }
 
     &.is-selected {
       background-color: $border--title;
@@ -45,6 +64,11 @@
     overflow: hidden;
     margin-left: vr(1);
     cursor: pointer;
+
+    @include only-mobile {
+      width: vr(2);
+      height: vr(2);
+    }
 
     img { width: 100%; }
 

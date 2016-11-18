@@ -1,15 +1,17 @@
 <footer class="footer">
-  <div class="footer__content">
-    <div class="footer__navigation">
-      <%= link_to "Home", "#", class: "footer__navigation-link" %>
+  <div class="footer__navigation">
+    <div class="footer__navigation-inner">
+      <%= link_to "Home", "/", class: "footer__navigation-link" %>
       <%= link_to "About", "#", class: "footer__navigation-link" %>
       <%= link_to "National indicators", "#", class: "footer__navigation-link" %>
       <%= link_to "Partners", "#", class: "footer__navigation-link" %>
       <%= link_to "Resources", "#", class: "footer__navigation-link" %>
     </div>
+  </div>
+  <div class="footer__content">
     <div class="footer__columns u-clearfix">
       <div class="footer__column footer__column--large">
-        <h3 class="u-no-margin-bottom">BIP Secretariat</h3>
+        <h3 class="footer__column-title footer__column-title--big u-no-margin-bottom">BIP Secretariat</h3>
         <p class="footer__column-body">
           The BIP Secretariat is hosted by the UNEP World Conservation Monitoring
           Centre in Cambridge, UK. Please do not hesitate to contact our global
@@ -40,7 +42,7 @@
         </a>
       </div>
     </div>
-    <p class="copyright">
+    <p class="footer__copyright">
       Copyright 2016 UNEP WCMC
     </p>
   </div>

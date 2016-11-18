@@ -1,12 +1,17 @@
 <%= content_for :breadcrumbs do %>
   <%= breadcrumb "Search" %>
 <% end %>
+<%= content_for :page_title do %>
+  <h1 class="page__title">
+    <span class="page__title--thin">Search results</span>
+
+    <% if params[:q] %>
+      <span> for:</span> <strong><%= params[:q] %></strong>
+    <% end %>
+  </h1>
+<% end %>
 
 <main class="main">
-  <h1 class="page__title">
-    <span class="page__title--thin">Search results for:</span>
-    <strong><%= params[:q] %></strong>
-  </h1>
 
   <div class="page">
     <div class="page__body">

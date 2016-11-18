@@ -3,6 +3,10 @@
   width: $main__width;
   margin-bottom: vr(20);
 
+  @include only-mobile {
+    width: 87%;
+  }
+
   @include e(goal) {
     margin-bottom: vr(2.5);
   }
@@ -24,6 +28,10 @@
     @include span-columns(4);
     @include omega(3n);
     margin-bottom: vr(2);
+
+    @include only-mobile {
+      @include span-columns(12);
+    }
   }
 
   @include e(target-header) {

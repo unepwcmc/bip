@@ -1,11 +1,13 @@
 @include b(fact) {
   @include e(subtitle) {
-    margin-top: vr(1.5);
-    font-size: 1.125rem;
+    @include font(fact-subtitle);
   }
 
   @include e(value) {
-    margin: vr(.25) 0;
-    font-size: 1.125rem;
+    margin: 0;
+    margin-bottom: vr(1);
+    @include font(fact-value);
+
+    a { @include font(italic-link); }
   }
 }

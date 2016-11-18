@@ -1,74 +1,129 @@
-$form-factors: (
-  xxlarge: (
-    font-size: 1.75rem, line-height: vr(3)
+@import url('https://fonts.googleapis.com/css?family=Merriweather:900|Open+Sans:300,400,600');
+
+$font-book: (
+  link: (
+    font-family: Open Sans,
+    font-size: 1rem,
+    font-weight: bold,
+    color: $prussian-blue,
   ),
-  xlarge: (
-    font-size: 1.5rem, line-height: vr(2.83333333)
+  footer-title-big: (
+    font-family: Merriweather,
+    font-size: 1.25rem,
+    font-weight: 900,
+    line-height: 1.5,
+    color: $white
   ),
-  large: (
-    font-size: 1.25rem, line-height: vr(2.5)
+  footer-title: (
+    font-family: Merriweather,
+    font-size: 1rem,
+    font-weight: 900,
+    line-height: 1.5,
+    color: $white
   ),
-  normal: (
-    font-size: 1rem, line-height: vr(2)
+  footer-body: (
+    font-family: Open Sans,
+    font-size: .875rem,
+    line-height: 1.7,
+    color: $white
   ),
-  normal-2: (
-    font-size: 1.125rem, line-height: vr(2)
+  footer-top: (
+    font-family: Open Sans,
+    font-size: 1rem,
+    font-weight: 600,
+    line-height: 1.5,
+    color: $white
   ),
-  small: (
-    font-size: .875rem, line-height: vr(2)
+  breadcrumb: (
+    font-family: Open Sans,
+    font-size: .875rem,
+    font-weight: 600,
+    line-height: 1.7,
+    color: $white
   ),
-  xsmall: (
-    font-size: .75rem, line-height: vr(1.16666666)
+  breadcrumb--link: (
+    font-family: Open Sans,
+    font-size: .875rem,
+    font-weight: bold,
+    font-style: italic,
+    text-decoration: underline,
+    line-height: 1.7,
+    color: $white
+  ),
+  page-title: (
+    font-family: Merriweather,
+    font-size: 1.75rem,
+    font-weight: 900,
+    line-height: 1.3,
+    color: $white
+  ),
+  section-title: (
+    font-family: Merriweather,
+    font-size: 1.375rem,
+    font-weight: 900,
+    line-height: 1.5,
+    color: $prussian-blue
+  ),
+  body: (
+    font-family: Open Sans,
+    font-size: .875rem,
+    line-height: 1.6,
+    color: $dark
+  ),
+  aside-section-title: (
+    font-family: Merriweather,
+    font-size: 1.375rem,
+    font-weight: 900,
+    line-height: 1.5,
+    color: $navy-blue
+  ),
+  fact-subtitle: (
+    font-family: Open Sans,
+    font-size: 1rem,
+    font-weight: bold,
+    line-height: 1.6,
+    color: $dark
+  ),
+  fact-value: (
+    font-family: Open Sans,
+    font-size: 1rem,
+    line-height: 1.5,
+    color: $dark
+  ),
+  italic-link: (
+    font-family: Open Sans,
+    font-size: 1rem,
+    font-weight: bold,
+    font-style: italic,
+    line-height: 1.5,
+    color: $prussian-blue
+  ),
+  partner-name: (
+    font-family: Merriweather,
+    font-size: 1rem,
+    font-weight: bold,
+    line-height: 1.6,
+    color: $dark
+  ),
+  subsection-title: (
+    font-family: Open Sans,
+    font-size: 1.5rem,
+    font-weight: 300,
+    line-height: 1.4,
+    color: $dark
+  ),
+  copyright: (
+    font-family: Helvetica,
+    font-size: 14px,
+    line-height: 1.4,
+    color: $white
   )
 );
 
-@function form-factor($name, $property: null) {
-  $form-factor: map-get($form-factors, $name);
+@mixin text($a, $b: normal) { }
 
-  @if($property) {
-    @return map-get($form-factor, $property);
-  } @else {
-    @return $form-factor;
-  }
-}
-
-@mixin form-factor($name) {
-  @each $property, $value in form-factor($name) {
+@mixin font($name) {
+  @each $property, $value in map-get($font-book, $name) {
     #{$property}: #{$value};
   }
-}
-
-$weights: (
-  x-thin: 100,
-  thin:   300,
-  normal: 500,
-  bold:   700,
-  x-bold: 900
-);
-
-@function weight($name) {
-  @return map-get($weights, $name);
-}
-
-@mixin font-weight($weight) {
-  font-weight: weight($weight);
-}
-
-@mixin text($form-factor, $weight: normal) {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-
-  @if($weight != null) {
-    @include font-weight($weight);
-  }
-
-  @include form-factor($form-factor);
-}
-
-@mixin text--alt($form-factor, $weight: normal) {
-  font-family: 'Georgia';
-  @if($weight != null) {
-    @include font-weight($weight);
-  }
-
-  @include form-factor($form-factor);
 }

@@ -1,13 +1,19 @@
 @include b(partners) {
   @include e(partner) {
-    margin-top: vr(3);
+    margin-bottom: vr(3);
+    display: table;
+    table-layout: fixed;
+    border-collapse: collapse;
+    vertical-align: top;
+
+    td { vertical-align: top; }
 
     h2 + & {
-      margin-top: vr(2);
+      margin-top: vr(.5);
     }
 
     &:last-child {
-      margin-bottom: vr(2);
+      margin-bottom: vr(1);
     }
   }
 
@@ -18,7 +24,7 @@
   }
 
   @include e(name) {
-    font-weight: 700;
+    @include font(partner-name);
     margin-top: 0;
     margin-bottom: vr(1);
   }
@@ -26,8 +32,7 @@
   @include e(link) {
     margin-top: vr(1);
     margin-bottom: 0;
-    color: $text--base;
+    @include font(italic-link);
 
-    &:hover { color: $text--link; }
   }
 }

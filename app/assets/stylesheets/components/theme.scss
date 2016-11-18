@@ -2,17 +2,13 @@
   margin: vr(2) 0;
   width: 50%;
   float: left;
+  @include outer-container;
   @include omega(2n);
   @include flexbox;
   @include align-items(stretch);
 
-  @include e(container) {
-    padding-bottom: vr(1);
-    @include outer-container;
-  }
-
   @include e(title) {
-    @include text(normal, bold);
+    @include font(partner-name);
   }
 
   @include e(image) {
@@ -23,9 +19,7 @@
 
   @include e(link) {
     display: block;
-    @include text(normal, normal);
-    color: $text--base;
-    text-decoration: underline;
+    @include font(italic-link);
     margin: vr(.75) 0;
   }
 }

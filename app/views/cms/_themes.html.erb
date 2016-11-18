@@ -3,7 +3,7 @@
     Themes
   </h2>
 
-  <div class="u-only-desktop theme__container">
+  <div class="u-only-desktop u-clearfix">
     <% sorted_themes = @cms_page.themes.sort_by(&:name) %>
 
     <% sorted_themes.each do |theme| %>
@@ -11,7 +11,7 @@
         <div class="theme__image"><%= image_tag theme.logo.url(:thumb) %></div>
         <div>
           <h4 class="theme__title"><%= theme.name %></h4>
-          <a class="theme__link" href="#">View related indicators ></a>
+          <a class="theme__link" href="<%= search_path(filters: {themes: [theme.id]}) %>">View related indicators ></a>
         </div>
       </div>
     <% end %>
