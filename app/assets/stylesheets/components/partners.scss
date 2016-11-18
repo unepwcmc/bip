@@ -19,6 +19,7 @@
 
   @include e(image) {
     width: vr(5.75);
+    height: vr(5.75);
     margin-right: vr(2.33333333);
 
     @include flexbox;
