@@ -29,6 +29,19 @@
 
     @include m(no-radius) {
       border-radius: 0;
+      width: vr(5.75);
+      height: vr(5.75);
+
+      @include flexbox;
+      @include justify-content(center);
+      @include align-items(center);
+      background-color: $white;
+      padding: vr(.75);
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
     }
   }
 

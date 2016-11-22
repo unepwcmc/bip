@@ -7,8 +7,15 @@
   margin: vr(2.5) 0;
 
   @include e(image) {
-    vertical-align: top;
-    width: vr(5);
+    width: vr(5.75);
+    height: vr(5.75);
+
+    @include flexbox;
+    @include justify-content(center);
+    @include align-items(center);
+    background-color: $white;
+    padding: vr(.75);
+
     img { width: 100%; }
   }
 

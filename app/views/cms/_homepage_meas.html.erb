@@ -3,8 +3,8 @@
     <div class="themes-browse__themes">
       <% Mea.all.each do |mea| %>
         <div data-select-group="meas" data-select-trigger="<%= mea.id %>" class="themes-browse__theme">
-          <div>
-            <%= image_tag mea.logo.url(:thumb), class: "themes-browse__theme-icon themes-browse__theme-icon--no-radius" %>
+          <div class="themes-browse__theme-icon themes-browse__theme-icon--no-radius">
+            <%= image_tag mea.logo.url(:thumb) %>
           </div>
           <h3 class="themes-browse__theme-name"><%= mea.name %></h3>
         </div>
