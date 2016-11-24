@@ -13,7 +13,6 @@ module CmsAdminExtension
 
     def create_resources
       if params[:resources]
-        byebug
         resources = params[:resources].select do |resource|
           resource[:id] || resource[:label].present?
         end.map do |resource|
