@@ -25,6 +25,7 @@
         <% else %>
           <div class="breadcrumbs u-only-desktop">
             <%= breadcrumb "Home", "/", true %>
+            <%= yield :breadcrumbs %>
             <%= breadcrumb(@cms_page.label) %>
           </div>
         <% end %>

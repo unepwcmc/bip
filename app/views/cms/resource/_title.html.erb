@@ -1,4 +1,7 @@
 <%= content_for :page_title do %>
   <h1 class="page__title"><%= @cms_page.label %></h1>
 <% end %>
+<%= content_for :breadcrumbs do %>
+  <%= breadcrumb(@cms_page.parent.label, @cms_page.parent.full_path) %>
+<% end %>
 

@@ -1,8 +1,10 @@
 <main class="main">
   {{ cms:partial:cms/resource/title }}
   <div class="page">
-  <div class="page__body">
-    <div class="s-free-text">{{ cms:page:content:rich_text }}</div>
-  </div>
+    <div class="page__body">
+      <div class="s-free-text">{{ cms:page:content:rich_text }}</div>
+
+      {{ cms:partial:cms/resource/attachments }}
+    </div>
   </div>
 </main>
