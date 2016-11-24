@@ -1,0 +1,14 @@
+@include b(resources) {
+  width: $main__width;
+  @include outer-container;
+
+  @include e(filters) {
+    @include span-columns(4);
+    padding-right: vr(2.75);
+    border-right: solid 1px $border--title;
+  }
+
+  @include e(results) {
+    @include span-columns(8);
+  }
+}

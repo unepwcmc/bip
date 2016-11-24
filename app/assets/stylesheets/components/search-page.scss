@@ -5,7 +5,7 @@
     margin: 0;
     margin-bottom: vr(1.666666);
     border-bottom: solid 2px $border--title;
-    @include text(normal-2);
+    @include font(search-result-title);
     line-height: 1.125rem;
   }
 
@@ -18,7 +18,7 @@
   }
 
   @include e(result-title) {
-    @include text(normal, bold);
+    @include font(search-result-title);
     margin: 0;
   }
 

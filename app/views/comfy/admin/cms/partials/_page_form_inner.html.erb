@@ -1,3 +1,61 @@
+<div data-extra-fields="Resource">
+  <div class="form-group">
+    <%= form.label :tags, :class => 'control-label col-sm-2' %>
+    <div class="col-sm-10">
+      <select style="width: 100%" class="js-select2-tags" multiple="multiple" name="page[tags][]">
+        <% Tag.pluck(:id, :name).each do |(id, name)| %>
+          <option <%= @page.other_tag_ids.include?(id) ? "selected" : "" %> value="<%= id %>"><%= name %></option>
+        <% end %>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :resources, :class => 'control-label col-sm-2' %>
+    <div class="col-sm-10">
+      <% if @page.resources.any? %>
+        <% @page.resources.each do |resource| %>
+          <div style="margin-bottom: 2rem;">
+            <div data-resource-show="<%= resource.id %>">
+              <strong>Label:</strong> <%= resource.label %><br>
+              <strong>Type:</strong> <%= resource.kind&.titleize %><br>
+              <% if resource.kind == "file" %>
+                <strong>File:</strong><%= link_to "Download", resource.file.url %><br>
+              <% else %>
+                <strong>Link:</strong><%= link_to resource.url, resource.url %><br>
+              <% end %>
+            </div>
+            <div style="display:none" data-resource-edit="<%= resource.id %>">
+              <label for="resources[][label]">Label</label>
+              <input type="text" name="resources[][label]" value="<%= resource.label %>" class="form-control">
+
+              <label style="margin-top: 1rem;" for="resources[][kind]">Type of resource</label>
+              <select name="resources[][kind]" class="form-control">
+                <option <%= "selected" if resource.kind == "file" %>value="file">File</option>
+                <option <%= "selected" if resource.kind == "link" %> value="link">Link</option>
+              </select>
+
+              <label style="margin-top: 1rem;" for="resources[][file]">File</label>
+              <input type="file" name="resources[][file]" placeholder="File" class="form-control">
+
+              <label style="margin-top: 1rem;" for="resources[][url]">Link</label>
+              <input style="margin-bottom: 1rem;" type="url" name="resources[][url]" value="<%= resource.url %>" placeholder="Leave blank if resource is a file" class="form-control">
+            </div>
+
+            <button data-resource-trigger="<%= resource.id %>" class="btn btn-primary">Edit resource</button>
+            <%= link_to("Delete resource", admin_resource_path(resource), method: :delete, class: "btn btn-danger") %>
+          </div>
+        <% end %>
+      <% end %>
+
+      <div class="js-add-resources">
+        <div class="js-target"></div>
+        <button class="js-trigger btn btn-primary">Add new resource</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div data-extra-fields="Indicator page">
   <hr>
 
@@ -118,8 +176,10 @@
     <%= form.label :partners, :class => 'control-label col-sm-2' %>
     <div class="col-sm-10">
       <select style="width: 100%" class="js-select2" multiple="multiple" name="page[partner_ids][]">
+        <% page_partner_ids = @page.partner_ids %>
+
         <% Partner.pluck(:id, :name).each do |(id, name)| %>
-          <option <%= @page.partner_ids.include?(id) ? "selected" : "" %> value="<%= id %>"><%= name %></option>
+          <option <%= page_partner_ids.include?(id) ? "selected" : "" %> value="<%= id %>"><%= name %></option>
         <% end %>
       </select>
     </div>
@@ -142,8 +202,10 @@
     <%= form.label :secondary_aichi_targets, :class => 'control-label col-sm-2' %>
     <div class="col-sm-10">
       <select style="width: 100%" class="js-select2" multiple="multiple" name="page[secondary_aichi_target_ids][]">
+        <% page_secondary_aichi_target_ids = @page.secondary_aichi_target_ids %>
+
         <% Aichi::Target.order(:target_number).all.each do |target| %>
-          <option <%= @page.secondary_aichi_target_ids.include?(target.id) ? "selected" : "" %> value="<%= target.id %>">Target <%= target.target_number %> - <%= target.description %></option>
+          <option <%= page_secondary_aichi_target_ids.include?(target.id) ? "selected" : "" %> value="<%= target.id %>">Target <%= target.target_number %> - <%= target.description %></option>
         <% end %>
       </select>
     </div>
@@ -155,8 +217,10 @@
     <%= form.label :official_sdg_targets, :class => 'control-label col-sm-2' %>
     <div class="col-sm-10">
       <select style="width: 100%" class="js-select2" multiple="multiple" name="page[official_sdg_target_ids][]">
+        <% page_official_sdg_target_ids = @page.official_sdg_target_ids %>
+
         <% Sdg::Target.order(:target_number).all.each do |target| %>
-          <option <%= @page.official_sdg_target_ids.include?(target.id) ? "selected" : "" %> value="<%= target.id %>">Target <%= target.target_number %> - <%= target.description %></option>
+          <option <%= page_official_sdg_target_ids.include?(target.id) ? "selected" : "" %> value="<%= target.id %>">Target <%= target.target_number %> - <%= target.description %></option>
         <% end %>
       </select>
     </div>
@@ -166,8 +230,10 @@
     <%= form.label :relevant_sdg_targets, :class => 'control-label col-sm-2' %>
     <div class="col-sm-10">
       <select style="width: 100%" class="js-select2" multiple="multiple" name="page[relevant_sdg_target_ids][]">
+        <% page_relevant_sdg_target_ids = @page.relevant_sdg_target_ids %>
+
         <% Sdg::Target.order(:target_number).all.each do |target| %>
-          <option <%= @page.relevant_sdg_target_ids.include?(target.id) ? "selected" : "" %> value="<%= target.id %>">Target <%= target.target_number %> - <%= target.description %></option>
+          <option <%= page_relevant_sdg_target_ids.include?(target.id) ? "selected" : "" %> value="<%= target.id %>">Target <%= target.target_number %> - <%= target.description %></option>
         <% end %>
       </select>
     </div>
@@ -179,10 +245,12 @@
     <%= form.label :official_mea_targets, :class => 'control-label col-sm-2' %>
     <div class="col-sm-10">
       <select style="width: 100%" class="js-select2" multiple="multiple" name="page[official_mea_target_ids][]">
+        <% page_official_mea_target_ids = @page.official_mea_target_ids %>
+
         <% Mea.order(:name).all.each do |mea| %>
           <optgroup label="<%= mea.name %>">
             <% mea.mea_targets.each do |mea_target| %>
-              <option <%= @page.official_mea_target_ids.include?(mea_target.id) ? "selected" : "" %> value="<%= mea_target.id %>"><%= mea_target.target_title %> - <%= mea_target.description %></option>
+              <option <%= page_official_mea_target_ids.include?(mea_target.id) ? "selected" : "" %> value="<%= mea_target.id %>"><%= mea_target.target_title %> - <%= mea_target.description %></option>
             <% end %>
           </optgroup>
         <% end %>
@@ -194,10 +262,12 @@
     <%= form.label :relevant_mea_targets, :class => 'control-label col-sm-2' %>
     <div class="col-sm-10">
       <select style="width: 100%" class="js-select2" multiple="multiple" name="page[relevant_mea_target_ids][]">
+        <% page_relevant_mea_target_ids = @page.relevant_mea_target_ids %>
+
         <% Mea.order(:name).all.each do |mea| %>
           <optgroup label="<%= mea.name %>">
             <% mea.mea_targets.each do |mea_target| %>
-              <option <%= @page.relevant_mea_target_ids.include?(mea_target.id) ? "selected" : "" %> value="<%= mea_target.id %>"><%= mea_target.target_title %> - <%= mea_target.description %></option>
+              <option <%= page_relevant_mea_target_ids.include?(mea_target.id) ? "selected" : "" %> value="<%= mea_target.id %>"><%= mea_target.target_title %> - <%= mea_target.description %></option>
             <% end %>
           </optgroup>
         <% end %>

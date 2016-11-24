@@ -9,13 +9,13 @@
   }
 
   @include e(subtitle) {
-    @include text(normal-2, bold);
+    @include font(fact-subtitle);
     margin: 0;
     line-height: vr(2.8333333);
   }
 
   @include e(bucket-name) {
-    @include text(normal-2);
+    @include font(fact-value);
     margin: 2px 0;
     cursor: pointer;
   }
@@ -33,8 +33,7 @@
 
   @include e(bucket-item-title) {
     margin: 0;
-    color: $text--base;
-    @include text(normal);
+    @include font(body);
     text-align: left;
   }
 

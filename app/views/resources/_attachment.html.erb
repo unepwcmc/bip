@@ -1,0 +1,13 @@
+<% result.resources.each_with_index do |resource, i| %>
+  <p class="<%= i.zero? ? "u-fix-h2-margin" : "" %>">
+    <% if resource.kind == "file" %>
+      <%= link_to resource.file.url do %>
+        <i class="icon--left fa fa-download"></i><span class="page__aside-link"><%= resource.label %></span>
+      <% end %>
+    <% else %>
+      <%= link_to resource.url do %>
+        <i class="icon--left fa fa-link"></i><span class="page__aside-link"><%= resource.label %></span>
+      <% end %>
+    <% end %>
+  </p>
+<% end %>

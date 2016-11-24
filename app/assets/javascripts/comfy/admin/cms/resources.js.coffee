@@ -21,7 +21,23 @@ $(document).ready( ->
       """)
     )
 
+  if ($resourceEl = $("[data-resource-trigger]")).length > 0
+    $resourceEl.each( (_i, el) ->
+      $el = $(el)
+      resourceId = $el.data("resource-trigger")
+
+      $showEl = $("[data-resource-show='#{resourceId}']")
+      $editEl = $("[data-resource-edit='#{resourceId}']")
+
+      $el.click( (ev) ->
+        ev.preventDefault()
+        $showEl.toggle()
+        $editEl.toggle()
+      )
+    )
+
   $(".js-select2").select2()
+  $(".js-select2-tags").select2({tags: true})
 
   if ($extraFieldsEl = $("[data-extra-fields]")).length > 0
     $pageLayoutSelectEl = $("#page_layout_id")
@@ -29,10 +45,15 @@ $(document).ready( ->
     $pageLayoutSelectEl.change( (ev) ->
       selected = $pageLayoutSelectEl.find("option:selected").text()
 
-      if selected == $extraFieldsEl.data("extra-fields")
-        $extraFieldsEl.show()
-      else
-        $extraFieldsEl.hide()
+      $extraFieldsEl.each( (i, el) ->
+        debugger
+        $el = $(el)
+
+        if selected == $el.data("extra-fields")
+          $el.show()
+        else
+          $el.hide()
+      )
     )
 
     $pageLayoutSelectEl.change()

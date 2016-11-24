@@ -44,6 +44,9 @@ module CmsLinks
     belongs_to :indicator_classification
     belongs_to :coverage
 
+    has_many :page_tag_rels
+    has_many :other_tags, through: :page_tag_rels, source: :tag
+
     def primary_aichi_target_id= id
       self.primary_aichi_target = Aichi::Target.find(id)
     end

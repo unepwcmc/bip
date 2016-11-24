@@ -9,13 +9,22 @@ module CmsAdminExtension
     after_action :connect_mea_targets, :only => [:create, :update]
     after_action :connect_sdg_targets, :only => [:create, :update]
     after_action :connect_key_facts, :only => [:create, :update]
+    after_action :connect_tags, :only => [:create, :update]
 
     def create_resources
-      Array.wrap(params[:resources]).each do |resource|
-        @page.resources.create!(
-          kind: resource[:kind], url: resource[:url],
-          label: resource[:label], file: resource[:file]
-        )
+      if params[:resources]
+        byebug
+        resources = params[:resources].select do |resource|
+          resource[:id] || resource[:label].present?
+        end.map do |resource|
+          if resource[:id]
+            Resource.find(resource[:id])
+          else
+            Resource.create!(kind: resource[:kind], url: resource[:url], label: resource[:label], file: resource[:file])
+          end
+        end
+
+        @page.resources = resources
       end
     end
 
@@ -79,6 +88,21 @@ module CmsAdminExtension
       @page.peer_reviewed = params[:page].has_key?(:peer_reviewed)
       @page.save
     end
+
+    def connect_tags
+      if params[:page][:tags]
+        tags = params[:page][:tags].map do |name_or_id|
+          if name_or_id.to_i > 0
+            Tag.find(name_or_id.to_i)
+          else
+            Tag.create(name: name_or_id)
+          end
+        end
+
+        @page.other_tags = tags
+      end
+    end
+
   end
 end
 
