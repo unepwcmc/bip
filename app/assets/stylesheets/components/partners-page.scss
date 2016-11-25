@@ -3,9 +3,21 @@
   padding-top: vr(2);
 
   @include e(partner) {
-    @include span-columns(6);
-    @include omega(2n);
-    margin-bottom: vr(2);
+    @include only-desktop {
+      @include flexbox;
+      @include align-items(center);
+      min-height: 200px;
+
+      float: left;
+      width: 50%;
+      padding: vr(2);
+
+      &:nth-child(2n+1) {
+        clear: left;
+        border-right: solid 1px $border--title;
+      }
+    }
+
 
     @include only-mobile {
       @include span-columns(12);

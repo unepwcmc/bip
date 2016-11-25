@@ -9,9 +9,9 @@
   <div class="partners-page page">
     <% @partners.each do |partner| %>
       <div class="partners-page__partner">
-        <table class="partners__partner">
+        <table class="partners__partner ">
           <tr>
-            <td class="partners__image">
+            <td class="partners__image partners__image--large">
               <%= image_tag partner.logo.url(:medium) %>
             </td>
             <td>
