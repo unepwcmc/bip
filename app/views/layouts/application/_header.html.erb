@@ -7,7 +7,7 @@
           <%= link_to "Home", "/", class: "header__element" %>
           <%= link_to "About", "#", class: "header__element" %>
           <%= link_to "National indicators", "#", class: "header__element" %>
-          <%= link_to "Partners", "#", class: "header__element" %>
+          <%= link_to "Partners", "/partners", class: "header__element" %>
           <%= link_to "Resources", resources_path(filters: {category: Comfy::Cms::Page.find_by_label("Resources")&.children.first&.id}), class: "header__element" %>
         </div>
         <div class="header__element header__element--menu u-pull-right u-only-mobile">

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   get "/search" => "search#search"
   get "/resources" => "resources#index"
+  get "/partners" => "partners#index"
 
   comfy_route :cms_admin, :path => '/admin'
 

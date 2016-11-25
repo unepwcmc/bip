@@ -1,0 +1,28 @@
+<%= content_for :page_title do %>
+  <h1 class="page__title">Partners</h1>
+<% end %>
+<%= content_for :breadcrumbs do %>
+  <%= breadcrumb("Partners") %>
+<% end %>
+
+<main class="main">
+  <div class="partners-page page">
+    <% @partners.each do |partner| %>
+      <div class="partners-page__partner">
+        <table class="partners__partner">
+          <tr>
+            <td class="partners__image">
+              <%= image_tag partner.logo.url(:medium) %>
+            </td>
+            <td>
+              <p class="partners__name"><%= partner.name %></p>
+              <%= link_to partner.url, target: "_blank" do %>
+                <p class="partners__link page__aside-link">View their website ></p>
+              <% end %>
+            </td>
+          </tr>
+        </table>
+      </div>
+    <% end %>
+  </div>
+</main>

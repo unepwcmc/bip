@@ -1,0 +1,13 @@
+@include b(partners-page) {
+  @include outer-container;
+
+  @include e(partner) {
+    @include span-columns(6);
+    @include omega(2n);
+    margin-bottom: vr(2);
+
+    @include only-mobile {
+      @include span-columns(12);
+    }
+  }
+}
