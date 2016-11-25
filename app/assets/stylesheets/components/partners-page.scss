@@ -1,5 +1,6 @@
 @include b(partners-page) {
   @include outer-container;
+  padding-top: vr(2);
 
   @include e(partner) {
     @include span-columns(6);
