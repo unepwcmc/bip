@@ -10,6 +10,7 @@ module CmsAdminExtension
     after_action :connect_sdg_targets, :only => [:create, :update]
     after_action :connect_key_facts, :only => [:create, :update]
     after_action :connect_tags, :only => [:create, :update]
+    after_action :connect_initiative, :only => [:create, :update]
 
     def create_resources
       if params[:resources]
@@ -110,19 +111,30 @@ module CmsAdminExtension
     end
 
     def connect_tags
-      if params[:page][:tags]
-        tags = params[:page][:tags].map do |name_or_id|
-          if name_or_id.to_i > 0
-            Tag.find(name_or_id.to_i)
-          else
-            Tag.create(name: name_or_id)
-          end
-        end
+      return unless params[:page][:tags]
 
-        @page.other_tags = tags
+      tags = params[:page][:tags].map do |name_or_id|
+        name_or_id.to_i > 0 ? Tag.find(name_or_id.to_i) : Tag.create(name: name_or_id)
+      end
+
+      @page.other_tags = tags
+    end
+
+    def connect_initiative
+      return unless @page.layout.label == "Indicator initiative" && params[:initiative].present?
+
+      if params[:initiative][:id]
+        Initiative.find(params[:initiative][:id]).update_attributes(initiative_params)
+      else
+        @page.initiative = Initiative.create!(initiative_params)
       end
     end
 
+    private
+
+    def initiative_params
+      params.require(:initiative).permit(:scale, :year_started, :organization_responsible, :focal_point, :countries_included)
+    end
   end
 end
 

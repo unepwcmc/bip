@@ -1,0 +1,38 @@
+<main class="main">
+  {{ cms:partial:cms/initiative/title }}
+  <div class="page">
+    <div class="page__body s-free-text s-free-text--with-h1">
+      {{ cms:page:intro_text:rich_text }}
+
+      <h2>Initiative summary</h2>
+      {{ cms:partial:cms/initiative/summary }}
+      {{ cms:page:summary_extra_text:rich_text }}
+
+      <h2>Indicator Framework</h2>
+      {{ cms:partial:cms/initiative/framework }}
+      {{ cms:page:framework_extra_text:rich_text }}
+
+      <h2>Lessons learnt and advice</h2>
+      {{ cms:page:lessons_learnt_and_advice:rich_text }}
+
+      <h1>How and why was the initiative started?</h1>
+      {{ cms:page:how_and_why_was_the_initiative_started:rich_text }}
+
+      <h1>Who is leading the work?</h1>
+      {{ cms:page:who_is_leading_the_work:rich_text }}
+
+      <h1>How are the indicators selected?</h1>
+      {{ cms:page:how_are_indicators_selected:rich_text }}
+
+      <h1>What are the indicators?</h1>
+      {{ cms:page:what_are_the_indicators:rich_text }}
+
+      <h1>How are the indicators communicated?</h1>
+      {{ cms:page:how_are_the_indicators_comminuticated:rich_text }}
+    </div>
+
+    <div class="page__aside">
+      {{ cms:partial:cms/initiative/publications }}
+    </div>
+  </div>
+</main>

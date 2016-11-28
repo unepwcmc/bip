@@ -95,6 +95,49 @@
   </div>
 </div>
 
+<div data-extra-fields="Indicator initiative">
+  <hr>
+  <div class="col-sm-offset-2 col-sm-10">
+    <h2>Initiative summary</h2>
+  </div>
+
+  <% if @page.initiative.present? %>
+    <input type="hidden" value="<%= @page.initiative.id %>" name="initiative[id]">
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :scale, :class => 'control-label col-sm-2' %>
+    <div class="col-sm-10">
+      <input value="<%= @page.initiative&.scale %>" class="form-control" type="text" placeholder="e.g. National" name="initiative[scale]">
+    </div>
+  </div>
+  <div class="form-group">
+    <%= form.label :year_started, :class => 'control-label col-sm-2' %>
+    <div class="col-sm-10">
+      <input value="<%= @page.initiative&.year_started %>" class="form-control" type="text" placeholder="e.g. 2010" name="initiative[year_started]">
+    </div>
+  </div>
+  <div class="form-group">
+    <%= form.label :countries_included, :class => 'control-label col-sm-2' %>
+    <div class="col-sm-10">
+      <input value="<%= @page.initiative&.countries_included %>" class="form-control" type="text" placeholder="e.g. Germany, Ireland" name="initiative[countries_included]">
+    </div>
+  </div>
+  <div class="form-group">
+    <%= form.label :organization_responsible, :class => 'control-label col-sm-2' %>
+    <div class="col-sm-10">
+      <input value="<%= @page.initiative&.organization_responsible %>" class="form-control" type="text" placeholder="e.g. Department of Environment" name="initiative[organization_responsible]">
+    </div>
+  </div>
+  <div class="form-group">
+    <%= form.label :focal_point, :class => 'control-label col-sm-2' %>
+    <div class="col-sm-10">
+      <textarea data-custom-rich-text name="initiative[focal_point]"><%= @page.initiative&.focal_point %></textarea>
+    </div>
+  </div>
+  <hr>
+</div>
+
 <div data-extra-fields="Indicator page">
   <hr>
 

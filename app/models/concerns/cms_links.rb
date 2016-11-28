@@ -50,6 +50,8 @@ module CmsLinks
     has_many :page_tag_rels, dependent: :destroy
     has_many :other_tags, through: :page_tag_rels, source: :tag
 
+    has_one :initiative, foreign_key: "comfy_cms_page_id"
+
     def primary_aichi_target_id= id
       self.primary_aichi_target = Aichi::Target.find(id)
     end
