@@ -2,6 +2,7 @@
   <%= f.text_field :name %>
   <%= f.select :partner_type_id, PartnerType.all.map { |p| [p.name, p.id] } %>
   <%= f.url_field :url %>
+  <%= f.text_area :description, data: {"custom-rich-text" => true} %>
   <%= f.file_field :logo %>
   <%= f.form_group do %>
     <% if @partner.logo.present? %>

@@ -49,6 +49,12 @@
     margin-top: vr(1);
     margin-bottom: 0;
     @include font(italic-link);
+  }
 
+  @include e(description) {
+    @include font(body);
+    margin-top: 0;
+
+    p { margin-top: 0; }
   }
 }
