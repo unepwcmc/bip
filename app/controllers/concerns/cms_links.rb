@@ -52,7 +52,6 @@ module CmsAdminExtension
           @page.secondary_aichi_targets = Aichi::Target.where(id: params[:page][:secondary_aichi_target_ids])
         end
       else
-        byebug
         @page.aichi_targets = []
       end
     end
