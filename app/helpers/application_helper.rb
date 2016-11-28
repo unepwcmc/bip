@@ -12,4 +12,8 @@ module ApplicationHelper
       )
     end
   end
+
+  def text_or_na text
+    text.present? ? text : "N/A"
+  end
 end

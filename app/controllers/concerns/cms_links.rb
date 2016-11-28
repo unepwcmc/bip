@@ -124,7 +124,10 @@ module CmsAdminExtension
       return unless @page.layout.label == "Indicator initiative" && params[:initiative].present?
 
       if params[:initiative][:id]
-        Initiative.find(params[:initiative][:id]).update_attributes(initiative_params)
+        initiative = Initiative.find(params[:initiative][:id])
+        initiative.update_attributes(initiative_params)
+        initiative.logo = initiative_params[:logo] if initiative_params[:logo]
+        initiative.save
       else
         @page.initiative = Initiative.create!(initiative_params)
       end
@@ -133,7 +136,7 @@ module CmsAdminExtension
     private
 
     def initiative_params
-      params.require(:initiative).permit(:scale, :year_started, :organization_responsible, :focal_point, :countries_included)
+      params.require(:initiative).permit(:scale, :year_started, :organization_responsible, :focal_point, :countries_included, :number_of_indicators, :framework, :logo)
     end
   end
 end

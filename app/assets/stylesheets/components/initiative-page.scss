@@ -1,0 +1,14 @@
+@include b(initiative-page) {
+  @include e(section) {
+    padding: vr(1.5) 0;
+
+    p {
+      margin-top: 0;
+    }
+  }
+
+  @include e(logo) {
+    float: right;
+    max-width: vr(12.5);
+  }
+}

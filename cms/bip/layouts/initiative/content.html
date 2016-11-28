@@ -5,8 +5,10 @@
       {{ cms:page:intro_text:rich_text }}
 
       <h2>Initiative summary</h2>
-      {{ cms:partial:cms/initiative/summary }}
-      {{ cms:page:summary_extra_text:rich_text }}
+      <div class="initiative-page__section">
+        {{ cms:partial:cms/initiative/summary }}
+        {{ cms:page:summary_extra_text:rich_text }}
+      </div>
 
       <h2>Indicator Framework</h2>
       {{ cms:partial:cms/initiative/framework }}

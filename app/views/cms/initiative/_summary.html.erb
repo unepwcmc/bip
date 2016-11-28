@@ -1,24 +1,25 @@
+<%= image_tag @cms_page.initiative.logo.url(:medium), class: "initiative-page__logo" %>
 <p>
   <strong>Scale:</strong><br>
-  <%= @cms_page.initiative.scale %>
+  <%= text_or_na @cms_page.initiative.scale %>
 </p>
 
 <p>
   <strong>Year started:</strong><br>
-  <%= @cms_page.initiative.year_started %>
+  <%= text_or_na @cms_page.initiative.year_started %>
 </p>
 
 <p>
   <strong>Countries Included:</strong><br>
-  <%= @cms_page.initiative.countries_included %>
+  <%= text_or_na @cms_page.initiative.countries_included %>
 </p>
 
 <p>
   <strong>Organization Responsible:</strong><br>
-  <%= @cms_page.initiative.organization_responsible %>
+  <%= text_or_na @cms_page.initiative.organization_responsible %>
 </p>
 
 <p>
   <strong>Focal Point:</strong><br>
-  <%= raw(@cms_page.initiative.focal_point) %>
+  <%= raw(text_or_na(@cms_page.initiative.focal_point)) %>
 </p>
