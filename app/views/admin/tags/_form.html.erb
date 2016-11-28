@@ -1,0 +1,9 @@
+<%= comfy_form_for @tag, url: {action: action} do |f| %>
+  <%= f.text_field :name %>
+
+  <%= f.form_group :class => 'form-actions' do %>
+    <%= f.submit "#{action.titleize}", :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel'), admin_tags_path, :class => 'btn btn-link' %>
+  <% end %>
+<% end %>
+

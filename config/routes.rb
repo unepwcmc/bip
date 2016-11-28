@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :partners, except: [:show]
     resources :themes, except: [:show]
+    resources :tags, except: [:show]
     resources :meas, except: [:show] do
       member do
         delete "delete_target"
