@@ -28,43 +28,65 @@ module CmsAdminExtension
     end
 
     def create_disaggregations
-      @page.disaggregation_targets = Comfy::Cms::Page.where(id: params[:page][:disaggregation_target_ids])
+      if @page.layout.label == "Indicator page"
+        @page.disaggregation_targets = Comfy::Cms::Page.where(id: params[:page][:disaggregation_target_ids])
+      else
+        @page.disaggregations = []
+      end
     end
 
     def connect_partners
-      @page.partners = Partner.where(id: params[:page][:partner_ids])
+      if @page.layout.label == "Indicator page"
+        @page.partners = Partner.where(id: params[:page][:partner_ids])
+      else
+        @page.partners = []
+      end
     end
 
     def connect_aichi_targets
-      if params[:page][:primary_aichi_target_id]
-        @page.primary_aichi_target = Aichi::Target.find(params[:page][:primary_aichi_target_id])
-      end
-      if params[:page][:secondary_aichi_target_ids]
-        @page.secondary_aichi_targets = Aichi::Target.where(id: params[:page][:secondary_aichi_target_ids])
+      if @page.layout.label == "Indicator page"
+        if params[:page][:primary_aichi_target_id]
+          @page.primary_aichi_target = Aichi::Target.find(params[:page][:primary_aichi_target_id])
+        end
+        if params[:page][:secondary_aichi_target_ids]
+          @page.secondary_aichi_targets = Aichi::Target.where(id: params[:page][:secondary_aichi_target_ids])
+        end
+      else
+        byebug
+        @page.aichi_targets = []
       end
     end
 
     def connect_mea_targets
-      if params[:page][:official_mea_target_id]
-        @page.official_mea_target = MeaTarget.find(params[:page][:official_mea_target_id])
-      end
+      if @page.layout.label == "Indicator page"
+        if params[:page][:official_mea_target_id]
+          @page.official_mea_target = MeaTarget.find(params[:page][:official_mea_target_id])
+        end
 
-      if params[:page][:relevant_mea_target_ids]
-        @page.relevant_mea_targets = MeaTarget.where(id: params[:page][:relevant_mea_target_ids])
+        if params[:page][:relevant_mea_target_ids]
+          @page.relevant_mea_targets = MeaTarget.where(id: params[:page][:relevant_mea_target_ids])
+        end
+      else
+        @page.mea_targets = []
       end
     end
 
     def connect_sdg_targets
-      if params[:page][:official_sdg_target_id]
-        @page.official_sdg_target = Sdg::Target.find(params[:page][:official_sdg_target_id])
-      end
+      if @page.layout.label == "Indicator page"
+        if params[:page][:official_sdg_target_id]
+          @page.official_sdg_target = Sdg::Target.find(params[:page][:official_sdg_target_id])
+        end
 
-      if params[:page][:relevant_sdg_target_ids]
-        @page.relevant_sdg_targets = Sdg::Target.where(id: params[:page][:relevant_sdg_target_ids])
+        if params[:page][:relevant_sdg_target_ids]
+          @page.relevant_sdg_targets = Sdg::Target.where(id: params[:page][:relevant_sdg_target_ids])
+        end
+      else
+        @page.sdg_targets = []
       end
     end
 
     def connect_key_facts
+      return true unless @page.layout.label == "Indicator page"
       if params[:page][:indicator_type_id]
         @page.indicator_type = IndicatorType.find(params[:page][:indicator_type_id])
       end

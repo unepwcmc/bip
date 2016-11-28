@@ -1,4 +1,21 @@
 @include b(s-free-text) {
   @include font(body);
   img { max-width: 100%; }
+
+  h1, h2, h3, h4, h5, h6 {
+    @extend .page__section-title;
+    @extend .page__section-title--no-margin-top-mobile;
+    font-family: Open Sans;
+    font-weight: 300;
+    padding-bottom: 0;
+    border-bottom-width: 1px;
+  }
+
+  @include m(with-h1) {
+    h1 {
+      font-family: Merriweather;
+      font-weight: 900;
+      padding-bottom: vr(.75);
+    }
+  }
 }

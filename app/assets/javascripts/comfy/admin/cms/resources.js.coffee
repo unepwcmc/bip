@@ -46,7 +46,6 @@ $(document).ready( ->
       selected = $pageLayoutSelectEl.find("option:selected").text()
 
       $extraFieldsEl.each( (i, el) ->
-        debugger
         $el = $(el)
 
         if selected == $el.data("extra-fields")

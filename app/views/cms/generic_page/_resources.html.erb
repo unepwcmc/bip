@@ -1,6 +1,6 @@
 <% if @cms_page.resources.any? %>
   <div class="page__aside-section page__aside-section--last-mobile">
-    <h2 class="page__aside-section-title">Further resources</h2>
+    <h2 class="page__aside-section-title">Resources</h2>
     <% @cms_page.resources.order(:kind).each_with_index do |resource, i| %>
       <p class="<%= i.zero? ? "u-fix-h2-margin" : "" %>">
         <% if resource.kind == "file" %>
@@ -17,3 +17,4 @@
     <% end %>
   </div>
 <% end %>
+
