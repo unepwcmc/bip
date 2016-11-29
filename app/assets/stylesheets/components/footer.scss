@@ -52,7 +52,10 @@
       margin: vr(2) 0;
     }
     @include only-desktop {
-      @include m(large) { @include span-columns(4); }
+      @include m(large) {
+        @include span-columns(4);
+        margin-right: vr(5.25);
+      }
       @include m(small) { @include span-columns(2); }
       margin-right: vr(4.25);
     }
