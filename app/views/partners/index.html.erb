@@ -9,20 +9,14 @@
   <div class="partners-page page">
     <% @partners.each do |partner| %>
       <div class="partners-page__partner">
-        <table class="partners__partner ">
-          <tr>
-            <td class="partners__image partners__image--large">
-              <%= image_tag partner.logo.url(:medium) %>
-            </td>
-            <td>
-              <p class="partners__name"><%= partner.name %></p>
-              <div class="partners__description"><%= raw partner.description %></div>
-              <%= link_to partner.url, target: "_blank" do %>
-                <p class="partners__link page__aside-link">View website ></p>
-              <% end %>
-            </td>
-          </tr>
-        </table>
+        <div class="u-pull-left partners__image partners__image--large">
+          <%= image_tag partner.logo.url(:medium) %>
+        </div>
+        <p class="partners__name"><%= partner.name %></p>
+        <div class="partners__description"><%= raw partner.description %></div>
+        <%= link_to partner.url, target: "_blank" do %>
+          <p class="partners__link page__aside-link">View website ></p>
+        <% end %>
       </div>
     <% end %>
   </div>

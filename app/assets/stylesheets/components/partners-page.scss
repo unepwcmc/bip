@@ -4,17 +4,12 @@
 
   @include e(partner) {
     @include only-desktop {
-      @include flexbox;
-      @include align-items(center);
-      min-height: 200px;
-
-      float: left;
-      width: 50%;
+      @include outer-container;
       padding: vr(2);
+      border-bottom: solid 1px $border--title;
 
       &:nth-child(2n+1) {
         clear: left;
-        border-right: solid 1px $border--title;
       }
     }
 
