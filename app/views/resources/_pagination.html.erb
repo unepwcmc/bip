@@ -1,0 +1,29 @@
+<div class="pagination">
+  <div class="pagination__per-page">
+    <span class="pagination__per-page-text">Results per page:</span>
+    <div class="u-relative">
+      <select data-per-page-selector class="pagination__per-page-select">
+        <option <%= "selected" if @per_page == 10 %> value="10">10</option>
+        <option <%= "selected" if @per_page == 20 %> value="20">20</option>
+        <option <%= "selected" if @per_page == 30 %> value="30">30</option>
+        <option <%= "selected" if @per_page == 40 %> value="40">40</option>
+        <option <%= "selected" if @per_page == 50 %> value="50">50</option>
+      </select>
+      <i class="fa fa-chevron-down pagination__per-page-arrow"></i>
+    </div>
+  </div>
+  <div class="pagination__navigation">
+    <span>
+      <strong><%= @from + 1 %>-<%= @to + 1 %></strong> of <%= @total_results %>
+    </span>
+
+    <% if @page > 0 %>
+      <a href="<%= url_for(params.merge(page: @page-1)) %>" class="pagination__navigation-control"><i class="fa fa-chevron-left"></i></a>
+    <% end %>
+
+    <% if @to + 1 < @total_results %>
+      <a href="<%= url_for(params.merge(page: @page+1)) %>" class="pagination__navigation-control"><i class="fa fa-chevron-right"></i></a>
+    <% end %>
+  </div>
+</div>
+
