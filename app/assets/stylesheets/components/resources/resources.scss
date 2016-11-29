@@ -1,6 +1,7 @@
 @include b(resources) {
   width: $main__width;
   @include outer-container;
+  margin-bottom: vr(10);
 
   @include e(filters) {
     @include span-columns(4);

@@ -17,7 +17,12 @@ class ResourcesController < ApplicationController
     @tabs = Comfy::Cms::Page.find_by_label("Resources").children
     @results = filter_results(@results, params[:filters]) if params[:filters]
     @results = @results.sort_by(&:created_at)
+    @total_results = @results.size
     @results = paginate_results(@results, params[:page], params[:per_page])
+
+    if @page > 0 && @results.size == 0
+      redirect_to url_for(params.merge(page: 0))
+    end
   end
 
   private
@@ -48,11 +53,11 @@ class ResourcesController < ApplicationController
 
   def paginate_results results, page, per_page
     @per_page = (per_page || 10).to_i
-    @page = page.to_i
+    @page = [0, page.to_i].max
 
     @from = @page * @per_page
     @to = @from + (@per_page - 1)
 
-    results[@from..@to]
+    results[@from..@to] || []
   end
 end
