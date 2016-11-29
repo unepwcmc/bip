@@ -26,28 +26,32 @@
         <p class="homepage-targets__goal-description"><%= goal.description %></p>
       </div>
 
-      <div class="homepage-targets__targets">
-        <% goal.sdg_targets.order(:target_number).each do |target| %>
-          <div class="homepage-targets__target">
-            <div class="homepage-targets__target-header">
-              <div>
-                <h5 class="homepage-targets__target-title">SDG Target <%= target.target_number %>:</h5>
-                <p class="homepage-targets__target-name"><%= target.name %></p>
+      <% if goal.sdg_targets.any? { |t| t.pages.any? } %>
+        <div class="homepage-targets__targets">
+          <% goal.sdg_targets.order(:target_number).select { |t| t.pages.any? }.each do |target| %>
+            <div class="homepage-targets__target">
+              <div class="homepage-targets__target-header">
+                <div>
+                  <h5 class="homepage-targets__target-title">SDG Target <%= target.target_number %>:</h5>
+                  <p class="homepage-targets__target-name"><%= target.name %></p>
+                </div>
               </div>
-            </div>
-            <p class="homepage-targets__target-description"><%= target.description %></p>
-            <% if target.pages.any? %>
-              <% target.pages.each do |page| %>
-                <a href="<%= page.full_path %>" class="homepage-targets__target-indicator">
-                  <%= page.label %> <i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i>
-                </a>
+              <p class="homepage-targets__target-description"><%= target.description %></p>
+              <% if target.pages.any? %>
+                <% target.pages.each do |page| %>
+                  <a href="<%= page.full_path %>" class="homepage-targets__target-indicator">
+                    <%= page.label %> <i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i>
+                  </a>
+                <% end %>
+              <% else %>
+                <p class="homepage-targets__target-indicator homepage-targets__target-indicator--bold">No Global Indicators available yet</p>
               <% end %>
-            <% else %>
-              <p class="homepage-targets__target-indicator homepage-targets__target-indicator--bold">No Global Indicators available yet</p>
-            <% end %>
-          </div>
-        <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <p>This goal has no biodiversity indicators</p>
+      <% end %>
       </div>
-    </div>
   <% end %>
 </div>

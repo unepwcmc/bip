@@ -20,7 +20,7 @@
         class="homepage-themes__theme"
       >
         <div class="homepage-themes__theme-name"><%= mea.name %></div>
-        <div class="homepage-themes__theme-description"><%= mea.description %></div>
+        <div class="homepage-themes__theme-description"><%= raw mea.description %></div>
         <% if mea.mea_targets.flat_map(&:pages).any? %>
           <% mea.mea_targets.flat_map(&:pages).uniq.each do |page| %>
             <a href="<%= page.full_path %>"class="homepage-themes__theme-indicator">

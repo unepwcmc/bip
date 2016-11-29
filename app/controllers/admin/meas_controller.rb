@@ -21,6 +21,9 @@ class Admin::MeasController < Comfy::Admin::Cms::BaseController
     @mea = Mea.find(params[:id])
     @mea.update(mea_params)
 
+    targets = mea_params.delete(:mea_targets_attributes)
+    @mea.mea_targets = targets.map { |t| MeaTarget.new(t.last) }
+
     redirect_to action: :index
   end
 
@@ -43,7 +46,7 @@ class Admin::MeasController < Comfy::Admin::Cms::BaseController
   def mea_params
     params.require(:mea).permit(
       :name, :description, :logo,
-      mea_targets_attributes: [:id, :target_number, :name, :description, :logo]
+      mea_targets_attributes: [:id, :target_number, :target_title, :name, :description, :logo]
     )
   end
 end

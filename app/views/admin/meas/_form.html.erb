@@ -1,6 +1,6 @@
 <%= comfy_form_for @mea, url: {action: action} do |f| %>
   <%= f.text_field :name %>
-  <%= f.text_area :description %>
+  <%= f.text_area :description, data: {"custom-rich-text" => true} %>
   <%= f.file_field :logo %>
   <%= f.form_group do %>
     <% if @mea.logo.present? %>
@@ -13,10 +13,10 @@
     Targets
   </h3>
 
-  <%= f.fields_for :mea_targets do |target| %>
+  <%= f.fields_for :mea_targets, @mea.mea_targets.order(:target_title) do |target| %>
     <%= target.text_field :target_title %>
     <%= target.text_field :name %>
-    <%= target.text_area :description %>
+    <%= target.text_area :description, data: {"custom-rich-text" => true} %>
     <%= target.file_field :logo %>
     <div style="margin-bottom: 30px;">
       <% if target.object&.logo&.url(:thumb) %>
