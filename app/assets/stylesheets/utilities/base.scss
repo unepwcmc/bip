@@ -1,4 +1,7 @@
-html { @include typi-base(); }
+html {
+  @include typi-base();
+  -webkit-font-smoothing: antialiased;
+}
 
 h1 { @include text(xxlarge, bold); }
 h2 { @include text(xlarge, bold); }
