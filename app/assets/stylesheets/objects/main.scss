@@ -7,4 +7,8 @@
   @include m(full-width) {
     width: 100%;
   }
+
+  @include m(pull-up) {
+    margin-top: vr(-1.75);
+  }
 }
