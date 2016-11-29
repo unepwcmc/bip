@@ -18,14 +18,15 @@
   }
 
   @include e(goal) {
+    @include omega(2n);
     float: left;
     margin-bottom: vr(2);
 
     @include only-desktop {
-      height: vr(3);
+      height: vr(5);
       padding-right: vr(1.875);
       margin-right: vr(1);
-      &:not(:last-child) {
+      &:not(:last-child):nth-child(2n+1) {
         border-right: solid 1px $border--targets;
       }
     }
@@ -42,7 +43,8 @@
     @include text(normal, bold);
     padding: vr(1) vr(1);
     margin-right: vr(1);
-    height: vr(3);
+    height: vr(5);
+    line-height: vr(2.5);
 
     @include only-mobile {
       font-size: 12px;
@@ -57,8 +59,8 @@
   }
 
   @include e(target-icon) {
-    width: vr(3);
-    height: vr(3);
+    height: vr(5);
+    width: vr(5);
     box-sizing: content-box;
     margin-left: vr(1);
     cursor: pointer;
