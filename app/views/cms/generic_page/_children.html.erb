@@ -1,0 +1,14 @@
+<% if @cms_page.children.any? %>
+  <div class="page__aside-section page__aside-section--last-mobile">
+    <h2 class="page__aside-section-title">In this section</h2>
+    <% @cms_page.children.order(:label).each_with_index do |child, i| %>
+      <p class="<%= i.zero? ? "u-fix-h2-margin" : "" %>">
+        <%= link_to child.full_path do %>
+          <span class="page__aside-link"><%= child.label %></span>
+        <% end %>
+      </p>
+    <% end %>
+  </div>
+<% end %>
+
+
