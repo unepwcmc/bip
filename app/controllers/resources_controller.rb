@@ -16,6 +16,7 @@ class ResourcesController < ApplicationController
 
     @tabs = Comfy::Cms::Page.find_by_label("Resources").children
     @results = filter_results(@results, params[:filters]) if params[:filters]
+    @results = @results.sort_by(&:created_at)
     @results = paginate_results(@results, params[:page], params[:per_page])
   end
 
