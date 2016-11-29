@@ -6,7 +6,7 @@
   <p class="filters__subtitle">Filter by:</p>
 
   <div <%= "data-toggle-hide" unless params.has_key?(:filters) %> data-toggle-target="tags" class="filters__bucket">
-    <% Tag.all.each do |tag| %>
+    <% Tag.order(:name).all.each do |tag| %>
       <a href="<%= filter_link(:tags, tag.id)  %>" class="filters__bucket-item">
         <div class="filters__bucket-item-left">
           <div class="<%= bucket_item_toggle_class(:tags, tag.id) %>"></div>
