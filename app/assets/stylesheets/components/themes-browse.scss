@@ -4,6 +4,7 @@
   margin-bottom: vr(3);
   padding: vr(1) 0;
   @include outer-container;
+  @include mobile-container;
 
   @include e(themes) {
     overflow: hidden;
@@ -16,10 +17,18 @@
     @include omega(3n);
     margin-right: 0;
     @include flexbox;
-    @include align-items(stretch);
+    @include align-items(center);
     padding: vr(1) vr(1.6666666);
 
+    min-height: vr(8);
+
     &.is-selected { background-color: $solitude; }
+
+    @include only-mobile {
+      width: 100%;
+      padding: vr(1) vr(1);
+      margin-right: 0;
+    }
   }
 
   @include e(theme-icon) {
@@ -30,6 +39,7 @@
     @include m(no-radius) {
       border-radius: 0;
       width: vr(5.75);
+      min-width: vr(6);
       height: vr(5.75);
 
       @include flexbox;
@@ -46,7 +56,7 @@
   }
 
   @include e(theme-name) {
-    @include text(normal);
+    @include font(subsection-title);
     line-height: vr(1.6666666);
     margin: vr(.75) 0;
   }

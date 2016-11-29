@@ -1,5 +1,6 @@
 @include b(homepage-themes) {
   @include outer-container;
+  @include mobile-container;
   width: $main__width;
   margin-bottom: vr(20);
 
@@ -26,7 +27,8 @@
   }
 
   @include e(theme-indicator-icon) {
-    margin-left: vr(.25);
+    margin-right: vr(.25);
+    vertical-align: middle;
     font-size: vr(.75);
   }
 }

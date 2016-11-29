@@ -22,7 +22,10 @@
       class="homepage-targets"
     >
       <div class="homepage-targets__goal">
-        <h4 class="homepage-targets__goal-title"><%= goal.name %>:</h4>
+        <h4 class="homepage-targets__goal-title homepage-targets__goal-title--flex">
+          <%= image_tag goal.logo.url(:medium), class: "u-only-desktop homepage-targets__goal-icon" %>
+          <%= goal.name %>
+        </h4>
         <p class="homepage-targets__goal-description"><%= goal.description %></p>
       </div>
 
@@ -40,7 +43,7 @@
               <% if target.pages.any? %>
                 <% target.pages.each do |page| %>
                   <a href="<%= page.full_path %>" class="homepage-targets__target-indicator">
-                    <%= page.label %> <i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i>
+                    <i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i><%= page.label %>
                   </a>
                 <% end %>
               <% else %>

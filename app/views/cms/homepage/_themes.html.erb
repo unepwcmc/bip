@@ -18,19 +18,28 @@
         data-select-group="themes"
         data-select-target="<%= theme.id %>"
         class="homepage-themes__theme"
-      >
-        <div class="homepage-themes__theme-name"><%= theme.name %></div>
-        <div class="homepage-themes__theme-description"><%= theme.description %></div>
+        >
+        <div class="homepage-targets__goal">
+          <h4 class="homepage-targets__goal-title homepage-targets__goal-title--flex">
+            <%= image_tag theme.logo.url(:medium), class: "u-only-desktop homepage-targets__goal-icon homepage-targets__goal-icon--round" %>
+            <%= theme.name %>
+          </h4>
+          <div class="homepage-targets__goal-description">
+            <p>
+              <%= raw theme.description %>
+            </p>
+          </div>
+        </div>
         <% if theme.pages.any? %>
           <% theme.pages.each do |page| %>
-            <a href="<%= page.full_path %>"class="homepage-themes__theme-indicator">
-              <%= page.label %> <i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i>
-            </a>
-          <% end %>
-        <% else %>
-          <p class="homepage-themes__theme-indicator homepage-themes__theme-indicator--bold">No Global Indicators available yet</p>
+            <a href="<%= page.full_path %>" class="homepage-targets__target-indicator">
+              <i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i><%= page.label %>
+          </a>
         <% end %>
-      </div>
-    <% end %>
-  </div>
+      <% else %>
+        <p class="homepage-themes__theme-indicator homepage-themes__theme-indicator--bold">No Global Indicators available yet</p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
 </div>

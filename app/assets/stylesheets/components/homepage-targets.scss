@@ -12,12 +12,29 @@
   }
 
   @include e(goal-title) {
-    @include text(xlarge, bold);
+    @include font(goal-title);
+    margin-bottom: vr(1.25);
+
+    @include m(flex) {
+      @include flexbox;
+      @include align-items(center);
+    }
   }
 
   @include e(goal-description) {
     @include text(normal-2);
     margin: vr(.75) 0;
+
+    p { margin: vr(.75) 0; }
+  }
+
+  @include e(goal-icon) {
+    height: vr(8);
+    margin-right: vr(2);
+
+    @include only-mobile { height: vr(3); }
+
+    @include m(round) { border-radius: 100%; }
   }
 
   @include e(targets) {
@@ -67,6 +84,7 @@
     display: block;
     margin: vr(1) 0;
     text-decoration: underline;
+    @include font(target-indicator);
 
     @include m(bold) {
       @include text(normal, bold);
