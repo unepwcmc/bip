@@ -65,6 +65,10 @@
     @include m(big) {
       @include font(footer-title-big);
     }
+
+    @include m(push-top) {
+      margin-top: vr(1);
+    }
   }
 
   @include e(column-body) {
@@ -78,5 +82,9 @@
 
   @include e(copyright) {
     @include font(copyright);
+  }
+
+  @include e(social) {
+    @include font(social);
   }
 }
