@@ -10,6 +10,8 @@
 
   @include e(title) {
     margin: vr(1.1666666) 0;
+    font-family: Merriweather;
+    color: $navy-blue;
   }
 
   @include e(category) {

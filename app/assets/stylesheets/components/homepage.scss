@@ -7,13 +7,13 @@
   }
 
   @include e(search-container) {
-    background-color: $solitude;
+    background-color: $white-two;
     width: 100%;
   }
 
   @include e(browse-container) {
     border-bottom: solid 1px $border--search-bar;
-    background-color: $solitude;
+    background-color: $white-two;
     width: 100%;
   }
 }
