@@ -24,12 +24,16 @@
 
     @include only-mobile {
       float: left;
-      width: vr(3);
-      height: vr(3);
+      width: vr(5);
+      height: vr(5);
 
       overflow: hidden;
-      border-radius: vr(.5);
       margin-right: vr(1);
+      margin-bottom: vr(1);
+    }
+
+    @include m(round) {
+      border-radius: 100%;
     }
   }
 

@@ -19,7 +19,7 @@
 
   <div class="u-clearfix u-only-mobile">
     <% @cms_page.themes.each do |theme| %>
-      <div class="target__image">
+      <div class="target__image target__image--round">
         <%= image_tag theme.logo.try(:url, :thumb) %>
       </div>
     <% end %>

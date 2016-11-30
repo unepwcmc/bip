@@ -1,7 +1,5 @@
 @include b(header) {
-  @include only-desktop {
-    margin-bottom: vr(1.75);
-  }
+  margin-bottom: vr(1.75);
 
   @include e(content) {
     p { color: $white; }

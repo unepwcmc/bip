@@ -8,8 +8,8 @@
     margin-bottom: vr(2.5);
 
     @include only-mobile {
-      margin-top: 0;
-      padding: 4px 0;
+      margin: 0;
+      padding: vr(1) 0;
     }
 
     @include m(thin) {
@@ -60,6 +60,10 @@
 
   @include e(section) {
     margin-bottom: vr(3.5);
+
+    @include only-mobile {
+      margin-bottom: vr(2);
+    }
   }
 
   @include e(section-title) {
@@ -93,7 +97,6 @@
         @include text(normal, bold);
         line-height: vr(2.5);
         margin-top: 5px;
-        margin-bottom: 0;
         padding: 0;
       }
     }

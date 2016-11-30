@@ -9,7 +9,7 @@
   }
 
   @include m(pull-up) {
-    @include only-desktop { margin-top: vr(-1.75); }
+    margin-top: vr(-1.75);
     @include only-mobile { padding: 0; }
   }
 }
