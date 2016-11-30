@@ -1,5 +1,10 @@
 @include b(s-free-text) {
   @include font(body);
+
+  a {
+    @include font(body-link);
+  }
+
   img { max-width: 100%; }
 
   h1, h2, h3, h4, h5, h6 {
