@@ -28,11 +28,13 @@ $(document).ready( ->
 
       $showEl = $("[data-resource-show='#{resourceId}']")
       $editEl = $("[data-resource-edit='#{resourceId}']")
+      $allInputs = $editEl.find(":input")
 
       $el.click( (ev) ->
         ev.preventDefault()
         $showEl.toggle()
         $editEl.toggle()
+        $allInputs.prop("disabled", !$allInputs.prop("disabled"))
       )
     )
 

@@ -15,6 +15,7 @@ class ResourcesController < ApplicationController
     }
 
     @tabs = Comfy::Cms::Page.find_by_label("Resources").children
+    @results = @results.select { |r| r.resources.any? }
     @results = filter_results(@results, params[:filters]) if params[:filters]
     @results = @results.sort_by(&:created_at)
     @total_results = @results.size

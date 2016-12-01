@@ -2,7 +2,8 @@ module CmsAdminExtension
   extend ActiveSupport::Concern
 
   included do
-    after_action :create_resources, :only => [:create, :update]
+    after_action :create_resources, :only => [:create]
+    after_action :update_resources, :only => [:update]
     after_action :create_disaggregations, :only => [:create, :update]
     after_action :connect_partners, :only => [:create, :update]
     after_action :connect_aichi_targets, :only => [:create, :update]
@@ -15,16 +16,20 @@ module CmsAdminExtension
     def create_resources
       if params[:resources]
         resources = params[:resources].select do |resource|
-          resource[:id] || resource[:label].present?
+          resource[:label].present?
         end.map do |resource|
-          if resource[:id]
-            Resource.find(resource[:id])
-          else
-            Resource.create!(kind: resource[:kind], url: resource[:url], label: resource[:label], file: resource[:file])
-          end
+          Resource.create!(kind: resource[:kind], url: resource[:url], label: resource[:label], file: resource[:file])
         end
 
         @page.resources = resources
+      end
+    end
+
+    def update_resources
+      (params[:resources] || []).each do |resource_attrs|
+        resource = Resource.find(resource_attrs.delete(:id))
+        resource.file = resource_attrs.delete(:file)
+        resource.update(resource_attrs.permit(:url, :label, :kind))
       end
     end
 
