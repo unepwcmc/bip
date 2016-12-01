@@ -23,4 +23,22 @@
       padding-bottom: vr(.75);
     }
   }
+
+  @include m(hero-text) {
+    h1,h2,h3,h4,h5,h6 {
+      color: $white;
+    }
+
+    a {
+      color: $white;
+
+      &:before {
+        content: "\f054";
+        font-family: FontAwesome;
+        font-weight: 100;
+        margin-right: 4px;
+        font-size: vr(1);
+      }
+    }
+  }
 }
