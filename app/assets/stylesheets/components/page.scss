@@ -34,6 +34,10 @@
     padding: 0 vr(2);
     width: 30.96%;
     float: left;
+
+    @include only-mobile {
+      width: 100%;
+    }
   }
 
   @include e(aside-section) {
