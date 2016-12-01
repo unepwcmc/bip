@@ -1,0 +1,11 @@
+@include b(mobile-menu) {
+  width: 100%;
+  padding: vr(1.25) vr(1.5);
+  background-color: $prussian-blue;
+
+  @include e(link) {
+    @include font(mobile-menu);
+    margin-right: vr(3);
+    display: block;
+  }
+}

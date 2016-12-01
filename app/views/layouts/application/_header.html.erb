@@ -17,6 +17,14 @@
     </div>
   </div>
 
+  <div data-toggle-target="mobile-menu" data-toggle-hide class="u-hide u-only-mobile mobile-menu">
+    <%= link_to "Home", "/", class: "mobile-menu__link" %>
+    <%= link_to "About", "/about", class: "mobile-menu__link" %>
+    <%= link_to "National indicators", "/national-indicator-development", class: "mobile-menu__link" %>
+    <%= link_to "Partners", "/partners", class: "mobile-menu__link" %>
+    <%= link_to "Resources", "/resources", class: "mobile-menu__link" %>
+  </div>
+
   <div class="header__bottom">
     <div class="header__content">
       <% if @cms_page %>

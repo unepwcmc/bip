@@ -16,7 +16,6 @@
   @include e(navigation) {
     background-color: $prussian-blue;
     line-height: vr(2);
-    margin-bottom: vr(1);
   }
 
   @include e(navigation-inner) {

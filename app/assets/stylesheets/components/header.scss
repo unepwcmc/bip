@@ -33,7 +33,7 @@
     }
 
     @include m(menu) {
-      margin: vr(1.25) 0;
+      margin: vr(1.75) 0;
     }
   }
 
@@ -41,10 +41,12 @@
     text-align: center;
 
     padding: vr(.25) vr(.75);
-    border: solid 2px $text--menu;
+    background-color: $prussian-blue;
+    border: solid 2px $dark;
+    border-radius: 1px;
+    color: $white;
     margin: 0;
-
-    background-color: $white;
+    font-family: "Open Sans";
   }
 
   @include e(logo) {
