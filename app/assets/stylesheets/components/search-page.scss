@@ -24,6 +24,9 @@
 
   @include e(result-link) {
     color: $text--base;
+    font-size: 1.25rem;
+    margin-bottom: .5rem;
+    display: block;
   }
 
   @include e(result-body) {
