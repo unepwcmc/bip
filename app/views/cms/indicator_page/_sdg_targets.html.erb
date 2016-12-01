@@ -7,7 +7,7 @@
   </h2>
 
   <div class="u-only-desktop mea__container" data-toggle-hide data-toggle-target="sdg-targets">
-    <% sorted_sdg_target_rels  = @cms_page.page_sdg_target_rels.sort_by { |rel| rel.sdg_target.sdg_goal.name } %>
+    <% sorted_sdg_target_rels  = @cms_page.page_sdg_target_rels.sort_by { |rel| rel.sdg_target.sdg_goal.position } %>
     <% grouped_sdg_target_rels = sorted_sdg_target_rels.group_by { |rel| rel.sdg_target.sdg_goal } %>
 
     <% grouped_sdg_target_rels.each do |(sdg_goal, sdg_target_rels)| %>
@@ -31,7 +31,7 @@
   </div>
 
   <div class="u-only-desktop mea__container" data-toggle-target-alt="sdg-targets">
-    <% sorted_sdg_target_rels  = @cms_page.page_sdg_target_rels.sort_by { |rel| rel.sdg_target.sdg_goal.name } %>
+    <% sorted_sdg_target_rels  = @cms_page.page_sdg_target_rels.sort_by { |rel| rel.sdg_target.sdg_goal.position } %>
     <% grouped_sdg_target_rels = sorted_sdg_target_rels.group_by { |rel| rel.sdg_target.sdg_goal } %>
 
     <% grouped_sdg_target_rels.each do |(sdg_goal, sdg_target_rels)| %>
