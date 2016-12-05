@@ -20,6 +20,10 @@ Rails.application.routes.draw do
   get "/resources" => "resources#index"
   get "/partners" => "partners#index"
 
+  CSV.foreach(Rails.root.join("lib/data/redirects.csv").to_s, headers: true) do |row|
+    get row["original"] => redirect(row["new"])
+  end
+
   comfy_route :cms_admin, :path => '/admin'
 
   # Make sure this routeset is defined last
