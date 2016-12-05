@@ -1,3 +1,16 @@
+set :stage, :production
+
+
+server "web-.linode.unep-wcmc.org", user: 'wcmc', roles: %w{app web db}
+
+set :application, "bip"
+set :server_name, "bip.web-production.linode.unep-wcmc.org"
+set :sudo_user, "wcmc"
+set :app_port, "80"
+
+set :npm_flags, "--silent --no-progress"
+
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
