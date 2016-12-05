@@ -1,7 +1,7 @@
 set :stage, :production
 
 
-server "web-.linode.unep-wcmc.org", user: 'wcmc', roles: %w{app web db}
+server "web-production.linode.unep-wcmc.org", user: 'wcmc', roles: %w{app web db}
 
 set :application, "bip"
 set :server_name, "bip.web-production.linode.unep-wcmc.org"
