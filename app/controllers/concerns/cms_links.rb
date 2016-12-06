@@ -2,7 +2,7 @@ module CmsAdminExtension
   extend ActiveSupport::Concern
 
   included do
-    after_action :create_resources, :only => [:create]
+    after_action :create_resources, :only => [:create, :update]
     after_action :update_resources, :only => [:update]
     after_action :create_disaggregations, :only => [:create, :update]
     after_action :connect_partners, :only => [:create, :update]
@@ -15,21 +15,33 @@ module CmsAdminExtension
 
     def create_resources
       if params[:resources]
-        resources = params[:resources].select do |resource|
+        starting_index = @page.resources.select("MAX(index) AS max_index").order("").first.max_index || 0
+
+        resources = params[:resources].reject { |resource|
+          resource[:id].present?
+        }.select { |resource|
           resource[:label].present?
-        end.map do |resource|
-          Resource.create!(kind: resource[:kind], url: resource[:url], label: resource[:label], file: resource[:file])
+        }.map do |resource|
+          starting_index += 1
+
+          resource = Resource.create!(
+            kind: resource[:kind],
+            url: resource[:url],
+            label: resource[:label],
+            file: resource[:file],
+            index: starting_index
+          )
         end
 
-        @page.resources = resources
+        @page.resources << resources
       end
     end
 
     def update_resources
-      (params[:resources] || []).each do |resource_attrs|
+      (params[:resources] || []).select { |resource| resource[:id].present? }.each do |resource_attrs|
         resource = Resource.find(resource_attrs.delete(:id))
         resource.file = resource_attrs.delete(:file)
-        resource.update(resource_attrs.permit(:url, :label, :kind))
+        resource.update(resource_attrs.permit(:url, :label, :kind, :index))
       end
     end
 

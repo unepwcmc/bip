@@ -128,4 +128,20 @@ $(document).ready( ->
     lang:             CMS.locale
     convertDivs:      false
   )
+
+  $(".js-resource").each((_i, el) ->
+    Sortable.create(
+      el,
+      {onMove: (ev) ->
+        draggedIndex = $(ev.dragged).find("[name='resources[][index]']").val()
+        droppedIndex = $(ev.related).find("[name='resources[][index]']").val()
+
+        $(ev.dragged).find("[name='resources[][index]']").val(droppedIndex)
+        $(ev.related).find("[name='resources[][index]']").val(draggedIndex)
+
+        $(ev.dragged).find(".js-resource-index").html(droppedIndex)
+        $(ev.related).find(".js-resource-index").html(draggedIndex)
+      }
+    )
+  )
 )

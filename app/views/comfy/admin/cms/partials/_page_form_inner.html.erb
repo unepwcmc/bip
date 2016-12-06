@@ -12,11 +12,15 @@
 
   <div class="form-group">
     <%= form.label :resources, :class => 'control-label col-sm-2' %>
-    <div class="col-sm-10">
+    <div class="js-resource col-sm-10">
       <% if @page.resources.any? %>
-        <% @page.resources.each do |resource| %>
+        <% @page.resources.order(:index).each do |resource| %>
           <div style="margin-bottom: 2rem;">
             <div data-resource-show="<%= resource.id %>">
+              <input type="hidden" value="<%= resource.id %>" name="resources[][id]">
+              <input type="hidden" name="resources[][index]" value="<%= resource.index %>" class="form-control">
+
+              <strong>Position:</strong> <span class="js-resource-index"><%= resource.index %></span><br>
               <strong>Label:</strong> <%= resource.label %><br>
               <strong>Type:</strong> <%= resource.kind&.titleize %><br>
               <% if resource.kind == "file" %>
@@ -61,11 +65,15 @@
 <div data-extra-fields="Generic page">
   <div class="form-group">
     <%= form.label :resources, :class => 'control-label col-sm-2' %>
-    <div class="col-sm-10">
+    <div class="js-resource col-sm-10">
       <% if @page.resources.any? %>
-        <% @page.resources.each do |resource| %>
+        <% @page.resources.order(:index).each do |resource| %>
           <div style="margin-bottom: 2rem;">
             <div data-resource-show="<%= resource.id %>">
+              <input type="hidden" value="<%= resource.id %>" name="resources[][id]">
+              <input type="hidden" name="resources[][index]" value="<%= resource.index %>" class="form-control">
+
+              <strong>Position:</strong> <span class="js-resource-index"><%= resource.index %></span><br>
               <strong>Label:</strong> <%= resource.label %><br>
               <strong>Type:</strong> <%= resource.kind&.titleize %><br>
               <% if resource.kind == "file" %>
@@ -190,11 +198,15 @@
 
   <div class="form-group">
     <%= form.label :publications, :class => 'control-label col-sm-2' %>
-    <div class="col-sm-10">
+    <div class="js-resource col-sm-10">
       <% if @page.resources.any? %>
-        <% @page.resources.each do |resource| %>
+        <% @page.resources.order(:index).each do |resource| %>
           <div style="margin-bottom: 2rem;">
             <div data-resource-show="<%= resource.id %>">
+              <input type="hidden" value="<%= resource.id %>" name="resources[][id]">
+              <input type="hidden" name="resources[][index]" value="<%= resource.index %>" class="form-control">
+
+              <strong>Position:</strong> <span class="js-resource-index"><%= resource.index %></span><br>
               <strong>Label:</strong> <%= resource.label %><br>
               <strong>Type:</strong> <%= resource.kind&.titleize %><br>
               <% if resource.kind == "file" %>
@@ -318,11 +330,15 @@
 
   <div class="form-group">
     <%= form.label :resources, :class => 'control-label col-sm-2' %>
-    <div class="col-sm-10">
+    <div class="js-resource col-sm-10">
       <% if @page.resources.any? %>
-        <% @page.resources.each do |resource| %>
+        <% @page.resources.order(:index).each do |resource| %>
           <div style="margin-bottom: 2rem;">
             <div data-resource-show="<%= resource.id %>">
+              <input type="hidden" value="<%= resource.id %>" name="resources[][id]">
+              <input type="hidden" name="resources[][index]" value="<%= resource.index %>" class="form-control">
+
+              <strong>Position:</strong> <span class="js-resource-index"><%= resource.index %></span><br>
               <strong>Label:</strong> <%= resource.label %><br>
               <strong>Type:</strong> <%= resource.kind&.titleize %><br>
               <% if resource.kind == "file" %>
