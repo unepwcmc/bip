@@ -1,3 +1,16 @@
+<%= content_for :breadcrumbs do %>
+  <% page = @cms_page %>
+  <% breadcrumbs = [] %>
+
+  <% while (page = page.parent).label != "Index" %>
+    <% breadcrumbs << page %>
+  <% end %>
+
+  <% breadcrumbs.reverse.each do |parent| %>
+    <%= breadcrumb(parent.label, parent.full_path) %>
+  <% end %>
+<% end %>
+
 <%= content_for :page_title do %>
   <h1 class="page__title"><%= @cms_page.label %></h1>
 <% end %>
