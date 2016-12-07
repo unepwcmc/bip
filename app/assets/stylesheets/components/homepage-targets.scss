@@ -57,6 +57,15 @@
     margin-bottom: vr(1.5);
   }
 
+  @include e(target-subheader) {
+    font-family: Merriweather;
+    font-size: 1rem;
+    margin: 1rem 0;
+    font-weight: 900;
+    line-height: 1.25;
+    color: $prussian-blue;
+  }
+
   @include e(target-icon) {
     margin-right: vr(1);
     img {

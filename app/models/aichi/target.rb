@@ -8,4 +8,7 @@ class Aichi::Target < ActiveRecord::Base
 
   has_many :page_aichi_target_rels, foreign_key: "aichi_target_id"
   has_many :pages, through: :page_aichi_target_rels
+
+  has_many :primary_pages, -> { where("page_aichi_target_rels.primary IS TRUE") }, through: :page_aichi_target_rels, source: :page
+  has_many :secondary_pages, -> { where("page_aichi_target_rels.primary IS FALSE") }, through: :page_aichi_target_rels, source: :page
 end

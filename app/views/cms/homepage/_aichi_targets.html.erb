@@ -49,15 +49,28 @@
             </div>
             <p class="homepage-targets__target-description"><%= target.description %></p>
             <% if target.pages.any? %>
-              <% target.pages.each do |page| %>
-                <a href="<%= page.full_path %>" class="homepage-targets__target-indicator">
-                  <i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i> <%= page.label %>
+              <% if target.primary_pages.any? %>
+                <h6 class="homepage-targets__target-subheader">Primary indicators</h6>
+                <% target.primary_pages.each do |page| %>
+                  <a href="<%= page.full_path %>" class="homepage-targets__target-indicator">
+                    <i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i> <%= page.label %>
                 </a>
               <% end %>
-            <% else %>
-              <p class="homepage-targets__target-indicator homepage-targets__target-indicator--bold">No Global Indicators available yet</p>
             <% end %>
-          </div>
+            <% if target.secondary_pages.any? %>
+              <h6 class="homepage-targets__target-subheader">Secondary indicators</h6>
+              <% target.secondary_pages.each do |page| %>
+                <a href="<%= page.full_path %>" class="homepage-targets__target-indicator">
+                  <i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i> <%= page.label %>
+              </a>
+            <% end %>
+          <% end %>
+        <% else %>
+          <p class="homepage-targets__target-indicator homepage-targets__target-indicator--bold">
+            No global indicators currently available under the BIP
+          </p>
+        <% end %>
+      </div>
         <% end %>
       </div>
     </div>
@@ -79,10 +92,21 @@
         </div>
         <p class="homepage-targets__target-description"><%= target.description %></p>
         <% if target.pages.any? %>
-          <% target.pages.each do |page| %>
-            <a href="<%= page.full_path %>" class="homepage-targets__target-indicator">
-              <i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i> <%= page.label %>
-            </a>
+          <% if target.primary_pages.any? %>
+            <h6 class="homepage-targets__target-subheader">Primary indicators</h6>
+            <% target.primary_pages.each do |page| %>
+              <a href="<%= page.full_path %>" class="homepage-targets__target-indicator">
+                <i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i> <%= page.label %>
+              </a>
+            <% end %>
+          <% end %>
+          <% if target.secondary_pages.any? %>
+            <h6 class="homepage-targets__target-subheader">Secondary indicators</h6>
+            <% target.secondary_pages.each do |page| %>
+              <a href="<%= page.full_path %>" class="homepage-targets__target-indicator">
+                <i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i> <%= page.label %>
+              </a>
+            <% end %>
           <% end %>
         <% else %>
           <p class="homepage-targets__target-indicator homepage-targets__target-indicator--bold">
