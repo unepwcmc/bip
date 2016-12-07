@@ -1,4 +1,4 @@
-<% result.resources.each_with_index do |resource, i| %>
+<% result.resources.order(:index).each_with_index do |resource, i| %>
   <p class="<%= i.zero? ? "u-fix-h2-margin" : "" %>">
     <% if resource.kind == "file" %>
       <%= link_to resource.file.url do %>
