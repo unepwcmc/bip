@@ -14,7 +14,7 @@ class SearchController < ApplicationController
         end
       end
     else
-      @results = Comfy::Cms::Page.all
+      @results = Comfy::Cms::Page.find_by_label("Indicators").descendants
     end
 
     pages = extract_pages(@results)
@@ -26,6 +26,13 @@ class SearchController < ApplicationController
       themes: pages.flat_map(&:themes).uniq.sort_by(&:name)
     }
 
+    @results = @results.select { |r|
+      if r.is_a?(Comfy::Cms::Block)
+        r.blockable.ancestors.map(&:label).include?("Indicators")
+      else
+        r.ancestors.map(&:label).include?("Indicators")
+      end
+    }
     @results = filter_results(@results, params[:filters]) if params[:filters]
     @total_results = @results.size
     @results = paginate_results(@results, params[:page], params[:per_page])
