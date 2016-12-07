@@ -17,14 +17,14 @@ module CmsAdminExtension
       if params[:resources]
         starting_index = @page.resources.select("MAX(index) AS max_index").order("").first.max_index || 0
 
-        resources = params[:resources].reject { |resource|
+        params[:resources].reject { |resource|
           resource[:id].present?
         }.select { |resource|
           resource[:label].present?
         }.map do |resource|
           starting_index += 1
 
-          resource = Resource.create!(
+          @page.resources << Resource.create!(
             kind: resource[:kind],
             url: resource[:url],
             label: resource[:label],
@@ -32,8 +32,6 @@ module CmsAdminExtension
             index: starting_index
           )
         end
-
-        @page.resources << resources
       end
     end
 
