@@ -17,7 +17,7 @@
           <td class="mea__body">
             <h4 class="mea__title"><%= mea.name %></h4>
 
-            <% mea_target_rels.sort_by { |rel| rel.mea_target.target_title }.each do |target_rel| %>
+            <% mea_target_rels.sort_by { |rel| rel.mea_target.position }.each do |target_rel| %>
               <div class="target target--secondary">
                 <h5 class="target__title"><%= target_title target_rel, :mea %></h5>
                 <p class="target__body"><%= raw target_rel.mea_target.description %></p>
@@ -34,7 +34,7 @@
     <% sorted_mea_target_rels  = @cms_page.page_mea_target_rels.sort_by { |rel| rel.mea_target.mea.name } %>
     <% grouped_mea_target_rels = sorted_mea_target_rels.group_by { |rel| rel.mea_target.mea } %>
 
-    <% grouped_mea_target_rels.each do |(mea, mea_target_rels)| %>
+    <% grouped_mea_target_rels.each do |(mea, _mea_target_rels)| %>
       <table class="mea">
         <tr>
           <td class="mea__image"><%= image_tag mea.logo.url(:thumb) %></td>
@@ -47,9 +47,9 @@
   </div>
 
   <div class="u-clearfix u-only-mobile">
-    <% @cms_page.mea_targets.map(&:mea).uniq.each do |target| %>
+    <% @cms_page.mea_targets.map(&:mea).uniq.each do |mea| %>
       <div class="target__image">
-        <%= image_tag target.logo.try(:url, :thumb) %>
+        <%= image_tag mea.logo.try(:url, :thumb) %>
       </div>
     <% end %>
   </div>
