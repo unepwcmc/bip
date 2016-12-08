@@ -8,4 +8,7 @@ class Sdg::Target < ActiveRecord::Base
 
   has_many :page_sdg_target_rels, foreign_key: "sdg_target_id"
   has_many :pages, through: :page_sdg_target_rels
+
+  has_many :official_pages, -> { where("page_sdg_target_rels.official IS TRUE") }, through: :page_sdg_target_rels, source: :page
+  has_many :relevant_pages, -> { where("page_sdg_target_rels.official IS FALSE") }, through: :page_sdg_target_rels, source: :page
 end
