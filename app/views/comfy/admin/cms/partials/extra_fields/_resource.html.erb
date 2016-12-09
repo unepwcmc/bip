@@ -1,0 +1,59 @@
+<div class="form-group">
+  <%= form.label :tags, :class => 'control-label col-sm-2' %>
+  <div class="col-sm-10">
+    <select style="width: 100%" class="js-select2-tags" multiple="multiple" name="page[tags][]">
+      <% Tag.pluck(:id, :name).each do |(id, name)| %>
+        <option <%= @page.other_tag_ids.include?(id) ? "selected" : "" %> value="<%= id %>"><%= name %></option>
+      <% end %>
+    </select>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= form.label :resources, :class => 'control-label col-sm-2' %>
+  <div class="js-resource col-sm-10">
+    <% @page.resources.order(:index).each do |resource| %>
+      <div style="margin-bottom: 2rem;">
+        <div data-resource-show="<%= resource.id %>">
+          <input type="hidden" value="<%= resource.id %>" name="resources[][id]">
+          <input type="hidden" name="resources[][index]" value="<%= resource.index %>" class="form-control">
+
+          <strong>Position:</strong> <span class="js-resource-index"><%= resource.index %></span><br>
+          <strong>Label:</strong> <%= resource.label %><br>
+          <strong>Type:</strong> <%= resource.kind&.titleize %><br>
+          <% if resource.kind == "file" %>
+            <strong>File:</strong><%= link_to "Download", resource.file.url %><br>
+          <% else %>
+            <strong>Link:</strong><%= link_to resource.url, resource.url %><br>
+          <% end %>
+        </div>
+        <div style="display:none" data-resource-edit="<%= resource.id %>">
+          <input disabled="disabled" type="hidden" value="<%= resource.id %>" name="resources[][id]">
+
+          <label for="resources[][label]">Label</label>
+          <input disabled="disabled" type="text" name="resources[][label]" value="<%= resource.label %>" class="form-control">
+
+          <label style="margin-top: 1rem;" for="resources[][kind]">Type of resource</label>
+          <select disabled="disabled" name="resources[][kind]" class="form-control">
+            <option <%= "selected" if resource.kind == "file" %> value="file">File</option>
+            <option <%= "selected" if resource.kind == "link" %> value="link">Link</option>
+          </select>
+
+          <label style="margin-top: 1rem;" for="resources[][file]">File</label>
+          <input disabled="disabled" type="file" name="resources[][file]" placeholder="File" class="form-control">
+
+          <label style="margin-top: 1rem;" for="resources[][url]">Link</label>
+          <input disabled="disabled" style="margin-bottom: 1rem;" type="url" name="resources[][url]" value="<%= resource.url %>" placeholder="Leave blank if resource is a file" class="form-control">
+        </div>
+
+        <button data-resource-trigger="<%= resource.id %>" class="btn btn-primary">Edit resource</button>
+        <%= link_to("Delete resource", admin_resource_path(resource), method: :delete, class: "btn btn-danger") %>
+      </div>
+    <% end %>
+
+    <div class="js-add-resources">
+      <div class="js-target"></div>
+      <button class="js-trigger btn btn-primary">Add new resource</button>
+    </div>
+  </div>
+</div>

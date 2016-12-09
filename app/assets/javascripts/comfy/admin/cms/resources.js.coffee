@@ -4,6 +4,9 @@ $(document).ready( ->
       ev.preventDefault()
 
       $addResourcesEl.find(".js-target").append("""
+        <input type="hidden" value="" name="resources[][id]">
+        <input type="hidden" name="resources[][index]" value="" class="form-control">
+
         <label for="resources[][label]">Label</label>
         <input type="text" name="resources[][label]" placeholder="Label" class="form-control">
 
@@ -21,26 +24,6 @@ $(document).ready( ->
       """)
     )
 
-  if ($resourceEl = $("[data-resource-trigger]")).length > 0
-    $resourceEl.each( (_i, el) ->
-      $el = $(el)
-      resourceId = $el.data("resource-trigger")
-
-      $showEl = $("[data-resource-show='#{resourceId}']")
-      $editEl = $("[data-resource-edit='#{resourceId}']")
-      $allInputs = $editEl.find(":input")
-
-      $el.click( (ev) ->
-        ev.preventDefault()
-        $showEl.toggle()
-        $editEl.toggle()
-        $allInputs.prop("disabled", !$allInputs.prop("disabled"))
-      )
-    )
-
-  $(".js-select2").select2()
-  $(".js-select2-tags").select2({tags: true})
-
   if ($extraFieldsEl = $("[data-extra-fields]")).length > 0
     $pageLayoutSelectEl = $("#page_layout_id")
 
@@ -49,15 +32,52 @@ $(document).ready( ->
 
       $extraFieldsEl.each( (i, el) ->
         $el = $(el)
+        $allInputs = $el.find(":input")
 
         if selected == $el.data("extra-fields")
           $el.show()
+          $allInputs.prop("disabled", false)
         else
           $el.hide()
+          $allInputs.prop("disabled", true)
       )
     )
 
     $pageLayoutSelectEl.change()
+    $(document).ajaxComplete(-> $pageLayoutSelectEl.change())
+
+  if ($resourceEl = $("[data-resource-trigger]")).length > 0
+    $resourceEl.each( (_i, el) ->
+      $el = $(el)
+      resourceId = $el.data("resource-trigger")
+
+      $showEl = $el.parent().find("[data-resource-show='#{resourceId}']")
+      $editEl = $el.parent().find("[data-resource-edit='#{resourceId}']")
+      $allShowInputs = $showEl.find(":input")
+      $allEditInputs = $editEl.find(":input")
+
+      toggleInputs = ->
+        if $editEl.is(":visible")
+          $allEditInputs.prop("disabled", false)
+          $allShowInputs.prop("disabled", true)
+        else
+          $allEditInputs.prop("disabled", true)
+          $allShowInputs.prop("disabled", false) if $showEl.is(":visible")
+
+      $el.click( (ev) ->
+        ev.preventDefault()
+        $showEl.toggle()
+        $editEl.toggle()
+        toggleInputs()
+      )
+
+      toggleInputs()
+      $(document).ajaxComplete(-> toggleInputs())
+    )
+
+  $(".js-select2").select2()
+  $(".js-select2-tags").select2({tags: true})
+
 
   if ($addTargetEl = $(".js-add-target")).length > 0
     $addTargetEl.find(".js-trigger").click( (ev) ->

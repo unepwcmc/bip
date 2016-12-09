@@ -1,0 +1,121 @@
+<hr>
+<div class="col-sm-offset-2 col-sm-10">
+  <h2>Initiative summary</h2>
+</div>
+
+<% if @page.initiative.present? %>
+  <input type="hidden" value="<%= @page.initiative.id %>" name="initiative[id]">
+<% end %>
+
+<div class="form-group">
+  <%= form.label :logo, :class => 'control-label col-sm-2' %>
+  <div class="col-sm-10">
+    <input type="file" name="initiative[logo]" placeholder="File" class="form-control">
+  </div>
+</div>
+
+<div class="form-group">
+  <%= form.label :scale, :class => 'control-label col-sm-2' %>
+  <div class="col-sm-10">
+    <input value="<%= @page.initiative&.scale %>" class="form-control" type="text" placeholder="e.g. National" name="initiative[scale]">
+  </div>
+</div>
+<div class="form-group">
+  <%= form.label :year_started, :class => 'control-label col-sm-2' %>
+  <div class="col-sm-10">
+    <input value="<%= @page.initiative&.year_started %>" class="form-control" type="text" placeholder="e.g. 2010" name="initiative[year_started]">
+  </div>
+</div>
+<div class="form-group">
+  <%= form.label :countries_included, :class => 'control-label col-sm-2' %>
+  <div class="col-sm-10">
+    <input value="<%= @page.initiative&.countries_included %>" class="form-control" type="text" placeholder="e.g. Germany, Ireland" name="initiative[countries_included]">
+  </div>
+</div>
+<div class="form-group">
+  <%= form.label :organization_responsible, :class => 'control-label col-sm-2' %>
+  <div class="col-sm-10">
+    <input value="<%= @page.initiative&.organization_responsible %>" class="form-control" type="text" placeholder="e.g. Department of Environment" name="initiative[organization_responsible]">
+  </div>
+</div>
+<div class="form-group">
+  <%= form.label :focal_point, :class => 'control-label col-sm-2' %>
+  <div class="col-sm-10">
+    <textarea data-custom-rich-text name="initiative[focal_point]"><%= @page.initiative&.focal_point %></textarea>
+  </div>
+</div>
+<hr>
+
+<div class="col-sm-offset-2 col-sm-10">
+  <h2>Indicator Framework</h2>
+</div>
+
+<div class="form-group">
+  <%= form.label :number_of_indicators, :class => 'control-label col-sm-2' %>
+  <div class="col-sm-10">
+    <input value="<%= @page.initiative&.number_of_indicators %>" class="form-control" type="text" placeholder="e.g. 24" name="initiative[number_of_indicators]">
+  </div>
+</div>
+
+<div class="form-group">
+  <%= form.label :framework, :class => 'control-label col-sm-2' %>
+  <div class="col-sm-10">
+    <input value="<%= @page.initiative&.framework %>" class="form-control" type="text" placeholder="e.g. CBD Framework" name="initiative[framework]">
+  </div>
+</div>
+
+<hr>
+
+<div class="form-group">
+  <%= form.label :publications, :class => 'control-label col-sm-2' %>
+  <div class="js-resource col-sm-10">
+    <% if @page.resources.any? %>
+      <% @page.resources.order(:index).each do |resource| %>
+        <div style="margin-bottom: 2rem;">
+          <div data-resource-show="<%= resource.id %>">
+            <input type="hidden" value="<%= resource.id %>" name="resources[][id]">
+            <input type="hidden" name="resources[][index]" value="<%= resource.index %>" class="form-control">
+
+            <strong>Position:</strong> <span class="js-resource-index"><%= resource.index %></span><br>
+            <strong>Label:</strong> <%= resource.label %><br>
+            <strong>Type:</strong> <%= resource.kind&.titleize %><br>
+            <% if resource.kind == "file" %>
+              <strong>File:</strong><%= link_to "Download", resource.file.url %><br>
+            <% else %>
+              <strong>Link:</strong><%= link_to resource.url, resource.url %><br>
+            <% end %>
+          </div>
+          <div style="display:none" data-resource-edit="<%= resource.id %>">
+            <input disabled="disabled" type="hidden" value="<%= resource.id %>" name="resources[][id]">
+
+            <label for="resources[][label]">Label</label>
+            <input disabled="disabled" type="text" name="resources[][label]" value="<%= resource.label %>" class="form-control">
+
+            <label style="margin-top: 1rem;" for="resources[][kind]">Type of resource</label>
+            <select disabled="disabled" name="resources[][kind]" class="form-control">
+              <option <%= "selected" if resource.kind == "file" %> value="file">File</option>
+              <option <%= "selected" if resource.kind == "link" %> value="link">Link</option>
+            </select>
+
+            <label style="margin-top: 1rem;" for="resources[][file]">File</label>
+            <input disabled="disabled" type="file" name="resources[][file]" placeholder="File" class="form-control">
+
+            <label style="margin-top: 1rem;" for="resources[][url]">Link</label>
+            <input disabled="disabled" style="margin-bottom: 1rem;" type="url" name="resources[][url]" value="<%= resource.url %>" placeholder="Leave blank if resource is a file" class="form-control">
+          </div>
+
+          <button data-resource-trigger="<%= resource.id %>" class="btn btn-primary">Edit publication</button>
+          <%= link_to("Delete publication", admin_resource_path(resource), method: :delete, class: "btn btn-danger") %>
+        </div>
+      <% end %>
+    <% end %>
+
+    <div class="js-add-resources">
+      <div class="js-target"></div>
+      <button class="js-trigger btn btn-primary">Add new publication</button>
+    </div>
+  </div>
+</div>
+
+<hr>
+
