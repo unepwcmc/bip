@@ -14,6 +14,15 @@
         </div>
         <p class="partners__name"><%= partner.name %></p>
         <div class="partners__description"><%= raw partner.description %></div>
+
+        <div class="u-clearfix">
+          <% partner.partner_types.each do |partner_type| %>
+            <div class="search-page__result-tag">
+              <em><%= partner_type.name %></em>
+            </div>
+          <% end %>
+        </div>
+
         <%= link_to partner.url, target: "_blank" do %>
           <p class="partners__link page__aside-link">View website ></p>
         <% end %>
