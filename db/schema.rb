@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161208111633) do
+ActiveRecord::Schema.define(version: 20161209115029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -270,6 +270,11 @@ ActiveRecord::Schema.define(version: 20161208111633) do
     t.integer "theme_id"
   end
 
+  create_table "partner_partner_type_rels", force: :cascade do |t|
+    t.integer "partner_id"
+    t.integer "partner_type_id"
+  end
+
   create_table "partner_types", force: :cascade do |t|
     t.text "name"
   end
@@ -283,7 +288,6 @@ ActiveRecord::Schema.define(version: 20161208111633) do
     t.text     "url"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "partner_type_id"
     t.text     "description"
   end
 

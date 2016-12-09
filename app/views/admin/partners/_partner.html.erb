@@ -15,7 +15,7 @@
         <strong>Name:</strong> <%= partner.name %><br>
         <strong>Description:</strong> <%= raw partner.description %><br>
         <strong>Link:</strong> <a href="<%= partner.url %>"><%= partner.url %></a><br>
-        <strong>Partner Type:</strong> <%= partner.partner_type&.name %>
+        <strong>Partner Type:</strong> <%= partner.partner_types.map(&:name).join(", ") %>
       </div>
     </div>
   </div>

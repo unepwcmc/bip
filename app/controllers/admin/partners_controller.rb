@@ -33,7 +33,7 @@ class Admin::PartnersController < Comfy::Admin::Cms::BaseController
   private
 
   def partner_params
-    params.require(:partner).permit(:name, :partner_type_id, :url, :logo, :description)
+    params.require(:partner).permit(:name, :url, :logo, :description, partner_type_ids: [])
   end
 end
 
