@@ -63,9 +63,8 @@ module CmsAdminExtension
         if params[:page][:primary_aichi_target_id]
           @page.primary_aichi_target = Aichi::Target.find(params[:page][:primary_aichi_target_id])
         end
-        if params[:page][:secondary_aichi_target_ids]
-          @page.secondary_aichi_targets = Aichi::Target.where(id: params[:page][:secondary_aichi_target_ids])
-        end
+
+        @page.secondary_aichi_targets = Aichi::Target.where(id: params[:page][:secondary_aichi_target_ids])
       else
         @page.aichi_targets = []
       end
