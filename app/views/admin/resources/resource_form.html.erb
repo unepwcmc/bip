@@ -1,0 +1,24 @@
+<input type="hidden" value="" name="resources[][id]">
+<input type="hidden" name="resources[][index]" value="" class="form-control">
+
+<label for="resources[][label]">Label</label>
+<input type="text" name="resources[][label]" placeholder="Label" class="form-control">
+
+<label style="margin-top: 1rem;" for="resources[][resource_type_id]">Resource section</label>
+<select name="resources[][resource_type_id]" class="form-control">
+  <% @resource_types.each do |(id, name)| %>
+    <option value="<%= id %>"><%= name %></option>
+  <% end %>
+</select>
+
+<label style="margin-top: 1rem;" for="resources[][kind]">Type of resource</label>
+<select name="resources[][kind]" class="form-control">
+  <option value="file">File</option>
+  <option value="link">Link</option>
+</select>
+
+<label style="margin-top: 1rem;" for="resources[][file]">File</label>
+<input type="file" name="resources[][file]" placeholder="File" class="form-control">
+
+<label style="margin-top: 1rem;" for="resources[][url]">Link</label>
+<input style="margin-bottom: 1rem;" type="url" name="resources[][url]" placeholder="Leave blank if resource is a file" class="form-control">

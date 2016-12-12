@@ -1,4 +1,9 @@
 class Admin::ResourcesController < Comfy::Admin::Cms::BaseController
+  def resource_form
+    @resource_types = ResourceType.pluck(:id, :name)
+    render layout: false
+  end
+
   def destroy
     resource = Resource.find(params[:id])
     resource.destroy

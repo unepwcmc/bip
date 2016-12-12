@@ -12,7 +12,11 @@ Rails.application.routes.draw do
     resources :aichi_goals, except: [:show]
     resources :sdg_targets, except: [:show]
     resources :sdg_goals, except: [:show]
-    resources :resources, only: [:destroy]
+    resources :resources, only: [:destroy] do
+      collection do
+        get "resource_form"
+      end
+    end
     resources :disaggregations, only: [:destroy]
   end
 
