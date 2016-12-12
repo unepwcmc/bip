@@ -29,6 +29,7 @@ module CmsAdminExtension
             url: resource[:url],
             label: resource[:label],
             file: resource[:file],
+            resource_type_id: resource[:resource_type_id],
             index: starting_index
           )
         end
@@ -38,7 +39,7 @@ module CmsAdminExtension
     def update_resources
       (params[:resources] || []).select { |resource| resource[:id].present? }.each do |resource_attrs|
         resource = Resource.find(resource_attrs[:id])
-        resource.update(resource_attrs.permit(:url, :label, :kind, :index, :file))
+        resource.update(resource_attrs.permit(:url, :label, :kind, :index, :file, :resource_type_id))
       end
     end
 

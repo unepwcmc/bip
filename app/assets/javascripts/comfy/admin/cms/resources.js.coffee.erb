@@ -10,6 +10,13 @@ $(document).ready( ->
         <label for="resources[][label]">Label</label>
         <input type="text" name="resources[][label]" placeholder="Label" class="form-control">
 
+        <label style="margin-top: 1rem;" for="resources[][resource_type_id]">Resource section</label>
+        <select disabled="disabled" name="resources[][resource_type_id]" class="form-control">
+          <% ResourceType.pluck(:id, :name).each do |(id, name)| %>
+            <option value="<%= id %>"><%= name %></option>
+          <% end %>
+        </select>
+
         <label style="margin-top: 1rem;" for="resources[][kind]">Type of resource</label>
         <select name="resources[][kind]" class="form-control">
           <option value="file">File</option>

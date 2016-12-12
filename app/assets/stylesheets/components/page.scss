@@ -62,6 +62,10 @@
     margin-bottom: vr(1.5);
   }
 
+  @include e(aside-section-subtitle) {
+    margin-top: vr(2.5);
+  }
+
   @include e(section) {
     margin-bottom: vr(3.5);
 

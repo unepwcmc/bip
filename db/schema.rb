@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161209115029) do
+ActiveRecord::Schema.define(version: 20161212145734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -308,6 +308,10 @@ ActiveRecord::Schema.define(version: 20161209115029) do
     t.datetime "updated_at"
   end
 
+  create_table "resource_types", force: :cascade do |t|
+    t.text "name"
+  end
+
   create_table "resources", force: :cascade do |t|
     t.integer  "comfy_cms_page_id"
     t.string   "file_file_name"
@@ -320,6 +324,7 @@ ActiveRecord::Schema.define(version: 20161209115029) do
     t.text     "kind"
     t.text     "url"
     t.integer  "index"
+    t.integer  "resource_type_id"
   end
 
   create_table "sdg_goals", force: :cascade do |t|

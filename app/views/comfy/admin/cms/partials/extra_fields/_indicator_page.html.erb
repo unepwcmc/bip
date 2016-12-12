@@ -86,6 +86,7 @@
 
             <strong>Position:</strong> <span class="js-resource-index"><%= resource.index %></span><br>
             <strong>Label:</strong> <%= resource.label %><br>
+            <strong>Section:</strong> <%= resource.resource_type&.name %><br>
             <strong>Type:</strong> <%= resource.kind&.titleize %><br>
             <% if resource.kind == "file" %>
               <strong>File:</strong><%= link_to "Download", resource.file.url %><br>
@@ -98,6 +99,13 @@
 
             <label for="resources[][label]">Label</label>
             <input disabled="disabled" type="text" name="resources[][label]" value="<%= resource.label %>" class="form-control">
+
+            <label style="margin-top: 1rem;" for="resources[][resource_type_id]">Resource section</label>
+            <select disabled="disabled" name="resources[][resource_type_id]" class="form-control">
+              <% ResourceType.pluck(:id, :name).each do |(id, name)| %>
+                <option <%= "selected" if resource.resource_type&.id == id %> value="<%= id %>"><%= name %></option>
+              <% end %>
+            </select>
 
             <label style="margin-top: 1rem;" for="resources[][kind]">Type of resource</label>
             <select disabled="disabled" name="resources[][kind]" class="form-control">
