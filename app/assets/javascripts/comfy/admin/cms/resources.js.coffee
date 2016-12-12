@@ -44,7 +44,7 @@ $(document).ready( ->
     )
 
     $pageLayoutSelectEl.change()
-    $(document).ajaxComplete(-> $pageLayoutSelectEl.change())
+    setTimeout((-> $pageLayoutSelectEl.change()), 1000)
 
   if ($resourceEl = $("[data-resource-trigger]")).length > 0
     $resourceEl.each( (_i, el) ->
@@ -72,7 +72,7 @@ $(document).ready( ->
       )
 
       toggleInputs()
-      $(document).ajaxComplete(-> toggleInputs())
+      setTimeout((-> toggleInputs()), 1000)
     )
 
   $(".js-select2").select2()
