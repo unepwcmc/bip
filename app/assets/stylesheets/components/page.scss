@@ -63,6 +63,7 @@
   }
 
   @include e(aside-section-subtitle) {
+    @include font(fact-subtitle);
     margin-top: vr(2.5);
   }
 
