@@ -6,7 +6,7 @@ class Sdg::Target < ActiveRecord::Base
 
   belongs_to :sdg_goal, class_name: "Sdg::Goal"
 
-  has_many :page_sdg_target_rels, foreign_key: "sdg_target_id"
+  has_many :page_sdg_target_rels, foreign_key: "sdg_target_id", dependent: :destroy
   has_many :pages, through: :page_sdg_target_rels
 
   has_many :official_pages, -> { where("page_sdg_target_rels.official IS TRUE") }, through: :page_sdg_target_rels, source: :page
