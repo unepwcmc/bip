@@ -16,11 +16,14 @@ window.$ = window.jQuery = global.$ = require("jquery");
 import "babel-polyfill";
 import _ from "underscore";
 import toggle from "modules/toggle";
+import modal from "modules/modal";
 import pagination from "modules/pagination";
 import selectGroup from "modules/select_group";
 
 $(document).ready(() => {
   $("[data-toggle-trigger]").each((_i, el) => toggle.initialize(el));
+  $("[data-modal-trigger]").each((_i, el) => modal.initialize(el));
+
   _.chain($("[data-select-group]"))
     .map(el => $(el).data("select-group"))
     .uniq()

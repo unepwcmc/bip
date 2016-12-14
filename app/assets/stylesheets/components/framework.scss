@@ -1,0 +1,22 @@
+@include b(framework) {
+  @include outer-container;
+
+  @include e(diagram) {
+    @include span-columns(6);
+    @include only-mobile {
+      @include span-columns(12);
+    }
+  }
+
+  @include e(title) {
+    h3 {
+      cursor: pointer;
+      border-bottom: none !important;
+    }
+
+    @include span-columns(6);
+    @include only-mobile {
+      @include span-columns(12);
+    }
+  }
+}

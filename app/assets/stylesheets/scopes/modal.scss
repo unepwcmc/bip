@@ -1,0 +1,6 @@
+@include b(s-modal) {
+  p {
+    @include font(body);
+    font-size: 1rem;
+  }
+}

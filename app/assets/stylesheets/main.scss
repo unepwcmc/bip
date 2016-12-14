@@ -21,6 +21,7 @@
 @import "components/fact";
 @import "components/filters";
 @import "components/footer";
+@import "components/framework";
 @import "components/header";
 @import "components/homepage";
 @import "components/homepage-targets";
@@ -29,6 +30,7 @@
 @import "components/initiative-page";
 @import "components/mea";
 @import "components/mobile-menu";
+@import "components/modal";
 @import "components/page";
 @import "components/pagination";
 @import "components/partners";
@@ -47,3 +49,4 @@
 
 @import "scopes/contact-point";
 @import "scopes/free-text";
+@import "scopes/modal";

@@ -22,6 +22,10 @@
     @include span-columns(8);
     padding-right: vr(2.25);
 
+    @include m(full) {
+      @include span-columns(12);
+    }
+
     @include only-mobile {
       margin-right: 0;
       padding-right: 0;

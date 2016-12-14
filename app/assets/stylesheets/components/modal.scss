@@ -1,0 +1,40 @@
+@include b(modal) {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  background-color: rgba(255,255,255,0.97);
+
+  @include flexbox;
+  @include flex-direction(column);
+  @include justify-content(flex-start);
+  @include align-items(center);
+
+  padding-top: 7vh;
+
+  @include e(title) {
+    @include font(page-title);
+    margin-bottom: vr(2);
+    text-align: center;
+    width: 80%;
+    color: $ocean-blue;
+  }
+
+  @include e(content) {
+    width: 80%;
+    max-height: 90%;
+    overflow-y: scroll;
+  }
+
+  @include e(close) {
+    cursor: pointer;
+    position: absolute;
+    top: 4vh;
+    right: 4vw;
+    font-size: 4rem;
+    font-weight: 100;
+    -webkit-text-stroke: .2em white;
+  }
+}
