@@ -12,6 +12,17 @@
     h3 {
       cursor: pointer;
       border-bottom: none !important;
+
+      &:before {
+        content: "\f054";
+        font-family: FontAwesome;
+        font-weight: 100;
+        margin-right: 4px;
+        font-size: vr(1);
+        vertical-align: middle;
+      }
+
+      &:hover { text-decoration: underline; }
     }
 
     @include span-columns(6);
