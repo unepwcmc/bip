@@ -19,7 +19,7 @@ indicator_classifications.each { |ic| IndicatorClassification.find_or_create_by(
 coverages = ["Global", "Sub-global"]
 coverages.each { |c| Coverage.find_or_create_by(name: c) }
 
-partner_types = ["Indicator provider", "Indicator supporter", "Indicator user"]
+partner_types = ["Indicator producer", "Indicator supporter", "Indicator user"]
 partner_types.each { |pt| PartnerType.find_or_create_by(name: pt) }
 
 resource_types = ["Websites", "Publications and reports"]
