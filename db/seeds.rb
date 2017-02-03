@@ -24,3 +24,13 @@ partner_types.each { |pt| PartnerType.find_or_create_by(name: pt) }
 
 resource_types = ["Websites", "Publications and reports"]
 resource_types.each { |rt| ResourceType.find_or_create_by(name: rt) }
+
+if Rails.env.development? && Comfy::Cms::Site.find_by_label("bip").nil?
+  Comfy::Cms::Site.create(
+    label: "bip",
+    identifier: "bip",
+    hostname: "localhost:3000",
+    path: "",
+    locale: "en"
+  )
+end
