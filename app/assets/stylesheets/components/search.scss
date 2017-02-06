@@ -10,6 +10,7 @@
   }
 
   @include e(title) {
+    line-height: 2rem;
     margin: 0 0 vr(1) 0;
     font-family: Merriweather;
     color: $navy-blue;
