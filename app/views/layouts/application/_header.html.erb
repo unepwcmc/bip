@@ -3,7 +3,7 @@
     <div class="header__content">
       <div class="header__navigation">
         <a class="header__logo" href="/"></a>
-        <div class="header__element u-pull-right u-only-desktop">
+        <div class="header__element u-pull-right u-only-desktop u-hide-print">
           <%= link_to "Home", "/", class: "header__element" %>
           <%= link_to "About", "/about", class: "header__element" %>
           <%= link_to "National indicators", "/national-indicator-development", class: "header__element" %>
@@ -33,7 +33,7 @@
             <%= cms_block_content(:hero_text).html_safe %>
           </div>
         <% else %>
-          <div class="breadcrumbs u-only-desktop">
+          <div class="breadcrumbs u-only-desktop u-hide-print">
             <%= breadcrumb "Home", "/", true %>
             <%= yield :breadcrumbs %>
             <%= breadcrumb(@cms_page.label) %>

@@ -3,4 +3,11 @@
     margin: vr(1.5) 0;
     margin-bottom: vr(.5);
   }
+
+  @include only-print {
+    a:after {
+      content: "(" attr(href) ")";
+      margin-left: .5rem;
+    }
+  }
 }

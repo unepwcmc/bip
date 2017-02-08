@@ -4,6 +4,12 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
+@media only print {
+  html {
+    font-size: 10px;
+  }
+}
+
 h1 { @include text(xxlarge, bold); }
 h2 { @include text(xlarge, bold); }
 h3, h4, h5, h6 { @include text(large, bold); }

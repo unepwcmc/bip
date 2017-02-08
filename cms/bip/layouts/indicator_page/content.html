@@ -2,6 +2,19 @@
   {{ cms:partial:cms/indicator_page/title }}
 
   <div class="page">
+    <div class="u-only-print page__aside">
+      {{ cms:partial:cms/indicator_page/key_facts }}
+      {{ cms:partial:cms/indicator_page/partners }}
+
+      <div class="page__aside-section">
+        <h2 class="page__aside-section-title">Contact point</h2>
+        <div class="s-contact-point s-free-text u-fix-h2-margin">{{ cms:page:contact_point:rich_text }}</div>
+      </div>
+
+      {{ cms:partial:cms/indicator_page/disaggregations }}
+      {{ cms:partial:cms/indicator_page/resources }}
+    </div>
+
     <div class="page__body">
       <div class="page__section u-only-desktop">
         <h2 class="page__section-title">Indicator description</h2>
@@ -40,7 +53,7 @@
 
       <h2 class="page__section-title page__section-title--subtle-border page__section-title--with-padding-mobile">
         Graphs / Diagrams
-        <span data-toggle-trigger="graphs-and-diagrams" data-toggle-text-closed="Expand" class="page__section-toggle u-noselect">
+        <span data-toggle-trigger="graphs-and-diagrams" data-toggle-text-closed="Expand" class="u-hide-print page__section-toggle u-noselect">
           <span class="u-only-desktop"></span><i data-toggle-switch="graphs-and-diagrams" class="icon--right fa fa-chevron-up"></i>
         </span>
       </h2>
@@ -48,7 +61,7 @@
 
       <h2 class="page__section-title page__section-title--subtle-border page__section-title--with-padding-mobile">
         Current storyline
-        <span data-toggle-trigger="current-storyline" data-toggle-text-closed="Expand" class="page__section-toggle u-noselect">
+        <span data-toggle-trigger="current-storyline" data-toggle-text-closed="Expand" class="u-hide-print page__section-toggle u-noselect">
           <span class="u-only-desktop"></span><i data-toggle-switch="current-storyline"  class="icon--right fa fa-chevron-up"></i>
         </span>
       </h2>
@@ -56,7 +69,7 @@
 
       <h2 class="page__section-title page__section-title--subtle-border page__section-title--with-padding-mobile">
         Data and methodology
-        <span data-toggle-trigger="data-and-methodology" data-toggle-text-closed="Expand" class="page__section-toggle u-noselect">
+        <span data-toggle-trigger="data-and-methodology" data-toggle-text-closed="Expand" class="u-hide-print page__section-toggle u-noselect">
           <span class="u-only-desktop"></span><i data-toggle-switch="data-and-methodology"  class="icon--right fa fa-chevron-up"></i>
         </span>
       </h2>
@@ -64,7 +77,7 @@
 
       <h2 class="page__section-title page__section-title--subtle-border page__section-title--with-padding-mobile">
         National use of indicator
-        <span data-toggle-trigger="national-use" data-toggle-text-closed="Expand" class="page__section-toggle u-noselect">
+        <span data-toggle-trigger="national-use" data-toggle-text-closed="Expand" class="u-hide-print page__section-toggle u-noselect">
           <span class="u-only-desktop"></span><i data-toggle-switch="national-use" class="icon--right fa fa-chevron-up"></i>
         </span>
       </h2>
@@ -75,7 +88,7 @@
       </div>
     </div>
 
-    <div class="u-only-desktop page__aside">
+    <div class="u-hide-print u-only-desktop page__aside">
       {{ cms:partial:cms/indicator_page/key_facts }}
       {{ cms:partial:cms/indicator_page/partners }}
 

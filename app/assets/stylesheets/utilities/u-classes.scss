@@ -20,8 +20,25 @@
                                   not supported by any browser */
 }
 
+.u-half {
+  @include span-columns(6);
+}
+
 .u-only-desktop { @include only-mobile  { display: none } }
 .u-only-mobile  { @include only-desktop { display: none } }
+.u-only-print   { @include only-screen  { display: none } }
+.u-hide-print   { @include only-print   { display: none } }
+
+.u-page-break {
+  @include only-print {
+    display: block;
+    page-break-after: always;
+  }
+  @include only-screen {
+    display: none;
+  }
+}
+
 
 .u-hide { display: none; }
 

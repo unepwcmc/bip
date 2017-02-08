@@ -14,6 +14,7 @@ indicator_classifications = [
   "Under development and included in the CBD’s list of indicators",
   "Potential for future use at global and regional levels"
 ]
+
 indicator_classifications.each { |ic| IndicatorClassification.find_or_create_by(name: ic) }
 
 coverages = ["Global", "Sub-global"]

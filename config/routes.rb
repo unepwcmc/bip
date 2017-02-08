@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get "/search" => "search#search"
   get "/resources" => "resources#index"
   get "/partners" => "partners#index"
+  get "/download" => "downloads#show", as: :download
 
   CSV.foreach(Rails.root.join("lib/data/redirects.csv").to_s, headers: true) do |row|
     get row["original"] => redirect(row["new"])

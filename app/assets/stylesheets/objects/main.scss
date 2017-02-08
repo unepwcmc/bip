@@ -4,6 +4,10 @@
   width: $main__width;
   margin: auto;
 
+  @include only-print {
+    width: 100%;
+  }
+
   @include m(full-width) {
     width: 100%;
   }

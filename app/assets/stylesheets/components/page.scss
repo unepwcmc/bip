@@ -26,6 +26,12 @@
       @include span-columns(12);
     }
 
+    @include only-print {
+      display: block;
+      float: none;
+      width: 100%;
+    }
+
     @include only-mobile {
       margin-right: 0;
       padding-right: 0;
@@ -38,6 +44,12 @@
     padding: 0 vr(2);
     width: 30.96%;
     float: left;
+
+    @include only-print {
+      width: 100%;
+      padding: 0;
+      background-color: $white;
+    }
 
     @include only-mobile {
       width: 100%;
@@ -72,6 +84,7 @@
   }
 
   @include e(section) {
+    page-break-inside: avoid;
     margin-bottom: vr(3.5);
 
     @include only-mobile {
