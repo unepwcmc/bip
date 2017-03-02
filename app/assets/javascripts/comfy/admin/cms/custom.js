@@ -1,3 +1,3 @@
 //= require select2
-//= require sortablejs
+//= require sortablejs/Sortable
 //= require comfy/admin/cms/resources
