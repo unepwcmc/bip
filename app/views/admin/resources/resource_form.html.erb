@@ -4,7 +4,10 @@
 <label for="resources[][label]">Label</label>
 <input type="text" name="resources[][label]" placeholder="Label" class="form-control">
 
-<label style="margin-top: 1rem;" for="resources[][resource_type_id]">Resource section</label>
+<label style="margin-top: 1rem;" for="resources[][is_key]">Key resource?</label>
+<input type="checkbox" name="resources[][is_key]" value="1" class="form-control">
+
+<label for="resources[][resource_type_id]">Resource section</label>
 <select name="resources[][resource_type_id]" class="form-control">
   <% @resource_types.each do |(id, name)| %>
     <option value="<%= id %>"><%= name %></option>

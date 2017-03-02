@@ -88,6 +88,7 @@
             <strong>Label:</strong> <%= resource.label %><br>
             <strong>Section:</strong> <%= resource.resource_type&.name %><br>
             <strong>Type:</strong> <%= resource.kind&.titleize %><br>
+            <strong>Key resource:</strong> <%= resource.is_key ? "Yes" : "No" %><br>
             <% if resource.kind == "file" %>
               <strong>File:</strong><%= link_to "Download", resource.file.url %><br>
             <% else %>
@@ -99,6 +100,9 @@
 
             <label for="resources[][label]">Label</label>
             <input disabled="disabled" type="text" name="resources[][label]" value="<%= resource.label %>" class="form-control">
+
+            <label style="margin-top: 1rem;" for="resources[][is_key]">Key resource?</label>
+            <input type="checkbox" value="1" name="resources[][is_key]" <%= "checked" if resource.is_key %> class="form-control">
 
             <label style="margin-top: 1rem;" for="resources[][resource_type_id]">Resource section</label>
             <select disabled="disabled" name="resources[][resource_type_id]" class="form-control">

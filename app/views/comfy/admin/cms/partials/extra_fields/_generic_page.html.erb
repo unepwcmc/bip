@@ -11,6 +11,7 @@
             <strong>Position:</strong> <span class="js-resource-index"><%= resource.index %></span><br>
             <strong>Label:</strong> <%= resource.label %><br>
             <strong>Type:</strong> <%= resource.kind&.titleize %><br>
+            <strong>Key resource:</strong> <%= resource.is_key ? "Yes" : "No" %><br>
             <% if resource.kind == "file" %>
               <strong>File:</strong><%= link_to "Download", resource.file.url %><br>
             <% else %>

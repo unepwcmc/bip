@@ -1,0 +1,25 @@
+<% if @cms_page.resources.any? %>
+  <% @cms_page.resources.group_by(&:resource_type).each_pair do |resource_type, resources| %>
+    <% if resource_type.present? %>
+      <h3><%= resource_type.name %></h3>
+    <% end %>
+
+    <% resources.sort_by(&:index).each_with_index do |resource, i| %>
+      <p class="<%= i.zero? ? "u-fix-h2-margin" : "" %>">
+        <% if resource.kind == "file" %>
+          <%= link_to resource.file.url do %>
+            <svg class="icon--left icon--sub" xmlns="http://www.w3.org/2000/svg" width="21" height="18" viewBox="930 1765 21 18" class="undefined"><style>.a{fill:#004f77;}</style><path d="M945 1771L942 1771 942 1765 938 1765 938 1771 935 1771 940 1776 945 1771 945 1771ZM949.3 1777.5C949.1 1777.3 947.7 1775.8 947.3 1775.4 947.1 1775.2 946.7 1775 946.3 1775L944.5 1775 947.6 1778 944 1778C943.9 1778 943.9 1778 943.8 1778.1L943 1780 937 1780 936.2 1778.1C936.1 1778 936.1 1778 936 1778L932.4 1778 935.5 1775 933.7 1775C933.3 1775 932.9 1775.2 932.7 1775.4 932.3 1775.8 930.9 1777.3 930.7 1777.5 930.2 1778.1 929.9 1778.5 930 1779L930.6 1782.1C930.7 1782.6 931.3 1783 931.8 1783L948.2 1783C948.7 1783 949.3 1782.6 949.4 1782.1L950 1779C950.1 1778.5 949.8 1778.1 949.3 1777.5L949.3 1777.5Z" class="a"/></svg>
+              <span class="page__aside-link"><%= resource.label %></span>
+            <% end %>
+          <% else %>
+            <%= link_to resource.url do %>
+              <span class="page__aside-link"><%= resource.label %></span>
+            <% end %>
+          <% end %>
+        </p>
+      <% end %>
+
+    <% end %>
+<% else %>
+  <p>No further resources are available</p>
+<% end %>

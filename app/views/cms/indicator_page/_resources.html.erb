@@ -1,7 +1,7 @@
 <% if @cms_page.resources.any? %>
   <div class="page__aside-section page__aside-section--last-mobile">
     <h2 class="page__aside-section-title">Further resources</h2>
-    <% @cms_page.resources.group_by(&:resource_type).each_pair do |resource_type, resources| %>
+    <% @cms_page.resources.select(&:is_key).group_by(&:resource_type).each_pair do |resource_type, resources| %>
       <% if resource_type.present? %>
         <h3 class="page__aside-section-subtitle"><%= resource_type.name %></h3>
       <% end %>

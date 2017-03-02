@@ -27,6 +27,7 @@ module CmsAdminExtension
           @page.resources << Resource.create!(
             kind: resource[:kind],
             url: resource[:url],
+            is_key: resource[:is_key] == "1",
             label: resource[:label],
             file: resource[:file],
             resource_type_id: resource[:resource_type_id],
@@ -39,7 +40,8 @@ module CmsAdminExtension
     def update_resources
       (params[:resources] || []).select { |resource| resource[:id].present? }.each do |resource_attrs|
         resource = Resource.find(resource_attrs[:id])
-        resource.update(resource_attrs.permit(:url, :label, :kind, :index, :file, :resource_type_id))
+        resource_attrs[:is_key] = (resource_attrs[:is_key] == "1")
+        resource.update(resource_attrs.permit(:url, :is_key, :label, :kind, :index, :file, :resource_type_id))
       end
     end
 

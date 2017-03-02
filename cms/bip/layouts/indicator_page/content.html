@@ -83,6 +83,14 @@
       </h2>
       <div class="s-free-text" data-toggle-hide data-toggle-target="national-use">{{ cms:page:national_use_of_indicator:rich_text }}</div>
 
+      <h2 class="page__section-title page__section-title--subtle-border page__section-title--with-padding-mobile">
+        Further resources
+        <span data-toggle-trigger="further-resources" data-toggle-text-closed="Expand" class="u-hide-print page__section-toggle u-noselect">
+          <span class="u-only-desktop"></span><i data-toggle-switch="further-resources" class="icon--right fa fa-chevron-up"></i>
+        </span>
+      </h2>
+      <div class="s-free-text" data-toggle-hide data-toggle-target="further-resources">{{ cms:partial:cms/indicator_page/further_resources }}</div>
+
       <div class="u-only-mobile">
         {{ cms:partial:cms/indicator_page/resources }}
       </div>

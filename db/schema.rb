@@ -325,6 +325,7 @@ ActiveRecord::Schema.define(version: 20161212145734) do
     t.text     "url"
     t.integer  "index"
     t.integer  "resource_type_id"
+    t.boolean  "is_key",            default: false
   end
 
   create_table "sdg_goals", force: :cascade do |t|
