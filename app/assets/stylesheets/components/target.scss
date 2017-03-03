@@ -22,6 +22,11 @@
       min-width: vr(5);
     }
 
+    @include only-print {
+      width: vr(5.75);
+      height: vr(5.75);
+    }
+
     @include only-mobile {
       float: left;
       width: vr(5);
