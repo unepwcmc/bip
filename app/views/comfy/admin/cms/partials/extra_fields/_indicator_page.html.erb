@@ -83,6 +83,7 @@
           <div data-resource-show="<%= resource.id %>">
             <input type="hidden" value="<%= resource.id %>" name="resources[][id]">
             <input type="hidden" name="resources[][index]" value="<%= resource.index %>" class="form-control">
+            <input type="hidden" name="resources[][is_key]"  value="<%= resource.is_key ? "1" : "0" %>" class="form-control">
 
             <strong>Position:</strong> <span class="js-resource-index"><%= resource.index %></span><br>
             <strong>Label:</strong> <%= resource.label %><br>
