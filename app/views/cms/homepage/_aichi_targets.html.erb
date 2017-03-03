@@ -1,15 +1,18 @@
+<% aichi_goals = Aichi::Goal.order(:name).includes(aichi_targets: [:pages, :primary_pages, :secondary_pages]) %>
+<% aichi_targets = Aichi::Target.all %>
+
 <div data-select-group="browse" data-select-target="aichi-targets">
   <div class="targets-browse">
     <div class="targets-browse__goals-container">
       <div class="targets-browse__goals">
-        <% Aichi::Goal.order(:name).all.each do |goal| %>
+        <% aichi_goals.each do |goal| %>
           <div class="targets-browse__goal">
             <h3
               data-select-group="aichi-targets"
               data-select-trigger="goal_<%= goal.id %>"
               class="targets-browse__goal-title"
             ><%= goal.name %></h3>
-            <% goal.aichi_targets.order(:position).each do |target|  %>
+            <% goal.aichi_targets.sort_by(&:position).each do |target|  %>
               <button
                 data-select-group="aichi-targets"
                 data-select-trigger="target_<%= target.id %>"
@@ -24,7 +27,7 @@
     </div>
   </div>
 
-  <% Aichi::Goal.order(:name).all.each do |goal| %>
+  <% aichi_goals.each do |goal| %>
     <div
       data-select-group="aichi-targets"
       data-select-target="goal_<%= goal.id %>"
@@ -36,7 +39,7 @@
       </div>
 
       <div class="homepage-targets__targets">
-        <% goal.aichi_targets.order(:position).each do |target| %>
+        <% goal.aichi_targets.sort_by(&:position).each do |target| %>
           <div
             class="homepage-targets__target"
           >
@@ -76,7 +79,7 @@
     </div>
   <% end %>
 
-  <% Aichi::Target.all.each do |target| %>
+  <% aichi_targets.each do |target| %>
     <div
       data-select-group="aichi-targets"
       data-select-target="target_<%= target.id %>"

@@ -1,8 +1,10 @@
+<% sdg_goals = Sdg::Goal.order(:position).includes(sdg_targets: :pages).all %>
+
 <div data-select-group="browse" data-select-target="sdgs">
   <div class="targets-browse">
     <div class="targets-browse__goals-container">
       <div class="targets-browse__goals">
-        <% Sdg::Goal.order(:position).all.each do |goal| %>
+        <% sdg_goals.each do |goal| %>
           <button
             class="targets-browse__target-icon targets-browse__target-icon--sdg"
             data-select-group="sdgs"
@@ -15,7 +17,7 @@
     </div>
   </div>
 
-  <% Sdg::Goal.order(:name).all.each do |goal| %>
+  <% sdg_goals.each do |goal| %>
     <div
       data-select-group="sdgs"
       data-select-target="<%= goal.id %>"
@@ -31,7 +33,7 @@
 
       <% if goal.sdg_targets.any? { |t| t.pages.any? } %>
         <div class="homepage-targets__targets">
-          <% goal.sdg_targets.order(:target_number).select { |t| t.pages.any? }.each do |target| %>
+          <% goal.sdg_targets.sort_by(&:target_number).select { |t| t.pages.any? }.each do |target| %>
             <div class="homepage-targets__target">
               <div class="homepage-targets__target-header">
                 <div>

@@ -1,7 +1,9 @@
+<% themes = Theme.includes(:pages).all %>
+
 <div data-select-group="browse" data-select-target="themes">
   <div class="themes-browse">
     <div class="themes-browse__themes">
-      <% Theme.all.each do |theme| %>
+      <% themes.each do |theme| %>
         <div data-select-group="themes" data-select-trigger="<%= theme.id %>" class="themes-browse__theme">
           <div>
             <%= image_tag theme.logo.url(:thumb), class: "themes-browse__theme-icon" %>
@@ -13,7 +15,7 @@
   </div>
 
   <div class="homepage-themes">
-    <% Theme.all.each do |theme| %>
+    <% themes.each do |theme| %>
       <div
         data-select-group="themes"
         data-select-target="<%= theme.id %>"

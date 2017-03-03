@@ -1,7 +1,9 @@
+<% meas = Mea.order(:name).includes(mea_targets: :pages).all %>
+
 <div data-select-group="browse" data-select-target="meas">
   <div class="themes-browse">
     <div class="themes-browse__themes">
-      <% Mea.order(:name).all.each do |mea| %>
+      <% meas.each do |mea| %>
         <div data-select-group="meas" data-select-trigger="<%= mea.id %>" class="themes-browse__theme">
           <div class="themes-browse__theme-icon themes-browse__theme-icon--no-radius">
             <%= image_tag mea.logo.url(:thumb) %>
@@ -13,7 +15,7 @@
   </div>
 
   <div class="homepage-themes">
-    <% Mea.all.each do |mea| %>
+    <% meas.each do |mea| %>
       <div
         data-select-group="meas"
         data-select-target="<%= mea.id %>"
