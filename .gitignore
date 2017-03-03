@@ -24,3 +24,6 @@
 
 # files from CMS
 /public/system
+
+# byebug
+.byebug_history
