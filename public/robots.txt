@@ -22,3 +22,6 @@ Crawl-delay: 20
 
 User-agent: Slurp
 Crawl-delay: 30
+
+User-agent: MJ12bot
+Disallow: /
