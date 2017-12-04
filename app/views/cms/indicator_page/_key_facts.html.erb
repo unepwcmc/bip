@@ -6,7 +6,10 @@
     <p class="fact__value"><%= @cms_page.indicator_type&.name || "N/A" %></p>
 
     <h3 class="fact__subtitle">Applicable for national use</h3>
-    <p class="fact__value"><%= @cms_page.applicable_for_national_use ? "Yes" : "No" %></p>
+    <p class="fact__value">
+      <%= @cms_page.applicable_for_national_use ? "Yes" : "No" %>
+      (Learn more)
+    </p>
 
     <h3 class="fact__subtitle">Indicator classification</h3>
     <p class="fact__value"><%= @cms_page.indicator_classification&.name || "N/A" %></p>
@@ -17,7 +20,13 @@
     <p class="fact__value"><%= @cms_page.indicator_type&.name || "N/A" %></p>
 
     <h3 class="fact__subtitle">Applicable for national use</h3>
-    <p class="fact__value"><%= @cms_page.applicable_for_national_use ? "Yes" : "No" %></p>
+    <p class="fact__value">
+      <% if @cms_page.applicable_for_national_use %>
+        Yes <a href="#national_use" data-toggle-alternate-trigger="national-use">(find out more)</a>
+      <% else %>
+        No
+      <% end %>
+    </p>
 
     <h3 class="fact__subtitle">Indicator classification</h3>
     <p class="fact__value"><%= @cms_page.indicator_classification&.name || "N/A" %></p>
