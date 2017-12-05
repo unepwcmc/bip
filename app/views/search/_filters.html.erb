@@ -77,5 +77,22 @@
       <% end %>
     </div>
 
+    <p data-toggle-trigger="national_indicator" class="filters__bucket-name">
+     National Indicators
+      <i data-toggle-switch="national_indicator" class="fa fa-chevron-up filters__bucket-toggle"></i>
+    </p>
+    <div <%= "data-toggle-hide" unless params[:filters]&.has_key?(:indicators) %> data-toggle-target="national_indicator" class="filters__bucket">
+      <% @all_filters[:indicators].each do |indicator| %>
+        <a href="<%= filter_link(:indicators, indicator.id)  %>" class="filters__bucket-item">
+          <div class="filters__bucket-item-left">
+            <div class="<%= bucket_item_toggle_class(:indicators, indicator.id) %>"></div>
+          </div>
+          <span class="filters__bucket-item-title">
+            <%= indicator.name %>
+          </span>
+        </a>
+      <% end %>
+    </div>
+
   </div>
 </div>
