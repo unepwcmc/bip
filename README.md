@@ -9,12 +9,12 @@ Needless to say, make sure to have Ruby and Node.js installed. From there, it's
 all pretty standard:
 
 ```
-  $ git clone https://github.com/unepwcmc/bip
-  $ cd grasp
-  $ bundle install
-  $ bundle exec rake db:create db:migrate db:seed
-  $ bundle exec rails server
-  …
+git clone https://github.com/unepwcmc/bip
+cd bip
+bundle install
+npm install
+bundle exec rake db:create db:migrate db:seed
+bundle exec rails server
 ```
 
 You will need a `.env` file which you can steal from another developer or copy from the provided `.env.example`

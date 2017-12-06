@@ -1,19 +1,19 @@
 export default {
+
   initialize: (el) => {
     let $el = $(el);
     let elClosedText = $el.data("toggle-text-closed");
 
-    let toggleId  = $el.data("toggle-trigger");
-    let $targetEl = $(`[data-toggle-target='${toggleId}']`);
-    let $targetAltEl = $(`[data-toggle-target-alt='${toggleId}']`);
-    let $switchEl = $(`[data-toggle-switch='${toggleId}']`);
+    let toggleId      = $el.data("toggle-trigger");
+    let $altTrigger   = $(`[data-toggle-alternate-trigger='${toggleId}']`)
+    let $targetEl     = $(`[data-toggle-target='${toggleId}']`);
+    let $targetAltEl  = $(`[data-toggle-target-alt='${toggleId}']`);
+    let $switchEl     = $(`[data-toggle-switch='${toggleId}']`);
 
     $targetEl.removeClass("u-hide");
     $targetAltEl.addClass("u-hide");
 
-    $el.click((ev) => {
-      ev.preventDefault();
-
+    function toggleTarget() {
       $targetEl.toggleClass("u-hide");
       $targetAltEl.toggleClass("u-hide");
 
@@ -28,10 +28,19 @@ export default {
           $el.find("span").html("");
         }
       }
+    }
+
+    $el.click((ev) => {
+      ev.preventDefault();
+      toggleTarget();
     });
 
     if($targetEl.is("[data-toggle-hide]")) {
       $el.click();
     }
+
+    $altTrigger.click((ev) => {
+      toggleTarget();
+    });
   }
 };
