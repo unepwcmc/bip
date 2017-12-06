@@ -23,7 +23,8 @@ class SearchController < ApplicationController
       aichi_targets: pages.flat_map(&:aichi_targets).uniq.sort_by(&:target_number),
       sdgs: pages.flat_map(&:sdg_targets).map(&:sdg_goal).uniq.sort_by(&:position),
       meas: pages.flat_map(&:mea_targets).map(&:mea).uniq.sort_by(&:name),
-      themes: pages.flat_map(&:themes).uniq.sort_by(&:name)
+      themes: pages.flat_map(&:themes).uniq.sort_by(&:name),
+      indicators: pages.flat_map(&:indicator_type).uniq.sort_by(&:name)
     }
 
     @results = @results.select { |r|
@@ -64,6 +65,10 @@ class SearchController < ApplicationController
       if theme_ids = filters[:themes]
         theme_ids = theme_ids.map(&:to_i)
         conditions << (indicator.theme_ids & theme_ids).any?
+      end
+      if indicator_ids = filters[:indicators]
+        indicator_ids = indicator_ids.map(&:to_i)
+        conditions << ([indicator.indicator_type_id] & indicator_ids).any?
       end
 
       conditions.all?
