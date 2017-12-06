@@ -1,0 +1,26 @@
+<% indicators = Comfy::Cms::Page.find_by_slug("indicators").children %>
+<% all_indicators = [] %>
+<% all_indicators << indicators.each {|indicator| all_indicators << indicator.children } %>
+<% all_indicators.flatten! %>
+
+<div data-select-group="browse" data-select-target="indicators">
+  <div class="targets-browse">
+    <div class="targets-browse__goals-container">
+    </div>
+  </div>
+
+  <div data-select-group="browse" data-select-target="indicators" class="homepage-targets">
+    <div class="homepage-targets__goal">
+      <h4 class="homepage-targets__goal-title">Biodiversity Indicators</h4>
+      <% if all_indicators.any? %>
+        <% all_indicators.sort_by(&:label).each do |indicator| %>
+          <a href="<%= indicator.full_path %>" class="homepage-targets__target-indicator">
+            <i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i><%= indicator.label %>
+        </a>
+        <% end %>
+      <% else %>
+        <p class="homepage-themes__theme-indicator homepage-themes__theme-indicator--bold">No Global Indicators available yet</p>
+      <% end %>
+    </div>
+  </div>
+</div>
