@@ -12,6 +12,11 @@
   <div data-select-group="browse" data-select-target="indicators" class="homepage-targets">
     <div class="homepage-targets__goal">
       <h4 class="homepage-targets__goal-title">National Indicators</h4>
+      <div class="homepage-targets__goal-description">
+        <p>
+          These global indicators are applicable for national use. More information on their suitability, data, methods involved, and examples of national use can be found on the 'National use of indicator' section of each indicator page.
+        </p>
+      </div>
       <% if all_indicators.any? %>
         <% all_indicators.sort_by(&:label).each do |indicator| %>
           <a href="<%= indicator.full_path %>" class="homepage-targets__target-indicator">
