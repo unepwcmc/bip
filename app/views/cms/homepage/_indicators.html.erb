@@ -11,7 +11,7 @@
 
   <div data-select-group="browse" data-select-target="indicators" class="homepage-targets">
     <div class="homepage-targets__goal">
-      <h4 class="homepage-targets__goal-title">Biodiversity Indicators</h4>
+      <h4 class="homepage-targets__goal-title">National Indicators</h4>
       <% if all_indicators.any? %>
         <% all_indicators.sort_by(&:label).each do |indicator| %>
           <a href="<%= indicator.full_path %>" class="homepage-targets__target-indicator">

@@ -7,7 +7,7 @@ set :application, "bip"
 set :server_name, "bip.web-staging.linode.unep-wcmc.org"
 set :sudo_user, "wcmc"
 set :app_port, "80"
-set :branch, "pdf-download"
+set :branch, "master"
 
 set :npm_flags, "--silent --no-progress"
 

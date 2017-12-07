@@ -6,7 +6,7 @@
         <div class="header__element u-pull-right u-only-desktop u-hide-print">
           <%= link_to "Home", "/", class: "header__element" %>
           <%= link_to "About", "/about", class: "header__element" %>
-          <%= link_to "Indicator development", "/national-indicator-development", class: "header__element" %>
+          <%= link_to "Indicator Development", "/national-indicator-development", class: "header__element" %>
           <%= link_to "Partners", "/partners", class: "header__element" %>
           <%= link_to "Resources", resources_path(filters: {category: Comfy::Cms::Page.find_by_label("Resources")&.children.first&.id}), class: "header__element" %>
         </div>
@@ -20,7 +20,7 @@
   <div data-toggle-target="mobile-menu" data-toggle-hide class="u-hide u-only-mobile mobile-menu">
     <%= link_to "Home", "/", class: "mobile-menu__link" %>
     <%= link_to "About", "/about", class: "mobile-menu__link" %>
-    <%= link_to "Indicator development", "/national-indicator-development", class: "mobile-menu__link" %>
+    <%= link_to "Indicator Development", "/national-indicator-development", class: "mobile-menu__link" %>
     <%= link_to "Partners", "/partners", class: "mobile-menu__link" %>
     <%= link_to "Resources", "/resources", class: "mobile-menu__link" %>
   </div>
