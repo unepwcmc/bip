@@ -1,4 +1,4 @@
-<% indicators = Comfy::Cms::Page.find_by_slug("indicators").children %>
+<% indicators = Comfy::Cms::Page.find_by_slug("indicators").children.where(applicable_for_national_use: true) %>
 <% all_indicators = [] %>
 <% all_indicators << indicators.each {|indicator| all_indicators << indicator.children } %>
 <% all_indicators.flatten! %>
