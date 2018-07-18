@@ -10,6 +10,12 @@
 
 .u-font-inherit { font: inherit; color: inherit; }
 
+.u-no-underline { 
+  text-decoration: none;
+
+  &:hover { text-decoration: none; }
+}
+
 .u-noselect {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none;   /* Chrome/Safari/Opera */

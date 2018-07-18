@@ -59,7 +59,6 @@
 
   @include e(columns) {
     padding: vr(2) 0;
-    border-bottom: solid 2px $border--footer;
 
     @include only-mobile {
       padding: 0;
@@ -102,25 +101,90 @@
     }
   }
 
+  @include e(partners) {
+    background-color: white;
+    padding: 20px 0;
+  }
+
+  @include e(partners-inner) {
+    margin: auto;
+    width: $main__width;
+
+    @include mobile-container;
+  }
+
+  @include e(partners-copy) {
+    margin: 0 0 20px 0;
+
+    @include only-desktop {
+      @include span-columns(4);
+    }
+
+    a { font-size: 14px; }
+  }
+
+  @include e(partners-logos) {
+    @include span-columns(12);
+    flex-direction: column;
+    display: flex;
+
+    @include only-desktop {
+      flex-direction: row;
+    }
+  }
+
+  @include e(partners-logo-wcmc) {
+    margin-right: 14px;
+    width: 70px; height: 23px;
+  }
+
+  @include e(partners-logo-unep) {
+    margin-right: 40px;
+    width: 90px; height: 48px;
+
+    @include only-mobile { margin-bottom: 20px; }
+    @include only-desktop { margin-right: 40px; }
+  }
+
+  @include e(partners-logo-ec) {
+    margin-right: 40px;
+    width: 160px; height: 110px;
+
+    @include only-mobile { margin-bottom: 20px; }
+    @include only-desktop { margin-right: 40px; }
+  }
+
+  @include e(partners-logo-foen) {
+    width: 200px; height: auto;
+
+    @include only-mobile { margin-bottom: 20px; }
+    @include only-desktop { margin-right: 40px; }
+  }
+  
   @include e(copyright) {
+    background-color: $navy-blue;
+  }
+
+  @include e(copyright-inner) {
     @include font(copyright);
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    padding: 20px 0;
+    width: $main__width;
+
+    display: flex;
+
+    @include mobile-container;
+  }
+
+  @include e(copyright-link) {
+    align-items: center;
+
+    display: flex;
   }
 
   @include e(social) {
     @include font(social);
-  }
-
-  @include e(wcmc-logo) {
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-image: url("https://s3.amazonaws.com/wcmc.logo/UN-Environment-WCMC+logo+2017+white.svg");
-
-    display: block;
-    float: left;
-    height: 22px;
-    width: 50px;
-    margin-top: -2px;
-    margin-right: .75rem;
   }
 }

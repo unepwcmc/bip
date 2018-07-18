@@ -11,9 +11,9 @@
   <div class="footer__content">
     <div class="footer__columns u-clearfix">
       <div class="footer__column footer__column--large">
-        <h3 class="footer__column-title footer__column-title--big u-no-margin-bottom">BIP Secretariat</h3>
+        <h3 class="footer__column-title footer__column-title--big u-no-margin-bottom">BIP secretariat</h3>
         <p class="footer__column-body">
-          The BIP Secretariat is hosted by the UN Environment World Conservation Monitoring
+          The BIP secretariat is hosted by the UN Environment World Conservation Monitoring
           Centre in Cambridge, UK. Please do not hesitate to contact our global
           helpdesk regarding the Biodiversity Indicators Partnership, global
           indicators or national support.
@@ -49,15 +49,35 @@
 
       </div>
     </div>
-    <p class="footer__copyright">
-      <a class="u-font-inherit" href="https://www.unep-wcmc.org">
-        <i class="footer__wcmc-logo"></i>
-        Copyright <%= Date.today.year %> UNEP WCMC
+  </div>
+  <div class="footer__partners u-clearfix">
+    <div class="footer__partners-inner">
+      <p class="footer__partners-copy footer__column--large">The Partnership is supported by <%= link_to 'UN Environment', 'https://www.unenvironment.org/', title: 'Visit the UN Environment website', target: '_blank' %>, the <%= link_to 'European Commission', 'https://ec.europa.eu/commission/index_en', title: 'Visit the European Commission website', target: '_blank' %> and the <%= link_to 'Swiss Federal Office for the Environment', 'https://www.bafu.admin.ch/bafu/en/home.html', title: 'Visit the Swiss Federal Office for the Environment website', target: '_blank' %>.</p>
+
+      <div class="footer__partners-logos">
+        <%= link_to 'https://www.unenvironment.org/', title: 'Visit the UN Environment website', target: '_blank', class: 'u-no-underline' do %>
+          <%= image_tag 'https://s3.amazonaws.com/wcmc.logo/UN-Environment-+logo+2017.svg', alt: 'UN Environment logo', class: 'footer__partners-logo-unep' %>
+        <% end %>
+
+        <%= link_to 'https://ec.europa.eu/commission/index_en', title: 'Visit the European Commission website', target: '_blank', class: 'u-no-underline' do %>
+          <%= image_tag 'logos/logo-european-commission.png', alt: 'European Commission logo', class: 'footer__partners-logo-ec' %>
+        <% end %>
+
+        <%= link_to 'https://www.bafu.admin.ch/bafu/en/home.html', title: 'Visit the Swiss Federal Office for the Environment website', target: '_blank', class: 'u-no-underline' do %>
+          <%= image_tag 'logos/logo-foen.png', alt: 'FOEN logo', class: 'footer__partners-logo-foen' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="footer__copyright">
+    <div class="footer__copyright-inner">
+      <a class="u-font-inherit footer__copyright-link" href="https://www.unep-wcmc.org">
+        <%= image_tag 'https://s3.amazonaws.com/wcmc.logo/UN-Environment-WCMC+logo+2017+white.svg', alt: 'UN Environment World Conservation Monitoring Centre logo', class: 'footer__partners-logo-wcmc' %>
+        <span>Copyright <%= Date.today.year %> UNEP WCMC</span>
       </a>
-      <a class="u-only-desktop u-pull-right footer__social" href="https://twitter.com/BIPIndicators">
+      <a class="u-only-desktop footer__social" href="https://twitter.com/BIPIndicators">
         <i class="fa fa-twitter"></i> bipindicators
       </a>
-    </p>
+    </div>
   </div>
 </footer>
-
