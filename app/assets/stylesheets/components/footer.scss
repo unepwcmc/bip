@@ -130,6 +130,7 @@
 
     @include only-desktop {
       flex-direction: row;
+      align-items: flex-end;
     }
   }
 
