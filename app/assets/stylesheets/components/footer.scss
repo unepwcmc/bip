@@ -19,7 +19,6 @@
 
 
   @include e(content) {
-    @include outer-container;
     overflow: hidden;
 
     width: $main__width;
