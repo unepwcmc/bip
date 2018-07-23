@@ -9,7 +9,6 @@
           <%= link_to "Indicator Development", "/national-indicator-development", class: "header__element" %>
           <%= link_to "Partners", "/partners", class: "header__element" %>
           <%= link_to "Resources", resources_path(filters: {category: Comfy::Cms::Page.find_by_label("Resources")&.children.first&.id}), class: "header__element" %>
-          <%= link_to "Dashboard", "http://bipdashboard.natureserve.org/content/map?c=BIP", class: "header__element" %>
         </div>
         <div class="header__element header__element--menu u-pull-right u-only-mobile">
           <button data-toggle-trigger="mobile-menu" class="header__menu">Menu</button>
