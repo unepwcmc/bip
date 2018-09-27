@@ -14,18 +14,21 @@
       <h4 class="homepage-targets__goal-title">National Indicators</h4>
       <div class="homepage-targets__goal-description">
         <p>
-          These global indicators are applicable for national use. More information on their suitability, data, methods involved, and examples of national use can be found on the 'National use of indicator' section of each indicator page.
+          Browse global indicators that have data available by country. Countries have been classified 
+          according to the UN Environment Regions.
+        </p>
+        <p>
+          Visit the links below to find a list of indicators that have data available by country. More information on the indicator suitability, data, methods involved, 
+          and examples of national use can be found on the 'National use of indicator' section of each indicator page.
         </p>
       </div>
-      <% if all_indicators.any? %>
-        <% all_indicators.sort_by(&:label).each do |indicator| %>
-          <a href="<%= indicator.full_path %>" class="homepage-targets__target-indicator">
-            <i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i><%= indicator.label %>
-        </a>
-        <% end %>
-      <% else %>
-        <p class="homepage-themes__theme-indicator homepage-themes__theme-indicator--bold">No Global Indicators available yet</p>
-      <% end %>
+     <i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i> <a href="/national-indicator-development/national-data/africa">Africa</a>
+     <i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i> <a href="/national-indicator-development/national-data/asia-pacific">Asia & Pacific </a>
+     <i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i> <a href="/national-indicator-development/national-data/europe">Europe</a>
+     <i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i> <a href="/national-indicator-development/national-data/latin-america-caribbean">Latin America & Caribbean </a>
+     <i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i> <a href="/national-indicator-development/national-data/north-america">North America</a>
+     <i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i> <a href="/national-indicator-development/national-data/polar">Polar</a>
+     <i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i> <a href="/national-indicator-development/national-data/africa">west-asia</a>
     </div>
   </div>
 </div>
