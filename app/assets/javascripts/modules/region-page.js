@@ -16,7 +16,7 @@ export default {
         const id = name
           .trim()
           .replace(/ /g, '-')
-          .replace(/[,']/g,'')
+          .replace(/[,'()]/g,'')
           .toLowerCase()
   
         countryHeaders[i].id = id
