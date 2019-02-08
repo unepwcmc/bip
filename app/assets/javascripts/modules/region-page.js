@@ -1,27 +1,58 @@
 export default {
   initialize: (el) => {
-    const countryHeaders = el.querySelector('[data-country-list]').querySelectorAll('h3')
-    const selectEl = el.querySelector('[data-country-nav]')
+    var countryHeaders = el.querySelector('[data-country-list]').querySelectorAll('h3')
+    var selectEl = el.querySelector('[data-country-nav]')
+
+    selectEl.onchange = function () {jumpToCountry(this)}
+    
+    addIdsAndSelectOptions(countryHeaders, selectEl)
+    addStickyScrollListener('country-nav__bar', 'country-nav')
+
+    window.onresize = function () {
+      removeScrollListeners()
+      addStickyScrollListener('country-nav__bar', 'country-nav')
+    }
 
     function jumpToCountry(select) {
       if(select.value) {window.location.href = '#' + select.value}
       select.value = ''
     }
 
-    selectEl.onchange = function () {jumpToCountry(this)}
+    function addIdsAndSelectOptions (headers, select) {
+      for (let i = 0; i < headers.length; i++) {
+        if(headers[i].textContent.trim()) {
+          var name = headers[i].textContent
+          var id = name
+            .trim()
+            .replace(/ /g, '-')
+            .replace(/[,'()]/g,'')
+            .toLowerCase()
     
-    for (let i = 0; i < countryHeaders.length; i++) {
-      if(countryHeaders[i].textContent.trim()) {
-        const name = countryHeaders[i].textContent
-        const id = name
-          .trim()
-          .replace(/ /g, '-')
-          .replace(/[,'()]/g,'')
-          .toLowerCase()
-  
-        countryHeaders[i].id = id
-        selectEl.add(new Option(name, id))
+            headers[i].id = id
+            select.add(new Option(name, id))
+        }
       }
+    }
+
+    function addStickyScrollListener (stickyElementClass, stickyElementPlaceholderClass) {
+      var stickyElement = $('.' + stickyElementClass)
+      var stickyElementPlaceholder = $('.' + stickyElementPlaceholderClass)
+      
+        var initialOffsetTop = stickyElementPlaceholder.offset().top
+      
+        $(document).scroll(function () {
+          var scrollDistance = $(document).scrollTop()
+   
+          if(scrollDistance >= initialOffsetTop)  {
+            stickyElement.addClass(stickyElementClass + '--sticky')
+          } else {
+            stickyElement.removeClass(stickyElementClass + '--sticky')
+          }
+        });
+    }
+
+    function removeScrollListeners () {
+      $(document).off('scroll')
     }
   }
 }

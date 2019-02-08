@@ -1,0 +1,42 @@
+
+@keyframes slideInTop {
+  from {transform: translateY(-100%)}
+  to {transform: translateY(0)}
+}
+
+$nav-height: 50px;
+
+.country-nav {
+  height: $nav-height;
+
+  &__bar {
+    width: 100%; height: $nav-height;
+
+    display: grid;
+    align-items: center;
+
+    float: left;
+
+    transition: background-color 0.3s ease-in-out;
+
+    &--sticky {
+      background-color: $solitude;
+
+      position: fixed;
+      top: 0;
+
+      animation: slideInTop 0.3s ease-in-out;
+    }
+  }
+
+  &__select {
+    @include font('body');
+    font-size: inherit;
+
+    width: 100%; height: 2em;
+    
+    @include only-desktop {
+      width: auto;
+    }
+  }
+}

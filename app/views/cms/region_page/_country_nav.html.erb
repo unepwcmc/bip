@@ -1,3 +1,11 @@
-<select data-country-nav="<%= @cms_page.slug.to_sym %>">
-  <option value="">Select a country</option>
-</select>
+<div class="country-nav">
+  <div class="country-nav__bar">
+    <div class="main">
+      <div class="page page--no-margin-bottom">
+        <select class="country-nav__select" role="nav" data-country-nav="<%= @cms_page.slug.to_sym %>">
+          <option value="">Select a country</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>

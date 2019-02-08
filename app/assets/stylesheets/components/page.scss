@@ -148,4 +148,8 @@
     padding-bottom: vr(.333333);
     border-bottom: solid 1px $border--title;
   }
+
+  @include m(no-margin-bottom) {
+    margin-bottom: 0;
+  }
 }
