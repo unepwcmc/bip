@@ -2,6 +2,7 @@ export default {
   initialize: (el) => {
     var countryHeaders = el.querySelector('[data-country-list]').querySelectorAll('h3')
     var selectEl = el.querySelector('[data-country-nav]')
+    var navHeight = 50;
 
     selectEl.onchange = function () {jumpToCountry(this)}
     
@@ -14,7 +15,12 @@ export default {
     }
 
     function jumpToCountry(select) {
-      if(select.value) {window.location.href = '#' + select.value}
+      if(select.value) {
+        window.location.href = '#' + select.value
+        var scrollDistance = $(document).scrollTop()
+        $(document).scrollTop(scrollDistance - navHeight)
+      }
+
       select.value = ''
     }
 
