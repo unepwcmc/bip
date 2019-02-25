@@ -2,14 +2,16 @@ export default {
   initialize: (el) => {
     var countryHeaders = el.querySelector('[data-country-list]').querySelectorAll('h3')
     var selectEl = el.querySelector('[data-country-nav]')
-    var navHeight = 50;
-
+    var navHeight = 0;
+    
+    setNavHeight()
     selectEl.onchange = function () {jumpToCountry(this)}
     
     addIdsAndSelectOptions(countryHeaders, selectEl)
     addStickyScrollListener('country-nav__bar', 'country-nav')
 
     window.onresize = function () {
+      setNavHeight()
       removeScrollListeners()
       addStickyScrollListener('country-nav__bar', 'country-nav')
     }
@@ -59,6 +61,10 @@ export default {
 
     function removeScrollListeners () {
       $(document).off('scroll')
+    }
+
+    function setNavHeight () {
+      navHeight = el.querySelector('.country-nav').offsetHeight
     }
   }
 }
