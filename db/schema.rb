@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170302110450) do
+ActiveRecord::Schema.define(version: 20190226094737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -124,6 +124,7 @@ ActiveRecord::Schema.define(version: 20170302110450) do
     t.boolean  "freely_available"
     t.text     "available_link"
     t.boolean  "peer_reviewed"
+    t.text     "available_link_alternate"
   end
 
   add_index "comfy_cms_pages", ["parent_id", "position"], name: "index_comfy_cms_pages_on_parent_id_and_position", using: :btree
