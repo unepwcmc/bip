@@ -14,7 +14,6 @@ export default {
 
     $closeEl.click((ev) => {
       ev.preventDefault();
-      console.log("closing");
       $targetEl.hide();
       $("body").css("overflow", "auto");
     });
