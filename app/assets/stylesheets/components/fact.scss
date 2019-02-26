@@ -1,13 +1,29 @@
+%fact__value--p {
+  margin: 0;
+  margin-bottom: vr(1);
+  @include font(fact-value);
+}
+
 @include b(fact) {
   @include e(subtitle) {
     @include font(fact-subtitle);
   }
 
   @include e(value) {
-    margin: 0;
-    margin-bottom: vr(1);
-    @include font(fact-value);
+    @extend %fact__value--p;
 
     a { @include font(italic-link); }
+  }
+
+  @include e(free-text) {
+    margin-bottom: vr(1);
+    
+    p { @extend %fact__value--p; }
+
+    a { 
+      overflow-wrap: break-all;
+      word-break: break-all;
+      @include font(italic-link);
+    }
   }
 }
