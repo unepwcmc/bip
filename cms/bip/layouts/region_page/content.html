@@ -1,0 +1,29 @@
+<main>
+  <div data-region-page>
+    {{ cms:partial:cms/generic_page/title }}
+    <div class="main">
+      <div class="page page--no-margin-bottom">
+        <div class="page__body s-free-text s-free-text--with-h1">
+          {{ cms:page:content:rich_text }}
+        </div>
+      </div>
+    </div>
+
+    {{ cms:partial:cms/region_page/country_nav }}
+
+    <div class="main">
+      <div class="page">      
+        <div data-country-list class="page__body s-free-text s-free-text--with-h1">
+          {{ cms:page:countries:rich_text }}
+        </div>
+      </div>
+    </div>
+
+    <div class="page__aside">
+      {{ cms:partial:cms/generic_page/children }}
+      {{ cms:partial:cms/generic_page/resources }}
+      {{ cms:partial:cms/generic_page/related_content }}
+    </div>
+
+  </div>
+</main>

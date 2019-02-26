@@ -19,10 +19,12 @@ import toggle from "modules/toggle";
 import modal from "modules/modal";
 import pagination from "modules/pagination";
 import selectGroup from "modules/select_group";
+import regionPage from "./modules/region-page";
 
 $(document).ready(() => {
   $("[data-toggle-trigger]").each((_i, el) => toggle.initialize(el));
   $("[data-modal-trigger]").each((_i, el) => modal.initialize(el));
+  $("[data-region-page]").each((_i, el) => regionPage.initialize(el));
 
   _.chain($("[data-select-group]"))
     .map(el => $(el).data("select-group"))
