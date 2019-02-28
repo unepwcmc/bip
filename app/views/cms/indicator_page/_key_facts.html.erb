@@ -43,18 +43,24 @@
 
   <h3 class="fact__subtitle">Availability</h3>
   <% if @cms_page.freely_available %>
+
     <p class="fact__value fact__value--no-margin-bottom">Data freely available:</p>
-    <p class="fact__value">
-      <% if !@cms_page.available_link.empty? %>
+    <% if !@cms_page.available_link.empty? %>
+      <p class="fact__value fact__value--small fact__value--no-margin-bottom">
         <%= link_to available_link_title, @cms_page.available_link %>
-      <% end %>
-      <% if !@cms_page.available_link_alternate.empty? %>
-        , <%= link_to available_link_title_alternate, @cms_page.available_link_alternate %>
-      <% end %>
-    </p>
+      </p>
+    <% end %>
+    <% if !@cms_page.available_link_alternate.empty? %>
+      <p class="fact__value fact__value--small">
+        <%= link_to available_link_title_alternate, @cms_page.available_link_alternate %>
+      </p>
+    <% end %>
+
   <% else %>
+
     <p class="fact__value fact__value--no-margin-bottom">Data available on request:</p>
     <div class="fact__free-text s-free-text s-contact-point"><%= cms_block_render(:contact_point) %></div>
+
   <% end %>
 
   <div class="u-hide-print">
