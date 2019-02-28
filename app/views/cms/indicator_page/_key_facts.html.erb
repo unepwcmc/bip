@@ -49,7 +49,7 @@
         <%= link_to available_link_title, @cms_page.available_link %>
       <% end %>
       <% if !@cms_page.available_link_alternate.empty? %>
-        <%= link_to available_link_title_alternate, @cms_page.available_link_alternate %>
+        , <%= link_to available_link_title_alternate, @cms_page.available_link_alternate %>
       <% end %>
     </p>
   <% else %>
