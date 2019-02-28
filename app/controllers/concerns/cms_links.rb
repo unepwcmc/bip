@@ -123,6 +123,8 @@ module CmsAdminExtension
       @page.freely_available = params[:page].has_key?(:freely_available)
       @page.available_link = params[:page][:available_link]
       @page.available_link_alternate = params[:page][:available_link_alternate]
+      @page.available_link_title = params[:page][:available_link_title]
+      @page.available_link_title_alternate = params[:page][:available_link_title_alternate]
       @page.peer_reviewed = params[:page].has_key?(:peer_reviewed)
       @page.save
     end

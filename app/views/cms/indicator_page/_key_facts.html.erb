@@ -43,17 +43,18 @@
 
   <h3 class="fact__subtitle">Availability</h3>
   <% if @cms_page.freely_available %>
-    <p class="fact__value">Data freely available:
-      <% if @cms_page.available_link_alternate.empty? %>
-        <%= link_to "Resource link", @cms_page.available_link %>
-      <% else %>
-        <%= link_to "Resource link 1", @cms_page.available_link %>,
-        <%= link_to "Resource link 2", @cms_page.available_link_alternate %>
+    <p class="fact__value fact__value--no-margin-bottom">Data freely available:</p>
+    <p class="fact__value">
+      <% if !@cms_page.available_link.empty? %>
+        <%= link_to available_link_title, @cms_page.available_link %>
+      <% end %>
+      <% if !@cms_page.available_link_alternate.empty? %>
+        <%= link_to available_link_title_alternate, @cms_page.available_link_alternate %>
       <% end %>
     </p>
   <% else %>
-    <p class="fact__value">Data available on request:</p>
-    <div class="fact__free-text"><%= cms_block_render(:contact_point) %></div>
+    <p class="fact__value fact__value--no-margin-bottom">Data available on request:</p>
+    <div class="fact__free-text s-free-text s-contact-point"><%= cms_block_render(:contact_point) %></div>
   <% end %>
 
   <div class="u-hide-print">
