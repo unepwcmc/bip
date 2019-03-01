@@ -45,12 +45,12 @@
   <% if @cms_page.freely_available %>
 
     <p class="fact__value fact__value--no-margin-bottom">Data freely available:</p>
-    <% if !@cms_page.available_link.empty? %>
+    <% if @cms_page.available_link.present? %>
       <p class="fact__value fact__value--small fact__value--no-margin-bottom">
         <%= link_to available_link_title, @cms_page.available_link %>
       </p>
     <% end %>
-    <% if !@cms_page.available_link_alternate.empty? %>
+    <% if @cms_page.available_link_alternate.present? %>
       <p class="fact__value fact__value--small">
         <%= link_to available_link_title_alternate, @cms_page.available_link_alternate %>
       </p>

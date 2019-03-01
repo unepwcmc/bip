@@ -30,7 +30,7 @@ module CmsHelper
   end
 
   def default_available_link_title
-    @cms_page.available_link_alternate.empty? ? 'Resource link' : 'Resource link 1'
+    @cms_page.available_link_alternate.present? ? 'Resource link 1' : 'Resource link'
   end
 
   def default_available_link_title_alternate
@@ -38,10 +38,10 @@ module CmsHelper
   end
 
   def available_link_title
-    default_if_empty(@cms_page.available_link_title, default_available_link_title)
+    default_if_not_present(@cms_page.available_link_title, default_available_link_title)
   end
 
   def available_link_title_alternate
-    default_if_empty(@cms_page.available_link_title_alternate, default_available_link_title_alternate)
+    default_if_not_present(@cms_page.available_link_title_alternate, default_available_link_title_alternate)
   end
 end

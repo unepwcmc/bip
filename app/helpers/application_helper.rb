@@ -17,7 +17,7 @@ module ApplicationHelper
     text.present? ? text : "N/A"
   end
 
-  def default_if_empty(text, default)
-    text.empty? ? default : text
+  def default_if_not_present(text, default)
+    text.present? ? text : default
   end
 end
