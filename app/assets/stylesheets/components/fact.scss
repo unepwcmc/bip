@@ -4,10 +4,24 @@
   }
 
   @include e(value) {
+    @include font(fact-value);
     margin: 0;
     margin-bottom: vr(1);
-    @include font(fact-value);
 
     a { @include font(italic-link); }
+
+    @include m(no-margin-bottom) {
+      margin-bottom: 0;
+    }
+
+    @include m(small) {
+      @include font(body);
+
+      a { @include font(body-link); }
+    }
+  }
+
+  @include e(free-text) {
+    margin-bottom: vr(1);
   }
 }

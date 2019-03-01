@@ -16,4 +16,8 @@ module ApplicationHelper
   def text_or_na text
     text.present? ? text : "N/A"
   end
+
+  def default_if_not_present(text, default)
+    text.present? ? text : default
+  end
 end

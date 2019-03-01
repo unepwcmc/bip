@@ -42,13 +42,28 @@
   <p class="fact__value"><%= @cms_page.coverage&.name || "N/A" %></p>
 
   <h3 class="fact__subtitle">Availability</h3>
-  <p class="fact__value">
-    <% if @cms_page.freely_available %>
-      <%= link_to "Data freely available", @cms_page.available_link %>
-    <% else %>
-      Data available on request
-    <% end %>
-  </p>
+  <% if @cms_page.freely_available %>
+
+    <div class="fact__value">
+      <p class="fact__value fact__value--no-margin-bottom">Data freely available:</p>
+      <% if @cms_page.available_link.present? %>
+        <p class="fact__value fact__value--small fact__value--no-margin-bottom">
+          <%= link_to available_link_title, @cms_page.available_link %>
+        </p>
+      <% end %>
+      <% if @cms_page.available_link_alternate.present? %>
+        <p class="fact__value fact__value--small fact__value--no-margin-bottom">
+          <%= link_to available_link_title_alternate, @cms_page.available_link_alternate %>
+        </p>
+      <% end %>
+    </div>
+
+  <% else %>
+
+    <p class="fact__value fact__value--no-margin-bottom">Data available on request:</p>
+    <div class="fact__free-text s-free-text s-contact-point"><%= cms_block_render(:contact_point) %></div>
+
+  <% end %>
 
   <div class="u-hide-print">
     <h3 class="fact__subtitle">Download</h3>

@@ -7,7 +7,6 @@ export default class SelectGroup {
     this.selects = _.chain($(`[data-select-group='${group}'][data-select-trigger]`))
       .map(el => $(el).data("select-trigger"))
       .uniq()
-      .each(group => console.log(group))
       .map(group => new select(this, group))
       .value();
   }

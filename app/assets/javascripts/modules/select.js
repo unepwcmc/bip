@@ -27,7 +27,6 @@ export default class Select {
   }
 
   close () {
-    console.log(`closing ${this.name}`);
     this.$trigger.removeClass("is-selected");
     this.$target.hide();
     this.opened = false;
