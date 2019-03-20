@@ -28,6 +28,21 @@ set :scm_username, "unepwcmc-read"
 set :rvm_type, :user
 set :rvm_ruby_version, '2.3.1'
 
+namespace :npm do
+  desc 'Install dependencies with npm'
+  task :install do
+    on roles(:web) do
+      within release_path do
+        execute "bash -c 'source ~/.nvm/nvm.sh && cd '#{release_path}' && npm install'"
+      end
+    end
+  end
+end
+
+
+#before 'deploy:starting', 'npm:install'
+
+before 'deploy:compile_assets', 'npm:install'
 
 
 set :ssh_options, {
