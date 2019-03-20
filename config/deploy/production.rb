@@ -9,7 +9,7 @@ set :sudo_user, "wcmc"
 set :app_port, "80"
 set :branch, "supported-production"
 
-set :npm_flags, "--silent --no-progress"
+#set :npm_flags, "--silent --no-progress"
 
 after "deploy:finishing", :block_robots
 
