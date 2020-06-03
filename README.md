@@ -11,7 +11,7 @@ all pretty standard:
 ```
 git clone https://github.com/unepwcmc/bip
 cd bip
-rvm use 2.3.1 [or rvm install '2.3.1']
+rvm use 2.3.1 [or rbenv local 2.3.1]
 bundle install
 npm install
 bundle exec rake db:create db:migrate db:seed
