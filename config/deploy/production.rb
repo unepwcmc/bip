@@ -7,7 +7,7 @@ set :application, "bip"
 set :server_name, "bip.web-supported-production.linode.unep-wcmc.org"
 set :sudo_user, "wcmc"
 set :app_port, "80"
-set :branch, "supported-production"
+set :branch, "master"
 
 #set :npm_flags, "--silent --no-progress"
 
