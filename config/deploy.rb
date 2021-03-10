@@ -5,6 +5,9 @@ set :application, 'bip'
 set :repo_url, 'git@github.com:unepwcmc/bip.git'
 
 
+set :nvm_type, :user # or :system, depends on your nvm setup
+set :nvm_node, 'v12.18.3'
+set :nvm_map_bins, %w{node npm yarn}
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -33,7 +36,7 @@ namespace :npm do
   task :install do
     on roles(:web) do
       within release_path do
-        execute "bash -c 'source ~/.nvm/nvm.sh && cd '#{release_path}' && npm install'"
+        execute "bash -c 'source ~/.nvm/nvm.sh && nvm use 12.18.3 && cd '#{release_path}' && npm install'"
       end
     end
   end
