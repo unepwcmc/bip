@@ -1,10 +1,10 @@
 set :stage, :staging
 
 
-server "web-staging.linode.unep-wcmc.org", user: 'wcmc', roles: %w{app web db}
+server "web-supported-staging.linode.unep-wcmc.org", user: 'wcmc', roles: %w{app web db}
 
 set :application, "bip"
-set :server_name, "bip.web-staging.linode.unep-wcmc.org"
+set :server_name, "bip.web-supported-staging.linode.unep-wcmc.org"
 set :sudo_user, "wcmc"
 set :app_port, "80"
 set :branch, "develop"
@@ -12,6 +12,7 @@ set :branch, "develop"
 set :npm_flags, "--silent --no-progress"
 
 after "deploy:finishing", :block_robots
+
 
 # server-based syntax
 # ======================
