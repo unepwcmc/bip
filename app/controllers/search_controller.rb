@@ -20,11 +20,11 @@ class SearchController < ApplicationController
     pages = extract_pages(@results)
 
     @all_filters = {
-      aichi_targets: pages.flat_map(&:aichi_targets).uniq.sort_by(&:target_number),
-      sdgs: pages.flat_map(&:sdg_targets).map(&:sdg_goal).uniq.sort_by(&:position),
-      meas: pages.flat_map(&:mea_targets).map(&:mea).uniq.sort_by(&:name),
-      themes: pages.flat_map(&:themes).uniq.sort_by(&:name),
-      indicators: pages.flat_map(&:indicator_type).uniq.sort_by(&:name)
+      aichi_targets: pages.flat_map(&:aichi_targets).uniq.compact.sort_by(&:target_number),
+      sdgs: pages.flat_map(&:sdg_targets).map(&:sdg_goal).uniq.compact.sort_by(&:position),
+      meas: pages.flat_map(&:mea_targets).map(&:mea).uniq.compact.sort_by(&:name),
+      themes: pages.flat_map(&:themes).uniq.compact.sort_by(&:name),
+      indicators: pages.flat_map(&:indicator_type).uniq.compact.sort_by(&:name)
     }
 
     @results = @results.select { |r|
