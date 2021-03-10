@@ -171,7 +171,7 @@ GEM
     pkg-config (1.1.7)
     plupload-rails (1.2.1)
       rails (>= 3.1)
-    rack (1.6.4)
+    rack (1.6.13)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.6)
