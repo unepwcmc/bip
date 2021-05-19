@@ -4,7 +4,7 @@ source "https://rubygems.org"
 gem "rails", "4.2.6"
 gem "pg", "~> 0.19.0"
 gem "pg_search", "~> 1.0.6"
-gem "nokogiri", "~> 1.6.8"
+gem "nokogiri", "~> 1.11.4"
 gem "comfortable_mexican_sofa", "~> 1.12.9"
 gem "paperclip", "~> 5.1.0"
 
