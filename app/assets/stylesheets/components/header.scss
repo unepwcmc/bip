@@ -61,9 +61,9 @@
 
     display: block;
     float: left;
-    height: 50px;
+    height: 44px;
     width: 120px;
-    margin: vr(.75) 0;
+    margin: vr(.95) 0;
 
     @include only-print {
       width: 100px;

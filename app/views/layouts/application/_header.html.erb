@@ -4,8 +4,8 @@
       <div class="header__navigation">
         <a class="header__logo" href="/"></a>
         <div class="header__element u-pull-right u-only-desktop u-hide-print">
-          <%= link_to "Home", "/", class: "header__element" %>
           <%= link_to "About", "/about", class: "header__element" %>
+          <%= link_to "Biodiversity Indicators", "/biodiversity-indicators", class: "header__element" %>
           <%= link_to "Indicator Development", "/national-indicator-development", class: "header__element" %>
           <%= link_to "Partners", "/partners", class: "header__element" %>
           <%= link_to "Resources", resources_path(filters: {category: Comfy::Cms::Page.find_by_label("Resources")&.children.first&.id}), class: "header__element" %>
