@@ -30,11 +30,7 @@
   <div class="header__bottom">
     <div class="header__content">
       <% if @cms_page %>
-        <% if @cms_page.full_path == "/" %>
-          <div class="s-free-text s-free-text--hero-text s-free-text--with-h1">
-            <%= cms_block_content(:hero_text).html_safe %>
-          </div>
-        <% else %>
+        <% if @cms_page.full_path != "/" %>
           <div class="breadcrumbs u-only-desktop u-hide-print">
             <%= breadcrumb "Home", "/", true %>
             <%= yield :breadcrumbs %>
