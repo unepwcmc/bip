@@ -30,5 +30,8 @@
 
 # DB Dump
 PostgreSQL.sql
+<<<<<<< HEAD
 
 .DS_Store
+=======
+>>>>>>> develop

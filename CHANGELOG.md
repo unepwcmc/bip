@@ -6,3 +6,7 @@
 
 * Allow two resource links for an indicator
 * Show contact details beneath 'Data available on request' on indicator page
+
+### 0.2.1
+
+* Fix for search (certain keywords caused the site to error)
