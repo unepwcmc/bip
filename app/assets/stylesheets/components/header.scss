@@ -1,6 +1,58 @@
 @include b(header) {
   margin-bottom: vr(1.75);
 
+  @include e(body) {
+    margin: 0 auto;
+    width: $main__width;
+
+    @include mobile-container;
+  }
+
+  @include e(items) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @include e(item) {
+    @include m(nav) {
+      display: none;
+
+      @media (min-width: $break__desktop) {
+        display: block;
+      }
+    }
+
+    @include m(mobile-menu) {
+      @media (min-width: $break__desktop) {
+        display: none;
+      }
+    }
+  }
+
+  @include e(top) {
+    background-color: $white;
+  }
+
+  @include e(navigation_items) {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @include e(navigation_item) {
+    list-style-type: none;
+
+    &:not(:first-child) {
+      margin-left: 1.6rem;
+    }
+  }
+
+  @include e(bottom) {
+    background-color: $prussian-blue;
+  }
+
   @include e(content) {
     p { color: $white; }
 
@@ -17,14 +69,6 @@
       width: 100%;
       padding: 0 vr(1.75);
     }
-  }
-
-  @include e(top) {
-    background-color: $white;
-  }
-
-  @include e(bottom) {
-    background-color: $prussian-blue;
   }
 
   @include e(element) {
@@ -58,12 +102,12 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-image: image-url("bip-logo@2x.jpg");
+    margin: vr(.95) 0;
+    height: 44px;
+    width: 120px;
 
     display: block;
     float: left;
-    height: 44px;
-    width: 120px;
-    margin: vr(.95) 0;
 
     @include only-print {
       width: 100px;

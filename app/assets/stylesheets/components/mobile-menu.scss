@@ -1,11 +1,30 @@
 @include b(mobile-menu) {
-  width: 100%;
-  padding: vr(1.25) vr(1.5);
   background-color: $prussian-blue;
+  padding: vr(1.25) 0;
+  width: 100%;
 
-  @include e(link) {
+  @media (min-width: $break__desktop) {
+    display: none;
+  }
+
+  @include e(body) {
+    margin: 0 auto;
+    width: $main__width;
+
+    @include mobile-container;
+  }
+
+  @include e(navigation-items) {
+    margin: 0;
+    padding: 0;
+  }
+
+  @include e(navigation-item) {
+    list-style-type: none;
+  }
+
+  @include e(navigation-link) {
     @include font(mobile-menu);
-    margin-right: vr(3);
     display: block;
   }
 }
