@@ -8,15 +8,17 @@
   color: $white;
 
   @include e(container) {
+    @include mobile-container;
     @include outer-container;
     padding: vr(6) 0 vr(4);
+    width: $main__width;
   }
 
   @include e(content) {
-    @include span-columns(8);
+    @include span-columns(12);
 
-    @include only-mobile {
-      @include span-columns(12);
+    @media (min-width: $break__desktop) {
+      @include span-columns(8);
     }
   }
 
@@ -32,7 +34,7 @@
   }
 
   @include e(search) {
-    width: 400px;
+    max-width: 400px;
 
     @include only-mobile {
       width: 87%;
