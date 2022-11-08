@@ -37,6 +37,7 @@
   @include e(navigation_items) {
     margin: 0;
     padding: 0;
+
     display: flex;
     justify-content: space-between;
   }
@@ -56,24 +57,25 @@
   @include e(content) {
     p { color: $white; }
 
-    width: $main__width;
-    margin: auto;
+    margin: 0 auto;
     overflow: hidden;
+    width: $main__width;
 
     @include only-print {
-      width: 100%;
       padding: 0 2rem;
+      width: 100%;
     }
 
     @include only-mobile {
-      width: 100%;
       padding: 0 vr(1.75);
+      width: 100%;
     }
   }
 
   @include e(element) {
-    margin: vr(1.5) 0;
     line-height: vr(2);
+    margin-top: vr(1.5);
+    margin-bottom: vr(1.5);
     margin-left: vr(3);
 
     @include m(title) {
@@ -86,16 +88,15 @@
     }
   }
 
-  @include e(menu) {
-    text-align: center;
-
-    padding: vr(.25) vr(.75);
+  @include e(menu-toggle) {
     background-color: $prussian-blue;
     border: solid 2px $dark;
     border-radius: 1px;
     color: $white;
-    margin: 0;
     font-family: "Open Sans";
+    margin: 0;
+    padding: vr(.25) vr(.75);
+    text-align: center;
   }
 
   @include e(logo) {
@@ -107,7 +108,6 @@
     width: 120px;
 
     display: block;
-    float: left;
 
     @include only-print {
       width: 100px;

@@ -9,31 +9,36 @@
           <nav class="header__navigation">
             <ul class="header__navigation_items">
               <li class="header__navigation_item">
-                <%= link_to "About",
+                <%=
+                  link_to "About",
                   "/about",
                   class: "header__navigation-link"
                 %>
               </li>
               <li class="header__navigation_item">
-                <%= link_to "Biodiversity Indicators",
+                <%=
+                  link_to "Biodiversity Indicators",
                   "/biodiversity-indicators",
                   class: "header__navigation-link"
                 %>
               </li>
               <li class="header__navigation_item">
-                <%= link_to "Indicator Development",
+                <%=
+                  link_to "Indicator Development",
                   "/national-indicator-development",
                   class: "header__navigation-link"
                 %>
               </li>
               <li class="header__navigation_item">
-                <%= link_to "Partners",
+                <%=
+                  link_to "Partners",
                   "/partners",
                   class: "header__navigation-link"
                 %>
               </li>
               <li class="header__navigation_item">
-                <%= link_to "Resources",
+                <%=
+                  link_to "Resources",
                   resources_path(
                     filters: {
                       category: Comfy::Cms::Page.find_by_label("Resources")&.children.first&.id
@@ -43,7 +48,8 @@
                 %>
               </li>
               <li class="header__navigation_item">
-                <%= link_to "Dashboard",
+                <%=
+                  link_to "Dashboard",
                   "http://bipdashboard.natureserve.org/bip",
                   class: "header__navigation-link"
                 %>
@@ -54,7 +60,7 @@
         <div class="header__item header__item--mobile-menu">
           <button
             data-toggle-trigger="mobile-menu"
-            class="header__menu"
+            class="header__menu-toggle"
           >
             Menu
           </button>
@@ -72,37 +78,43 @@
       <nav class="mobile-menu__navigation">
         <ul class="mobile-menu__navigation-items">
           <li class="mobile-menu__navigation-item">
-            <%= link_to "Home",
+            <%=
+              link_to "Home",
               "/",
               class: "mobile-menu__navigation-link"
             %>
           </li>
           <li class="mobile-menu__navigation-item">
-            <%= link_to "About",
+            <%=
+              link_to "About",
               "/about",
               class: "mobile-menu__navigation-link"
             %>
           </li>
           <li class="mobile-menu__navigation-item">
-            <%= link_to "Indicator Development",
+            <%=
+              link_to "Indicator Development",
               "/national-indicator-development",
               class: "mobile-menu__navigation-link"
             %>
           </li>
           <li class="mobile-menu__navigation-item">
-            <%= link_to "Partners",
+            <%=
+              link_to "Partners",
               "/partners",
               class: "mobile-menu__navigation-link"
             %>
           </li>
           <li class="mobile-menu__navigation-item">
-            <%= link_to "Resources",
+            <%=
+              link_to "Resources",
               "/resources",
               class: "mobile-menu__navigation-link"
             %>
           </li>
           <li class="mobile-menu__navigation-item">
-            <%= link_to "Dashboard",
+            <%=
+              link_to "Dashboard",
               "http://bipdashboard.natureserve.org/bip",
               class: "mobile-menu__navigation-link"
             %>
