@@ -15,7 +15,7 @@
   padding-top: 7vh;
 
   @include e(title) {
-    @include font(page-title);
+    @include font(modal-title);
     margin-bottom: vr(2);
     text-align: center;
     width: 80%;
