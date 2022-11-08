@@ -27,3 +27,6 @@
 
 # byebug
 .byebug_history
+
+# DB Dump
+PostgreSQL.sql
