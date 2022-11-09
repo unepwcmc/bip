@@ -45,48 +45,67 @@
 
         <% if goal.sdg_targets.any? { |t| t.pages.any? } %>
           <div class="homepage-targets__body">
-            <ul class="homepage-targets__target-items">
+            <ul class="homepage-targets__listing-items">
               <% goal.sdg_targets.sort_by(&:target_number).select { |t| t.pages.any? }.each do |target| %>
-                <li class="homepage-targets__target-item">
-                  <div class="homepage-targets__target">
-                    <div class="homepage-targets__target-header">
-                      <div>
-                        <h5 class="homepage-targets__target-title">SDG Target <%= target.target_number %>:</h5>
-                        <p class="homepage-targets__target-name"><%= target.name %></p>
-                      </div>
-                    </div>
-                    <p class="homepage-targets__target-description"><%= target.description %></p>
-
-                    <% if target.pages.any? %>
-                      <% if target.official_pages.any? %>
-                        <h6 class="homepage-targets__target-subheader">Official indicators</h6>
-                        <% target.official_pages.each do |page| %>
-                          <a href="<%= page.full_path %>" class="homepage-targets__target-indicator">
-                            <i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i> <%= page.label %>
-                          </a>
-                        <% end %>
-                      <% end %>
-
-                      <% if target.relevant_pages.any? %>
-                        <h6 class="homepage-targets__target-subheader">Relevant indicators</h6>
-                        <% target.relevant_pages.each do |page| %>
-                          <a href="<%= page.full_path %>" class="homepage-targets__target-indicator">
-                            <i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i> <%= page.label %>
-                          </a>
-                        <% end %>
-                      <% end %>
-                    <% else %>
-                      <p class="homepage-targets__target-indicator homepage-targets__target-indicator--bold">
-                        No global indicators currently available under the BIP
+                <li class="homepage-targets__listing-item">
+                  <div class="homepage-targets__card">
+                    <div class="homepage-targets__card-header">
+                      <h5 class="homepage-targets__card-title">
+                        SDG Target <%= target.target_number %>:
+                      </h5>
+                      <p class="homepage-targets__card-description">
+                        <%= target.description %>
                       </p>
-                    <% end %>
+                    </div>
+
+                    <div class="homepage-targets__card-body">
+                      <% if target.pages.any? %>
+                        <% if target.official_pages.any? %>
+                          <h6 class="homepage-targets__card-heading">
+                            Official Indicators
+                          </h6>
+                          <div class="homepage-targets__card-indicators">
+                            <ul class="homepage-targets__card-indicator-items">
+                              <% target.official_pages.each do |page| %>
+                                <li class="homepage-targets__card-indicator-item">
+                                  <a href="<%= page.full_path %>" class="homepage-targets__card-indicator">
+                                    <%= page.label %><i class="homepage-targets__card-indicator-icon fa fa-arrow-right"></i>
+                                  </a>
+                                </li>
+                              <% end %>
+                            </ul>
+                          </div>
+                        <% end %>
+
+                        <% if target.relevant_pages.any? %>
+                          <h6 class="homepage-targets__card-heading">
+                            Relevant Indicators
+                          </h6>
+                          <div class="homepage-targets__card-indicators">
+                            <ul class="homepage-targets__card-indicator-items">
+                              <% target.relevant_pages.each do |page| %>
+                                <li class="homepage-targets__card-indicator-item">
+                                  <a href="<%= page.full_path %>" class="homepage-targets__card-indicator">
+                                    <%= page.label %><i class="homepage-targets__card-indicator-icon fa fa-arrow-right"></i>
+                                  </a>
+                                </li>
+                              <% end %>
+                            </ul>
+                          </div>
+                        <% end %>
+                      <% else %>
+                        <p class="homepage-targets__card-indicator homepage-targets__card-indicator--bold">
+                          No global indicators currently available under the BIP
+                        </p>
+                      <% end %>
+                    </div>
                   </div>
                 </li>
               <% end %>
             </ul>
           </div>
         <% else %>
-          <p class="homepage-targets__target-indicator homepage-targets__target-indicator--bold">
+          <p class="homepage-targets__card-indicator homepage-targets__card-indicator--bold">
             No global indicators currently available under the BIP
           </p>
         <% end %>

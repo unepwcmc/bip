@@ -2,7 +2,7 @@
   margin-bottom: vr(20);
 
   @include e(header) {
-    margin-bottom: vr(2.5);
+    margin-bottom: vr(4);
 
     display: flex;
     align-items: center;
@@ -36,77 +36,85 @@
     display: block;
   }
 
-
   @include e(body) {
     @include outer-container;
   }
 
-  @include e(target-items) {
+  @include e(listing-items) {
     margin: 0;
     padding: 0;
   }
 
-  @include e(target-item) {
+  @include e(listing-item) {
     list-style-type: none;
-  }
 
-  @include e(target) {
-    @include span-columns(4);
-    @include omega(3n);
-    margin-bottom: vr(2);
-
-    @include only-mobile {
-      @include span-columns(12);
+    &:not(:last-child) {
+      margin-bottom: vr(2);
     }
   }
 
-  @include e(target-header) {
-    @include flexbox;
-    @include align-items(stretch);
+  @include e(card) {
+    background-color: $white-two;
+    padding: vr(4);
+  }
+
+  @include e(card-header) {
     margin-bottom: vr(1.5);
   }
 
-  @include e(target-subheader) {
-    font-family: Merriweather;
-    font-size: 1rem;
-    margin: 1rem 0;
-    font-weight: 900;
-    line-height: 1.25;
-    color: $prussian-blue;
-  }
-
-  @include e(target-icon) {
+  @include e(card-icon) {
     margin-right: vr(1);
+
     img {
-      height: vr(5);
       width: vr(5);
+      height: vr(5);
     }
   }
 
-  @include e(target-title) {
-    @include text(normal-2, bold);
+  @include e(card-title) {
+    @include font(indicator-card-title);
   }
 
-  @include e(target-name) {
-    @include text(normal-2);
-    color: $text--menu;
-    margin: 0;
-  }
-
-  @include e(target-description) {
+  @include e(card-description) {
+    font-size: 1rem;
+    line-height: 1.4;
     margin: vr(1.5) 0;
-    margin-bottom: 2px;
   }
 
-  @include e(target-indicator) {
-    display: block;
-    margin: vr(1) 0;
-    text-decoration: underline;
+  @include e(card-heading) {
+    @include font(indicator-card-heading);
+    margin: 1rem 0;
+  }
+
+  @include e(card-indicator-items) {
+    margin: 0;
+    padding: 0;
+  }
+
+  @include e(card-indicator-item) {
+    list-style-type: none;
+
+    &:not(:last-child) {
+      margin-bottom: vr(1);
+    }
+  }
+
+  @include e(card-indicator) {
     @include font(target-indicator);
+    text-decoration: none;
+
+    display: block;
 
     @include m(bold) {
       @include text(normal, bold);
       text-decoration: none;
     }
+  }
+
+  @include e(card-indicator-icon) {
+    color: $teal;
+    font-size: vr(1);
+    margin-left: vr(.5);
+    vertical-align: middle;
   }
 }
