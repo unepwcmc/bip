@@ -1,44 +1,53 @@
 @include b(homepage-targets) {
-  @include outer-container;
-  width: $main__width;
   margin-bottom: vr(20);
 
-  @include only-mobile {
-    width: 87%;
-  }
-
-  @include e(goal) {
+  @include e(header) {
     margin-bottom: vr(2.5);
+
+    display: flex;
+    align-items: center;
   }
 
-  @include e(goal-title) {
-    @include font(goal-title);
-    margin-bottom: vr(1.25);
+  @include e(icon) {
+    margin-right: 1.5rem;
+    width: 9.25rem;
+    height: 9.25rem;
 
-    @include m(flex) {
-      @include flexbox;
-      @include align-items(center);
+    display: block;
+
+    @include only-mobile {
+      width: vr(3);
+      height: vr(3);
+    }
+
+    @include m(round) {
+      border-radius: 100%;
     }
   }
 
-  @include e(goal-description) {
-    @include text(normal-2);
-    margin: vr(.75) 0;
-
-    p { margin: vr(.75) 0; }
+  @include e(title) {
+    @include font(goal-title);
   }
 
-  @include e(goal-icon) {
-    height: vr(8);
-    margin-right: vr(2);
+  @include e(description) {
+    @include font(goal-description);
+    margin-top: 0.75rem;
 
-    @include only-mobile { height: vr(3); }
-
-    @include m(round) { border-radius: 100%; }
+    display: block;
   }
 
-  @include e(targets) {
+
+  @include e(body) {
     @include outer-container;
+  }
+
+  @include e(target-items) {
+    margin: 0;
+    padding: 0;
+  }
+
+  @include e(target-item) {
+    list-style-type: none;
   }
 
   @include e(target) {
