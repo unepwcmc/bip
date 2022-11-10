@@ -1,16 +1,21 @@
 <footer class="footer">
-  <div class="footer__navigation u-hide-print">
-    <div class="footer__navigation-inner">
-      <%= link_to "Home", "/", class: "footer__navigation-link" %>
-      <%= link_to "About", "/about", class: "footer__navigation-link" %>
-      <%= link_to "Indicator Development", "/national-indicator-development", class: "footer__navigation-link" %>
-      <%= link_to "Partners", "/partners", class: "footer__navigation-link" %>
-      <%= link_to "Resources", "/resources", class: "footer__navigation-link" %>
-    </div>
-  </div>
   <div class="footer__content">
     <div class="footer__columns u-clearfix">
+      <div class="footer__column footer__column--small">
+        <a class="header__logo" href="/"></a>
+      </div>
       <div class="footer__column footer__column--large">
+        <p class="footer__column-body">
+          In partnership with:
+        </p>
+        <div class="footer__partners-logos">
+          <a class="u-font-inherit footer__copyright-link" href="https://www.unep-wcmc.org">
+            <%= image_tag 'https://s3.amazonaws.com/wcmc.logo/UNEP_WCMC_logo_white.svg', alt: 'UN Environment World Conservation Monitoring Centre logo', class: 'footer__partners-logo-wcmc' %>
+          </a>
+          <%= link_to 'https://ec.europa.eu/commission/index_en', title: 'Visit the European Commission website', target: '_blank', class: 'u-no-underline' do %>
+            <%= image_tag 'logos/logo-european-commission.png', alt: 'European Commission logo', class: 'footer__partners-logo-ec' %>
+          <% end %>
+        </div>
         <p class="footer__column-body">
           The BIP secretariat is hosted by the UN Environment World Conservation Monitoring Centre in Cambridge, UK. Please do not hesitate to contact our global helpdesk regarding the Biodiversity Indicators Partnership, global indicators or national support.
         </p>
@@ -57,10 +62,7 @@
   </div>
   <div class="footer__copyright">
     <div class="footer__copyright-inner">
-      <a class="u-font-inherit footer__copyright-link" href="https://www.unep-wcmc.org">
-        <%= image_tag 'https://s3.amazonaws.com/wcmc.logo/UNEP_WCMC_logo_white.svg', alt: 'UN Environment World Conservation Monitoring Centre logo', class: 'footer__partners-logo-wcmc' %>
-        <span>Copyright <%= Date.today.year %> UNEP WCMC</span>
-      </a>
+  
     </div>
   </div>
 </footer>
