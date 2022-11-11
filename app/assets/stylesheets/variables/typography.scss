@@ -15,8 +15,8 @@ $font-book: (
     color: $white
   ),
   footer-title: (
-    font-family: Merriweather,
-    font-size: 1rem,
+    font-family: Open Sans,
+    font-size: 1.3rem,
     font-weight: 900,
     line-height: 1.5,
     color: $white
@@ -25,6 +25,7 @@ $font-book: (
     font-family: Open Sans,
     font-size: .875rem,
     line-height: 1.7,
+    font-weight: 900,
     color: $white
   ),
   footer-top: (
@@ -158,11 +159,11 @@ $font-book: (
     color: $dark
   ),
   mobile-menu: (
-  font-family: Open Sans,
-  font-size: 1rem,
-  font-weight: 700,
-  line-height: 1.75,
-  color: $white
+    font-family: Open Sans,
+    font-size: 1rem,
+    font-weight: 700,
+    line-height: 1.75,
+    color: $white
   )
 );
 
