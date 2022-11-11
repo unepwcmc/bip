@@ -1,5 +1,6 @@
 @include b(targets-browse) {
   @include outer-container;
+  @include mobile-container;
   width: $main__width;
 
   @include only-mobile {

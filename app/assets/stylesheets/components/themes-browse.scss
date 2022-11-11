@@ -1,28 +1,58 @@
 @include b(themes-browse) {
-  width: $main__width;
+  @include outer-container;
+  @include mobile-container;
   border-bottom: solid 1px $border--title;
   margin-bottom: vr(3);
   padding: vr(1) 0;
-  @include outer-container;
-  @include mobile-container;
+  width: $main__width;
 
-  @include e(themes) {
-    overflow: hidden;
-    margin: 0 vr(-.75);
+  @include only-mobile {
+    width: 87%;
+  }
+
+  @include e(header) {
+    border-bottom: solid 1px $border--title;
+    padding: vr(4) 0;
+    margin-bottom: vr(2);
+  }
+
+  @include e(title) {
+    @include font(targets-browse-title);
+    margin-bottom: vr(4);
+  }
+
+  @include e(themes-items) {
+    margin: 0 0 vr(-2) vr(-2);
+    padding: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @include e(themes-item) {
+    list-style-type: none;
+    margin-left: vr(2);
+    margin-bottom: vr(2);
+    width: calc((3 / 12) * 100%);
+
+    &.is-selected {
+      background-color: $solitude;
+    }
+
+    @include only-mobile {
+      width: vr(2);
+      height: vr(2);
+    }
   }
 
   @include e(theme) {
     cursor: pointer;
-    @include span-columns(4);
-    @include omega(3n);
     margin-right: 0;
     @include flexbox;
     @include align-items(center);
     padding: vr(1) vr(1.6666666);
 
     min-height: vr(8);
-
-    &.is-selected { background-color: $solitude; }
 
     @include only-mobile {
       width: 100%;

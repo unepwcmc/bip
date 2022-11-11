@@ -25,13 +25,20 @@
     }
   }
 
+  @include e(logo) {
+    margin-right: 1.5rem;
+    height: vr(8);
+
+    display: block;
+  }
+
   @include e(title) {
     @include font(goal-title);
   }
 
-  @include e(description) {
-    @include font(goal-description);
-    margin-top: 0.75rem;
+  @include e(label) {
+    @include font(goal-label);
+    margin-bottom: 0.75rem;
 
     display: block;
   }
@@ -73,12 +80,19 @@
 
   @include e(card-title) {
     @include font(indicator-card-title);
+    margin-bottom: vr(1.5);
   }
 
   @include e(card-description) {
-    font-size: 1rem;
-    line-height: 1.4;
-    margin: vr(1.5) 0;
+    * {
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: vr(1.5);
+    }
   }
 
   @include e(card-heading) {
@@ -89,6 +103,10 @@
   @include e(card-indicator-items) {
     margin: 0;
     padding: 0;
+
+    @include m(two-col) {
+      column-count: 2;
+    }
   }
 
   @include e(card-indicator-item) {
