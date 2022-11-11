@@ -2,23 +2,25 @@
   <div class="footer__content">
     <div class="footer__columns u-clearfix">
       <div class="footer__column footer__column--small">
-        <a class="header__logo" href="/"></a>
+        <a class="footer__logo" href="/"></a>
       </div>
-      <div class="footer__column footer__column--large">
-        <p class="footer__column-body">
-          In partnership with:
-        </p>
-        <div class="footer__partners-logos">
-          <a class="u-font-inherit footer__copyright-link" href="https://www.unep-wcmc.org">
-            <%= image_tag 'https://s3.amazonaws.com/wcmc.logo/UNEP_WCMC_logo_white.svg', alt: 'UN Environment World Conservation Monitoring Centre logo', class: 'footer__partners-logo-wcmc' %>
-          </a>
-          <%= link_to 'https://ec.europa.eu/commission/index_en', title: 'Visit the European Commission website', target: '_blank', class: 'u-no-underline' do %>
-            <%= image_tag 'logos/logo-european-commission.png', alt: 'European Commission logo', class: 'footer__partners-logo-ec' %>
-          <% end %>
+      <div class="footer__border-left">
+        <div class="footer__column footer__column--large">
+          <p class="footer__column-body footer__column-body--reduced-bottom-margin footer__column-body--no-margin">
+            In partnership with:
+          </p>
+          <div class="footer__partners-logos footer__column-body--reduced-bottom-margin">
+            <a class="u-font-inherit footer__copyright-link" href="https://www.unep-wcmc.org">
+              <%= image_tag 'https://s3.amazonaws.com/wcmc.logo/UNEP_WCMC_logo_white.svg', alt: 'UN Environment World Conservation Monitoring Centre logo', class: 'footer__partners-logo-wcmc' %>
+            </a>
+            <%= link_to 'https://ec.europa.eu/commission/index_en', title: 'Visit the European Commission website', target: '_blank', class: 'u-no-underline' do %>
+              <%= image_tag 'EuropeanCommissionLogo.svg', alt: 'European Commission logo', class: 'footer__partners-logo-ec' %>
+            <% end %>
+          </div>
+          <p class="footer__column-body footer__column-body--no-bottom-margin">
+            The BIP secretariat is hosted by the UN Environment World Conservation Monitoring Centre in Cambridge, UK. Please do not hesitate to contact our global helpdesk regarding the Biodiversity Indicators Partnership, global indicators or national support.
+          </p>
         </div>
-        <p class="footer__column-body">
-          The BIP secretariat is hosted by the UN Environment World Conservation Monitoring Centre in Cambridge, UK. Please do not hesitate to contact our global helpdesk regarding the Biodiversity Indicators Partnership, global indicators or national support.
-        </p>
       </div>
       <div class="footer__column footer__column--large">
         <h3 class="footer__column-title"></i>Address</h3>
@@ -45,24 +47,17 @@
       </div>
     </div>
   </div>
-  <div class="footer__partners u-clearfix">
-    <div class="footer__partners-inner">
-      <p class="footer__partners-copy footer__column--large">The Partnership is supported by <%= link_to 'UN Environment', 'https://www.unenvironment.org/', title: 'Visit the UN Environment website', target: '_blank' %>, the <%= link_to 'European Commission', 'https://ec.europa.eu/commission/index_en', title: 'Visit the European Commission website', target: '_blank' %> and the <%= link_to 'Swiss Federal Office for the Environment', 'https://www.bafu.admin.ch/bafu/en/home.html', title: 'Visit the Swiss Federal Office for the Environment website', target: '_blank' %>.</p>
-
-      <div class="footer__partners-logos">
-        <%= link_to 'https://www.unenvironment.org/', title: 'Visit the UN Environment website', target: '_blank', class: 'u-no-underline' do %>
-          <%= image_tag 'https://s3.amazonaws.com/wcmc.logo/UN-Environment-+logo+2017.svg', alt: 'UN Environment logo', class: 'footer__partners-logo-unep' %>
-        <% end %>
-
-        <%= link_to 'https://ec.europa.eu/commission/index_en', title: 'Visit the European Commission website', target: '_blank', class: 'u-no-underline' do %>
-          <%= image_tag 'logos/logo-european-commission.png', alt: 'European Commission logo', class: 'footer__partners-logo-ec' %>
-        <% end %>
-      </div>
-    </div>
-  </div>
   <div class="footer__copyright">
     <div class="footer__copyright-inner">
-  
+      <a class="footer__copyright-font" href="https://www.unep-wcmc.org">
+        &#169; 2022 UNEP WCMC
+      </a>
+      <div class="footer__copyright-inner--margin-left-right">
+        |
+      </div>
+      <a class="footer__copyright-font" href="https://www.unep-wcmc.org">
+        Terms & Conditions
+      </a>
     </div>
   </div>
 </footer>

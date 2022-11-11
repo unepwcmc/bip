@@ -17,11 +17,31 @@
     bottom: 0;
   }
 
+  @include e(logo) {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: image-url("BIP-logo-reversed.png");
+    height: 64px;
+    width: 140px;
+
+    display: block;
+
+    @include only-print {
+      width: 100px;
+    }
+  }
+
+  @include e(border-left) {
+    border-left-style: solid;
+    border-left-width: thin;
+    padding-left: 40px;
+    padding-bottom: -30px;
+  }
 
   @include e(content) {
     overflow: hidden;
 
-    width: $main__width;
+    width: 90%;
     margin: auto;
     padding-top: vr(2);
 
@@ -57,7 +77,8 @@
   }
 
   @include e(columns) {
-    padding: vr(2) 0;
+    padding: vr(6) 0;
+    display: flex;
 
     @include only-mobile {
       padding: 0;
@@ -70,7 +91,6 @@
     }
     @include only-desktop {
       @include m(large) {
-        @include span-columns(4);
         margin-right: vr(5.25);
       }
       @include m(small) { @include span-columns(2); }
@@ -80,7 +100,7 @@
 
   @include e(column-title) {
     @include font(footer-title);
-    margin-bottom: 0;
+    margin-bottom: vr(2);
 
     @include m(big) {
       @include font(footer-title-big);
@@ -94,9 +114,20 @@
   @include e(column-body) {
     @include font(footer-body);
     margin-top: vr(.75);
+    width: 450px;
+
+    @include m(header) {
+      @include font(footer-heading);
+    }
 
     @include m(no-margin) {
       margin-top: 0;
+    }
+    @include m(reduced-bottom-margin) {
+      margin-bottom: vr(.75);
+    }
+    @include m(no-bottom-margin) {
+      margin-bottom: 0;
     }
   }
 
@@ -129,13 +160,14 @@
 
     @include only-desktop {
       flex-direction: row;
-      align-items: flex-end;
+      align-items: flex-start;
     }
   }
 
   @include e(partners-logo-wcmc) {
     margin-right: 14px;
-    width: 70px; height: 23px;
+    padding-bottom: 60px;
+    width: 130px; height: 123px;
   }
 
   @include e(partners-logo-unep) {
@@ -148,7 +180,8 @@
 
   @include e(partners-logo-ec) {
     margin-right: 40px;
-    width: 160px; height: 110px;
+    margin-top: 15px;
+    width: 170px; height: 40px;
 
     @include only-mobile { margin-bottom: 20px; }
     @include only-desktop { margin-right: 40px; }
@@ -162,26 +195,35 @@
   }
   
   @include e(copyright) {
-    background-color: $navy-blue;
+    background-color: $prussian-blue;
   }
 
   @include e(copyright-inner) {
     @include font(copyright);
     align-items: center;
-    justify-content: space-between;
+    justify-content: start;
     margin: auto;
     padding: 20px 0;
-    width: $main__width;
+    width: 90%;
 
     display: flex;
 
     @include mobile-container;
+
+    @include m(margin-left-right) {
+    margin-left: vr(2);
+    margin-right: vr(2);
+    }
   }
 
   @include e(copyright-link) {
     align-items: center;
 
     display: flex;
+  }
+
+  @include e(copyright-font) {
+    @include font(copyright);
   }
 
   @include e(social) {
