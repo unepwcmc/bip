@@ -100,7 +100,7 @@
   }
 
   @include e(logo) {
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-image: image-url("bip-logo@2x.jpg");
     margin: vr(.95) 0;
