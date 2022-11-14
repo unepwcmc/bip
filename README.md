@@ -12,9 +12,27 @@ all pretty standard:
 git clone https://github.com/unepwcmc/bip
 cd bip
 rvm use 2.3.1 [or rbenv local 2.3.1]
-bundle install
+```
+
+You will need to use a specific version of bundler for the project to install properly:
+```
+gem install bundler -v 1.16.2
+bundle _1.16.2_ install
+```
+
+Install the NPM packages:
+```
 npm install
-bundle exec rake db:create db:migrate db:seed
+```
+
+Next, create a db and import the latest dump from staging/production on S3 (extract file until you get a .sql file):
+```
+bundle db:create
+psql bip_development < PostgreSQL.sql
+```
+
+Finally, run the server:
+```
 bundle exec rails server
 ```
 
