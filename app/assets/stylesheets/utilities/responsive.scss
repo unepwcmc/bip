@@ -1,4 +1,5 @@
 $break__phone: 768px;
+$break__desktop: 1280px;
 
 @mixin only-mobile {
   @media (max-width: $break__phone) {

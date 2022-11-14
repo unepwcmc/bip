@@ -3,10 +3,11 @@
   @include mobile-container;
 
   @include e(divider) {
-    text-align: center;
-    width: vr(3);
-    line-height: vr(2);
     color: $white;
+    line-height: vr(1);
+    font-size: 1.3rem;
+    text-align: center;
+    width: vr(2);
   }
 
   @include e(element) {
