@@ -1,47 +1,78 @@
 <% themes = Theme.includes(:pages).all %>
 
-<div data-select-group="browse" data-select-target="themes">
-  <div class="themes-browse">
+<div
+  data-select-group="browse"
+  data-select-target="themes"
+  class="themes-browse"
+>
+  <div class="themes-browse__header">
+    <h3 class="themes-browse__title">
+      Themes
+    </h3>
     <div class="themes-browse__themes">
+      <ul class="themes-browse__themes-items">
+        <% themes.each do |theme| %>
+          <li
+            data-select-group="themes"
+            data-select-trigger="<%= theme.id %>"
+            class="themes-browse__themes-item"
+          >
+            <div class="themes-browse__theme">
+              <div class="themes-browse__theme-icon themes-browse__theme-icon--rounded">
+                <%= image_tag theme.logo.url(:thumb) %>
+              </div>
+              <h3 class="themes-browse__theme-name"><%= theme.name %></h3>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="themes-browse__body">
+    <div class="homepage-themes">
       <% themes.each do |theme| %>
-        <div data-select-group="themes" data-select-trigger="<%= theme.id %>" class="themes-browse__theme">
-          <div>
-            <%= image_tag theme.logo.url(:thumb), class: "themes-browse__theme-icon" %>
+        <div
+          data-select-group="themes"
+          data-select-target="<%= theme.id %>"
+          class="homepage-themes__theme"
+        >
+          <div class="homepage-targets__header">
+            <%= image_tag theme.logo.url(:medium), class: "u-only-desktop homepage-targets__logo homepage-targets__logo--rounded" %>
+            <h4 class="homepage-targets__title">
+              <span class="homepage-targets__label">
+              </span>
+              <%= theme.name %>
+            </h4>
           </div>
-          <h3 class="themes-browse__theme-name"><%= theme.name %></h3>
+          <div class="homepage-targets__card">
+            <div class="homepage-targets__card-description">
+              <%= raw theme.description %>
+            </div>
+            <% if theme.pages.any? %>
+              <h6 class="homepage-targets__card-heading">
+                Relevant Indicators
+              </h6>
+              <ul class="homepage-targets__card-indicator-items homepage-targets__card-indicator-items--two-col">
+                <% theme.pages.each do |page| %>
+                  <li class="homepage-targets__card-indicator-item">
+                    <a
+                      href="<%= page.full_path %>"
+                      class="homepage-targets__card-indicator"
+                    >
+                      <%= page.label %><i class="homepage-targets__card-indicator-icon fa fa-arrow-right"></i>
+                    </a>
+                  </li>
+                <% end %>
+              </ul>
+            <% else %>
+              <p class="homepage-themes__theme-indicator homepage-themes__theme-indicator--bold">
+                No Global Indicators available yet
+              </p>
+            <% end %>
+          </div>
         </div>
       <% end %>
     </div>
   </div>
-
-  <div class="homepage-themes">
-    <% themes.each do |theme| %>
-      <div
-        data-select-group="themes"
-        data-select-target="<%= theme.id %>"
-        class="homepage-themes__theme"
-        >
-        <div class="homepage-targets__goal">
-          <h4 class="homepage-targets__goal-title homepage-targets__goal-title--flex">
-            <%= image_tag theme.logo.url(:medium), class: "u-only-desktop homepage-targets__goal-icon homepage-targets__goal-icon--round" %>
-            <%= theme.name %>
-          </h4>
-          <div class="homepage-targets__goal-description">
-            <p>
-              <%= raw theme.description %>
-            </p>
-          </div>
-        </div>
-        <% if theme.pages.any? %>
-          <% theme.pages.each do |page| %>
-            <a href="<%= page.full_path %>" class="homepage-targets__target-indicator">
-              <i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i><%= page.label %>
-          </a>
-        <% end %>
-      <% else %>
-        <p class="homepage-themes__theme-indicator homepage-themes__theme-indicator--bold">No Global Indicators available yet</p>
-      <% end %>
-    </div>
-  <% end %>
-</div>
 </div>

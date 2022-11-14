@@ -30,6 +30,10 @@
     height: vr(8);
 
     display: block;
+
+    @include m(rounded) {
+      border-radius: 50%;
+    }
   }
 
   @include e(title) {
@@ -97,7 +101,7 @@
 
   @include e(card-heading) {
     @include font(indicator-card-heading);
-    margin: 1rem 0;
+    margin-bottom: 1rem;
   }
 
   @include e(card-indicator-items) {
@@ -106,6 +110,7 @@
 
     @include m(two-col) {
       column-count: 2;
+      column-gap: vr(6);
     }
   }
 

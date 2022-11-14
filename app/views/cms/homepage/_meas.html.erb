@@ -18,7 +18,7 @@
             class="themes-browse__themes-item"
           >
             <div class="themes-browse__theme">
-              <div class="themes-browse__theme-icon themes-browse__theme-icon--no-radius">
+              <div class="themes-browse__theme-icon">
                 <%= image_tag mea.logo.url(:thumb) %>
               </div>
               <h3 class="themes-browse__theme-name">
@@ -58,14 +58,19 @@
               <ul class="homepage-targets__card-indicator-items homepage-targets__card-indicator-items--two-col">
                 <% mea.mea_targets.flat_map(&:pages).uniq.sort_by(&:label).each do |page| %>
                   <li class="homepage-targets__card-indicator-item">
-                    <a href="<%= page.full_path %>" class="homepage-targets__card-indicator">
+                    <a
+                      href="<%= page.full_path %>"
+                      class="homepage-targets__card-indicator"
+                    >
                       <%= page.label %><i class="homepage-targets__card-indicator-icon fa fa-arrow-right"></i>
                     </a>
                   </li>
                 <% end %>
               </ul>
             <% else %>
-              <p class="homepage-themes__theme-indicator homepage-themes__theme-indicator--bold">No Global Indicators available yet</p>
+              <p class="homepage-themes__theme-indicator homepage-themes__theme-indicator--bold">
+                No Global Indicators available yet
+              </p>
             <% end %>
           </div>
         </div>
