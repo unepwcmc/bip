@@ -78,7 +78,8 @@
 
   @include e(columns) {
     padding: vr(6) 0;
-    display: flex;
+    display: grid;
+    grid-template-columns: 300px 550px 550px auto;
 
     @include only-mobile {
       padding: 0;
