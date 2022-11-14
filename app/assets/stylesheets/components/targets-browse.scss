@@ -15,7 +15,10 @@
 
   @include e(title) {
     @include font(targets-browse-title);
-    margin-bottom: vr(4);
+  }
+
+  @include e(goals) {
+    margin-top: vr(4);
   }
 
   @include e(goals-items) {

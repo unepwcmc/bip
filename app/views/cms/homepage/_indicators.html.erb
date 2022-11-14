@@ -3,33 +3,93 @@
 <% all_indicators << indicators.each {|indicator| all_indicators << indicator.children } %>
 <% all_indicators.flatten! %>
 
-<div data-select-group="browse" data-select-target="indicators">
-  <div class="targets-browse">
-    <div class="targets-browse__goals-container">
-    </div>
+<div
+  data-select-group="browse"
+  data-select-target="indicators"
+  class="themes-browse"
+>
+  <div class="themes-browse__header">
+    <h3 class="themes-browse__title">
+      National Indicators
+    </h3>
   </div>
-
-  <div data-select-group="browse" data-select-target="indicators" class="homepage-targets">
-    <div class="homepage-targets__goal">
-      <h4 class="homepage-targets__goal-title">National Indicators</h4>
-      <div class="homepage-targets__goal-description">
-        <p>
-          Browse global indicators that have data available by country. Countries have been classified 
-          according to the UN Environment Regions.
-        </p>
-        <p>
-          Visit the links below to find a list of indicators that have data available by country. More information on the indicator suitability, data, methods involved, 
-          and examples of national use can be found on the 'National use of indicator' section of each indicator page.
-        </p>
+  <div class="themes-browse__body">
+    <div class="homepage-targets">
+      <div class="homepage-targets__card">
+        <div class="homepage-targets__card-description">
+          <p>
+            Browse global indicators that have data available by country. Countries have been classified according to the UN Environment Regions.
+          </p>
+          <p>
+            Visit the links below to find a list of indicators that have data available by country. More information on the indicator suitability, data, methods involved, and examples of national use can be found on the 'National use of indicator' section of each indicator page.
+          </p>
+        </div>
+        <ul class="homepage-targets__card-indicator-items">
+          <li class="homepage-targets__card-indicator-item">
+            <a
+              href="/national-indicator-development/national-data/africa"
+              title="National Indicators: Africa"
+              class="homepage-targets__target-indicator"
+            >
+              Africa<i class="homepage-targets__card-indicator-icon fa fa-arrow-right"></i>
+            </a>
+          </li>
+          <li class="homepage-targets__card-indicator-item">
+            <a
+              href="/national-indicator-development/national-data/asia-pacific"
+              title="National Indicators: Asia & Pacific"
+              class="homepage-targets__target-indicator"
+            >
+              Asia & Pacific<i class="homepage-targets__card-indicator-icon fa fa-arrow-right"></i>
+            </a>
+          </li>
+          <li class="homepage-targets__card-indicator-item">
+            <a
+              href="/national-indicator-development/national-data/europe"
+              title="National Indicators: Europe"
+              class="homepage-targets__target-indicator"
+            >
+              Europe<i class="homepage-targets__card-indicator-icon fa fa-arrow-right"></i>
+            </a>
+          </li>
+          <li class="homepage-targets__card-indicator-item">
+            <a
+              href="/national-indicator-development/national-data/latin-america-caribbean"
+              title="National Indicators: Latin America & Caribbean "
+              class="homepage-targets__target-indicator"
+            >
+              Latin America & Caribbean<i class="homepage-targets__card-indicator-icon fa fa-arrow-right"></i>
+            </li>
+          </a>
+          <li class="homepage-targets__card-indicator-item">
+            <a
+              href="/national-indicator-development/national-data/north-america"
+              title="National Indicators: North America"
+              class="homepage-targets__target-indicator"
+            >
+              North America<i class="homepage-targets__card-indicator-icon fa fa-arrow-right"></i>
+            </a>
+          </li>
+          <li class="homepage-targets__card-indicator-item">
+            <a
+              href="/national-indicator-development/national-data/polar"
+              title="National Indicators: Polar"
+              class="homepage-targets__target-indicator"
+            >
+              Polar<i class="homepage-targets__card-indicator-icon fa fa-arrow-right"></i>
+            </a>
+          </li>
+          <li class="homepage-targets__card-indicator-item">
+            <a
+              href="/national-indicator-development/national-data/west-asia"
+              title="National Indicators: West Asia"
+              class="homepage-targets__target-indicator"
+            >
+              West Asia<i class="homepage-targets__card-indicator-icon fa fa-arrow-right"></i>
+            </a>
+          </li>
+        </ul>
       </div>
-      
-      <a href="/national-indicator-development/national-data/africa" title="National Indicators: Africa" class="homepage-targets__target-indicator"><i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i>Africa</a>
-      <a href="/national-indicator-development/national-data/asia-pacific" title="National Indicators: Asia & Pacific" class="homepage-targets__target-indicator"><i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i>Asia & Pacific</a>
-      <a href="/national-indicator-development/national-data/europe" title="National Indicators: Europe" class="homepage-targets__target-indicator"><i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i>Europe</a>
-      <a href="/national-indicator-development/national-data/latin-america-caribbean" title="National Indicators: Latin America & Caribbean " class="homepage-targets__target-indicator"><i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i>Latin America & Caribbean</a>
-      <a href="/national-indicator-development/national-data/north-america" title="National Indicators: North America" class="homepage-targets__target-indicator"><i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i>North America</a>
-      <a href="/national-indicator-development/national-data/polar" title="National Indicators: Polar" class="homepage-targets__target-indicator"><i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i>Polar</a>
-      <a href="/national-indicator-development/national-data/west-asia" title="National Indicators: West Asia" class="homepage-targets__target-indicator"><i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i>West Asia</a>
     </div>
   </div>
 </div>

@@ -1,9 +1,6 @@
 @include b(themes-browse) {
   @include outer-container;
   @include mobile-container;
-  border-bottom: solid 1px $border--title;
-  margin-bottom: vr(3);
-  padding: vr(1) 0;
   width: $main__width;
 
   @include only-mobile {
@@ -18,7 +15,10 @@
 
   @include e(title) {
     @include font(targets-browse-title);
-    margin-bottom: vr(4);
+  }
+
+  @include e(themes) {
+    margin-top: vr(4);
   }
 
   @include e(themes-items) {
