@@ -1,0 +1,73 @@
+@include b(home-hero) {
+  background-image:
+    linear-gradient(to bottom, rgba(0, 19, 81, 0.65), rgba(0, 19, 81, 0.65)),
+    image-url("home-hero-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: $white;
+
+  @include e(container) {
+    @include mobile-container;
+    @include outer-container;
+    padding: vr(6) 0 vr(4);
+    width: $main__width;
+  }
+
+  @include e(content) {
+    @include span-columns(12);
+
+    @media (min-width: $break__desktop) {
+      @include span-columns(8);
+    }
+  }
+
+  @include e(title) {
+    @include font(hero-title);
+    color: currentColor;
+  }
+
+  @include e(text) {
+    * {
+      color: currentColor;
+    }
+  }
+
+  @include e(search) {
+    max-width: 400px;
+
+    @include only-mobile {
+      width: 87%;
+    }
+  }
+
+  @include e(search-bar) {
+    background-color: rgba($white, 0.25);
+    border: solid 1px $white;
+    border-radius: 25px;
+    color: currentColor;
+    font-size: vr(1.1666666);
+    font-weight: 600;
+    margin: 0;
+    padding: vr(.75) vr(1);
+    width: 100%;
+
+    &::-webkit-input-placeholder { color: currentColor; }
+    &::-moz-placeholder          { color: currentColor; }
+    &:-ms-input-placeholder      { color: currentColor; }
+    &:-moz-placeholder           { color: currentColor; }
+  }
+
+  @include e(search-bar-icon) {
+    color: $white;
+
+    position: absolute;
+    top: 9px;
+    left: 93%;
+
+    @include only-mobile {
+      right: vr(1);
+      left: initial;
+    }
+  }
+}
