@@ -16,6 +16,8 @@
 @import "utilities/responsive";
 @import "utilities/u-classes";
 
+@import "component-mixins/listing-card.scss";
+
 @import "components/breadcrumbs";
 @import "components/browse";
 @import "components/country_nav";
