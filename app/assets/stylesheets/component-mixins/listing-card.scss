@@ -1,7 +1,7 @@
 @mixin listing-card {
   background-color: $white-two;
   overflow: hidden;
-  padding: vr(2) vr(4);
+  padding: vr(2);
   
   &:not(:last-child) {
     margin-bottom: vr(2);
