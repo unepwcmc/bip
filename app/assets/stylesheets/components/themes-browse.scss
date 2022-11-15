@@ -45,9 +45,7 @@
 
   @include e(themes-item) {
     list-style-type: none;
-    margin-bottom: vr(2);
-    margin-left: vr(2);
-    width: calc((3 / 12) * 100%);
+    width: calc((4 / 12) * 100%);
 
     display: flex;
 
@@ -56,8 +54,6 @@
     }
 
     @include only-mobile {
-      margin-bottom: 0;
-      margin-left: 0;
       width: 100%;
     }
   }
@@ -94,16 +90,13 @@
     @include m(rounded) {
       background: none;
       padding: 0;
+      width: vr(3);
+      height: vr(3);
+
+      flex: 0 0 vr(3);
 
       img {
         border-radius: 50%;
-      }
-
-      @include only-mobile {
-        width: vr(3);
-        height: vr(3);
-
-        flex: 0 0 vr(3);
       }
     }
   }
