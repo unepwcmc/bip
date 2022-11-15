@@ -1,6 +1,9 @@
 <div>
-  <%= link_to resource_url(ordered_resource_links(result)[0]), id: "download-resource-#{result.id}" do %>
-    <i class="icon--left fa <%= resource_icon_class(result) %>"></i>
+  <%= link_to resource_url(ordered_resource_links(result)[0]),
+    id: "download-resource-#{result.id}",
+    class: "search-page__result-link" do
+  %>
+    <i class="icon--left <%= resource_icon_class(result) %>"></i>
     <%= resource_link_text(result) %>
   <% end %>
 

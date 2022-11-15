@@ -10,7 +10,7 @@ module ResourcesHelper
   end
 
   def resource_icon_class resource_page
-    resource_kind(resource_page) == 'file' ? 'fa-download' : 'fa-link'
+    resource_kind(resource_page) == 'file' ? 'icon--download' : 'icon--external-link'
   end
 
   def resource_link_text resource_page
@@ -23,5 +23,17 @@ module ResourcesHelper
 
   def resource_url resource
     resource.kind == 'file' ? resource.file.url : resource.url
+  end
+
+  def result_label result
+    result_object(result).label
+  end
+
+  def result_url result
+    result_object(result).full_path
+  end
+
+  def result_object result
+    result.is_a?(Comfy::Cms::Block) ? result.blockable : result
   end
 end

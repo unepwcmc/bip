@@ -1,35 +1,15 @@
 <% (@results || []).each do |result| %>
   <div class="search-page__result">
-    <h2 class="search-page__result-title">
-      <% if result.is_a?(Comfy::Cms::Block) %>
-        <a class="search-page__result-link" href="<%= result.blockable.full_path %>">
-          <%= result.blockable.label %>
-        </a>
-      <% else %>
-        <a class="search-page__result-link" href="<%= result.full_path %>">
-          <%= result.label %>
-        </a>
-      <% end %>
-    </h2>
+    <div class="search-page__result-container">
+      <a href="<%= result_url(result) %>">
+        <h2 class="search-page__result-title">
+          <%= result_label(result) %>
+        </h2>
+      </a>
 
-    <div class="search-page__result-body">
-      <%= render partial: "attachment", locals: {result: result} %>
       <%= search_result(result, params[:q]) %>
+
+      <%= render partial: "attachment", locals: {result: result} %>
     </div>
-
-    <% if result.is_a?(Comfy::Cms::Block) %>
-      <% result.blockable.other_tags.each do |tag| %>
-        <div class="search-page__result-tag">
-          <em><%= tag.name %></em>
-        </div>
-      <% end %>
-    <% else %>
-      <% result.other_tags.each do |tag| %>
-        <div class="search-page__result-tag">
-          <em><%= tag.name %></em>
-        </div>
-      <% end %>
-    <% end %>
-
   </div>
 <% end %>
