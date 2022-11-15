@@ -1,13 +1,16 @@
 <% (@results || []).each do |result| %>
   <div class="search-page__result">
     <div class="search-page__result-container">
-      <a href="<%= result_url(result) %>">
-        <h2 class="search-page__result-title">
-          <%= result_label(result) %>
-        </h2>
-      </a>
+      <h2 class="search-page__result-title">
+        <%= result_label(result) %>
+      </h2>
 
       <%= search_result(result, params[:q]) %>
+
+      <%= link_to result_url(result), class: "search-page__result-link" do %>
+        <%= result_link_text %>
+        <i class="icon--right icon--link"></i>
+      <% end %>
     </div>
   </div>
 <% end %>

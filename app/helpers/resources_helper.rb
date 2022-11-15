@@ -29,6 +29,10 @@ module ResourcesHelper
     result_object(result).label
   end
 
+  def result_link_text
+    'View page'
+  end
+
   def result_url result
     result_object(result).full_path
   end

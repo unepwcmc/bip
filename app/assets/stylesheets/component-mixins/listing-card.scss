@@ -25,4 +25,8 @@
 
 @mixin listing-card-text {
   margin: 0 0 vr(2);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
