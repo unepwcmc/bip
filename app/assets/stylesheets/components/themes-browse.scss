@@ -64,9 +64,9 @@
     cursor: pointer;
     margin-right: 0;
     padding: vr(1) vr(1.6666666);
+    width: 100%;
 
     @include only-mobile {
-      width: 100%;
       padding: vr(1) vr(1);
       margin-right: 0;
     }
