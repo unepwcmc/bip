@@ -1,5 +1,27 @@
+@mixin icon-image($url, $size: 1rem) {
+  background: url($url) center no-repeat;
+  background-size: contain;
+  width: $size; height: $size;
+
+  display: inline-block;
+}
+
 @include b(icon) {
-  @include m(left)  { margin-right: vr(.75); }
-  @include m(right) { margin-left: vr(.75);  }
+  @include m(left)  { margin-right: vr(1); }
+  @include m(right) { margin-left: vr(1);  }
   @include m(sub)   { vertical-align: sub;   }
+
+  @include m(download) {
+    @include icon-image('icons/download.svg');
+    width: 1.25rem; height: 1.125rem;
+  }
+
+  @include m(link) {
+    @include icon-image('icons/link.svg');
+    width: 1.125rem; height: 0.875rem;
+  }
+
+  @include m(external-link) {
+    @include icon-image('icons/external-link.svg', 1.125rem);
+  }
 }

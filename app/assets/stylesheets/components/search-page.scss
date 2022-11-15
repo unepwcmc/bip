@@ -10,31 +10,26 @@
   }
 
   @include e(result) {
-    overflow: hidden;
-
-    padding-bottom: vr(1);
-    border-bottom: solid 1px $border--title;
-    margin: vr(1.5) 0;
+    @include listing-card;
   }
 
   @include e(result-title) {
-    @include font(search-result-title);
-    margin: 0;
+    @include listing-card-title;
   }
 
   @include e(result-link) {
-    color: $text--base;
-    font-size: 1.25rem;
-    margin-bottom: .5rem;
-    display: block;
+    @include listing-card-link;
   }
 
   @include e(result-body) {
-    margin: 0;
-    margin-bottom: vr(1.5);
-    p { margin: 0; }
+    @include listing-card-body;
+
+    p {
+      @include listing-card-text;
+    }
   }
 
+  //TODO: Delete if themes not kept on search results page
   @include e(result-tag) {
     background-color: $solitude;
 
