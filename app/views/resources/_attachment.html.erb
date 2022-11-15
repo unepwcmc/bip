@@ -8,10 +8,12 @@
   <% end %>
 
   <% if result.resources.count > 1 %>
-    <select data-download-select="download-resource-<%= result.id %>">
-      <% ordered_resource_links(result).each do |resource| %>
-        <option value="<%= resource_url(resource) %>"><%= resource.label %></option>
-      <% end %>
-    </select>
+    <div class="select-wrapper">
+      <select data-download-select="download-resource-<%= result.id %>">
+        <% ordered_resource_links(result).each do |resource| %>
+          <option value="<%= resource_url(resource) %>"><%= resource.label %></option>
+        <% end %>
+      </select>
+    </div>
   <% end %>
 </div>
