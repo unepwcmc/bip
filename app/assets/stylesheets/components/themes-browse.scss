@@ -30,15 +30,13 @@
   }
 
   @include e(themes-items) {
-    margin: 0 0 vr(-2) vr(-2);
+    margin: 0;
     padding: 0;
 
     display: flex;
     flex-wrap: wrap;
 
     @include only-mobile {
-      margin: 0;
-
       display: block;
     }
   }
