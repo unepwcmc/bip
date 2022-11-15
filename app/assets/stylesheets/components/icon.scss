@@ -8,8 +8,8 @@
 
 @include b(icon) {
   @include m(left)  { margin-right: vr(1); }
-  @include m(right) { margin-left: vr(1);  }
-  @include m(sub)   { vertical-align: sub;   }
+  @include m(right) { margin-left: vr(1); }
+  @include m(sub)   { vertical-align: sub; }
 
   @include m(download) {
     @include icon-image('icons/download.svg');
