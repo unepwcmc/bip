@@ -10,24 +10,26 @@
   @include e(container) {
     @include mobile-container;
     @include outer-container;
-    padding: vr(6) 0 vr(4);
+    padding: vr(5.6) 0;
     width: $main__width;
   }
 
-  @include e(input) {
-    background-color: rgba($white, 0.25);
-    border: solid 1px $white;
-    border-radius: 25px;
-    color: currentColor;
-    font-size: vr(1.1666666);
-    font-weight: 600;
-    margin: 0;
-    padding: vr(.75) vr(1);
-    width: vr(35);
+  @include e(title) {
+    @include font(newsletter-title);
+  }
 
-    &::-webkit-input-placeholder { color: currentColor; }
-    &::-moz-placeholder          { color: currentColor; }
-    &:-ms-input-placeholder      { color: currentColor; }
-    &:-moz-placeholder           { color: currentColor; }
+  @include e(text) {
+    * {
+      @include font(newsletter-text);
+    }
+  }
+
+  @include e(input) {
+    @include form-text-input;
+    margin-right: vr(2);
+  }
+
+  @include e(submit) {
+    @include button_primary;
   }
 }
