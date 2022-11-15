@@ -3,22 +3,30 @@
   @include mobile-container;
   width: $main__width;
 
-  @include only-mobile {
-    width: 87%;
-  }
-
   @include e(header) {
     border-bottom: solid 1px $border--title;
     padding: vr(4) 0;
     margin-bottom: vr(2);
+
+    @include only-mobile {
+      padding: vr(2) 0;
+    }
   }
 
   @include e(title) {
     @include font(targets-browse-title);
+
+    @include only-mobile {
+      font-size: 1.8rem;
+    }
   }
 
   @include e(themes) {
     margin-top: vr(4);
+
+    @include only-mobile {
+      margin-top: vr(2);
+    }
   }
 
   @include e(themes-items) {
@@ -27,6 +35,12 @@
 
     display: flex;
     flex-wrap: wrap;
+
+    @include only-mobile {
+      margin: 0;
+
+      display: block;
+    }
   }
 
   @include e(themes-item) {
@@ -42,8 +56,9 @@
     }
 
     @include only-mobile {
-      width: vr(2);
-      height: vr(2);
+      margin-left: 0;
+      margin-bottom: 0;
+      width: 100%;
     }
   }
 
@@ -83,6 +98,12 @@
 
       img {
         border-radius: 50%;
+      }
+
+      @include only-mobile {
+        width: vr(3);
+        height: vr(3);
+        flex: 0 0 vr(3);
       }
     }
   }

@@ -6,6 +6,10 @@
 
     display: flex;
     align-items: center;
+
+    @include only-mobile {
+      margin-bottom: vr(2);
+    }
   }
 
   @include e(icon) {
@@ -16,8 +20,7 @@
     display: block;
 
     @include only-mobile {
-      width: vr(3);
-      height: vr(3);
+      display: none;
     }
 
     @include m(round) {
@@ -30,6 +33,10 @@
     height: vr(8);
 
     display: block;
+
+    @include only-mobile {
+      display: none;
+    }
 
     @include m(rounded) {
       border-radius: 50%;
@@ -67,6 +74,10 @@
   @include e(card) {
     background-color: $white-two;
     padding: vr(4);
+
+    @include only-mobile {
+      padding: vr(2);
+    }
   }
 
   @include e(card-header) {
@@ -111,6 +122,10 @@
     @include m(two-col) {
       column-count: 2;
       column-gap: vr(6);
+
+      @include only-mobile {
+        column-count: 1;
+      }
     }
   }
 
