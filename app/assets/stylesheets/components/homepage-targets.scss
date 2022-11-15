@@ -49,7 +49,7 @@
 
   @include e(label) {
     @include font(goal-label);
-    margin-bottom: 0.75rem;
+    margin-bottom: vr(1);
 
     display: block;
   }

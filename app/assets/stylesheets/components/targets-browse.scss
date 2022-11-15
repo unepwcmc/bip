@@ -5,8 +5,8 @@
 
   @include e(header) {
     border-bottom: solid 1px $border--title;
-    padding: vr(4) 0;
     margin-bottom: vr(2);
+    padding: vr(4) 0;
 
     @include only-mobile {
       padding: vr(2) 0;
@@ -39,8 +39,8 @@
 
   @include e(goals-item) {
     list-style-type: none;
-    margin-left: vr(2);
     margin-bottom: vr(2);
+    margin-left: vr(2);
     width: 5.35rem;
     height: 5.35rem;
 
@@ -49,53 +49,28 @@
     &.is-selected {
       &:after {
         content: "";
-        position: absolute;
         border: solid 5px $border--title;
         border-radius: 1px;
-        top: -3px;
-        left: -3px;
         width: calc(100% + 6px);
         height: calc(100% + 6px);
+
+        position: absolute;
+        top: -3px;
+        left: -3px;
       }
     }
-
-    // @include only-mobile {
-    //   width: vr(2);
-    //   height: vr(2);
-    // }
   }
 
   @include e(goal) {
     margin-bottom: vr(2);
 
     @include only-desktop {
-      height: vr(5);
       padding-right: vr(1.875);
+      height: vr(5);
     }
 
     @include only-mobile {
       height: vr(2);
-    }
-  }
-
-  @include e(goal-title) {
-    @include text(normal, bold);
-    float: left;
-    cursor: pointer;
-    padding: vr(1) vr(1);
-    margin-right: vr(1);
-    height: vr(5);
-    line-height: vr(2.5);
-
-    @include only-mobile {
-      font-size: 12px;
-      padding: 5px;
-      line-height: 1;
-      height: vr(2);
-    }
-
-    &.is-selected {
-      background-color: $border--title;
     }
   }
 
