@@ -16,6 +16,8 @@
 @import "utilities/responsive";
 @import "utilities/u-classes";
 
+@import "component-mixins/listing-card.scss";
+
 @import "components/breadcrumbs";
 @import "components/browse";
 @import "components/country_nav";
@@ -24,6 +26,7 @@
 @import "components/footer";
 @import "components/framework";
 @import "components/header";
+@import "components/home-hero";
 @import "components/homepage";
 @import "components/homepage-targets";
 @import "components/homepage-themes";
