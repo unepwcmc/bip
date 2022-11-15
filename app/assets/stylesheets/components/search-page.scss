@@ -13,6 +13,10 @@
     @include listing-card;
   }
 
+  @include e(result-container) {
+    @include listing-card-container;
+  }
+
   @include e(result-title) {
     @include listing-card-title;
   }

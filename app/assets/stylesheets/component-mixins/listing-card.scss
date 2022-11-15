@@ -8,6 +8,10 @@
   }
 }
 
+@mixin listing-card-container {
+  max-width: 57.25rem;
+}
+
 @mixin listing-card-title {
   @include font(search-result-title);
   margin-bottom: vr(2);
