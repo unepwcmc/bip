@@ -1,10 +1,10 @@
-@mixin button_reset {
+@mixin button-reset {
   appearance: none;
   background-color: transparent;
 }
 
 @mixin button {
-  @include button_reset;
+  @include button-reset;
   border: 0.188rem solid transparent; // 3px
   border-radius: 2.188rem; // 35px
   cursor: pointer;
@@ -22,7 +22,7 @@
     border-color 0.35s ease;
 }
 
-@mixin button_primary {
+@mixin button-primary {
   @include button;
   color: $white;
   background-color: $prussian-blue;
