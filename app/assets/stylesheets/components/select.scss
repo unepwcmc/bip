@@ -13,24 +13,19 @@ $select-padding: vr(1) $select-padding-right-with-arrow vr(1) vr(2);
     content: '';
     
     position: absolute;
-    right: $select-padding-right;
     top: 50%;
+    right: $select-padding-right;
   
     transform: translateY(-50%);
   }
 
   select {
+    @include font(select);
+
     /*To remove button from Firefox, Safari, Chrome, Edge*/
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;  
-  
-    /*To remove button from IE11*/
-    &::-ms-expand {
-      display: none;
-    }
-
-    @include font(select);
 
     background-color: $white;
     border-radius: 1.5rem;
@@ -38,6 +33,11 @@ $select-padding: vr(1) $select-padding-right-with-arrow vr(1) vr(2);
     cursor: pointer;
     padding: $select-padding;
     width: 100%;
+
+    /*To remove button from IE11*/
+    &::-ms-expand {
+      display: none;
+    }
   }
 }
 
