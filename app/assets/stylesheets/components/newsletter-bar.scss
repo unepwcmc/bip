@@ -26,10 +26,24 @@
 
   @include e(input) {
     @include form-text-input;
-    margin-right: vr(2);
+    width: 100%;
+
+    @include only-desktop {
+      margin-right: vr(2);
+      max-width: vr(35);
+      width: 55%;
+    }
   }
 
   @include e(submit) {
     @include button_primary;
+    margin-top: vr(1);
+    width: 100%;
+
+    @include only-desktop {
+      margin-top: 0;
+      max-width: vr(35);
+      width: auto;
+    }
   }
 }
