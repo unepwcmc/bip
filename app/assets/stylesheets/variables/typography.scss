@@ -177,6 +177,20 @@ $font-book: (
   font-weight: 700,
   line-height: 1.75,
   color: $white
+  ),
+  pagination-per-page: (
+  font-family: 'Open Sans',
+  font-size: 1.125rem,
+  font-weight: 700,
+  line-height: 1.4,
+  color: #000
+  ),
+  pagination-page-count: (
+  font-family: 'Open Sans',
+  font-size: 0.875rem,
+  font-weight: 400,
+  line-height: 1.4,
+  color: #000
   )
 );
 

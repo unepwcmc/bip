@@ -1,51 +1,71 @@
 @include b(pagination) {
   @include flexbox;
-  @include justify-content(center);
   @include align-items(center);
+  @include justify-content(flex-end);
 
-  margin-top: vr(2.75);
+  margin-top: vr(4);
+
+  @include only-mobile {
+    @include align-items(flex-end);
+    @include flex-direction(column);
+  }
 
   @include e(per-page) {
     @include flexbox;
     @include align-items(center);
-    margin-right: vr(2.75);
+    
+    @include only-mobile {
+      margin-bottom: vr(1);
+    }
+
+    @include only-desktop {
+      margin-right: vr(1);
+    }
   }
 
   @include e(per-page-text) {
+    @include font(pagination-per-page);
     float: left;
-    @include text(normal);
-    margin-right: vr(.75);
+    margin-right: vr(1);
   }
 
   @include e(per-page-select) {
+    @include text(normal);
     // reset select
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
 
     background: none;
-    @include text(normal);
-    border: solid 1px $border--targets;
+    border: solid 1px $teal;
     border-radius: 0;
-    padding: vr(.33333) vr(2.75) vr(.33333) vr(1);
-    height: vr(3);
     cursor: pointer;
-
-    &:active, &:focus { outline: none; }
+    padding: vr(1) vr(3) vr(1) vr(1);
   }
 
   @include e(per-page-arrow) {
     pointer-events: none;
-    margin-left: -30px;
+
+    position: absolute;
+    top: 50%;
+    right: vr(1);
+
+    transform: translateY(-60%);
+  }
+
+  @include e(page-count-text) {
+    @include font(pagination-page-count);
+    margin-right: vr(1);
   }
 
   @include e(navigation-control) {
-    display: inline-block;
-    color: $text--navigation;
+    background-color: $prussian-blue;
+    color: $white;
+    width: vr(4);
+    height: vr(4);
 
-    line-height: vr(3);
-    padding: 0 vr(2);
-    border: solid 2px $text--navigation;
-    margin: 0 vr(.5);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 }
