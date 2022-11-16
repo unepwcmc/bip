@@ -7,7 +7,9 @@
         </h2>
       </a>
 
-      <%= search_result(result, params[:q]) %>
+      <div class="search-page__result-text">
+        <%= search_result(result, params[:q]) %>
+      </div>
 
       <%= render partial: "attachment", locals: {result: result} %>
     </div>

@@ -5,7 +5,9 @@
         <%= result_label(result) %>
       </h2>
 
-      <%= search_result(result, params[:q]) %>
+      <div class="search-page__result-text">
+        <%= search_result(result, params[:q]) %>
+      </div>
 
       <%= link_to result_url(result), class: "search-page__result-link" do %>
         <%= result_link_text %>

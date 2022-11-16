@@ -15,14 +15,18 @@
 
   @include e(result-container) {
     @include listing-card-container;
-
-    p {
-      @include listing-card-text;
-    }
   }
 
   @include e(result-title) {
     @include listing-card-title;
+  }
+
+  @include e(result-text) {
+    margin-bottom: vr(2);
+
+    p {
+      @include listing-card-text;
+    }
   }
 
   @include e(result-link-footer) {
