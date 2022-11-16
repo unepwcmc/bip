@@ -1,11 +1,9 @@
-<div class="page__aside">
+<div class="filters">
   <h2 class="filters__title">
-    Filters
+    Filter by:
   </h2>
 
   <div class="filters__body">
-    <p class="filters__subtitle">Filter by:</p>
-
     <p data-toggle-trigger="aichi-targets" class="filters__bucket-name">
       Aichi targets
       <i data-toggle-switch="aichi-targets" class="fa fa-chevron-up filters__bucket-toggle"></i>
@@ -13,9 +11,7 @@
     <div <%= "data-toggle-hide" unless params[:filters]&.has_key?(:aichi_targets) %> data-toggle-target="aichi-targets" class="filters__bucket">
       <% @all_filters[:aichi_targets].each do |target| %>
         <a href="<%= filter_link(:aichi_targets, target.id)  %>" class="filters__bucket-item">
-          <div class="filters__bucket-item-left">
-            <div class="<%= bucket_item_toggle_class(:aichi_targets, target.id) %>"></div>
-          </div>
+          <div class="<%= bucket_item_toggle_class(:aichi_targets, target.id) %>"></div>
           <span class="filters__bucket-item-title">
             Target <%= target.target_number %> - <%= target.name %>
           </span>
@@ -31,9 +27,7 @@
     <div <%= "data-toggle-hide" unless params[:filters]&.has_key?(:sdgs) %> data-toggle-target="sdgs" class="filters__bucket">
       <% @all_filters[:sdgs].each do |goal| %>
         <a href="<%= filter_link(:sdgs, goal.id)  %>" class="filters__bucket-item">
-          <div class="filters__bucket-item-left">
-            <div class="<%= bucket_item_toggle_class(:sdgs, goal.id) %>"></div>
-          </div>
+          <div class="<%= bucket_item_toggle_class(:sdgs, goal.id) %>"></div>
           <span class="filters__bucket-item-title">
             <%= goal.name %>
           </span>
@@ -49,9 +43,7 @@
     <div <%= "data-toggle-hide" unless params[:filters]&.has_key?(:meas) %> data-toggle-target="meas" class="filters__bucket">
       <% @all_filters[:meas].each do |mea| %>
         <a href="<%= filter_link(:meas, mea.id)  %>" class="filters__bucket-item">
-          <div class="filters__bucket-item-left">
-            <div class="<%= bucket_item_toggle_class(:meas, mea.id) %>"></div>
-          </div>
+          <div class="<%= bucket_item_toggle_class(:meas, mea.id) %>"></div>
           <span class="filters__bucket-item-title">
             <%= mea.name %>
           </span>
@@ -67,9 +59,7 @@
     <div <%= "data-toggle-hide" unless params[:filters]&.has_key?(:themes) %> data-toggle-target="themes" class="filters__bucket">
       <% @all_filters[:themes].each do |theme| %>
         <a href="<%= filter_link(:themes, theme.id)  %>" class="filters__bucket-item">
-          <div class="filters__bucket-item-left">
-            <div class="<%= bucket_item_toggle_class(:themes, theme.id) %>"></div>
-          </div>
+          <div class="<%= bucket_item_toggle_class(:themes, theme.id) %>"></div>
           <span class="filters__bucket-item-title">
             <%= theme.name %>
           </span>
@@ -84,9 +74,7 @@
     <div <%= "data-toggle-hide" unless params[:filters]&.has_key?(:indicators) %> data-toggle-target="national_indicator" class="filters__bucket">
       <% @all_filters[:indicators].each do |indicator| %>
         <a href="<%= filter_link(:indicators, indicator.id)  %>" class="filters__bucket-item">
-          <div class="filters__bucket-item-left">
-            <div class="<%= bucket_item_toggle_class(:indicators, indicator.id) %>"></div>
-          </div>
+          <div class="<%= bucket_item_toggle_class(:indicators, indicator.id) %>"></div>
           <span class="filters__bucket-item-title">
             <%= indicator.name %>
           </span>

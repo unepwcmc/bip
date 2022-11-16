@@ -1,4 +1,15 @@
 @include b(search-page) {
+  @include listing-page;
+
+  @include e(filters) {
+    @include listing-page-filters;
+  }
+
+  @include e(body) {
+    @include listing-page-list;
+  }
+  
+
   @include e(summary) {
     padding-top: vr(1);
     padding-bottom: vr(2.5);

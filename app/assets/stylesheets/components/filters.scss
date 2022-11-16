@@ -1,23 +1,22 @@
 @include b(filters) {
   @include e(title) {
+    @include font(filter-title);
+    margin-bottom: vr(2.5);
+  }
+
+
+  @include e(bucket) {
     padding: vr(1) 0;
-    border-bottom: solid 2px $border--title;
-  }
-
-  @include e(body) {
-    padding: vr(1.25) 2px;
-  }
-
-  @include e(subtitle) {
-    @include font(fact-subtitle);
-    margin: 0;
-    line-height: vr(2.8333333);
   }
 
   @include e(bucket-name) {
-    @include font(fact-value);
-    margin: 2px 0;
+    @include font(filter-label);
+    margin: vr(1) 0 0;
     cursor: pointer;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   @include e(bucket-toggle) {
@@ -26,34 +25,54 @@
 
   @include e(bucket-item) {
     @include flexbox;
-    @include align-items(stretch);
-    margin: vr(1) 0;
+    @include align-items(center);
     cursor: pointer;
+    margin-bottom: vr(2);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .search-page__filters & {
+      margin-bottom: vr(1.5);
+    }
   }
 
   @include e(bucket-item-title) {
-    margin: 0;
-    @include font(body);
-    text-align: left;
-  }
+    @include font(filter-label);
 
-  @include e(bucket-item-left) {
-    @include flexbox;
-    @include align-items(center);
+    .search-page__filters & {
+      @include font(filter-label-small);
+    }
   }
 
   @include e(bucket-item-toggle) {
-    width: vr(1.5);
-    height: vr(1.5);
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(center);
+    @include flex-shrink(0);
+    border: solid 2px $border--checkbox;
+    margin-right: vr(2);
+    width: 2.25rem;
+    height: 2.25rem;
 
-    border: solid 1px $border--title;
-    margin-right: vr(1);
+    .search-page__filters & {
+      border-width: 1px;
+      margin-right: vr(1);
+      width: 1.5rem;
+      height: 1.5rem;
+    }
 
     &.is-selected {
       &:before {
-        content: '\f00c';
         @include fa-icon;
+        content: '\f00c';
+        font-size: 1.5rem;
         vertical-align: super;
+
+        .search-page__filters & {
+          font-size: 1rem;
+        }
       }
     }
   }

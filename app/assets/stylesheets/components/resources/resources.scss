@@ -1,26 +1,12 @@
 @include b(resources) {
+  @include listing-page;
   width: $main__width;
-  @include outer-container;
-  margin-bottom: vr(10);
-
-  @include only-mobile {
-    width: 100%;
-  }
 
   @include e(filters) {
-    @include only-desktop {
-      @include span-columns(4);
-      padding-right: vr(2.75);
-      border-right: solid 1px $border--title;
-    }
-
+    @include listing-page-filters;
   }
 
   @include e(results) {
-    @include span-columns(8);
-
-    @include only-mobile {
-      @include span-columns(12);
-    }
+    @include listing-page-list;
   }
 }
