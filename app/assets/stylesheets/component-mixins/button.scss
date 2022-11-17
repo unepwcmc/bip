@@ -24,9 +24,9 @@
 
 @mixin button-primary {
   @include button;
-  color: $white;
   background-color: $prussian-blue;
   border-color: transparent;
+  color: $white;
 
   &:hover {
     background-color: $teal;
