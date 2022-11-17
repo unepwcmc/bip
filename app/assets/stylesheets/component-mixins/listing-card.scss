@@ -1,0 +1,28 @@
+@mixin listing-card {
+  background-color: $white-two;
+  overflow: hidden;
+  padding: vr(2);
+  
+  &:not(:last-child) {
+    margin-bottom: vr(2);
+  }
+}
+
+@mixin listing-card-container {
+  max-width: 57.25rem;
+}
+
+@mixin listing-card-title {
+  @include font(search-result-title);
+  margin-bottom: vr(2);
+}
+
+@mixin listing-card-link {
+  @include font(search-result-link);
+  display: flex;
+  align-items: center;
+}
+
+@mixin listing-card-text {
+  margin: 0 0 vr(2);
+}
