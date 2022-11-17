@@ -9,23 +9,45 @@
     line-height: 1.125rem;
   }
 
+  @include e(results) {
+    @include list;
+  }
+
   @include e(result) {
+    @include list-item ;
+  }
+
+  @include e(card) {
     @include listing-card;
   }
 
-  @include e(result-container) {
+  @include e(card-container) {
     @include listing-card-container;
   }
 
-  @include e(result-title) {
+  @include e(card-title) {
     @include listing-card-title;
   }
 
-  @include e(result-link) {
+  @include e(card-text) {
+    margin-bottom: vr(2);
+
+    p {
+      @include listing-card-text;
+    }
+  }
+
+  @include e(card-link-footer) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @include e(card-link) {
     @include listing-card-link;
   }
 
-  @include e(result-tag) {
+  @include e(card-tag) {
     background-color: $solitude;
 
     font-weight: 300;

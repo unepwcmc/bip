@@ -186,11 +186,18 @@ $font-book: (
     color: $white
   ),
   mobile-menu: (
-    font-family: Open Sans,
+    font-family: 'Open Sans',
     font-size: 1rem,
     font-weight: 700,
     line-height: 1.75,
     color: $white
+  ),
+  select: (
+    font-family: 'Open Sans',
+    font-size: 1rem,
+    font-weight: 600,
+    line-height: 1.4,
+    color: #000
   )
 );
 

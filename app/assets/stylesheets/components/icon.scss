@@ -6,6 +6,11 @@
   display: inline-block;
 }
 
+@mixin icon-dropdown-arrow {
+  @include icon-image('icons/dropdown-arrow.png');
+  width: 1.125rem; height: 0.6rem;
+}
+
 @include b(icon) {
   @include m(left)  { margin-right: vr(1); }
   @include m(right) { margin-left: vr(1); }
