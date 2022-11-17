@@ -29,43 +29,51 @@
     margin-right: vr(1);
   }
 
-  @include e(per-page-select) {
-    @include text(normal);
-    // reset select
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-
-    background: none;
-    border: solid 1px $teal;
-    border-radius: 0;
-    cursor: pointer;
-    padding: vr(1) vr(3) vr(1) vr(1);
-  }
-
-  @include e(per-page-arrow) {
-    pointer-events: none;
-
-    position: absolute;
-    top: 50%;
-    right: vr(1);
-
-    transform: translateY(-60%);
-  }
-
   @include e(page-count-text) {
     @include font(pagination-page-count);
     margin-right: vr(1);
   }
 
+  @include e(navigation) {
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(flex-end);
+  }
+
   @include e(navigation-control) {
     background-color: $prussian-blue;
     color: $white;
+    margin-right: vr(5/12);
     width: vr(4);
     height: vr(4);
 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    display: inline-block;
+    position: relative;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &::after {
+      @include icon-dropdown-arrow-white;
+      width: 1rem; height: 0.5625rem;
+      content: '';
+      
+      position: absolute;
+      top: 50%;
+      left: 50%;    
+    }
+
+    @include m(backwards) {
+      &::after {
+        transform: translate(-50%, -50%) rotate(90deg);
+      }
+    }
+
+    @include m(forwards) {
+      &::after {
+        transform: translate(-50%, -50%) rotate(-90deg);
+      }
+    }
   }
 }
