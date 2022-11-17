@@ -171,12 +171,26 @@ $font-book: (
     line-height: 1.5,
     color: $dark
   ),
+  newsletter-title: (
+    font-family: Merriweather,
+    font-size: 2rem,
+    font-weight: 700,
+    line-height: 1.4,
+    color: $white
+  ),
+  newsletter-text: (
+    font-family: 'Open Sans',
+    font-size: 1.125rem,
+    font-weight: 600,
+    line-height: 1.4,
+    color: $white
+  ),
   mobile-menu: (
-  font-family: Open Sans,
-  font-size: 1rem,
-  font-weight: 700,
-  line-height: 1.75,
-  color: $white
+    font-family: Open Sans,
+    font-size: 1rem,
+    font-weight: 700,
+    line-height: 1.75,
+    color: $white
   )
 );
 
