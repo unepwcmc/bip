@@ -19,6 +19,7 @@
 
   @include e(card) {
     @include listing-card;
+    padding: vr(2);
   }
 
   @include e(card-container) {

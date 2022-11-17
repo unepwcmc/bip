@@ -55,20 +55,15 @@
   }
 
   @include e(listing-items) {
-    margin: 0;
-    padding: 0;
+    @include list;
   }
 
   @include e(listing-item) {
-    list-style-type: none;
-
-    &:not(:last-child) {
-      margin-bottom: vr(2);
-    }
+    @include list-item;
   }
 
   @include e(card) {
-    background-color: $white-two;
+    @include listing-card;
     padding: vr(4);
 
     @include only-mobile {
@@ -76,79 +71,44 @@
     }
   }
 
+  @include e(card-container) {
+    @include listing-card-container;
+  }
+
   @include e(card-header) {
-    margin-bottom: vr(1.5);
+    @include listing-card-header;
   }
 
   @include e(card-icon) {
-    margin-right: vr(1);
-
-    img {
-      width: vr(5);
-      height: vr(5);
-    }
+    @include listing-card-icon;
   }
 
   @include e(card-title) {
-    @include font(indicator-card-title);
-    margin-bottom: vr(1.5);
+    @include listing-card-title;
   }
 
   @include e(card-description) {
-    * {
-      font-size: 1rem;
-      line-height: 1.4;
-    }
-
-    p {
-      margin-top: 0;
-      margin-bottom: vr(1.5);
-    }
+    @include listing-card-text;
   }
 
   @include e(card-heading) {
-    @include font(indicator-card-heading);
-    margin-bottom: 1rem;
+    @include listing-card-heading;
   }
 
   @include e(card-indicator-items) {
-    margin: 0;
-    padding: 0;
-
-    @include m(two-col) {
-      column-count: 2;
-      column-gap: vr(6);
-
-      @include only-mobile {
-        column-count: 1;
-      }
-    }
+    @include listing-card-indicator-items;
   }
 
   @include e(card-indicator-item) {
-    list-style-type: none;
-
-    &:not(:last-child) {
-      margin-bottom: vr(1);
-    }
+    @include listing-card-indicator-item;
   }
 
   @include e(card-indicator) {
-    @include font(target-indicator);
-    text-decoration: none;
-
-    display: block;
+    @include listing-card-link;
 
     @include m(bold) {
       @include text(normal, bold);
       text-decoration: none;
     }
-  }
-
-  @include e(card-indicator-icon) {
-    color: $teal;
-    font-size: vr(1);
-    margin-left: vr(.5);
-    vertical-align: middle;
   }
 }

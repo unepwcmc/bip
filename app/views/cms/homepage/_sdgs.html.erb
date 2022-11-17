@@ -51,57 +51,57 @@
                   <% goal.sdg_targets.sort_by(&:target_number).select { |t| t.pages.any? }.each do |target| %>
                     <li class="homepage-targets__listing-item">
                       <div class="homepage-targets__card">
-                        <div class="homepage-targets__card-header">
-                          <h5 class="homepage-targets__card-title">
-                            SDG Target <%= target.target_number %>:
-                          </h5>
-                          <div class="homepage-targets__card-description">
-                            <p>
+                        <div class="homepage-targets__card-container">
+                          <div class="homepage-targets__card-header">
+                            <h5 class="homepage-targets__card-title">
+                              SDG Target <%= target.target_number %>:
+                            </h5>
+                            <p class="homepage-targets__card-description">
                               <%= target.description %>
                             </p>
                           </div>
-                        </div>
 
-                        <div class="homepage-targets__card-body">
-                          <% if target.pages.any? %>
-                            <% if target.official_pages.any? %>
-                              <h6 class="homepage-targets__card-heading">
-                                Official Indicators
-                              </h6>
-                              <div class="homepage-targets__card-indicators">
-                                <ul class="homepage-targets__card-indicator-items">
-                                  <% target.official_pages.each do |page| %>
-                                    <li class="homepage-targets__card-indicator-item">
-                                      <a href="<%= page.full_path %>" class="homepage-targets__card-indicator">
-                                        <%= page.label %><i class="homepage-targets__card-indicator-icon fa fa-arrow-right"></i>
-                                      </a>
-                                    </li>
-                                  <% end %>
-                                </ul>
-                              </div>
-                            <% end %>
+                          <div class="homepage-targets__card-body">
+                            <% if target.pages.any? %>
+                              <% if target.official_pages.any? %>
+                                <h6 class="homepage-targets__card-heading">
+                                  Official Indicators
+                                </h6>
+                                <div class="homepage-targets__card-indicators">
+                                  <ul class="homepage-targets__card-indicator-items">
+                                    <% target.official_pages.each do |page| %>
+                                      <li class="homepage-targets__card-indicator-item">
+                                        <a href="<%= page.full_path %>" class="homepage-targets__card-indicator">
+                                          <%= page.label %><i class="icon--right icon--link"></i>
+                                        </a>
+                                      </li>
+                                    <% end %>
+                                  </ul>
+                                </div>
+                              <% end %>
 
-                            <% if target.relevant_pages.any? %>
-                              <h6 class="homepage-targets__card-heading">
-                                Relevant Indicators
-                              </h6>
-                              <div class="homepage-targets__card-indicators">
-                                <ul class="homepage-targets__card-indicator-items">
-                                  <% target.relevant_pages.each do |page| %>
-                                    <li class="homepage-targets__card-indicator-item">
-                                      <a href="<%= page.full_path %>" class="homepage-targets__card-indicator">
-                                        <%= page.label %><i class="homepage-targets__card-indicator-icon fa fa-arrow-right"></i>
-                                      </a>
-                                    </li>
-                                  <% end %>
-                                </ul>
-                              </div>
+                              <% if target.relevant_pages.any? %>
+                                <h6 class="homepage-targets__card-heading">
+                                  Relevant Indicators
+                                </h6>
+                                <div class="homepage-targets__card-indicators">
+                                  <ul class="homepage-targets__card-indicator-items">
+                                    <% target.relevant_pages.each do |page| %>
+                                      <li class="homepage-targets__card-indicator-item">
+                                        <a href="<%= page.full_path %>" class="homepage-targets__card-indicator">
+                                          <%= page.label %><i class="icon--right icon--link"></i>
+                                        </a>
+                                      </li>
+                                    <% end %>
+                                  </ul>
+                                </div>
+                              <% end %>
+                            <% else %>
+                              <p class="homepage-targets__card-indicator homepage-targets__card-indicator--bold">
+                                No global indicators currently available under the BIP
+                              </p>
                             <% end %>
-                          <% else %>
-                            <p class="homepage-targets__card-indicator homepage-targets__card-indicator--bold">
-                              No global indicators currently available under the BIP
-                            </p>
-                          <% end %>
+                          </div>
                         </div>
                       </div>
                     </li>

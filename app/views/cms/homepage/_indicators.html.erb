@@ -16,23 +16,21 @@
   <div class="themes-browse__body">
     <div class="homepage-targets">
       <div class="homepage-targets__card">
-        <div class="homepage-targets__card-description">
-          <p>
-            Browse global indicators that have data available by country. Countries have been classified according to the UN Environment Regions.
-          </p>
-          <p>
-            Visit the links below to find a list of indicators that have data available by country. More information on the indicator suitability, data, methods involved, and examples of national use can be found on the 'National use of indicator' section of each indicator page.
-          </p>
-        </div>
+        <p class="homepage-targets__card-description">
+          Browse global indicators that have data available by country. Countries have been classified according to the UN Environment Regions.
+        </p>
+        <p class="homepage-targets__card-description">
+          Visit the links below to find a list of indicators that have data available by country. More information on the indicator suitability, data, methods involved, and examples of national use can be found on the 'National use of indicator' section of each indicator page.
+        </p>
         <ul class="homepage-targets__card-indicator-items">
           <% national_indicators.each do |indicator| %>
             <li class="homepage-targets__card-indicator-item">
               <a
                 href="<%= indicator[:href] %>"
                 title="<%= indicator[:title] %>"
-                class="homepage-targets__target-indicator"
+                class="homepage-targets__card-indicator"
               >
-                <%= indicator[:name] %><i class="homepage-targets__card-indicator-icon fa fa-arrow-right"></i>
+                <%= indicator[:name] %><i class="icon--right icon--link"></i>
               </a>
             </li>
           <% end %>
