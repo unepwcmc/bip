@@ -61,7 +61,7 @@
     @include align-items(center);
     cursor: pointer;
     margin-right: 0;
-    padding: vr(1) vr(1.6666666);
+    padding: vr(1) vr(5/3);
     width: 100%;
 
     @include only-mobile {

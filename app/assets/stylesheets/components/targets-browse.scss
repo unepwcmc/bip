@@ -1,3 +1,5 @@
+$goals-item-margin: vr(2);
+
 @include b(targets-browse) {
   @include outer-container;
   @include mobile-container;
@@ -30,7 +32,7 @@
   }
 
   @include e(goals-items) {
-    margin: 0 0 vr(-2) vr(-2);
+    margin: 0 0 -#{$goals-item-margin} -#{$goals-item-margin};
     padding: 0;
 
     display: flex;
@@ -39,8 +41,8 @@
 
   @include e(goals-item) {
     list-style-type: none;
-    margin-bottom: vr(2);
-    margin-left: vr(2);
+    margin-bottom: $goals-item-margin;
+    margin-left: $goals-item-margin;
     width: 5.35rem;
     height: 5.35rem;
 
@@ -51,6 +53,7 @@
         content: "";
         border: solid 5px $border--title;
         border-radius: 1px;
+        box-shadow: 0px 2px 12px 0px rgba($black, 0.26);
         width: calc(100% + 6px);
         height: calc(100% + 6px);
 

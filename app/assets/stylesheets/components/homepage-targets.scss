@@ -22,10 +22,6 @@
     @include only-mobile {
       display: none;
     }
-
-    @include m(round) {
-      border-radius: 100%;
-    }
   }
 
   @include e(logo) {

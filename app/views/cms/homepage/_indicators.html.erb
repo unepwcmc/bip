@@ -25,69 +25,17 @@
           </p>
         </div>
         <ul class="homepage-targets__card-indicator-items">
-          <li class="homepage-targets__card-indicator-item">
-            <a
-              href="/national-indicator-development/national-data/africa"
-              title="National Indicators: Africa"
-              class="homepage-targets__target-indicator"
-            >
-              Africa<i class="homepage-targets__card-indicator-icon fa fa-arrow-right"></i>
-            </a>
-          </li>
-          <li class="homepage-targets__card-indicator-item">
-            <a
-              href="/national-indicator-development/national-data/asia-pacific"
-              title="National Indicators: Asia & Pacific"
-              class="homepage-targets__target-indicator"
-            >
-              Asia & Pacific<i class="homepage-targets__card-indicator-icon fa fa-arrow-right"></i>
-            </a>
-          </li>
-          <li class="homepage-targets__card-indicator-item">
-            <a
-              href="/national-indicator-development/national-data/europe"
-              title="National Indicators: Europe"
-              class="homepage-targets__target-indicator"
-            >
-              Europe<i class="homepage-targets__card-indicator-icon fa fa-arrow-right"></i>
-            </a>
-          </li>
-          <li class="homepage-targets__card-indicator-item">
-            <a
-              href="/national-indicator-development/national-data/latin-america-caribbean"
-              title="National Indicators: Latin America & Caribbean "
-              class="homepage-targets__target-indicator"
-            >
-              Latin America & Caribbean<i class="homepage-targets__card-indicator-icon fa fa-arrow-right"></i>
+          <% national_indicators.each do |indicator| %>
+            <li class="homepage-targets__card-indicator-item">
+              <a
+                href="<%= indicator[:href] %>"
+                title="<%= indicator[:title] %>"
+                class="homepage-targets__target-indicator"
+              >
+                <%= indicator[:name] %><i class="homepage-targets__card-indicator-icon fa fa-arrow-right"></i>
+              </a>
             </li>
-          </a>
-          <li class="homepage-targets__card-indicator-item">
-            <a
-              href="/national-indicator-development/national-data/north-america"
-              title="National Indicators: North America"
-              class="homepage-targets__target-indicator"
-            >
-              North America<i class="homepage-targets__card-indicator-icon fa fa-arrow-right"></i>
-            </a>
-          </li>
-          <li class="homepage-targets__card-indicator-item">
-            <a
-              href="/national-indicator-development/national-data/polar"
-              title="National Indicators: Polar"
-              class="homepage-targets__target-indicator"
-            >
-              Polar<i class="homepage-targets__card-indicator-icon fa fa-arrow-right"></i>
-            </a>
-          </li>
-          <li class="homepage-targets__card-indicator-item">
-            <a
-              href="/national-indicator-development/national-data/west-asia"
-              title="National Indicators: West Asia"
-              class="homepage-targets__target-indicator"
-            >
-              West Asia<i class="homepage-targets__card-indicator-icon fa fa-arrow-right"></i>
-            </a>
-          </li>
+          <% end %>
         </ul>
       </div>
     </div>
