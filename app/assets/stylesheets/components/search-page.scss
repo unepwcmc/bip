@@ -21,6 +21,20 @@
     @include listing-card-title;
   }
 
+  @include e(result-text) {
+    margin-bottom: vr(2);
+
+    p {
+      @include listing-card-text;
+    }
+  }
+
+  @include e(result-link-footer) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
   @include e(result-link) {
     @include listing-card-link;
   }

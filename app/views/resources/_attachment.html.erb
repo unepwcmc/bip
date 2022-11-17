@@ -1,14 +1,19 @@
-<div>
-  <%= link_to resource_url(ordered_resource_links(result)[0]), id: "download-resource-#{result.id}" do %>
-    <i class="icon--left fa <%= resource_icon_class(result) %>"></i>
+<div class="search-page__result-link-footer">
+  <%= link_to resource_url(ordered_resource_links(result)[0]),
+    id: "download-resource-#{result.id}",
+    class: "search-page__result-link" do
+  %>
+    <i class="icon--left <%= resource_icon_class(result) %>"></i>
     <%= resource_link_text(result) %>
   <% end %>
 
   <% if result.resources.count > 1 %>
-    <select data-download-select="download-resource-<%= result.id %>">
-      <% ordered_resource_links(result).each do |resource| %>
-        <option value="<%= resource_url(resource) %>"><%= resource.label %></option>
-      <% end %>
-    </select>
+    <div class="select-wrapper">
+      <select data-download-select="download-resource-<%= result.id %>">
+        <% ordered_resource_links(result).each do |resource| %>
+          <option value="<%= resource_url(resource) %>"><%= resource.label %></option>
+        <% end %>
+      </select>
+    </div>
   <% end %>
 </div>

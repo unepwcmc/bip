@@ -19,10 +19,16 @@
 
 @mixin listing-card-link {
   @include font(search-result-link);
+  margin-right: vr(2);
+
   display: flex;
   align-items: center;
 }
 
 @mixin listing-card-text {
   margin: 0 0 vr(2);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
