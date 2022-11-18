@@ -1,18 +1,22 @@
-<% (@results || []).each do |result| %>
-  <div class="search-page__result">
-    <div class="search-page__result-container">
-      <h2 class="search-page__result-title">
-        <%= result_label(result) %>
-      </h2>
+<ul class="search-page__results">
+  <% (@results || []).each do |result| %>
+    <li class="search-page__result">
+      <div class="search-page__card">
+        <div class="search-page__card-container">
+          <h2 class="search-page__card-title">
+            <%= result_label(result) %>
+          </h2>
 
-      <div class="search-page__result-text">
-        <%= search_result(result, params[:q]) %>
+          <div class="search-page__card-text">
+            <%= search_result(result, params[:q]) %>
+          </div>
+
+          <%= link_to result_url(result), class: "search-page__card-link" do %>
+            <%= result_link_text %>
+            <i class="icon--right icon--link"></i>
+          <% end %>
+        </div>
       </div>
-
-      <%= link_to result_url(result), class: "search-page__result-link" do %>
-        <%= result_link_text %>
-        <i class="icon--right icon--link"></i>
-      <% end %>
-    </div>
-  </div>
+    </li>
 <% end %>
+</ul>

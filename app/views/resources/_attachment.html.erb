@@ -1,9 +1,9 @@
-<div class="search-page__result-link-footer">
+<div class="search-page__card-link-footer">
   <%= link_to resource_url(ordered_resource_links(result)[0]),
     id: "download-resource-#{result.id}",
-    class: "search-page__result-link" do
+    class: "search-page__card-link search-page__card-link--#{resource_icon_type(result)}" do
   %>
-    <i class="icon--left <%= resource_icon_class(result) %>"></i>
+    <i class="icon--left icon--<%= resource_icon_type(result) %>"></i>
     <%= resource_link_text(result) %>
   <% end %>
 

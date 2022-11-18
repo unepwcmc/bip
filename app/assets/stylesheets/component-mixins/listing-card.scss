@@ -1,34 +1,65 @@
 @mixin listing-card {
   background-color: $white-two;
   overflow: hidden;
-  padding: vr(2);
-  
-  &:not(:last-child) {
-    margin-bottom: vr(2);
-  }
 }
 
 @mixin listing-card-container {
   max-width: 57.25rem;
 }
 
+@mixin listing-card-header {
+  margin-bottom: vr(1.5);
+}
+
+@mixin listing-card-icon {
+  margin-right: vr(1);
+
+  img {
+    width: vr(5);
+    height: vr(5);
+  }
+}
+
 @mixin listing-card-title {
-  @include font(search-result-title);
+  @include font(card-title);
   margin-bottom: vr(2);
 }
 
-@mixin listing-card-link {
-  @include font(search-result-link);
-  margin-right: vr(2);
-
-  display: flex;
-  align-items: center;
-}
-
 @mixin listing-card-text {
+  @include font(card-text);
   margin: 0 0 vr(2);
 
   &:last-child {
     margin-bottom: 0;
+  }
+}
+
+@mixin listing-card-link {
+  @include button_text_with_arrow;
+}
+
+@mixin listing-card-heading {
+  @include font(indicator-card-heading);
+  margin-bottom: 1rem;
+}
+
+@mixin listing-card-indicator-items {
+  @include list;
+
+  @include m(two-col) {
+    column-count: 2;
+    column-gap: vr(6);
+
+    @include only-mobile {
+      column-count: 1;
+    }
+  }
+}
+
+@mixin listing-card-indicator-item {
+  list-style-type: none;
+
+  &:not(:last-child) {
+    margin-bottom: vr(1);
   }
 }
