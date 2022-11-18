@@ -25,11 +25,12 @@
   }
 
   @include e(result) {
-    @include list-item ;
+    @include list-item;
   }
 
   @include e(card) {
     @include listing-card;
+    padding: vr(2);
   }
 
   @include e(card-container) {
@@ -55,7 +56,17 @@
   }
 
   @include e(card-link) {
-    @include listing-card-link;
+    .search-page__results & {
+      @include listing-card-link;
+    }
+
+    @include m(download) {
+      @include button_text_with_icon;
+    }
+
+    @include m(external-link) {
+      @include button_text_with_icon;
+    }
   }
 
   @include e(card-tag) {
