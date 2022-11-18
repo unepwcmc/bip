@@ -9,8 +9,8 @@ module ResourcesHelper
     resource_page.resources
   end
 
-  def resource_icon_class resource_page
-    resource_kind(resource_page) == 'file' ? 'icon--download' : 'icon--external-link'
+  def resource_icon_type resource_page
+    resource_kind(resource_page) == 'file' ? 'download' : 'external-link'
   end
 
   def resource_link_text resource_page

@@ -44,3 +44,10 @@
     right: 0;
   }
 }
+
+@mixin button_text_with_icon {
+  @include font(card-link);
+
+  display: flex;
+  align-items: center;
+}
