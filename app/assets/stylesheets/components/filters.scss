@@ -15,6 +15,7 @@
   @include e(group-trigger) {
     @include font(filter-label);
     cursor: pointer;
+    margin-bottom: vr(1);
     text-align: left;
     width: 100%;
   }
@@ -25,7 +26,6 @@
 
   @include e(list) {
     @include list;
-    padding: vr(1) 0;
   }
 
   @include e(list-item) {
