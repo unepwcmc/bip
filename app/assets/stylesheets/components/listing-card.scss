@@ -46,7 +46,7 @@
   @include e(link) {
     @include listing-card-link;
 
-    @include e(external) {
+    @include m(external) {
       @include button_text_with_icon;
     }
   }
