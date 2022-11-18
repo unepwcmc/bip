@@ -1,47 +1,80 @@
 <% meas = Mea.order(:name).includes(mea_targets: :pages).all %>
 
-<div data-select-group="browse" data-select-target="meas">
-  <div class="themes-browse">
+<div
+  data-select-group="browse"
+  data-select-target="meas"
+  class="themes-browse"
+>
+  <div class="themes-browse__header">
+    <h3 class="themes-browse__title">
+      Multilateral Environmental Agreements
+    </h3>
     <div class="themes-browse__themes">
-      <% meas.each do |mea| %>
-        <div data-select-group="meas" data-select-trigger="<%= mea.id %>" class="themes-browse__theme">
-          <div class="themes-browse__theme-icon themes-browse__theme-icon--no-radius">
-            <%= image_tag mea.logo.url(:thumb) %>
-          </div>
-          <h3 class="themes-browse__theme-name"><%= mea.name %></h3>
-        </div>
-      <% end %>
+      <ul class="themes-browse__themes-items">
+        <% meas.each do |mea| %>
+          <li
+            data-select-group="meas"
+            data-select-trigger="<%= mea.id %>"
+            class="themes-browse__themes-item"
+          >
+            <div class="themes-browse__theme">
+              <div class="themes-browse__theme-icon">
+                <%= image_tag mea.logo.url(:thumb) %>
+              </div>
+              <h3 class="themes-browse__theme-name">
+                <%= mea.name %>
+              </h3>
+            </div>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 
-  <div class="homepage-themes">
-    <% meas.each do |mea| %>
-      <div
-        data-select-group="meas"
-        data-select-target="<%= mea.id %>"
-        class="homepage-themes__theme"
-      >
-      <div class="homepage-targets__goal">
-        <h4 class="homepage-targets__goal-title homepage-targets__goal-title--flex">
-          <%= image_tag mea.logo.url(:medium), class: "u-only-desktop homepage-targets__goal-icon" %>
-          <%= mea.name %>
-        </h4>
-        <div class="homepage-targets__goal-description">
-          <p>
-            <%= raw mea.description %>
-          </p>
+  <div class="themes-browse__body">
+    <div class="homepage-themes">
+      <% meas.each do |mea| %>
+        <div
+          data-select-group="meas"
+          data-select-target="<%= mea.id %>"
+          class="homepage-themes__theme"
+        >
+          <div class="homepage-targets__header">
+            <%= image_tag mea.logo.url(:medium), class: "homepage-targets__logo" %>
+            <h4 class="homepage-targets__title">
+              <span class="homepage-targets__label">
+              </span>
+              <%= mea.name %>
+            </h4>
+          </div>
+          <div class="homepage-targets__card">
+            <div class="homepage-targets__card-description">
+              <%= raw mea.description %>
+            </div>
+            <% if mea.mea_targets.flat_map(&:pages).any? %>
+              <h6 class="homepage-targets__card-heading">
+                Relevant Indicators
+              </h6>
+              <ul class="homepage-targets__card-indicator-items homepage-targets__card-indicator-items--two-col">
+                <% mea.mea_targets.flat_map(&:pages).uniq.sort_by(&:label).each do |page| %>
+                  <li class="homepage-targets__card-indicator-item">
+                    <a
+                      href="<%= page.full_path %>"
+                      class="homepage-targets__card-indicator"
+                    >
+                      <%= page.label %><i class="icon--right icon--link"></i>
+                    </a>
+                  </li>
+                <% end %>
+              </ul>
+            <% else %>
+              <p class="homepage-themes__theme-indicator homepage-themes__theme-indicator--bold">
+                No Global Indicators available yet
+              </p>
+            <% end %>
+          </div>
         </div>
-      </div>
-        <% if mea.mea_targets.flat_map(&:pages).any? %>
-          <% mea.mea_targets.flat_map(&:pages).uniq.sort_by(&:label).each do |page| %>
-            <a href="<%= page.full_path %>" class="homepage-targets__target-indicator">
-              <i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i><%= page.label %>
-          </a>
-          <% end %>
-        <% else %>
-          <p class="homepage-themes__theme-indicator homepage-themes__theme-indicator--bold">No Global Indicators available yet</p>
-        <% end %>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

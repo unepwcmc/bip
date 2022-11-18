@@ -9,33 +9,56 @@
     line-height: 1.125rem;
   }
 
+  @include e(results) {
+    @include list;
+  }
+
   @include e(result) {
-    overflow: hidden;
-
-    padding-bottom: vr(1);
-    border-bottom: solid 1px $border--title;
-    margin: vr(1.5) 0;
+    @include list-item;
   }
 
-  @include e(result-title) {
-    @include font(search-result-title);
-    margin: 0;
+  @include e(card) {
+    @include listing-card;
+    padding: vr(2);
   }
 
-  @include e(result-link) {
-    color: $text--base;
-    font-size: 1.25rem;
-    margin-bottom: .5rem;
-    display: block;
+  @include e(card-container) {
+    @include listing-card-container;
   }
 
-  @include e(result-body) {
-    margin: 0;
-    margin-bottom: vr(1.5);
-    p { margin: 0; }
+  @include e(card-title) {
+    @include listing-card-title;
   }
 
-  @include e(result-tag) {
+  @include e(card-text) {
+    margin-bottom: vr(2);
+
+    p {
+      @include listing-card-text;
+    }
+  }
+
+  @include e(card-link-footer) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @include e(card-link) {
+    .search-page__results & {
+      @include listing-card-link;
+    }
+
+    @include m(download) {
+      @include button_text_with_icon;
+    }
+
+    @include m(external-link) {
+      @include button_text_with_icon;
+    }
+  }
+
+  @include e(card-tag) {
     background-color: $solitude;
 
     font-weight: 300;
