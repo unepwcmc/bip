@@ -1,33 +1,17 @@
 <div class="browse">
   <div class="browse__tabs">
     <ul class="browse__tabs-items">
-      <li class="browse__tabs-item">
-        <button
-          data-select-group="browse"
-          data-select-trigger="sdgs"
-          class="browse__tab is-selected"
-        >
-          SDGs
-        </button>
-        <button
-          data-select-group="browse"
-          data-select-trigger="meas"
-          class="browse__tab"
-        >
-          MEAs
-        </button>
-        <button
-          data-select-group="browse"
-          data-select-trigger="themes"
-          class="browse__tab"
-        >
-          Themes
-        </button>
-        <button
-          data-select-group="browse"
-          data-select-trigger="indicators"
-          class="browse__tab"
-        >
-          National Indicators
-        </button>
+      <% homepage_tabs.each_with_index do |tab, n| %>
+        <li class="browse__tabs-item">
+          <button
+            data-select-group="browse"
+            data-select-trigger="<%= tab[:id] %>"
+            class="browse__tab <%= 'is-selected' if n.zero? %>"
+          >
+            <%= tab[:name] %>
+          </button>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
