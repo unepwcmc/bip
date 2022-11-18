@@ -8,6 +8,12 @@
     @include only-mobile {
       width: 87%;
     }
+
+    .resources-index & {
+      max-width: none;
+  
+      @include mobile-container;
+    }
   }
 
   @include e(tabs-items) {
@@ -16,10 +22,14 @@
 
   @include e(tabs-item) {
     @include list-item--row(0);
+    // For browse__tab:hover to inherit and overwrite default hover styling
+    color: $white;
+
     display: inline-block;
   }
 
   @include e(tab) {
+    @include link-reset;
     appearance: none;
     border: 0;
     color: $white;
@@ -28,6 +38,8 @@
     font-weight: 600;
     line-height: 1.4;
     padding: 0.90625rem 3rem;
+
+    display: block;
 
     @include only-mobile {
       font-size: 0.75rem;

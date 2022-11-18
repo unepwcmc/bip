@@ -1,0 +1,16 @@
+<div class="browse">
+  <div class="browse__tabs">
+    <ul class="browse__tabs-items">
+      <% @tabs.each do |tab| %>
+        <li class="browse__tabs-item">
+          <a
+            href="<%= url_for(filters: {category: tab.id}) %>"
+            class="browse__tab <%= "is-selected" if params.dig(:filters, :category)&.to_i == tab.id %>"
+          >
+            <%= tab.label %>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -1,9 +1,11 @@
+<div class="resources__browse">
+  {{ cms:partial:resources/browse }}
+</div>
+
 <main class="main main--full-width">
   {{ cms:partial:resources/title }}
 
-  {{ cms:partial:resources/tabs }}
-
-  <div class="resources">
+  <div class="resources__body">
     <div class="u-only-desktop resources__filters">
       {{ cms:partial:resources/filters }}
     </div>
@@ -13,4 +15,3 @@
     </div>
   </div>
 </main>
-

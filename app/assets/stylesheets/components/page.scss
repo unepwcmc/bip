@@ -4,8 +4,7 @@
 
   @include e(title) {
     @include font(page-title);
-    margin-top: vr(2);
-    margin-bottom: vr(2.5);
+    margin: vr(2) 0;
 
     @include only-mobile {
       margin: 0;
