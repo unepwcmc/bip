@@ -39,9 +39,7 @@
   }
 
   @include e(card-link-footer) {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include listing-card-footer;
   }
 
   @include e(card-link) {
@@ -59,14 +57,6 @@
   }
 
   @include e(card-tag) {
-    background-color: $solitude;
-
-    font-weight: 300;
-    text-align: center;
-
-    float: left;
-    padding: vr(.75) vr(1);
-    margin-right: vr(1);
-    margin-bottom: vr(1);
+    @include listing-card-tag;
   }
 }
