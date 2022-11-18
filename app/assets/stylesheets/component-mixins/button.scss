@@ -1,0 +1,34 @@
+@mixin button-reset {
+  appearance: none;
+  background-color: transparent;
+}
+
+@mixin button {
+  @include button-reset;
+  border: 0.188rem solid transparent; // 3px
+  border-radius: 2.188rem; // 35px
+  cursor: pointer;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.4;
+  outline: 0;
+  padding: vr(0.6) vr(5.4);
+  text-align: center;
+  text-decoration: none;
+
+  display: inline-block;
+
+  transition: background-color 0.3s ease-in-out, color 0.3s ease,
+    border-color 0.35s ease;
+}
+
+@mixin button-primary {
+  @include button;
+  background-color: $prussian-blue;
+  border-color: transparent;
+  color: $white;
+
+  &:hover {
+    background-color: $teal;
+  }
+}

@@ -1,17 +1,21 @@
+<ul class="search-page__results">
 <% (@results || []).each do |result| %>
-  <div class="search-page__result">
-    <div class="search-page__result-container">
-      <a href="<%= result_url(result) %>">
-        <h2 class="search-page__result-title">
-          <%= result_label(result) %>
-        </h2>
-      </a>
+  <li class="search-page__result">
+    <div class="search-page__card">
+      <div class="search-page__card-container">
+        <a href="<%= result_url(result) %>">
+          <h2 class="search-page__card-title">
+            <%= result_label(result) %>
+          </h2>
+        </a>
 
-      <div class="search-page__result-text">
-        <%= search_result(result, params[:q]) %>
+        <div class="search-page__card-text">
+          <%= search_result(result, params[:q]) %>
+        </div>
+
+        <%= render partial: "attachment", locals: {result: result} %>
       </div>
-
-      <%= render partial: "attachment", locals: {result: result} %>
     </div>
-  </div>
+  </li>
 <% end %>
+</ul>
