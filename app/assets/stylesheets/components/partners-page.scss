@@ -3,7 +3,7 @@
   padding-top: vr(2);
 
   @include e(partner) {
-    border-bottom: solid 1px $border--title;
+    border-bottom: solid 0.0625rem $border--title;
 
     @include only-desktop {
       @include outer-container;

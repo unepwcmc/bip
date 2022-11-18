@@ -58,11 +58,11 @@
 
   @include e(aside-section) {
     padding: vr(2) vr(.25);
-    &:not(:last-child) { border-bottom: solid 2px $border--title; }
+    &:not(:last-child) { border-bottom: solid 0.125rem $border--title; }
 
     @include only-mobile {
       padding: vr(.75) 0;
-      border-bottom: solid 1px $border--title;
+      border-bottom: solid 0.0625rem $border--title;
     }
 
     @include only-mobile {
@@ -104,7 +104,7 @@
     }
 
     @include only-desktop {
-      border-bottom: solid 2px $pinkish-grey;
+      border-bottom: solid 0.125rem $pinkish-grey;
     }
 
     @include m(subtle-border) {
@@ -146,7 +146,7 @@
     @include font(subsection-title);
     margin-top: vr(2);
     padding-bottom: vr(.333333);
-    border-bottom: solid 1px $border--title;
+    border-bottom: solid 0.0625rem $border--title;
   }
 
   @include m(no-margin-bottom) {

@@ -90,7 +90,7 @@
 
   @include e(menu-toggle) {
     background-color: $prussian-blue;
-    border: solid 2px $dark;
+    border: solid 0.125rem $dark;
     border-radius: 1px;
     color: $white;
     font-family: "Open Sans";

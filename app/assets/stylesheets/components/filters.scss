@@ -55,7 +55,7 @@
     @include align-items(center);
     @include justify-content(center);
     @include flex-shrink(0);
-    border: solid 2px $border--checkbox;
+    border: solid 0.125rem $border--checkbox;
     margin-right: vr(2);
     width: 2.25rem;
     height: 2.25rem;
