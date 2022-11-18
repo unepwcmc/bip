@@ -14,6 +14,10 @@
     @include listing-card-right;
   }
 
+  @include e(container) {
+    @include listing-card-container;
+  }
+
   @include e(image) {
     @include flexbox;
     @include justify-content(center);
@@ -40,7 +44,11 @@
   }
 
   @include e(link) {
-    @include button_text_with_icon;
+    @include listing-card-link;
+
+    @include e(external) {
+      @include button_text_with_icon;
+    }
   }
 
   @include e(description) {

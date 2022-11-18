@@ -6,17 +6,30 @@
 <% end %>
 
 <main class="main">
-  <div class="partners-page page">
-    <% @indicators.each do |indicator| %>
-      <div class="partners-page__partner">
-        <p class="partners__name"><%= indicator.label %></p>
-        <div class="partners__description"><%= raw indicator.blocks.find_by(identifier: 'description').try(:content) %></div>
+  <div class="listing-page page">
+    <ul class="listing-page__list">
+      <% @indicators.each do |indicator| %>
+        <li class="listing-page__list-item">
+          <div class="listing-card">
+            <div class="listing-card__container">
+              <h2 class="listing-card__name"><%= indicator.label %></h2>
 
-        <%= link_to indicator.full_path do %>
-          <p class="partners__link page__aside-link">View Full Indicator></p>
-        <% end %>
-      </div>
-    <% end %>
+              <div class="listing-card__description">
+                <%= raw indicator.blocks.find_by(identifier: 'description').try(:content) %>
+              </div>
+
+              <div class="listing-card__footer">
+                <%= link_to indicator.full_path, class: 'listing-card__link' do %>
+                  View Full Indicator
+                  <i class="icon--right icon--link"></i>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  
     <%= render "pagination" %>
   </div>
 </main>
