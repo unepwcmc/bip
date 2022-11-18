@@ -1,63 +1,52 @@
-@include only-print {
-  body {
-    position: relative;
-  }
-
-  .footer {
-    page-break-after: always;
-  }
-}
-
 @include b(footer) {
   background-color: $navy-blue;
   color: $white;
 
-  @include only-print {
-    position: static;
-    bottom: 0;
+  @include e(body) {
+    padding-top: vr(2);
+    padding-bottom: vr(2);
   }
 
+  @include e(footer) {
+    background-color: $teal;
+  }
 
-  @include e(content) {
-    overflow: hidden;
-
+  @include e(inner) {
+    margin: 0 auto;
     width: $main__width;
-    margin: auto;
-    padding-top: vr(2);
 
     @include mobile-container;
+  }
 
-    @include only-print {
-      width: 80%;
+  @include e(items) {
+    @media (min-width: $break__desktop) {
+      display: flex;
+      justify-content: space-between;
     }
   }
 
-  @include e(navigation) {
-    background-color: $prussian-blue;
-    line-height: vr(2);
-  }
-
-  @include e(navigation-inner) {
-    width: $main__width;
-    padding: vr(1.333333) 0;
-    margin: auto;
-
-    @include only-mobile {
-      width: 87%;
+  @include e(item) {
+    &:first-child {
+      margin-bottom: vr(4);
     }
-  }
 
-  @include e(navigation-link) {
-    @include font(footer-top);
-    margin-right: vr(3);
+    @media (min-width: $break__desktop) {
+      &:first-child {
+        margin-bottom: 0;
 
-    @include only-mobile {
-      display: block;
+        flex: 0 0 calc(55% - 2.5rem);
+      }
+
+      &:last-child {
+        flex: 0 0 calc(45% - 2.5rem);
+      }
     }
   }
 
   @include e(columns) {
     padding: vr(2) 0;
+
+    display: flex;
 
     @include only-mobile {
       padding: 0;
@@ -65,126 +54,101 @@
   }
 
   @include e(column) {
-    @include only-mobile {
-      margin: vr(2) 0;
-    }
-    @include only-desktop {
-      @include m(large) {
-        @include span-columns(4);
-        margin-right: vr(5.25);
+    flex: 1 1 auto;
+
+    &:first-child {
+      margin-right: vr(3);
+
+      .footer__item:first-child & {
+        border-right: 1px solid $white;
+        margin-right: vr(1.5);
+        padding-right: vr(1.5);
+
+        flex: 0 0 130px;
       }
-      @include m(small) { @include span-columns(2); }
-      margin-right: vr(4.25);
     }
   }
 
-  @include e(column-title) {
+  @include e(logo-link) {
+    display: block;
+  }
+
+  @include e(logo) {
+    width: 8.125rem;
+    height: 3.375rem;
+
+    display: block;
+  }
+
+  @include e(title) {
     @include font(footer-title);
-    margin-bottom: 0;
+    margin-bottom: vr(1.5);
 
-    @include m(big) {
-      @include font(footer-title-big);
-    }
-
-    @include m(push-top) {
-      margin-top: vr(1);
+    @include m(small) {
+      @include font(footer-body);
+      margin-bottom: vr(.5);
     }
   }
 
-  @include e(column-body) {
+  @include e(text) {
     @include font(footer-body);
-    margin-top: vr(.75);
+    margin: 0;
 
-    @include m(no-margin) {
-      margin-top: 0;
+    @include m(no-wrap) {
+      white-space: nowrap;
     }
   }
 
-  @include e(partners) {
-    background-color: white;
-    padding: 20px 0;
+  @include e(link) {
+    @include font(footer-body);
+    margin: 0;
   }
 
-  @include e(partners-inner) {
-    margin: auto;
-    width: $main__width;
-
-    @include mobile-container;
-  }
-
-  @include e(partners-copy) {
-    margin: 0 0 20px 0;
-
-    @include only-desktop {
-      @include span-columns(4);
-    }
-
-    a { font-size: 14px; }
-  }
-
-  @include e(partners-logos) {
-    @include span-columns(12);
-    flex-direction: column;
-    display: flex;
-
-    @include only-desktop {
-      flex-direction: row;
-      align-items: flex-end;
-    }
-  }
-
-  @include e(partners-logo-wcmc) {
-    margin-right: 14px;
-    width: 70px; height: 23px;
-  }
-
-  @include e(partners-logo-unep) {
-    margin-right: 40px;
-    width: 90px; height: 48px;
-
-    @include only-mobile { margin-bottom: 20px; }
-    @include only-desktop { margin-right: 40px; }
-  }
-
-  @include e(partners-logo-ec) {
-    margin-right: 40px;
-    width: 160px; height: 110px;
-
-    @include only-mobile { margin-bottom: 20px; }
-    @include only-desktop { margin-right: 40px; }
-  }
-
-  @include e(partners-logo-foen) {
-    width: 200px; height: auto;
-
-    @include only-mobile { margin-bottom: 20px; }
-    @include only-desktop { margin-right: 40px; }
-  }
-  
-  @include e(copyright) {
-    background-color: $navy-blue;
-  }
-
-  @include e(copyright-inner) {
-    @include font(copyright);
-    align-items: center;
-    justify-content: space-between;
-    margin: auto;
-    padding: 20px 0;
-    width: $main__width;
+  @include e(partners-items) {
+    @include list;
+    margin-bottom: vr(4);
 
     display: flex;
+  }
 
-    @include mobile-container;
+  @include e(partners-item) {
+    list-style-type: none;
+
+    &:not(:last-child) {
+      margin-right: vr(2);
+    }
+  }
+
+  @include e(partners-logo) {
+    width: 100%;
+    max-width: 100px;
+
+    display: block;
+  }
+
+  @include e(footer) {
+    padding-top: vr(2);
+    padding-bottom: vr(2);
+  }
+
+  @include e(copyright-items) {
+    display: flex;
+  }
+
+  @include e(copyright-item) {
+    &:not(:last-child) {
+      border-right: 1px solid $white;
+      margin-right: vr(1);
+      padding-right: vr(1);
+    }
   }
 
   @include e(copyright-link) {
-    align-items: center;
+    @include font(footer-body);
+    color: currentColor;
 
-    display: flex;
-  }
-
-  @include e(social) {
-    @include font(social);
+    &:hover {
+      color: currentColor;
+    }
   }
 }
