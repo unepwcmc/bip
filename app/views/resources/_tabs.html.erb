@@ -1,9 +1,0 @@
-<div class="browse u-only-desktop">
-  <div class="tabs">
-    <% @tabs.each do |tab| %>
-      <a href="<%= url_for(filters: {category: tab.id}) %>" class="browse__category <%= "is-selected" if params.dig(:filters, :category)&.to_i == tab.id %>">
-        <%= tab.label %>
-      </a>
-    <% end %>
-  </div>
-</div>

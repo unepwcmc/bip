@@ -13,6 +13,10 @@ module ApplicationHelper
     end
   end
 
+  def page_class_name
+    "#{controller_name}-#{action_name}".downcase
+  end
+
   def text_or_na text
     text.present? ? text : "N/A"
   end

@@ -10,3 +10,11 @@
     margin-bottom: $margin;
   }
 }
+
+@mixin list-item--row($margin: vr(2)) {
+  list-style-type: none;
+
+  &:not(:last-child) {
+    margin-right: $margin;
+  }
+}

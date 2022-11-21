@@ -1,6 +1,10 @@
 @include b(header) {
   margin-bottom: vr(1.75);
 
+  .resources-index & {
+    margin-bottom: 0;
+  }
+
   @include e(body) {
     margin: 0 auto;
     width: $main__width;

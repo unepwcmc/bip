@@ -84,4 +84,25 @@ module CmsHelper
       }
     ]
   end
+
+  def homepage_tabs
+    [
+      {
+        name: 'SDGs',
+        id: 'sdgs'
+      },
+      {
+        name: 'MEAs',
+        id: 'meas'
+      },
+      {
+        name: 'Themes',
+        id: 'themes'
+      },
+      {
+        name: 'National Indicators',
+        id: 'indicators'
+      }
+     ]
+  end
 end

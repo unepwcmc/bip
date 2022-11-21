@@ -1,6 +1,12 @@
 @include b(resources) {
-  @include listing-page;
-  width: $main__width;
+  @include e(browse) {
+    margin-bottom: vr(4);
+  }
+
+  @include e(body) {
+    @include listing-page;
+    width: $main__width;
+  }
 
   @include e(filters) {
     @include listing-page-filters;
