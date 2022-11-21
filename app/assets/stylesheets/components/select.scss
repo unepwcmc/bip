@@ -1,7 +1,12 @@
 $select-arrow-width: 1.125rem;
+
 $select-padding-right: vr(1.5);
 $select-padding-right-with-arrow: 2 * $select-padding-right + $select-arrow-width;
 $select-padding: vr(1) $select-padding-right-with-arrow vr(1) vr(2);
+
+$select-padding-right-small: vr(1);
+$select-padding-right-with-arrow-small: 2 * $select-padding-right-small + $select-arrow-width;
+$select-padding-small: vr(1) $select-padding-right-with-arrow-small vr(1) vr(1);
 
 .select-wrapper {
   width: 19.125rem;
@@ -17,6 +22,25 @@ $select-padding: vr(1) $select-padding-right-with-arrow vr(1) vr(2);
     right: $select-padding-right;
   
     transform: translateY(-50%);
+  }
+
+  &.select-wrapper--hug {
+    @include flex-shrink(0);
+    width: auto;
+
+    &::after {
+      right: $select-padding-right-small;
+    }
+
+    select {
+      padding: $select-padding-small;
+    }
+  }
+
+  &.select-wrapper--square {
+    select {
+      border-radius: 0;
+    }
   }
 
   select {
