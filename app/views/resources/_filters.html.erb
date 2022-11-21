@@ -1,21 +1,23 @@
 <h2 class="filters__title">
-  Tags
+  Filter by:
 </h2>
 
 <div class="filters__body">
-  <p class="filters__subtitle">Filter by:</p>
-
-  <div <%= "data-toggle-hide" unless params.has_key?(:filters) %> data-toggle-target="tags" class="filters__bucket">
+  <ul
+    <%= "data-toggle-hide" unless params.has_key?(:filters) %>
+    data-toggle-target="tags"
+    class="filters__list"
+  >
     <% Tag.order(:name).all.each do |tag| %>
-      <a href="<%= filter_link(:tags, tag.id)  %>" class="filters__bucket-item">
-        <div class="filters__bucket-item-left">
-          <div class="<%= bucket_item_toggle_class(:tags, tag.id) %>"></div>
-        </div>
-        <span class="filters__bucket-item-title">
-          <%= tag.name %>
-        </span>
-      </a>
-    <% end %>
-  </div>
+      <li class="filters__list-item">
+        <a href="<%= filter_link(:tags, tag.id)  %>" class="filters__filter">
+          <div class="<%= filter_toggle_class(:tags, tag.id) %>"></div>
 
+          <span class="filters__filter-title">
+            <%= tag.name %>
+          </span>
+        </a>
+      </li>
+    <% end %>
+  </ul>
 </div>

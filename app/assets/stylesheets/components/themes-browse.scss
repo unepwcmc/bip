@@ -4,7 +4,7 @@
   width: $main__width;
 
   @include e(header) {
-    border-bottom: solid 1px $border--title;
+    border-bottom: solid 0.0625rem $border--title;
     margin-bottom: vr(2);
     padding: vr(4) 0;
 

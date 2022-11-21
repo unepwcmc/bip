@@ -11,4 +11,10 @@
     background-color: $white-two;
     width: 100%;
   }
+
+  @include e(browse-container) {
+    background-color: $white;
+    border-bottom: solid 0.0625rem $border--search-bar;
+    width: 100%;
+  }
 }

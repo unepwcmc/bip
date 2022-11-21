@@ -12,14 +12,15 @@
 <% end %>
 
 <main class="main">
+  <div class="search-page">
+    <div class="search-page__filters">
+      <%= render "filters" %>
+    </div>
 
-  <div class="page">
-    <div class="page__body">
+    <div class="search-page__body">
       <p class="search-page__summary">Showing <%= @from + 1 %>-<%= @to + 1 %> of <%= @results&.size || 0 %> results found.</p>
       <%= render "search_results" %>
       <%= render "pagination" %>
     </div>
-
-    <%= render "filters" %>
   </div>
 </main>
