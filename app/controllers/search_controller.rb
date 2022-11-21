@@ -1,5 +1,6 @@
 class SearchController < ApplicationController
   include Paginatable
+  include Searchable
 
   def search
     if !params.has_key?(:q) && !params.has_key?(:filters)
@@ -8,13 +9,7 @@ class SearchController < ApplicationController
     end
 
     if params.has_key?(:q)
-      @results = PgSearch.multisearch(params[:q]).map(&:searchable).uniq do |r|
-        if r.is_a?(Comfy::Cms::Block)
-          r.blockable.label
-        else
-          r.label
-        end
-      end
+      @results = search_results
     else
       @results = Comfy::Cms::Page.find_by_label("Indicators").descendants
     end
@@ -73,12 +68,6 @@ class SearchController < ApplicationController
       end
 
       conditions.all?
-    }
-  end
-
-  def extract_pages results
-    results.map { |result|
-      result.is_a?(Comfy::Cms::Block) ? result.blockable : result
     }
   end
 end
