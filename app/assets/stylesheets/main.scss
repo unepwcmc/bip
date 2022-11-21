@@ -13,6 +13,7 @@
 
 @import "utilities/base";
 @import "utilities/bem";
+@import "utilities/rem-calc";
 @import "utilities/responsive";
 @import "utilities/u-classes";
 
@@ -31,6 +32,7 @@
 @import "components/header";
 @import "components/home-hero";
 @import "components/homepage";
+@import "components/homepage-join-bip";
 @import "components/homepage-targets";
 @import "components/homepage-themes";
 @import "components/icon";

@@ -1,0 +1,39 @@
+@include b(homepage-join-bip) {
+  @include outer-container;
+  background-image: image-url("join-bip-background.png");
+  margin-bottom: rem-calc(78);
+  padding: rem-calc(97 72);
+  width: $main__width;
+
+  @include e(title) {
+    font-size: rem-calc(32);
+    color: white;
+    font-family: Merriweather;
+    margin-bottom: rem-calc(24);
+  }
+  
+  @include e(text) {
+    color: white;
+    font-size: rem-calc(18);
+    margin-bottom: rem-calc(24 + 11.5);
+  }
+
+  @include e(learn-more-link) {
+    background: #004f77;
+    border-radius: rem-calc(24);
+    color: white;
+    font-size: rem-calc(18);
+    padding: rem-calc(11.5 100.5);
+
+    &:hover {
+      background: #4A9CAC;
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+
+  @include only-mobile {
+    width: 87%;
+  }
+}
