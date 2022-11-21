@@ -1,17 +1,18 @@
 <main class="main main--full-width main--pull-up">
   <div class="u-hide">
+    {{ cms:page:hero_title:text }}
     {{ cms:page:hero_text:rich_text }}
   </div>
 
-  <div class="homepage__search-container">
-    {{ cms:partial:cms/search_bar }}
-  </div>
-  <div class="homepage__browse-container">
-    {{ cms:partial:cms/homepage/browse }}
-  </div>
-  {{ cms:partial:cms/homepage/aichi_targets }}
+  {{ cms:partial:cms/homepage/hero }}
+  {{ cms:partial:cms/homepage/browse }}
   {{ cms:partial:cms/homepage/sdgs }}
   {{ cms:partial:cms/homepage/meas }}
   {{ cms:partial:cms/homepage/themes }}
   {{ cms:partial:cms/homepage/indicators }}
+  <div class="u-hide">
+    {{ cms:page:newsletter_title:text }}
+    {{ cms:page:newsletter_text:rich_text }}
+  </div>
+  {{ cms:partial:cms/homepage/newsletter }}
 </main>

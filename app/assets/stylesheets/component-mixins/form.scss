@@ -1,0 +1,16 @@
+@mixin form-text-input {
+  background-color: rgba($white, 0.25);
+  border: solid 0.0625rem $white;
+  border-radius: 25px;
+  color: currentColor;
+  font-size: vr(1.1666666);
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0;
+  padding: vr(1) vr(2);
+
+  &::-webkit-input-placeholder { color: currentColor; }
+  &::-moz-placeholder          { color: currentColor; }
+  &:-ms-input-placeholder      { color: currentColor; }
+  &:-moz-placeholder           { color: currentColor; }
+}

@@ -1,13 +1,19 @@
-<% result.resources.order(:index).each_with_index do |resource, i| %>
-  <p class="<%= i.zero? ? "u-fix-h2-margin" : "" %>">
-    <% if resource.kind == "file" %>
-      <%= link_to resource.file.url do %>
-        <i class="icon--left fa fa-download"></i><span class="page__aside-link"><%= resource.label %></span>
-      <% end %>
-    <% else %>
-      <%= link_to resource.url do %>
-        <i class="icon--left fa fa-link"></i><span class="page__aside-link"><%= resource.label %></span>
-      <% end %>
-    <% end %>
-  </p>
-<% end %>
+<div class="search-page__card-link-footer">
+  <%= link_to resource_url(ordered_resource_links(result)[0]),
+    id: "download-resource-#{result.id}",
+    class: "search-page__card-link search-page__card-link--#{resource_icon_type(result)}" do
+  %>
+    <i class="icon--left icon--<%= resource_icon_type(result) %>"></i>
+    <%= resource_link_text(result) %>
+  <% end %>
+
+  <% if result.resources.count > 1 %>
+    <div class="select-wrapper">
+      <select data-download-select="download-resource-<%= result.id %>">
+        <% ordered_resource_links(result).each do |resource| %>
+          <option value="<%= resource_url(resource) %>"><%= resource.label %></option>
+        <% end %>
+      </select>
+    </div>
+  <% end %>
+</div>

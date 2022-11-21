@@ -44,4 +44,65 @@ module CmsHelper
   def available_link_title_alternate
     default_if_not_present(@cms_page.available_link_title_alternate, default_available_link_title_alternate)
   end
+
+  def national_indicators
+    [
+      {
+        name: 'Africa',
+        href: '/national-indicator-development/national-data/africa',
+        title: 'National Indicators: Africa'
+      },
+      {
+        name: 'Asia & Pacific',
+        href: '/national-indicator-development/national-data/asia-pacific',
+        title: 'National Indicators: Asia & Pacific'
+      },
+      {
+        name: 'Europe',
+        href: '/national-indicator-development/national-data/europe',
+        title: 'National Indicators: Europe'
+      },
+      {
+        name: 'Latin America & Caribbean',
+        href: '/national-indicator-development/national-data/latin-america-caribbean',
+        title: 'National Indicators: Latin America & Caribbean'
+      },
+      {
+        name: 'North America',
+        href: '/national-indicator-development/national-data/north-america',
+        title: 'National Indicators: North America'
+      },
+      {
+        name: 'Polar',
+        href: '/national-indicator-development/national-data/polar',
+        title: 'National Indicators: Polar'
+      },
+      {
+        name: 'West Asia',
+        href: '/national-indicator-development/national-data/west-asia',
+        title: 'National Indicators: West Asia'
+      }
+    ]
+  end
+
+  def homepage_tabs
+    [
+      {
+        name: 'SDGs',
+        id: 'sdgs'
+      },
+      {
+        name: 'MEAs',
+        id: 'meas'
+      },
+      {
+        name: 'Themes',
+        id: 'themes'
+      },
+      {
+        name: 'National Indicators',
+        id: 'indicators'
+      }
+     ]
+  end
 end

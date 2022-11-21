@@ -3,33 +3,39 @@
 <% all_indicators << indicators.each {|indicator| all_indicators << indicator.children } %>
 <% all_indicators.flatten! %>
 
-<div data-select-group="browse" data-select-target="indicators">
-  <div class="targets-browse">
-    <div class="targets-browse__goals-container">
-    </div>
+<div
+  data-select-group="browse"
+  data-select-target="indicators"
+  class="themes-browse"
+>
+  <div class="themes-browse__header">
+    <h3 class="themes-browse__title">
+      National Indicators
+    </h3>
   </div>
-
-  <div data-select-group="browse" data-select-target="indicators" class="homepage-targets">
-    <div class="homepage-targets__goal">
-      <h4 class="homepage-targets__goal-title">National Indicators</h4>
-      <div class="homepage-targets__goal-description">
-        <p>
-          Browse global indicators that have data available by country. Countries have been classified 
-          according to the UN Environment Regions.
+  <div class="themes-browse__body">
+    <div class="homepage-targets">
+      <div class="homepage-targets__card">
+        <p class="homepage-targets__card-description">
+          Browse global indicators that have data available by country. Countries have been classified according to the UN Environment Regions.
         </p>
-        <p>
-          Visit the links below to find a list of indicators that have data available by country. More information on the indicator suitability, data, methods involved, 
-          and examples of national use can be found on the 'National use of indicator' section of each indicator page.
+        <p class="homepage-targets__card-description">
+          Visit the links below to find a list of indicators that have data available by country. More information on the indicator suitability, data, methods involved, and examples of national use can be found on the 'National use of indicator' section of each indicator page.
         </p>
+        <ul class="homepage-targets__card-indicator-items">
+          <% national_indicators.each do |indicator| %>
+            <li class="homepage-targets__card-indicator-item">
+              <a
+                href="<%= indicator[:href] %>"
+                title="<%= indicator[:title] %>"
+                class="homepage-targets__card-indicator"
+              >
+                <%= indicator[:name] %><i class="icon--right icon--link"></i>
+              </a>
+            </li>
+          <% end %>
+        </ul>
       </div>
-      
-      <a href="/national-indicator-development/national-data/africa" title="National Indicators: Africa" class="homepage-targets__target-indicator"><i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i>Africa</a>
-      <a href="/national-indicator-development/national-data/asia-pacific" title="National Indicators: Asia & Pacific" class="homepage-targets__target-indicator"><i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i>Asia & Pacific</a>
-      <a href="/national-indicator-development/national-data/europe" title="National Indicators: Europe" class="homepage-targets__target-indicator"><i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i>Europe</a>
-      <a href="/national-indicator-development/national-data/latin-america-caribbean" title="National Indicators: Latin America & Caribbean " class="homepage-targets__target-indicator"><i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i>Latin America & Caribbean</a>
-      <a href="/national-indicator-development/national-data/north-america" title="National Indicators: North America" class="homepage-targets__target-indicator"><i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i>North America</a>
-      <a href="/national-indicator-development/national-data/polar" title="National Indicators: Polar" class="homepage-targets__target-indicator"><i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i>Polar</a>
-      <a href="/national-indicator-development/national-data/west-asia" title="National Indicators: West Asia" class="homepage-targets__target-indicator"><i class="homepage-themes__theme-indicator-icon fa fa-chevron-right"></i>West Asia</a>
     </div>
   </div>
 </div>

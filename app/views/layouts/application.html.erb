@@ -19,7 +19,7 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= csrf_meta_tags %>
   </head>
-  <body>
+  <body class="<%= page_class_name %>">
     <%= render "layouts/application/header" %>
 
     <%= yield %>
