@@ -1,51 +1,79 @@
 @include b(pagination) {
   @include flexbox;
-  @include justify-content(center);
   @include align-items(center);
+  @include justify-content(flex-end);
 
-  margin-top: vr(2.75);
+  margin-top: vr(4);
+
+  @include only-mobile {
+    @include align-items(flex-end);
+    @include flex-direction(column);
+  }
 
   @include e(per-page) {
     @include flexbox;
     @include align-items(center);
-    margin-right: vr(2.75);
+    
+    @include only-mobile {
+      margin-bottom: vr(1);
+    }
+
+    @include only-desktop {
+      margin-right: vr(1);
+    }
   }
 
   @include e(per-page-text) {
+    @include font(pagination-per-page);
     float: left;
-    @include text(normal);
-    margin-right: vr(.75);
+    margin-right: vr(1);
   }
 
-  @include e(per-page-select) {
-    // reset select
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-
-    background: none;
-    @include text(normal);
-    border: solid 0.0625rem $border--targets;
-    border-radius: 0;
-    padding: vr(.33333) vr(2.75) vr(.33333) vr(1);
-    height: vr(3);
-    cursor: pointer;
-
-    &:active, &:focus { outline: none; }
+  @include e(page-count-text) {
+    @include font(pagination-page-count);
+    margin-right: vr(1);
   }
 
-  @include e(per-page-arrow) {
-    pointer-events: none;
-    margin-left: -30px;
+  @include e(navigation) {
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(flex-end);
   }
 
   @include e(navigation-control) {
-    display: inline-block;
-    color: $text--navigation;
+    background-color: $prussian-blue;
+    color: $white;
+    margin-right: vr(5/12);
+    width: vr(4);
+    height: vr(4);
 
-    line-height: vr(3);
-    padding: 0 vr(2);
-    border: solid 0.125rem $text--navigation;
-    margin: 0 vr(.5);
+    display: inline-block;
+    position: relative;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &::after {
+      @include icon-dropdown-arrow-white;
+      width: 1rem; height: 0.5625rem;
+      content: '';
+      
+      position: absolute;
+      top: 50%;
+      left: 50%;    
+    }
+
+    @include m(backwards) {
+      &::after {
+        transform: translate(-50%, -50%) rotate(90deg);
+      }
+    }
+
+    @include m(forwards) {
+      &::after {
+        transform: translate(-50%, -50%) rotate(-90deg);
+      }
+    }
   }
 }
