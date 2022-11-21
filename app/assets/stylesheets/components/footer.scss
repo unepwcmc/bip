@@ -8,7 +8,7 @@
   }
 
   @include e(footer) {
-    background-color: $teal;
+    background-color: $prussian-blue;
   }
 
   @include e(inner) {
@@ -60,11 +60,11 @@
       margin-right: vr(3);
 
       .footer__item:first-child & {
-        border-right: 1px solid $white;
+        border-right: 0.0625rem solid $white;
         margin-right: vr(1.5);
         padding-right: vr(1.5);
 
-        flex: 0 0 130px;
+        flex: 0 0 8.125rem;
       }
     }
   }
@@ -121,7 +121,7 @@
 
   @include e(partners-logo) {
     width: 100%;
-    max-width: 100px;
+    max-width: 6.25rem;
 
     display: block;
   }
@@ -137,7 +137,7 @@
 
   @include e(copyright-item) {
     &:not(:last-child) {
-      border-right: 1px solid $white;
+      border-right: 0.0625rem solid $white;
       margin-right: vr(1);
       padding-right: vr(1);
     }
