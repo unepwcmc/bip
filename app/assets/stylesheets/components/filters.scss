@@ -4,6 +4,20 @@
     margin-bottom: vr(2);
   }
 
+  @include e(search) {
+    margin-bottom: vr(1);
+  }
+
+  @include e(search-bar) {
+    margin-bottom: vr(1);
+
+    position: relative;
+  }
+
+  @include e(search-bar-icon) {
+    color: #000;
+  }
+
   @include e(group-list) {
     @include list;
   }

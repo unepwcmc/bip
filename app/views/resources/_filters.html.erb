@@ -1,4 +1,31 @@
 <h2 class="filters__title">
+  Search
+</h2>
+
+<div class="filters__search">
+  <form
+    action="/resources"
+    method="GET"
+  >
+    <input
+      type="text"
+      name="q"
+      placeholder="Search resources"
+      class="filters__search-bar"
+    ></input>
+    <button type="submit">
+      <i class="fa fa-search filters__search-bar-icon"></i>
+    </button>
+  </form>
+
+  <% if params.has_key?(:q) %>
+    <div class="filters__current-search">
+      Showing results for '<%= params[:q] %>'
+    </div>
+  <% end %>
+</div>
+
+<h2 class="filters__title">
   Filter by:
 </h2>
 
