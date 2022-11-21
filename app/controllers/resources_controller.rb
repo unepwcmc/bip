@@ -1,4 +1,6 @@
 class ResourcesController < ApplicationController
+  include Paginatable
+
   def index
     if params.has_key?(:q)
       @results = PgSearch.multisearch(params[:q]).map(&:searchable).uniq do |r|
@@ -18,10 +20,9 @@ class ResourcesController < ApplicationController
     @results = @results.select { |r| r.resources.any? }
     @results = filter_results(@results, params[:filters]) if params[:filters]
     @results = @results.sort_by(&:created_at)
-    @total_results = @results.size
     @results = paginate_results(@results, params[:page], params[:per_page])
 
-    if @page > 0 && @results.size == 0
+    if @page_index > 0 && @results.size == 0
       redirect_to url_for(params.merge(page: 0))
     end
   end
@@ -50,15 +51,5 @@ class ResourcesController < ApplicationController
     results.map { |result|
       result.is_a?(Comfy::Cms::Block) ? result.blockable : result
     }
-  end
-
-  def paginate_results results, page, per_page
-    @per_page = (per_page || 10).to_i
-    @page = [0, page.to_i].max
-
-    @from = @page * @per_page
-    @to = @from + (@per_page - 1)
-
-    results[@from..@to] || []
   end
 end

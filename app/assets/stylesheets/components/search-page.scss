@@ -15,7 +15,7 @@
     padding-bottom: vr(2.5);
     margin: 0;
     margin-bottom: vr(1.666666);
-    border-bottom: solid 2px $border--title;
+    border-bottom: solid 0.125rem $border--title;
     @include font(search-result-title);
     line-height: 1.125rem;
   }

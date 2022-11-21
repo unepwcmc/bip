@@ -1,44 +1,49 @@
 @include b(filters) {
   @include e(title) {
     @include font(filter-title);
-    margin-bottom: vr(2.5);
+    margin-bottom: vr(2);
   }
 
-
-  @include e(bucket) {
-    padding: vr(1) 0;
+  @include e(group-list) {
+    @include list;
   }
 
-  @include e(bucket-name) {
+  @include e(group-item) {
+    @include list-item (vr(1));
+  }
+
+  @include e(group-trigger) {
     @include font(filter-label);
-    margin: vr(1) 0 0;
     cursor: pointer;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
+    margin-bottom: vr(1);
+    text-align: left;
+    width: 100%;
   }
 
-  @include e(bucket-toggle) {
+  @include e(group-toggle) {
     float: right;
   }
 
-  @include e(bucket-item) {
-    @include flexbox;
-    @include align-items(center);
-    cursor: pointer;
-    margin-bottom: vr(2);
+  @include e(list) {
+    @include list;
+  }
 
-    &:last-child {
-      margin-bottom: 0;
-    }
+  @include e(list-item) {
+    @include list-item;
 
     .search-page__filters & {
-      margin-bottom: vr(1.5);
+      @include list-item(vr(1.5));
     }
   }
 
-  @include e(bucket-item-title) {
+  @include e(filter) {
+    @include link-reset;
+    @include flexbox;
+    @include align-items(center);
+    cursor: pointer;
+  }
+
+  @include e(filter-title) {
     @include font(filter-label);
 
     .search-page__filters & {
@@ -46,18 +51,18 @@
     }
   }
 
-  @include e(bucket-item-toggle) {
+  @include e(filter-toggle) {
     @include flexbox;
     @include align-items(center);
     @include justify-content(center);
     @include flex-shrink(0);
-    border: solid 2px $border--checkbox;
+    border: solid 0.125rem $border--checkbox;
     margin-right: vr(2);
     width: 2.25rem;
     height: 2.25rem;
 
     .search-page__filters & {
-      border-width: 1px;
+      border-width: 0.0625rem;
       margin-right: vr(1);
       width: 1.5rem;
       height: 1.5rem;

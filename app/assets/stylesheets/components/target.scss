@@ -10,7 +10,7 @@
   @include e(container) {
     @include only-mobile {
       padding-bottom: vr(2.5);
-      border-bottom: solid 1px $border--title;
+      border-bottom: solid 0.0625rem $border--title;
     }
   }
 

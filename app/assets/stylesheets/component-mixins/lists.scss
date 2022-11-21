@@ -3,10 +3,18 @@
   padding: 0;
 }
 
-@mixin list-item {
+@mixin list-item($margin: vr(2)) {
   list-style-type: none;
 
   &:not(:last-child) {
-    margin-bottom: vr(2);
+    margin-bottom: $margin;
+  }
+}
+
+@mixin list-item--row($margin: vr(2)) {
+  list-style-type: none;
+
+  &:not(:last-child) {
+    margin-right: $margin;
   }
 }
