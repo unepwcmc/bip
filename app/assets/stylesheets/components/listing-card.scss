@@ -22,7 +22,7 @@
     @include flexbox;
     @include justify-content(center);
     @include align-items(center);
-    background-color: $white;
+    background-color: $white-two;
     margin-right: vr(2.5);
     padding: vr(.75);
     width: vr(5.75);
