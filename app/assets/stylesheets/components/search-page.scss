@@ -11,13 +11,14 @@
   
 
   @include e(summary) {
-    padding-top: vr(1);
-    padding-bottom: vr(2.5);
-    margin: 0;
-    margin-bottom: vr(1.666666);
+    @include font(search-no-results);
+    padding: vr(1) 0 vr(2.5);
+    margin: 0 0 vr(5/3);
     border-bottom: solid 0.125rem $border--title;
-    @include font(search-result-title);
-    line-height: 1.125rem;
+  }
+
+  @include e(no-results) {
+    @include font(search-no-results);
   }
 
   @include e(results) {
