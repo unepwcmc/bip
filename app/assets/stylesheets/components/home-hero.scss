@@ -1,6 +1,6 @@
 @include b(home-hero) {
   background-image:
-    linear-gradient(to bottom, rgba(0, 19, 81, 0.65), rgba(0, 19, 81, 0.65)),
+    $background-gradient,
     image-url("home-hero-bg.png");
   background-position: center;
   background-repeat: no-repeat;
@@ -39,9 +39,23 @@
 
   @include e(search-bar) {
     @include search-bar;
+    width: 100%;
   }
 
   @include e(search-bar-icon) {
-    @include search-bar-icon;
+    color: $white;
+  }
+
+  @include e(search-bar-submit) {
+    position: absolute;
+    top: 50%;
+    left: 93%;
+
+    transform: translateY(-50%);
+
+    @include only-mobile {
+      right: vr(1);
+      left: initial;
+    }
   }
 }
