@@ -29,11 +29,46 @@ module SearchHelper
     end
   end
 
-  def bucket_item_toggle_class type, id
+  def filter_toggle_class type, id
     if params[:filters]&.has_key?(type) && params[:filters][type].include?(id.to_s)
-      "filters__bucket-item-toggle is-selected"
+      "filters__filter-toggle is-selected"
     else
-      "filters__bucket-item-toggle"
+      "filters__filter-toggle"
     end
+  end
+
+  def search_filters
+    [
+      {
+        id: 'aichi-targets',
+        name: 'Aichi targets',
+        params_key: :aichi_targets,
+        item_name_callback: -> (item) { "Target #{item.target_number} - #{item.name}" }
+      },
+      {
+        id: 'sdgs',
+        name: 'SDGs',
+        params_key: :sdgs,
+        item_name_callback: -> (item) { item.name }
+      },
+      {
+        id: 'meas',
+        name: 'MEAs',
+        params_key: :meas,
+        item_name_callback: -> (item) { item.name }
+      },
+      {
+        id: 'themes',
+        name: 'Themes',
+        params_key: :themes,
+        item_name_callback: -> (item) { item.name }
+      },
+      {
+        id: 'national_indicator',
+        name: 'National Indicators',
+        params_key: :indicators,
+        item_name_callback: -> (item) { item.name }
+      },
+    ]
   end
 end

@@ -14,7 +14,7 @@
 
   @include e(browse-container) {
     background-color: $white;
-    border-bottom: solid 1px $border--search-bar;
+    border-bottom: solid 0.0625rem $border--search-bar;
     width: 100%;
   }
 }

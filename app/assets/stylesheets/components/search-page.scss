@@ -1,10 +1,21 @@
 @include b(search-page) {
+  @include listing-page;
+
+  @include e(filters) {
+    @include listing-page-filters;
+  }
+
+  @include e(body) {
+    @include listing-page-list;
+  }
+  
+
   @include e(summary) {
     padding-top: vr(1);
     padding-bottom: vr(2.5);
     margin: 0;
     margin-bottom: vr(1.666666);
-    border-bottom: solid 2px $border--title;
+    border-bottom: solid 0.125rem $border--title;
     @include font(search-result-title);
     line-height: 1.125rem;
   }
