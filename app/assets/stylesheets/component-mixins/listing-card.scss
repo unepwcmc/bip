@@ -92,12 +92,11 @@
 
 @mixin listing-card-tag {
   background-color: $solitude;
-
   font-weight: 300;
+  margin-right: vr(1);
+  margin-bottom: vr(1);
+  padding: vr(.75) vr(1);
   text-align: center;
 
   float: left;
-  padding: vr(.75) vr(1);
-  margin-right: vr(1);
-  margin-bottom: vr(1);
 }
