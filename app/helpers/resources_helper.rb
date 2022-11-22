@@ -40,4 +40,8 @@ module ResourcesHelper
   def result_object result
     result.is_a?(Comfy::Cms::Block) ? result.blockable : result
   end
+
+  def resources_search_placeholder
+    params[:q] || 'Search resources by label/name'
+  end
 end
