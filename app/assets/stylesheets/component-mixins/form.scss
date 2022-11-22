@@ -23,7 +23,7 @@ $icon-font-size: 1rem;
 $search-padding-right: calc(#{$icon-font-size} + #{$input-padding-x} + #{vr(1)});
 
 @mixin search {
-  max-width: 400px;
+  max-width: 25rem;
   position: relative;
 
   @include only-mobile {
