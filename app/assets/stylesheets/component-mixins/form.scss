@@ -32,15 +32,22 @@ $search-padding-right: calc(#{$icon-font-size} + 2 * #{$search-padding-x});
 @mixin search-bar {
   @include form-text-input;
   padding: vr(.75) $search-padding-right vr(.75) $search-padding-x;
+  width: 100%;
 }
 
 @mixin search-bar-dark {
   @include search-bar;
   border-color: $teal;
+  color: $black;
 }
 
 @mixin search-bar-icon {
-  color: $white;
+  color: inherit;
+}
+
+@mixin search-bar-submit {
+  color: inherit;
+  cursor: pointer;
   font-size: $icon-font-size;
 
   position: absolute;

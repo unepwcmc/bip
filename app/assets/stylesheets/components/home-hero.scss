@@ -39,23 +39,13 @@
 
   @include e(search-bar) {
     @include search-bar;
-    width: 100%;
   }
 
   @include e(search-bar-icon) {
-    color: $white;
+    @include search-bar-icon;
   }
 
   @include e(search-bar-submit) {
-    position: absolute;
-    top: 50%;
-    left: 93%;
-
-    transform: translateY(-50%);
-
-    @include only-mobile {
-      right: vr(1);
-      left: initial;
-    }
+    @include search-bar-submit;
   }
 }

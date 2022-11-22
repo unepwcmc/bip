@@ -10,15 +10,20 @@
 
   @include e(search) {
     @include search;
+    width: 100%;
+    max-width: 19rem;
   }
 
   @include e(search-bar) {
     @include search-bar-dark;
   }
 
+  @include e(search-bar-submit) {
+    @include search-bar-submit;
+  }
+
   @include e(search-bar-icon) {
     @include search-bar-icon;
-    color: #000;
   }
 
   @include e(group-list) {
