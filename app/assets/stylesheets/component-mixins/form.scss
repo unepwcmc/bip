@@ -1,3 +1,6 @@
+$input-padding-x: vr(2);
+$input-padding-y: vr(1);
+
 @mixin form-text-input {
   background-color: rgba($white, 0.25);
   border: solid 0.0625rem $white;
@@ -7,7 +10,7 @@
   font-weight: 600;
   line-height: 1.4;
   margin: 0;
-  padding: vr(1) vr(2);
+  padding: $input-padding-y $input-padding-x;
 
   &::-webkit-input-placeholder { color: currentColor; }
   &::-moz-placeholder          { color: currentColor; }
@@ -17,8 +20,7 @@
 
 // Search
 $icon-font-size: 1rem;
-$search-padding-x: vr(1);
-$search-padding-right: calc(#{$icon-font-size} + 2 * #{$search-padding-x});
+$search-padding-right: calc(#{$icon-font-size} + #{$input-padding-x} + #{vr(1)});
 
 @mixin search {
   max-width: 400px;
@@ -31,7 +33,7 @@ $search-padding-right: calc(#{$icon-font-size} + 2 * #{$search-padding-x});
 
 @mixin search-bar {
   @include form-text-input;
-  padding: vr(.75) $search-padding-right vr(.75) $search-padding-x;
+  padding: vr(.75) $search-padding-right vr(.75) $input-padding-x;
   width: 100%;
 }
 
@@ -52,7 +54,7 @@ $search-padding-right: calc(#{$icon-font-size} + 2 * #{$search-padding-x});
 
   position: absolute;
   top: 50%;
-  right: $search-padding-x;
+  right: $input-padding-x;
 
   transform: translateY(-50%);
 
