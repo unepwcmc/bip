@@ -18,3 +18,12 @@
     margin-right: $margin;
   }
 }
+
+@mixin list-item--row($margin: vr(2)) {
+  list-style-type: none;
+  display: inline-block;
+
+  &:not(:last-child) {
+    margin-bottom: $margin;
+  }
+}

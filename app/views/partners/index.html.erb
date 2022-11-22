@@ -6,27 +6,45 @@
 <% end %>
 
 <main class="main">
-  <div class="partners-page page">
-    <% @partners.each do |partner| %>
-      <div class="partners-page__partner">
-        <div class="u-pull-left partners__image partners__image--large">
-          <%= image_tag partner.logo.url(:medium) %>
-        </div>
-        <p class="partners__name"><%= partner.name %></p>
-        <div class="partners__description"><%= raw partner.description %></div>
-
-        <div class="u-clearfix">
-          <% partner.partner_types.each do |partner_type| %>
-            <div class="search-page__result-tag">
-              <em><%= partner_type.name %></em>
+  <div class="listing-page">
+    <ul class="listing-page__list">
+      <% @partners.each do |partner| %>
+        <li class="listing-page__list-item">
+          <div class="listing-card listing-card--with-image">
+            <div class="listing-card__left">
+              <div class="listing-card__image listing-card__image--large">
+                <%= image_tag partner.logo.url(:medium) %>
+              </div>
             </div>
-          <% end %>
-        </div>
 
-        <%= link_to partner.url, target: "_blank" do %>
-          <p class="partners__link page__aside-link">View website ></p>
-        <% end %>
-      </div>
-    <% end %>
+            <div class="listing-card__right">
+              <h2 class="listing-card__name"><%= partner.name %></h2>
+
+              <div class="listing-card__description"><%= raw partner.description %></div>
+
+              <div class="listing-card__tags">
+                <ul class="listing-card__tag-list">
+                  <% partner.partner_types.each do |partner_type| %>
+                    <li class="listing-card__tag-list-item">
+
+                      <div class="listing-card__tag">
+                        <em><%= partner_type.name %></em>
+                      </div>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+
+              <div class="listing-card__footer">
+                <%= link_to partner.url, target: "_blank", class: "listing-card__link--external" do %>
+                  <i class="icon--left icon--external-link %>"></i>
+                  View
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </main>
