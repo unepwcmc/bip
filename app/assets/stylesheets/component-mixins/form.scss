@@ -1,16 +1,65 @@
+$input-padding-x: vr(2);
+$input-padding-y: vr(1);
+
 @mixin form-text-input {
   background-color: rgba($white, 0.25);
   border: solid 0.0625rem $white;
   border-radius: 1.5625rem;
   color: currentColor;
-  font-size: vr(1.1666666);
+  font-size: 0.875rem;
   font-weight: 600;
   line-height: 1.4;
   margin: 0;
-  padding: vr(1) vr(2);
+  padding: $input-padding-y $input-padding-x;
 
   &::-webkit-input-placeholder { color: currentColor; }
   &::-moz-placeholder          { color: currentColor; }
   &:-ms-input-placeholder      { color: currentColor; }
   &:-moz-placeholder           { color: currentColor; }
+}
+
+// Search
+$icon-font-size: 1rem;
+$search-padding-right: calc(#{$icon-font-size} + #{$input-padding-x} + #{vr(1)});
+
+@mixin search {
+  max-width: 25rem;
+  position: relative;
+
+  @include only-mobile {
+    width: 87%;
+  }
+}
+
+@mixin search-bar {
+  @include form-text-input;
+  padding: vr(.75) $search-padding-right vr(.75) $input-padding-x;
+  width: 100%;
+}
+
+@mixin search-bar-dark {
+  @include search-bar;
+  border-color: $teal;
+  color: $black;
+}
+
+@mixin search-bar-icon {
+  color: inherit;
+}
+
+@mixin search-bar-submit {
+  color: inherit;
+  cursor: pointer;
+  font-size: $icon-font-size;
+
+  position: absolute;
+  top: 50%;
+  right: $input-padding-x;
+
+  transform: translateY(-50%);
+
+  @include only-mobile {
+    right: vr(1);
+    left: initial;
+  }
 }

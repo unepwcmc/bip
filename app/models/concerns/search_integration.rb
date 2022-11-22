@@ -20,6 +20,7 @@ module SearchIntegration
     included do
       include PgSearch
       multisearchable against: :label
+      pg_search_scope :search_by_label, against: :label
     end
   end
 end

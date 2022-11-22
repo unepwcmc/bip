@@ -34,32 +34,18 @@
   }
 
   @include e(search) {
-    max-width: 400px;
-
-    @include only-mobile {
-      width: 87%;
-    }
+    @include search;
   }
 
   @include e(search-bar) {
-    @include form-text-input;
-    width: 100%;
-  }
-
-  @include e(search-bar-submit) {
-    position: absolute;
-    top: 50%;
-    left: 93%;
-
-    transform: translateY(-50%);
-
-    @include only-mobile {
-      right: vr(1);
-      left: initial;
-    }
+    @include search-bar;
   }
 
   @include e(search-bar-icon) {
-    color: $white;
+    @include search-bar-icon;
+  }
+
+  @include e(search-bar-submit) {
+    @include search-bar-submit;
   }
 }

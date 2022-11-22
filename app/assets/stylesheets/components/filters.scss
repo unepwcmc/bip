@@ -4,6 +4,28 @@
     margin-bottom: vr(2);
   }
 
+  @include e(search-wrapper) {
+    margin-bottom: vr(2.5)
+  }
+
+  @include e(search) {
+    @include search;
+    width: 100%;
+    max-width: 19rem;
+  }
+
+  @include e(search-bar) {
+    @include search-bar-dark;
+  }
+
+  @include e(search-bar-submit) {
+    @include search-bar-submit;
+  }
+
+  @include e(search-bar-icon) {
+    @include search-bar-icon;
+  }
+
   @include e(group-list) {
     @include list;
   }

@@ -4,7 +4,7 @@
       <% @tabs.each do |tab| %>
         <li class="browse__tabs-item">
           <a
-            href="<%= url_for(filters: {category: tab.id}) %>"
+            href="<%= url_for(filters: {category: tab.id}, q: params[:q]) %>"
             class="browse__tab <%= "is-selected" if params.dig(:filters, :category)&.to_i == tab.id %>"
           >
             <%= tab.label %>
