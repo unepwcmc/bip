@@ -4,17 +4,20 @@
     margin-bottom: vr(2);
   }
 
+  @include e(search-wrapper) {
+    margin-bottom: vr(1)
+  }
+
   @include e(search) {
-    margin-bottom: vr(1);
+    @include search;
   }
 
   @include e(search-bar) {
-    margin-bottom: vr(1);
-
-    position: relative;
+    @include search-bar-dark;
   }
 
   @include e(search-bar-icon) {
+    @include search-bar-icon;
     color: #000;
   }
 

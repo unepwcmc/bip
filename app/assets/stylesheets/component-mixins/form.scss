@@ -3,7 +3,7 @@
   border: solid 0.0625rem $white;
   border-radius: 25px;
   color: currentColor;
-  font-size: vr(1.1666666);
+  font-size: 0.875rem;
   font-weight: 600;
   line-height: 1.4;
   margin: 0;
@@ -13,4 +13,45 @@
   &::-moz-placeholder          { color: currentColor; }
   &:-ms-input-placeholder      { color: currentColor; }
   &:-moz-placeholder           { color: currentColor; }
+}
+
+// Search
+$icon-font-size: 1rem;
+$search-padding-x: vr(1);
+$search-padding-right: calc(#{$icon-font-size} + 2 * #{$search-padding-x});
+
+@mixin search {
+  max-width: 400px;
+  position: relative;
+
+  @include only-mobile {
+    width: 87%;
+  }
+}
+
+@mixin search-bar {
+  @include form-text-input;
+  padding: vr(.75) $search-padding-right vr(.75) $search-padding-x;
+  width: 100%;
+}
+
+@mixin search-bar-dark {
+  @include search-bar;
+  border-color: $teal;
+}
+
+@mixin search-bar-icon {
+  color: $white;
+  font-size: $icon-font-size;
+
+  position: absolute;
+  top: 50%;
+  right: $search-padding-x;
+
+  transform: translateY(-50%);
+
+  @include only-mobile {
+    right: vr(1);
+    left: initial;
+  }
 }
