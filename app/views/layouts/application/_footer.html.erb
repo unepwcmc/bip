@@ -1,82 +1,99 @@
 <footer class="footer">
-  <div class="footer__navigation u-hide-print">
-    <div class="footer__navigation-inner">
-      <%= link_to "Home", "/", class: "footer__navigation-link" %>
-      <%= link_to "About", "/about", class: "footer__navigation-link" %>
-      <%= link_to "Indicator Development", "/national-indicator-development", class: "footer__navigation-link" %>
-      <%= link_to "Partners", "/partners", class: "footer__navigation-link" %>
-      <%= link_to "Resources", "/resources", class: "footer__navigation-link" %>
-    </div>
-  </div>
-  <div class="footer__content">
-    <div class="footer__columns u-clearfix">
-      <div class="footer__column footer__column--large">
-        <h3 class="footer__column-title footer__column-title--big u-no-margin-bottom">BIP secretariat</h3>
-        <p class="footer__column-body">
-          The BIP secretariat is hosted by the UN Environment World Conservation Monitoring
-          Centre in Cambridge, UK. Please do not hesitate to contact our global
-          helpdesk regarding the Biodiversity Indicators Partnership, global
-          indicators or national support.
-        </p>
-      </div>
-      <div class="footer__column footer__column--large">
-        <h3 class="footer__column-title"><i class="fa fa-envelope icon--left"></i>Address</h3>
-        <p class="footer__column-body footer__column-body--no-margin">
-          UN Environment World Conservation Monitoring Centre<br>
-          219 Huntingdon Road<br>
-          Cambridge<br>
-          CB3 0DL<br>
-          UK
-        </p>
-      </div>
-      <div class="footer__column footer__column--small">
-        <h3 class="footer__column-title"><i class="fa fa-at icon--left"></i>Email</h3>
-        <a class="footer__column-body footer__column-body--no-margin" href="mailto:info@bipindicators.net">
-          info@bipindicators.net
-        </a>
-
-        <h3 class="footer__column-title footer__column-title--push-top"><i class="fa fa-phone icon--left"></i>Telephone</h3>
-        <a class="footer__column-body footer__column-body--no-margin" href="tel:+441223814664">
-          +44 (0)1223 814664
-        </a>
-
-        <div class="u-only-mobile">
-          <h3 class="footer__column-title footer__column-title--push-top"><i class="fa fa-twitter icon--left"></i>Twitter</h3>
-          <a class="footer__social" href="https://twitter.com/BIPIndicators">
-            @bipindicators
-          </a>
+  <div class="footer__body">
+    <div class="footer__inner">
+      <div class="footer__items">
+        <div class="footer__item">
+          <div class="footer__columns">
+            <div class="footer__column footer__column--bip-logo">
+              <a
+                href="/"
+                class="footer__logo-link"
+              >
+                <%=
+                  image_tag 'bip-logo-white.png',
+                  alt: 'Biodiversity Indicators Partnership logo',
+                  class: 'footer__logo'
+                %>
+              </a>
+            </div>
+            <div class="footer__column">
+              <h3 class="footer__title footer__title--small">
+                In partnership with:
+              </h3>
+              <div class="footer__partners">
+                <ul class="footer__partners-items">
+                  <li class="footer__partners-item">
+                    <%=
+                      image_tag 'https://s3.amazonaws.com/wcmc.logo/UNEP_WCMC_logo_white.svg',
+                      alt: 'UN Environment World Conservation Monitoring Centre logo',
+                      class: 'footer__partners-logo footer__partners-logo--wcmc'
+                    %>
+                  </li>
+                  <li class="footer__partners-item">
+                    <%=
+                      image_tag 'european-commission-logo.png',
+                      alt: 'European Commission logo',
+                      class: 'footer__partners-logo footer__partners-logo--ec'
+                    %>
+                  </li>
+                </ul>
+              </div>
+              <p class="footer__text">
+                The BIP Secretariat is hosted by the UN Environment World Conservation Monitoring Centre in Cambridge, UK. Please do not hesitate to contact our helpdesk regarding the Biodiversity Indicators Partnership, global indicators or national support.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="footer__item">
+          <div class="footer__columns">
+            <div class="footer__column">
+              <h3 class="footer__title">
+                Address
+              </h3>
+              <p class="footer__text footer__text--no-wrap">
+                UN Environment<br/>
+                World Conservation Monitoring Centre<br/>
+                219 Huntingdon Road<br/>
+                Cambridge<br/>
+                CB3 0DL<br/>
+                United Kingdom
+              </p>
+            </div>
+            <div class="footer__column">
+              <h3 class="footer__title">
+                Email
+              </h3>
+              <a class="footer__link" href="mailto:info@bipindicators.net">
+                info@bipindicators.net
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="footer__partners u-clearfix">
-    <div class="footer__partners-inner">
-      <p class="footer__partners-copy footer__column--large">The Partnership is supported by <%= link_to 'UN Environment', 'https://www.unenvironment.org/', title: 'Visit the UN Environment website', target: '_blank' %>, the <%= link_to 'European Commission', 'https://ec.europa.eu/commission/index_en', title: 'Visit the European Commission website', target: '_blank' %> and the <%= link_to 'Swiss Federal Office for the Environment', 'https://www.bafu.admin.ch/bafu/en/home.html', title: 'Visit the Swiss Federal Office for the Environment website', target: '_blank' %>.</p>
-
-      <div class="footer__partners-logos">
-        <%= link_to 'https://www.unenvironment.org/', title: 'Visit the UN Environment website', target: '_blank', class: 'u-no-underline' do %>
-          <%= image_tag 'https://s3.amazonaws.com/wcmc.logo/UN-Environment-+logo+2017.svg', alt: 'UN Environment logo', class: 'footer__partners-logo-unep' %>
-        <% end %>
-
-        <%= link_to 'https://ec.europa.eu/commission/index_en', title: 'Visit the European Commission website', target: '_blank', class: 'u-no-underline' do %>
-          <%= image_tag 'logos/logo-european-commission.png', alt: 'European Commission logo', class: 'footer__partners-logo-ec' %>
-        <% end %>
-
-        <%= link_to 'https://www.bafu.admin.ch/bafu/en/home.html', title: 'Visit the Swiss Federal Office for the Environment website', target: '_blank', class: 'u-no-underline' do %>
-          <%= image_tag 'logos/logo-foen.png', alt: 'FOEN logo', class: 'footer__partners-logo-foen' %>
-        <% end %>
+  <div class="footer__footer">
+    <div class="footer__inner">
+      <div class="footer__copyright">
+        <div class="footer__copyright-items">
+          <div class="footer__copyright-item">
+            <a
+              href="https://www.unep-wcmc.org"
+              class="footer__copyright-link"
+            >
+              &copy; <%= Date.today.year %> UNEP-WCMC
+            </a>
+          </div>
+          <div class="footer__copyright-item">
+            <a
+              href="/terms-and-conditions"
+              class="footer__copyright-link"
+            >
+              Terms &amp; Conditions
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="footer__copyright">
-    <div class="footer__copyright-inner">
-      <a class="u-font-inherit footer__copyright-link" href="https://www.unep-wcmc.org">
-        <%= image_tag 'https://s3.amazonaws.com/wcmc.logo/UNEP_WCMC_logo_white.svg', alt: 'UN Environment World Conservation Monitoring Centre logo', class: 'footer__partners-logo-wcmc' %>
-        <span>Copyright <%= Date.today.year %> UNEP WCMC</span>
-      </a>
-      <a class="u-only-desktop footer__social" href="https://twitter.com/BIPIndicators">
-        <i class="fa fa-twitter"></i> bipindicators
-      </a>
     </div>
   </div>
 </footer>
