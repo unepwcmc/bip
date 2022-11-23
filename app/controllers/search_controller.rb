@@ -3,7 +3,7 @@ class SearchController < ApplicationController
   include Searchable
 
   def search
-    if !params.has_key?(:q) && !params.has_key?(:filters)
+    if !params.has_key?(:q) && !params.has_key?(:filters) || params[:q] == "aichi"
       redirect_to "/"
       return
     end
@@ -46,10 +46,10 @@ class SearchController < ApplicationController
       conditions = []
       indicator = r.is_a?(Comfy::Cms::Block) ? r.blockable : r
 
-      if target_ids = filters[:aichi_targets]
-        target_ids = target_ids.map(&:to_i)
-        conditions << (indicator.aichi_target_ids & target_ids).any?
-      end
+      # if target_ids = filters[:aichi_targets]
+      #   target_ids = target_ids.map(&:to_i)
+      #   conditions << (indicator.aichi_target_ids & target_ids).any?
+      # end
       if sdg_ids = filters[:sdgs]
         sdg_ids = sdg_ids.map(&:to_i)
         conditions << (indicator.sdg_targets.flat_map(&:sdg_goal_id) & sdg_ids).any?
