@@ -1,5 +1,6 @@
-class UpdateCmsResourceLabels < ActiveRecord::Migration
-  def up
+namespace :cms_resource_labels do
+  desc 'Updates resource labels to the resource language.'
+  task :update => :environment do
     resource_pages = Comfy::Cms::Page.find_by_label("Resources").descendants
 
     resource_pages.each do |resource_page|
@@ -15,7 +16,8 @@ class UpdateCmsResourceLabels < ActiveRecord::Migration
     end
   end
 
-  def down
+  desc 'Reverts resource labels to parent page label.'
+  task :revert => :environment do
     resource_pages = Comfy::Cms::Page.find_by_label("Resources").descendants
 
     resource_pages.each do |resource_page|
