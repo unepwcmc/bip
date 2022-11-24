@@ -234,6 +234,16 @@ $font-book: (
     line-height: 1.4,
     color: $black
   ),
+  join-bip-title: (
+    font-size: 2rem,
+    color: white,
+    font-family: Merriweather
+  ),
+  join-bip-text: (
+    font-size: 1.125rem,
+    color: white,
+    font-family: Merriweather
+  ),
   filter-title: (
     font-family: 'Open Sans',
     font-size: 1.25rem,
