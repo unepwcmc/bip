@@ -1,10 +1,17 @@
 <div class="browse">
-  <h2 class="browse__title">Browse global indicators under the BIP</h2>
-
-  <button data-select-group="browse" data-select-trigger="aichi-targets" class="browse__category is-selected">Aichi Targets</button>
-  <button data-select-group="browse" data-select-trigger="sdgs" class="browse__category">SDGs</button>
-  <button data-select-group="browse" data-select-trigger="meas" class="browse__category">MEAs</button>
-  <button data-select-group="browse" data-select-trigger="themes" class="browse__category">Themes</button>
-  <button data-select-group="browse" data-select-trigger="indicators" class="browse__category">National Indicators</button>
+  <div class="browse__tabs">
+    <ul class="browse__tabs-items">
+      <% homepage_tabs.each_with_index do |tab, n| %>
+        <li class="browse__tabs-item">
+          <button
+            data-select-group="browse"
+            data-select-trigger="<%= tab[:id] %>"
+            class="browse__tab <%= 'is-selected' if n.zero? %>"
+          >
+            <%= tab[:name] %>
+          </button>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
-

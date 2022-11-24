@@ -1,59 +1,105 @@
 @include b(filters) {
   @include e(title) {
-    padding: vr(1) 0;
-    border-bottom: solid 2px $border--title;
+    @include font(filter-title);
+    margin-bottom: vr(2);
   }
 
-  @include e(body) {
-    padding: vr(1.25) 2px;
+  @include e(search-wrapper) {
+    margin-bottom: vr(2.5)
   }
 
-  @include e(subtitle) {
-    @include font(fact-subtitle);
-    margin: 0;
-    line-height: vr(2.8333333);
+  @include e(search) {
+    @include search;
+    width: 100%;
+    max-width: 19rem;
   }
 
-  @include e(bucket-name) {
-    @include font(fact-value);
-    margin: 2px 0;
+  @include e(search-bar) {
+    @include search-bar-dark;
+  }
+
+  @include e(search-bar-submit) {
+    @include search-bar-submit;
+  }
+
+  @include e(search-bar-icon) {
+    @include search-bar-icon;
+  }
+
+  @include e(group-list) {
+    @include list;
+  }
+
+  @include e(group-item) {
+    @include list-item (vr(1));
+  }
+
+  @include e(group-trigger) {
+    @include font(filter-label);
     cursor: pointer;
+    margin-bottom: vr(1);
+    text-align: left;
+    width: 100%;
   }
 
-  @include e(bucket-toggle) {
+  @include e(group-toggle) {
     float: right;
   }
 
-  @include e(bucket-item) {
+  @include e(list) {
+    @include list;
+  }
+
+  @include e(list-item) {
+    @include list-item;
+
+    .search-page__filters & {
+      @include list-item(vr(1.5));
+    }
+  }
+
+  @include e(filter) {
+    @include link-reset;
     @include flexbox;
-    @include align-items(stretch);
-    margin: vr(1) 0;
+    @include align-items(center);
     cursor: pointer;
   }
 
-  @include e(bucket-item-title) {
-    margin: 0;
-    @include font(body);
-    text-align: left;
+  @include e(filter-title) {
+    @include font(filter-label);
+
+    .search-page__filters & {
+      @include font(filter-label-small);
+    }
   }
 
-  @include e(bucket-item-left) {
+  @include e(filter-toggle) {
     @include flexbox;
     @include align-items(center);
-  }
+    @include justify-content(center);
+    @include flex-shrink(0);
+    border: solid 0.125rem $border--checkbox;
+    margin-right: vr(2);
+    width: 2.25rem;
+    height: 2.25rem;
 
-  @include e(bucket-item-toggle) {
-    width: vr(1.5);
-    height: vr(1.5);
-
-    border: solid 1px $border--title;
-    margin-right: vr(1);
+    .search-page__filters & {
+      border-width: 0.0625rem;
+      margin-right: vr(1);
+      width: 1.5rem;
+      height: 1.5rem;
+    }
 
     &.is-selected {
       &:before {
-        content: '\f00c';
         @include fa-icon;
+        content: '\f00c';
+        font-size: 1.5rem;
         vertical-align: super;
+
+        .search-page__filters & {
+          font-size: 1rem;
+        }
       }
     }
   }

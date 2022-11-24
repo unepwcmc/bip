@@ -1,42 +1,54 @@
 @include b(browse) {
-  @include outer-container;
-  padding-top: vr(.75);
-  width: $main__width;
+  background-color: $prussian-blue;
 
-  @include only-mobile {
-    width: 87%;
-    border-bottom: none;
-  }
-
-  @include e(title) {
-    line-height: 2rem;
-    margin: vr(1.1666666) 0;
-    font-family: Merriweather;
-    color: $navy-blue;
-  }
-
-  @include e(category) {
-    float: left;
-    padding: vr(.75) vr(2.5);
-    margin: 0;
-    font-size: vr(1.1666666);
-    font-weight: 500;
-    line-height: vr(1.5);
-    background-color: initial;
-    border: none;
-    cursor: pointer;
-    margin-bottom: -1px;
+  @include e(tabs) {
+    @include outer-container;
+    width: $main__width;
 
     @include only-mobile {
-      padding: vr(.75) vr(1);
-      font-size: vr(1);
+      width: 87%;
+    }
+
+    .resources-index & {
+      max-width: none;
+  
+      @include mobile-container;
+    }
+  }
+
+  @include e(tabs-items) {
+    @include list;
+  }
+
+  @include e(tabs-item) {
+    @include list-item--row(0);
+    // For browse__tab:hover to inherit and overwrite default hover styling
+    color: $white;
+
+    display: inline-block;
+  }
+
+  @include e(tab) {
+    @include link-reset;
+    appearance: none;
+    border: 0;
+    color: $white;
+    cursor: pointer;
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.4;
+    padding: 0.90625rem 3rem;
+
+    display: block;
+
+    @include only-mobile {
+      font-size: 0.75rem;
+      padding: 0.5625rem 0.75rem;
     }
 
     &.is-selected {
-      font-weight: 700;
       background-color: $white;
-      border: solid 1px $border--search-bar;
-      border-bottom: solid 1px $white;
+      color: $black;
     }
   }
 }

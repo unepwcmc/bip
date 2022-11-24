@@ -1,11 +1,17 @@
 class ResourcesController < ApplicationController
+  include Paginatable
+  include Searchable
+
   def index
+    @tabs = Comfy::Cms::Page.find_by_label("Resources").children
+    @all_resources = all_resources
+
     if params.has_key?(:q)
-      @results = PgSearch.multisearch(params[:q]).map(&:searchable).uniq do |r|
-        r.is_a?(Comfy::Cms::Block) ? r.blockable.label : r.label
-      end
+      @results = Comfy::Cms::Page
+        .search_by_label(params[:q])
+        .where('id IN (?)', @all_resources.map(&:id))
     else
-      @results = Comfy::Cms::Page.find_by_label("Resources").descendants
+      @results = @all_resources
     end
 
     pages = extract_pages(@results)
@@ -14,51 +20,40 @@ class ResourcesController < ApplicationController
       tags: pages.flat_map(&:tags).uniq.sort_by(&:name)
     }
 
-    @tabs = Comfy::Cms::Page.find_by_label("Resources").children
     @results = @results.select { |r| r.resources.any? }
     @results = filter_results(@results, params[:filters]) if params[:filters]
     @results = @results.sort_by(&:created_at)
-    @total_results = @results.size
     @results = paginate_results(@results, params[:page], params[:per_page])
 
-    if @page > 0 && @results.size == 0
+    if @page_index > 0 && @results.size == 0
       redirect_to url_for(params.merge(page: 0))
     end
   end
 
   private
 
+  def all_resources
+    tab_page_ids = @tabs.map(&:id)
+
+    Comfy::Cms::Page.find_by_label("Resources")
+      .descendants
+      .select { |page| !tab_page_ids.include?(page.id) }
+  end
+
   def filter_results(results, filters)
     results.select { |r|
       conditions = []
-      indicator = r.is_a?(Comfy::Cms::Block) ? r.blockable : r
 
       if tag_ids = filters[:tags]
         tag_ids = tag_ids.map(&:to_i)
-        conditions << (indicator.other_tag_ids & tag_ids).any?
+        conditions << (r.other_tag_ids & tag_ids).any?
       end
 
       if category_id = filters[:category]
-        conditions << indicator.ancestors.map(&:id).include?(category_id.to_i)
+        conditions << r.ancestors.map(&:id).include?(category_id.to_i)
       end
 
       conditions.all?
     }
-  end
-
-  def extract_pages results
-    results.map { |result|
-      result.is_a?(Comfy::Cms::Block) ? result.blockable : result
-    }
-  end
-
-  def paginate_results results, page, per_page
-    @per_page = (per_page || 10).to_i
-    @page = [0, page.to_i].max
-
-    @from = @page * @per_page
-    @to = @from + (@per_page - 1)
-
-    results[@from..@to] || []
   end
 end

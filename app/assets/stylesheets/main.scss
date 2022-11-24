@@ -18,7 +18,9 @@
 
 @import "component-mixins/button.scss";
 @import "component-mixins/form.scss";
+@import "component-mixins/link.scss";
 @import "component-mixins/listing-card.scss";
+@import "component-mixins/listing-page.scss";
 @import "component-mixins/lists.scss";
 
 @import "components/breadcrumbs";
@@ -36,14 +38,14 @@
 @import "components/homepage-themes";
 @import "components/icon";
 @import "components/initiative-page";
+@import "components/listing-card";
 @import "components/mea";
 @import "components/mobile-menu";
 @import "components/modal";
 @import "components/newsletter-bar";
 @import "components/page";
 @import "components/pagination";
-@import "components/partners";
-@import "components/partners-page";
+@import "components/listing-page";
 @import "components/search";
 @import "components/search-page";
 @import "components/select";

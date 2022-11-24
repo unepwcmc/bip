@@ -1,12 +1,24 @@
 @include b(search-page) {
+  @include listing-page;
+
+  @include e(filters) {
+    @include listing-page-filters;
+  }
+
+  @include e(body) {
+    @include listing-page-list;
+  }
+  
+
   @include e(summary) {
-    padding-top: vr(1);
-    padding-bottom: vr(2.5);
-    margin: 0;
-    margin-bottom: vr(1.666666);
-    border-bottom: solid 2px $border--title;
-    @include font(search-result-title);
-    line-height: 1.125rem;
+    @include font(search-no-results);
+    padding: vr(1) 0 vr(2.5);
+    margin: 0 0 vr(5/3);
+    border-bottom: solid 0.125rem $border--title;
+  }
+
+  @include e(no-results) {
+    @include font(search-no-results);
   }
 
   @include e(results) {
@@ -14,11 +26,12 @@
   }
 
   @include e(result) {
-    @include list-item ;
+    @include list-item;
   }
 
   @include e(card) {
     @include listing-card;
+    padding: vr(2);
   }
 
   @include e(card-container) {
@@ -38,24 +51,24 @@
   }
 
   @include e(card-link-footer) {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include listing-card-footer;
   }
 
   @include e(card-link) {
-    @include listing-card-link;
+    .search-page__results & {
+      @include listing-card-link;
+    }
+
+    @include m(download) {
+      @include button_text_with_icon;
+    }
+
+    @include m(external-link) {
+      @include button_text_with_icon;
+    }
   }
 
   @include e(card-tag) {
-    background-color: $solitude;
-
-    font-weight: 300;
-    text-align: center;
-
-    float: left;
-    padding: vr(.75) vr(1);
-    margin-right: vr(1);
-    margin-bottom: vr(1);
+    @include listing-card-tag;
   }
 }

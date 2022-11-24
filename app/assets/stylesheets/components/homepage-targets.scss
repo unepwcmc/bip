@@ -1,99 +1,110 @@
 @include b(homepage-targets) {
-  @include outer-container;
-  width: $main__width;
   margin-bottom: vr(20);
 
-  @include only-mobile {
-    width: 87%;
-  }
+  @include e(header) {
+    margin-bottom: vr(4);
 
-  @include e(goal) {
-    margin-bottom: vr(2.5);
-  }
+    display: flex;
+    align-items: center;
 
-  @include e(goal-title) {
-    @include font(goal-title);
-    margin-bottom: vr(1.25);
-
-    @include m(flex) {
-      @include flexbox;
-      @include align-items(center);
+    @include only-mobile {
+      margin-bottom: vr(2);
     }
   }
 
-  @include e(goal-description) {
-    @include text(normal-2);
-    margin: vr(.75) 0;
+  @include e(icon) {
+    margin-right: 1.5rem;
+    width: 9.25rem;
+    height: 9.25rem;
 
-    p { margin: vr(.75) 0; }
+    display: block;
+
+    @include only-mobile {
+      display: none;
+    }
   }
 
-  @include e(goal-icon) {
+  @include e(logo) {
+    margin-right: 1.5rem;
     height: vr(8);
-    margin-right: vr(2);
 
-    @include only-mobile { height: vr(3); }
+    display: block;
 
-    @include m(round) { border-radius: 100%; }
+    @include only-mobile {
+      display: none;
+    }
+
+    @include m(rounded) {
+      border-radius: 50%;
+    }
   }
 
-  @include e(targets) {
+  @include e(title) {
+    @include font(goal-title);
+  }
+
+  @include e(label) {
+    @include font(goal-label);
+    margin-bottom: vr(1);
+
+    display: block;
+  }
+
+  @include e(body) {
     @include outer-container;
   }
 
-  @include e(target) {
-    @include span-columns(4);
-    @include omega(3n);
-    margin-bottom: vr(2);
+  @include e(listing-items) {
+    @include list;
+  }
+
+  @include e(listing-item) {
+    @include list-item;
+  }
+
+  @include e(card) {
+    @include listing-card;
+    padding: vr(4);
 
     @include only-mobile {
-      @include span-columns(12);
+      padding: vr(2);
     }
   }
 
-  @include e(target-header) {
-    @include flexbox;
-    @include align-items(stretch);
-    margin-bottom: vr(1.5);
+  @include e(card-container) {
+    @include listing-card-container;
   }
 
-  @include e(target-subheader) {
-    font-family: Merriweather;
-    font-size: 1rem;
-    margin: 1rem 0;
-    font-weight: 900;
-    line-height: 1.25;
-    color: $prussian-blue;
+  @include e(card-header) {
+    @include listing-card-header;
   }
 
-  @include e(target-icon) {
-    margin-right: vr(1);
-    img {
-      height: vr(5);
-      width: vr(5);
-    }
+  @include e(card-icon) {
+    @include listing-card-icon;
   }
 
-  @include e(target-title) {
-    @include text(normal-2, bold);
+  @include e(card-title) {
+    @include listing-card-title;
   }
 
-  @include e(target-name) {
-    @include text(normal-2);
-    color: $text--menu;
-    margin: 0;
+  @include e(card-description) {
+    @include listing-card-text;
   }
 
-  @include e(target-description) {
-    margin: vr(1.5) 0;
-    margin-bottom: 2px;
+  @include e(card-heading) {
+    @include listing-card-heading;
   }
 
-  @include e(target-indicator) {
-    display: block;
-    margin: vr(1) 0;
-    text-decoration: underline;
-    @include font(target-indicator);
+  @include e(card-indicator-items) {
+    @include listing-card-indicator-items;
+  }
+
+  @include e(card-indicator-item) {
+    @include listing-card-indicator-item;
+  }
+
+  @include e(card-indicator) {
+    @include listing-card-link;
 
     @include m(bold) {
       @include text(normal, bold);

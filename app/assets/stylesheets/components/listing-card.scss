@@ -1,0 +1,81 @@
+@include b(listing-card) {
+  @include listing-card;
+  @include listing-card-padding;
+
+  @include m(with-image) {
+    @include listing-card--with-image;
+  }
+
+  @include e(left) {
+    @include listing-card-left;
+  }
+
+  @include e(right) {
+    @include listing-card-right;
+  }
+
+  @include e(container) {
+    @include listing-card-container;
+  }
+
+  @include e(image) {
+    @include flexbox;
+    @include justify-content(center);
+    @include align-items(center);
+    background-color: $white-two;
+    margin-right: vr(2.5);
+    padding: vr(.75);
+    width: vr(5.75);
+    height: vr(5.75);
+
+    @include m(large) {
+      width: vr(10);
+      height: vr(10);
+    }
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  @include e(name) {
+    @include listing-card-title;
+  }
+
+  @include e(link) {
+    @include listing-card-link;
+
+    @include m(external) {
+      @include button_text_with_icon;
+    }
+  }
+
+  @include e(description) {
+    @include listing-card-description;
+
+    p {
+      @include listing-card-text;
+    }
+  }
+
+  @include e(tags) {
+    margin-bottom: vr(1);
+  }
+
+  @include e(tag-list) {
+    @include list;
+  }
+
+  @include e(tag-list-item) {
+    @include list-item--row;
+  }
+
+  @include e(footer) {
+    @include listing-card-footer;
+  }
+
+  @include e(tag) {
+    @include listing-card-tag;
+  }
+}

@@ -1,6 +1,6 @@
 @include b(tabs) {
   padding: 0 vr(.5);
-  border-bottom: solid 1px $border--title;
+  border-bottom: solid 0.0625rem $border--title;
   @include outer-container;
 
   margin-bottom: vr(2.75);

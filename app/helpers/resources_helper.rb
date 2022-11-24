@@ -9,8 +9,8 @@ module ResourcesHelper
     resource_page.resources
   end
 
-  def resource_icon_class resource_page
-    resource_kind(resource_page) == 'file' ? 'icon--download' : 'icon--external-link'
+  def resource_icon_type resource_page
+    resource_kind(resource_page) == 'file' ? 'download' : 'external-link'
   end
 
   def resource_link_text resource_page
@@ -39,5 +39,9 @@ module ResourcesHelper
 
   def result_object result
     result.is_a?(Comfy::Cms::Block) ? result.blockable : result
+  end
+
+  def resources_search_placeholder
+    params[:q] || 'Search resources by label/name'
   end
 end

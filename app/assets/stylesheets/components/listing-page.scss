@@ -1,0 +1,13 @@
+@include b(listing-page) {
+  @include outer-container;
+  margin-bottom: vr(10);
+  padding-top: vr(2);
+
+  @include e(list) {
+    @include list;
+  }
+
+  @include e(list-item) {
+    @include list-item;
+  }
+}

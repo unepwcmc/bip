@@ -1,0 +1,35 @@
+<%= content_for :page_title do %>
+  <h1 class="page__title">Biodiversity Indicators</h1>
+<% end %>
+<%= content_for :breadcrumbs do %>
+  <%= breadcrumb("Biodiversity Indicators") %>
+<% end %>
+
+<main class="main">
+  <div class="listing-page page">
+    <ul class="listing-page__list">
+      <% @indicators.each do |indicator| %>
+        <li class="listing-page__list-item">
+          <div class="listing-card">
+            <div class="listing-card__container">
+              <h2 class="listing-card__name"><%= indicator.label %></h2>
+
+              <div class="listing-card__description">
+                <%= raw indicator.blocks.find_by(identifier: 'description').try(:content) %>
+              </div>
+
+              <div class="listing-card__footer">
+                <%= link_to indicator.full_path, class: 'listing-card__link' do %>
+                  View Full Indicator
+                  <i class="icon--right icon--link"></i>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  
+    <%= render "pagination" %>
+  </div>
+</main>
