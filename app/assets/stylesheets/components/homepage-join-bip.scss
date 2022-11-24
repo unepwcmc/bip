@@ -17,15 +17,15 @@
   
   @include e(learn-more-link) {
     @include font(join-bip-text);
-    background: #004f77;
+    background: $prussian-blue;
     border-radius: 1.5rem;
     padding: 0.719rem 6.281rem;
     
     &:hover {
       @include font(join-bip-text);
-      background: #4A9CAC;
-      text-decoration: none;
+      background: $teal;
       cursor: pointer;
+      text-decoration: none;
     }
   }
 
