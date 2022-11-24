@@ -6,28 +6,24 @@
   width: $main__width;
 
   @include e(title) {
-    font-size: rem-calc(32);
-    color: white;
-    font-family: Merriweather;
+    @include font(join-bip-title);
     margin-bottom: rem-calc(24);
   }
   
   @include e(text) {
-    color: white;
-    font-size: rem-calc(18);
+    @include font(join-bip-text);
     margin-bottom: rem-calc(24 + 11.5);
   }
-
+  
   @include e(learn-more-link) {
+    @include font(join-bip-text);
     background: #004f77;
     border-radius: rem-calc(24);
-    color: white;
-    font-size: rem-calc(18);
     padding: rem-calc(11.5 100.5);
-
+    
     &:hover {
+      @include font(join-bip-text);
       background: #4A9CAC;
-      color: white;
       text-decoration: none;
       cursor: pointer;
     }
