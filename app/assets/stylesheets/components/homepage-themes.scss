@@ -1,6 +1,6 @@
 @include b(homepage-themes) {
-  margin-bottom: vr(20);
-
+  margin-bottom: vr(8);
+  
   @include only-mobile {
     margin-bottom: vr(8);
   }

@@ -1,32 +1,20 @@
 @include b(homepage-join-bip) {
   @include outer-container;
   background-image: image-url("join-bip-background.png");
-  margin-bottom: 4.875rem;
-  padding: 6.063rem 4.5rem;
+  margin-bottom: vr(6.5);
+  padding: vr(8) vr(6);
   width: $main__width;
 
   @include e(title) {
     @include font(join-bip-title);
-    margin-bottom: 1.5rem;
   }
-  
+
   @include e(text) {
     @include font(join-bip-text);
-    margin-bottom: 2.219rem;
   }
-  
-  @include e(learn-more-link) {
-    @include font(join-bip-text);
-    background: $prussian-blue;
-    border-radius: 1.5rem;
-    padding: 0.719rem 6.281rem;
 
-    &:hover {
-      @include font(join-bip-text);
-      background: $teal;
-      cursor: pointer;
-      text-decoration: none;
-    }
+  @include e(link) {
+    @include button-primary;
   }
 
   @include only-mobile {
