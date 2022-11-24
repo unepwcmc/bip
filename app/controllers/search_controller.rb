@@ -3,7 +3,7 @@ class SearchController < ApplicationController
   include Searchable
 
   def search
-    if !params.has_key?(:q) && !params.has_key?(:filters) || params[:q] == "aichi"
+    if !params.has_key?(:q) && !params.has_key?(:filters) || params[:q].downcase == "aichi"
       redirect_to "/"
       return
     end
