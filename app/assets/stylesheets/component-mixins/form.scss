@@ -33,7 +33,7 @@ $search-padding-right: calc(#{$icon-font-size} + #{$input-padding-x} + #{vr(1)})
 
 @mixin search-bar {
   @include form-text-input;
-  padding: vr(.75) $search-padding-right vr(.75) $input-padding-x;
+  padding: vr(1) $search-padding-right vr(1) $input-padding-x;
   width: 100%;
 }
 
