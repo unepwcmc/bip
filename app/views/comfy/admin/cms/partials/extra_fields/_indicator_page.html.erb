@@ -191,32 +191,6 @@
 <hr>
 
 <div class="form-group">
-  <%= form.label :primary_aichi_target, :class => 'control-label col-sm-2' %>
-  <div class="col-sm-10">
-    <select style="width: 100%" class="js-select2" name="page[primary_aichi_target_id]">
-      <% Aichi::Target.order(:target_number).all.each do |target| %>
-        <option <%= @page.primary_aichi_target&.id == target.id ? "selected" : "" %> value="<%= target.id %>">Target <%= target.target_number %> - <%= target.description %></option>
-      <% end %>
-    </select>
-  </div>
-</div>
-
-<div class="form-group">
-  <%= form.label :secondary_aichi_targets, :class => 'control-label col-sm-2' %>
-  <div class="col-sm-10">
-    <select style="width: 100%" class="js-select2" multiple="multiple" name="page[secondary_aichi_target_ids][]">
-      <% page_secondary_aichi_target_ids = @page.secondary_aichi_target_ids %>
-
-      <% Aichi::Target.order(:target_number).all.each do |target| %>
-        <option <%= page_secondary_aichi_target_ids.include?(target.id) ? "selected" : "" %> value="<%= target.id %>">Target <%= target.target_number %> - <%= target.description %></option>
-      <% end %>
-    </select>
-  </div>
-</div>
-
-<hr>
-
-<div class="form-group">
   <%= form.label :official_sdg_targets, :class => 'control-label col-sm-2' %>
   <div class="col-sm-10">
     <select style="width: 100%" class="js-select2" multiple="multiple" name="page[official_sdg_target_ids][]">
