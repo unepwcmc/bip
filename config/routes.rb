@@ -8,8 +8,6 @@ Rails.application.routes.draw do
         delete "delete_target"
       end
     end
-    resources :aichi_targets, except: [:show]
-    resources :aichi_goals, except: [:show]
     resources :sdg_targets, except: [:show]
     resources :sdg_goals, except: [:show]
     resources :resources, only: [:destroy] do
