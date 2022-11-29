@@ -42,6 +42,10 @@ module ResourcesHelper
   end
 
   def resources_search_placeholder
-    params[:q] || 'Search resources by label/name'
+    'Search resources by label/name'
+  end
+  
+  def resources_search_initial_value
+    params[:q] || ''
   end
 end
