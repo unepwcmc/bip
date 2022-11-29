@@ -27,7 +27,7 @@ npm install
 
 Next, create a db and import the latest dump from staging/production on S3 (extract file until you get a .sql file):
 ```
-bundle db:create
+bundle exec rake db:create
 psql bip_development < PostgreSQL.sql
 ```
 
