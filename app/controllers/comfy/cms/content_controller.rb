@@ -1,3 +1,11 @@
+# this controller is basically a copy and paste of the comfy core
+# content_controller found here
+# https://github.com/comfy/comfortable-mexican-sofa/blob/v1.12.8/app/controllers/comfy/cms/content_controller.rb
+# with the only addition of an instance variable @indicator_attrs in the show
+# action, populated with data coming from indicator repository API
+# that will be displayed on the indicator page replacing some of the info
+# coming from the CMS
+
 class Comfy::Cms::ContentController < Comfy::Cms::BaseController
 
   # Authentication module must have `authenticate` method
