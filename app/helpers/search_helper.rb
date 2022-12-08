@@ -40,12 +40,6 @@ module SearchHelper
   def search_filters
     [
       {
-        id: 'aichi-targets',
-        name: 'Aichi targets',
-        params_key: :aichi_targets,
-        item_name_callback: -> (item) { "Target #{item.target_number} - #{item.name}" }
-      },
-      {
         id: 'sdgs',
         name: 'SDGs',
         params_key: :sdgs,

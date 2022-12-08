@@ -17,7 +17,6 @@ class SearchController < ApplicationController
     pages = extract_pages(@results)
 
     @all_filters = {
-      aichi_targets: pages.flat_map(&:aichi_targets).uniq.compact.sort_by(&:target_number),
       sdgs: pages.flat_map(&:sdg_targets).map(&:sdg_goal).uniq.compact.sort_by(&:position),
       meas: pages.flat_map(&:mea_targets).map(&:mea).uniq.compact.sort_by(&:name),
       themes: pages.flat_map(&:themes).uniq.compact.sort_by(&:name),
@@ -46,10 +45,6 @@ class SearchController < ApplicationController
       conditions = []
       indicator = r.is_a?(Comfy::Cms::Block) ? r.blockable : r
 
-      if target_ids = filters[:aichi_targets]
-        target_ids = target_ids.map(&:to_i)
-        conditions << (indicator.aichi_target_ids & target_ids).any?
-      end
       if sdg_ids = filters[:sdgs]
         sdg_ids = sdg_ids.map(&:to_i)
         conditions << (indicator.sdg_targets.flat_map(&:sdg_goal_id) & sdg_ids).any?
