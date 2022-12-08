@@ -10,7 +10,7 @@ module ApiClients::IndicatorRepository
     def list(indicator_name)
       indicator = {}
       INDICATOR_TYPES.each do |type|
-        response = HTTParty.post(BASE_URL + "/#{type}_indicators/api/v1" + '?items_per_page=250')
+        response = HTTParty.post(BASE_URL + "/#{type}_indicators/api/v1" + '?items_per_page=250', verify: false)
         indicator = response['items'].find { |item| indicator_name == sanitize_indicator_name(item['indicator_name']) }
 
         return indicator if indicator.present?
