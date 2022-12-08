@@ -28,5 +28,7 @@ module Bip
     config.browserify_rails.source_map_environments << "development"
 
     config.assets.paths << Rails.root.join("node_modules")
+
+    config.autoload_paths += %W(#{config.root}/lib/modules)
   end
 end
