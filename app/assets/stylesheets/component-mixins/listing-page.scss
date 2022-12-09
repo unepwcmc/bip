@@ -1,0 +1,27 @@
+@mixin listing-page {
+  @include outer-container;
+  margin-bottom: vr(10);
+
+  @include only-mobile {
+    width: 100%;
+  }
+}
+
+@mixin listing-page-filters {
+  @include only-desktop {
+    @include span-columns(4);
+    padding-right: vr(2.75);
+  }
+
+  @include only-mobile {
+    margin-bottom: vr(2);
+  }
+}
+
+@mixin listing-page-list {
+  @include span-columns(8);
+
+  @include only-mobile {
+    @include span-columns(12);
+  }
+}

@@ -1,0 +1,23 @@
+@include b(homepage-join-bip) {
+  @include outer-container;
+  background-image: image-url("join-bip-background.png");
+  margin-bottom: vr(6.5);
+  padding: vr(8) vr(6);
+  width: $main__width;
+
+  @include e(title) {
+    @include font(join-bip-title);
+  }
+
+  @include e(text) {
+    @include font(join-bip-text);
+  }
+
+  @include e(link) {
+    @include button-primary;
+  }
+
+  @include only-mobile {
+    width: 87%;
+  }
+}

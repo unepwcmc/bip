@@ -7,6 +7,7 @@ gem "pg_search", "~> 1.0.6"
 gem "nokogiri", "~> 1.6.8"
 gem "comfortable_mexican_sofa", "~> 1.12.9"
 gem "paperclip", "~> 5.1.0"
+gem "httparty", "~> 0.20.0"
 
 # Configuration
 gem "dotenv-rails", "~> 2.1.1"
@@ -35,4 +36,3 @@ group :development do
   gem 'capistrano-passenger', '~> 0.2.0', require: false
   gem 'capistrano-npm'
 end
-

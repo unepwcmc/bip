@@ -8,8 +8,6 @@ Rails.application.routes.draw do
         delete "delete_target"
       end
     end
-    resources :aichi_targets, except: [:show]
-    resources :aichi_goals, except: [:show]
     resources :sdg_targets, except: [:show]
     resources :sdg_goals, except: [:show]
     resources :resources, only: [:destroy] do
@@ -24,6 +22,7 @@ Rails.application.routes.draw do
   get "/resources" => "resources#index"
   get "/partners" => "partners#index"
   get "/download" => "downloads#show", as: :download
+  get "/biodiversity-indicators" => "biodiversity_indicators#index"
 
   CSV.foreach(Rails.root.join("lib/data/redirects.csv").to_s, headers: true) do |row|
     get row["original"] => redirect(row["new"])

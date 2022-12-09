@@ -7,7 +7,13 @@
 
     <h3 class="fact__subtitle">Applicable for national use</h3>
     <p class="fact__value">
-      <% if @cms_page.applicable_for_national_use %>
+      <% if @indicator_attrs&.dig('national_data') %>
+        <% if @indicator_attrs['national_data'] == 'Y' %>
+          Yes <a href="#national_use" data-toggle-alternate-trigger="national-use">(find out more)</a>
+        <% else %>
+          No
+        <% end %>
+      <% elsif @cms_page.applicable_for_national_use %>
         Yes <a href="#national_use" data-toggle-alternate-trigger="national-use">(find out more)</a>
       <% else %>
         No
@@ -24,7 +30,13 @@
 
     <h3 class="fact__subtitle">Applicable for national use</h3>
     <p class="fact__value">
-      <% if @cms_page.applicable_for_national_use %>
+      <% if @indicator_attrs&.dig('national_data') %>
+        <% if @indicator_attrs['national_data'] == 'Y' %>
+          Yes <a href="#national_use" data-toggle-alternate-trigger="national-use">(find out more)</a>
+        <% else %>
+          No
+        <% end %>
+      <% elsif @cms_page.applicable_for_national_use %>
         Yes <a href="#national_use" data-toggle-alternate-trigger="national-use">(find out more)</a>
       <% else %>
         No
@@ -35,17 +47,35 @@
     <p class="fact__value"><%= @cms_page.indicator_classification&.name || "N/A" %></p>
   </div>
 
-  <h3 class="fact__subtitle">Last update</h3>
-  <p class="fact__value"><%= @cms_page.last_update&.year || "N/A" %></p>
+  <h3 class="fact__subtitle">Goal/Target</h3>
+  <p class="fact__value"><%= @indicator_attrs&.dig('goal_target') || "N/A" %></p>
+
+  <h3 class="fact__subtitle">Update frequency</h3>
+  <p class="fact__value"><%= @indicator_attrs&.dig('update_frequency') || "N/A" %></p>
 
   <h3 class="fact__subtitle">Coverage</h3>
   <p class="fact__value"><%= @cms_page.coverage&.name || "N/A" %></p>
 
-  <h3 class="fact__subtitle">Availability</h3>
-  <% if @cms_page.freely_available %>
+  <h3 class="fact__subtitle">Global indicator</h3>
+  <p class="fact__value">
+    <% if @indicator_attrs&.dig('global_indicator')%>
+      <% if @indicator_attrs['global_indicator'] == 'Y' %>
+        Yes
+      <% elsif @indicator_attrs['global_indicator'] == 'N'  %>
+        No
+      <% else %>
+        <%= @indicator_attrs['global_indicator'] %>
+      <% end %>
+    <% else %>
+      N/A
+    <% end %>
+  </p>
 
+
+  <h3 class="fact__subtitle">Availability</h3>
+  <% if @indicator_attrs&.dig('availability') == 'Available' %>
     <div class="fact__value">
-      <p class="fact__value fact__value--no-margin-bottom">Data freely available:</p>
+      <p class="fact__value fact__value--no-margin-bottom"><%= @indicator_attrs['availability'] %></p>
       <% if @cms_page.available_link.present? %>
         <p class="fact__value fact__value--small fact__value--no-margin-bottom">
           <%= link_to available_link_title, @cms_page.available_link %>
@@ -64,6 +94,21 @@
     <div class="fact__free-text s-free-text s-contact-point"><%= cms_block_render(:contact_point) %></div>
 
   <% end %>
+
+  <h3 class="fact__subtitle">National methodology available</h3>
+  <p class="fact__value">
+    <% if @indicator_attrs&.dig('national_methodology_available')%>
+      <% if @indicator_attrs['national_methodology_available'] == 'Y' %>
+        Yes
+      <% elsif @indicator_attrs['national_methodology_available'] == 'N'  %>
+        No
+      <% else %>
+        <%= @indicator_attrs['national_methodology_available'] %>
+      <% end %>
+    <% else %>
+      N/A
+    <% end %>
+  </p>
 
   <div class="u-hide-print">
     <h3 class="fact__subtitle">Download</h3>

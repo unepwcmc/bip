@@ -1,0 +1,29 @@
+@mixin list {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin list-item($margin: vr(2)) {
+  list-style-type: none;
+
+  &:not(:last-child) {
+    margin-bottom: $margin;
+  }
+}
+
+@mixin list-item--row($margin: vr(2)) {
+  list-style-type: none;
+
+  &:not(:last-child) {
+    margin-right: $margin;
+  }
+}
+
+@mixin list-item--row($margin: vr(2)) {
+  list-style-type: none;
+  display: inline-block;
+
+  &:not(:last-child) {
+    margin-bottom: $margin;
+  }
+}

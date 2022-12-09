@@ -6,7 +6,6 @@ module CmsAdminExtension
     after_action :update_resources, :only => [:update]
     after_action :create_disaggregations, :only => [:create, :update]
     after_action :connect_partners, :only => [:create, :update]
-    after_action :connect_aichi_targets, :only => [:create, :update]
     after_action :connect_mea_targets, :only => [:create, :update]
     after_action :connect_sdg_targets, :only => [:create, :update]
     after_action :connect_key_facts, :only => [:create, :update]
@@ -58,18 +57,6 @@ module CmsAdminExtension
         @page.partners = Partner.where(id: params[:page][:partner_ids])
       else
         @page.partners = []
-      end
-    end
-
-    def connect_aichi_targets
-      if @page.layout.label == "Indicator page"
-        if params[:page][:primary_aichi_target_id]
-          @page.primary_aichi_target = Aichi::Target.find(params[:page][:primary_aichi_target_id])
-        end
-
-        @page.secondary_aichi_targets = Aichi::Target.where(id: params[:page][:secondary_aichi_target_ids])
-      else
-        @page.aichi_targets = []
       end
     end
 

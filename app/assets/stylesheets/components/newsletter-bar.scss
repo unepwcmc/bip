@@ -1,0 +1,49 @@
+@include b(newsletter-bar) {
+  background-image:
+    $background-gradient,
+    image-url("newsletter-bar-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: $white;
+
+  @include e(container) {
+    @include mobile-container;
+    @include outer-container;
+    padding: vr(5.6) 0;
+    width: $main__width;
+  }
+
+  @include e(title) {
+    @include font(newsletter-title);
+  }
+
+  @include e(text) {
+    * {
+      @include font(newsletter-text);
+    }
+  }
+
+  @include e(input) {
+    @include form-text-input;
+    width: 100%;
+
+    @include only-desktop {
+      margin-right: vr(2);
+      max-width: vr(35);
+      width: 55%;
+    }
+  }
+
+  @include e(submit) {
+    @include button-primary;
+    margin-top: vr(1);
+    width: 100%;
+
+    @include only-desktop {
+      margin-top: 0;
+      max-width: vr(35);
+      width: auto;
+    }
+  }
+}

@@ -27,7 +27,7 @@ npm install
 
 Next, create a db and import the latest dump from staging/production on S3 (extract file until you get a .sql file):
 ```
-bundle db:create
+bundle exec rake db:create
 psql bip_development < PostgreSQL.sql
 ```
 
@@ -43,3 +43,15 @@ Visit `http://localhost:3000` and you should be good to go! 🎉
 # License
 
 This repository lives under the [MIT license.](LICENSE)
+
+# Data updates
+
+## Update CMS resource tags, tabs and download labels (23-11-22)
+Run the following tasks to update the CMS resource tags, tab name and the labels for resource downloads/links. 
+
+```
+rake cms_resource_labels:update
+rake resource_tabs_and_tags:update
+```
+
+Note, both namespaces have `revert` tasks that will largely revert the changes. In the case of deleted tags, this is not possible.

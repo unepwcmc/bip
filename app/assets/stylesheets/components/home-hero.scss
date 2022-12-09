@@ -1,0 +1,51 @@
+@include b(home-hero) {
+  background-image:
+    $background-gradient,
+    image-url("home-hero-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: $white;
+
+  @include e(container) {
+    @include mobile-container;
+    @include outer-container;
+    padding: vr(6) 0 vr(4);
+    width: $main__width;
+  }
+
+  @include e(content) {
+    @include span-columns(12);
+
+    @media (min-width: $break__desktop) {
+      @include span-columns(8);
+    }
+  }
+
+  @include e(title) {
+    @include font(hero-title);
+    color: currentColor;
+  }
+
+  @include e(text) {
+    * {
+      color: currentColor;
+    }
+  }
+
+  @include e(search) {
+    @include search;
+  }
+
+  @include e(search-bar) {
+    @include search-bar;
+  }
+
+  @include e(search-bar-icon) {
+    @include search-bar-icon;
+  }
+
+  @include e(search-bar-submit) {
+    @include search-bar-submit;
+  }
+}

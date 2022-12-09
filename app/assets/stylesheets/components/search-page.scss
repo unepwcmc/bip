@@ -1,49 +1,74 @@
 @include b(search-page) {
+  @include listing-page;
+
+  @include e(filters) {
+    @include listing-page-filters;
+  }
+
+  @include e(body) {
+    @include listing-page-list;
+  }
+  
+
   @include e(summary) {
-    padding-top: vr(1);
-    padding-bottom: vr(2.5);
-    margin: 0;
-    margin-bottom: vr(1.666666);
-    border-bottom: solid 2px $border--title;
-    @include font(search-result-title);
-    line-height: 1.125rem;
+    @include font(search-no-results);
+    padding: vr(1) 0 vr(2.5);
+    margin: 0 0 vr(5/3);
+    border-bottom: solid 0.125rem $border--title;
+  }
+
+  @include e(no-results) {
+    @include font(search-no-results);
+  }
+
+  @include e(results) {
+    @include list;
   }
 
   @include e(result) {
-    overflow: hidden;
-
-    padding-bottom: vr(1);
-    border-bottom: solid 1px $border--title;
-    margin: vr(1.5) 0;
+    @include list-item;
   }
 
-  @include e(result-title) {
-    @include font(search-result-title);
-    margin: 0;
+  @include e(card) {
+    @include listing-card;
+    padding: vr(2);
   }
 
-  @include e(result-link) {
-    color: $text--base;
-    font-size: 1.25rem;
-    margin-bottom: .5rem;
-    display: block;
+  @include e(card-container) {
+    @include listing-card-container;
   }
 
-  @include e(result-body) {
-    margin: 0;
-    margin-bottom: vr(1.5);
-    p { margin: 0; }
+  @include e(card-title) {
+    @include listing-card-title;
   }
 
-  @include e(result-tag) {
-    background-color: $solitude;
+  @include e(card-text) {
+    margin-bottom: vr(2);
 
-    font-weight: 300;
-    text-align: center;
+    p {
+      @include listing-card-text;
+    }
+  }
 
-    float: left;
-    padding: vr(.75) vr(1);
-    margin-right: vr(1);
-    margin-bottom: vr(1);
+  @include e(card-link-footer) {
+    @include listing-card-footer;
+  }
+
+  @include e(card-link) {
+    .search-page__results & {
+      @include listing-card-link;
+    }
+
+    @include m(download) {
+      @include button_text_with_icon;
+    }
+
+    @include m(external-link) {
+      @include button_text_with_icon;
+    }
+  }
+
+  @include e(card-tag) {
+    @include listing-card-tag;
   }
 }
