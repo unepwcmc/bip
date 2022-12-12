@@ -9,6 +9,9 @@ gem "comfortable_mexican_sofa", "~> 1.12.9"
 gem "paperclip", "~> 5.1.0"
 gem "httparty", "~> 0.20.0"
 
+gem "ed25519"
+gem "bcrypt_pbkdf"
+
 # Configuration
 gem "dotenv-rails", "~> 2.1.1"
 

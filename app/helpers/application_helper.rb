@@ -24,4 +24,33 @@ module ApplicationHelper
   def default_if_not_present(text, default)
     text.present? ? text : default
   end
+  
+  def nav_items
+    [
+      {
+        label: "About",
+        link: "/about"
+      },
+      {
+        label: "Biodiversity Indicators",
+        link: "/biodiversity-indicators"
+      },
+      {
+        label: "Indicator Development",
+        link: "/national-indicator-development"
+      },
+      {
+        label: "Partners",
+        link: "/partners"
+      },
+      {
+        label: "Resources",
+        link: resources_path(filters: { category: Comfy::Cms::Page.find_by_label("Resources")&.children.first&.id })
+      },
+      {
+        label: "Dashboard",
+        link: "http://bipdashboard.natureserve.org/bip"
+      }
+    ]
+  end
 end
