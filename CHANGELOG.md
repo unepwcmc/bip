@@ -1,3 +1,7 @@
+### 1.0.2
+
+* Fix hotjar tracking code
+
 ### 1.0.1
 
 * Update links in mobile nav to match desktop nav
