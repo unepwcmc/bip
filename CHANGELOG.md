@@ -1,3 +1,7 @@
+### 1.0.1
+
+* Update links in mobile nav to match desktop nav
+
 ### 1.0.0
 
 * Restyle the whole app
