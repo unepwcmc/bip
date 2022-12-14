@@ -104,6 +104,12 @@
     margin: 0;
   }
 
+  @include e(text-link) {
+    @include font(footer-body);
+    font-weight: 600;
+    margin: 0;
+  }
+
   @include e(partners-items) {
     @include list;
     margin-bottom: vr(4);
