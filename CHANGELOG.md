@@ -1,3 +1,7 @@
+### 1.0.3
+
+* Update footer text
+
 ### 1.0.2
 
 * Fix hotjar tracking code
