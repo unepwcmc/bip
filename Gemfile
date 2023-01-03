@@ -7,7 +7,7 @@ gem "pg_search", "~> 1.0.6"
 gem "nokogiri", "~> 1.6.8"
 gem "comfortable_mexican_sofa", "~> 1.12.9"
 gem "paperclip", "~> 5.1.0"
-gem "httparty", "~> 0.20.0"
+gem "httparty", "~> 0.21.0"
 
 gem "ed25519"
 gem "bcrypt_pbkdf"
